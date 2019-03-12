@@ -1,0 +1,9 @@
+*.aux
+*.out
+*.log
+*.pdf
+*.toc
+*.lot
+*.lof
+*.idx
+*.bcf

@@ -1,0 +1,120 @@
+%  Import packages
+\usepackage{epigraph} 		% Allows to add nice quotations at the beginning of chapters
+\usepackage{amsmath}		% mathematische Erweiterung, u.a. fr den align-environment
+\usepackage{amsfonts}		% fr mathematische Symbole wie \mathbb{R}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{multirow}
+\usepackage{enumerate}
+%\usepackage{sidecap}
+\usepackage[section]{placeins}
+\usepackage{booktabs}
+\usepackage{lscape}
+\usepackage{longtable}
+
+\usepackage{makeidx} 		% Create index
+\makeindex
+
+\usepackage{chngcntr}		% Make footnote counting continuous throughout the whole document
+\counterwithout{footnote}{chapter}
+
+%\usepackage[a-1b]{pdfx}  % Allow compliance with PDF/A standard
+
+%
+%  Define custom citation style including paper numbers
+%
+
+% \usepackage[style=authoryear,maxcitenames=2,maxbibnames=100,natbib=true]{biblatex}
+\usepackage[backend=bibtex,style=authoryear,maxcitenames=2,maxbibnames=100,natbib=true, url=false]{biblatex}
+
+\newbibmacro*{papernum}{%
+  \iffieldundef{usera}{%
+  }{%
+    \addcomma\space
+    \printfield{usera}%
+  }%
+}
+
+\DeclareFieldFormat{labelyear}{%
+  \stripzeros{#1}%
+  \iffieldundef{extrayear}{%
+    \usebibmacro{papernum}%
+  }{%
+  }%
+}
+
+\DeclareFieldFormat{extrayear}{%
+  \iffieldnums{labelyear}
+    {\mknumalph{#1}\usebibmacro{papernum}}
+    {\mkbibparens{\mknumalph{#1}\usebibmacro{papernum}}}}
+
+\addbibresource{bibliography.bib}
+%%%
+
+\raggedbottom 				% Change page layout style
+\allowdisplaybreaks[2]		% Allow page breaks in "align" environment
+
+% Hurenkinder und Schusterjungen verhindern
+\clubpenalty9999
+\widowpenalty9999
+\displaywidowpenalty9999
+
+\usepackage{microtype}
+\usepackage{hfoldsty}
+\usepackage{ellipsis}
+\usepackage{nicefrac}
+
+%  Settings
+\setlength{\epigraphrule}{0pt}				%  Remove epigraph rule
+\setlength{\epigraphwidth}{0.50\textwidth}		%  Change epigraph width
+\setlength{\mathindent}{0pt}				%  Set indent of equations
+\setcounter{tocdepth}{1}					%  Set table of contents depth
+\setkomafont{caption}{\sffamily\small}
+\setkomafont{captionlabel}{\sffamily\bfseries\small}
+\renewcommand*{\partpagestyle}{empty}
+
+%  Definitions
+\newtheorem{mydef}{Definition}	[chapter]			%  Define customized theorem environment
+\newcommand{\nn}[1]{{\it #1*}}				%  Define customized style for index entries
+
+%  Environments
+\newenvironment{mytabular}{%				%  Custom tabular environment with sans-serif font
+  \sffamily \small
+  \tabular
+}{%
+  \endtabular
+}
+
+%  Set preambles
+
+%  Set index preamble
+%\setindexpreamble{All page numbers in \textit{italics} (additionally marked by asterisks *) are references to the definitions of the respective terms. In contrast, evenly typeset page numbers refer to further usage of the expressions.
+%\par\bigskip}
+
+%  Citation aliases
+%\defcitealias{Donges2012b}{Donges et al., in prep., P1} % PRE
+%\defcitealias{Wiedermann2012}{Wiedermann et al., in prep., P2} % EPL
+%\defcitealias{Feldhoff2012b}{Feldhoff et al., in prep., P3} % EPL
+%\defcitealias{Feldhoff2012a}{Feldhoff et al., subm., P4} % PLA
+%\defcitealias{Radebach2012}{Radebach et al., subm., P5} % PRE
+%\defcitealias{Zou2011}{Zou et al., in press, P6} % EPL
+%\defcitealias{Donner2012}{Donner and Donges, 2012, P7} % Acta Geophysica
+%\defcitealias{Donges2012}{Donges et al., 2012, P8} % PRE
+%\defcitealias{Heitzig2010}{Heitzig et al., 2012, P9} % EPJ B
+%\defcitealias{Donges2011c}{Donges et al., 2011b, P10} % PNAS
+%\defcitealias{Donges2011b}{Donges et al., 2011a, P11} % NPG
+%\defcitealias{Tominski2011}{Tominski et al., 2011, P12} % Viz Conference, London
+%\defcitealias{Donner2011a}{Donner et al., 2011b, P13} % IJBC
+%\defcitealias{Donges2011a}{Donges et al., 2011c, P14} % EPJ B
+%\defcitealias{Donner2011b}{Donner et al., 2011a, P15} % EPJ B
+%\defcitealias{Zou2011b}{Zou et al., 2011, P16} % Complex Systems and Complexity Science
+%\defcitealias{Zou2010}{Zou et al., 2010, P17} % Chaos
+%\defcitealias{Donner2010a}{Donner et al., 2010b, P18} % PRE(R)
+%\defcitealias{Donner2010b}{Donner et al., 2010c, P19} % NJP
+%\defcitealias{Marwan2009}{Marwan et al., 2009, P20} % PLA
+%\defcitealias{Donges2009b}{Donges et al., 2009b, P21} % EPL
+%\defcitealias{Donges2009a}{Donges et al., 2009a, P22} % EPJ ST
+%
+%\defcitealias{Donner2012b}{Donner and Donges, subm., C1} % NOLTA 2012
+%\defcitealias{Marwan2010b}{Marwan et al., 2010a, C2} % NOLTA 2010
+%\defcitealias{Donner2010d}{Donner et al., 2010a, C3} % NOLTA 2010
