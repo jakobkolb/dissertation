@@ -30,7 +30,7 @@ listof=totoc,
 index=totoc,
 fleqn,
 BCOR=10mm,
-firstinits=true
+%firstinits=true
 ]{scrbook}[2007/12/24]
 
 % The following package is necessary.
@@ -42,7 +42,7 @@ firstinits=true
 \usepackage[    
     % inputenc=utf8, % default - latin1
     fontset=lmodern, % other possible parameters: lmodern, times, palatino
-    %natbib={}, %include to use the natbib-package
+    % natbib={}, %include to use the natbib-package
     % jurabib={}, %include to use the jurabib-package
     % apacite={}, %include to use the apacite-package  
     hints=false, % set to 'false' for submission
@@ -113,7 +113,7 @@ firstinits=true
         
 %        \include{chapter02}
 %        \include{chapter03}
-%	\include{chapter04}
+%	 \include{chapter04}
         
 %        \setpartpreamble{\vspace{1cm} \centering \parbox[l]{9cm}{...}}
 %        \part{Applications} \label{part:applications}
@@ -123,16 +123,16 @@ firstinits=true
     \appendix
         \addcontentsline{toc}{part}{Appendix}
         \part*{Appendix}
-%        \include{appendixA}
+%       \include{appendixA}
 
         %\nocite{*}
 		% See the documentation or under
 		% http://edoc.hu-berlin.de/e_autoren/latex/bedingung.php
 		% for the list of the permitted styles.
     \backmatter
-        %\bibliographystyle{plainnat}
-        %\bibliography{bibliography}
-	\printbibliography % biblatex bibliography
+        \bibliographystyle{plainnat}
+    	\bibliography{bibliography.bib}
+	%\printbibliography % biblatex bibliography
         %\printindex
         \include{declaration}    % Use our template or write your own.
 \end{document}
