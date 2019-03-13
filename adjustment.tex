@@ -19,13 +19,13 @@
 \counterwithout{footnote}{chapter}
 
 %\usepackage[a-1b]{pdfx}  % Allow compliance with PDF/A standard
-
+\usepackage[sort&compress]{natbib}
 \iffalse
 %
 %  Define custom citation style including paper numbers
 %
-% \usepackage[style=authoryear,maxcitenames=2,maxbibnames=100,natbib=true]{biblatex}
-\usepackage[backend=bibtex,style=authoryear,maxcitenames=2,maxbibnames=100,natbib=true, url=false]{biblatex}
+\usepackage[style=authoryear,maxcitenames=2,maxbibnames=100,natbib=true]{biblatex}
+%\usepackage[backend=bibtex,style=authoryear,maxcitenames=2,maxbibnames=100,natbib=true, url=false]{biblatex}
 
 \newbibmacro*{papernum}{%
   \iffieldundef{usera}{%
