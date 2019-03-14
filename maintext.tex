@@ -1,24 +1,24 @@
-% Template to be used while publishing    
+% Template to be used while publishing
 % a scientific work (PhD Thesis etc.)
-% at the EDOC-Server of HU-Berlin                      
+% at the EDOC-Server of HU-Berlin
 %    developed 2003-2008 by
-% AG Elektronisches Publizieren, 
+% AG Elektronisches Publizieren,
 % Computer- und Medienservice,
 % Humboldt-Universitaet zu Berlin
 %    with friendly support of
-% TeX-Stammtisch in Berlin     
+% TeX-Stammtisch in Berlin
 
 % $Revision: 19 $
 % $HeadURL: svn+ssh://ryckojox@svn.cms.hu-berlin.de/svn/projects/epub/latex/hudiss/mustermann.tex $
 % $Date: 2009-07-03 15:49:19 +0200 (ptk, 03 lip 2009) $
 % $Author$
 % $Id: mustermann.tex 19 2009-07-03 13:49:19Z ryckojox $
-                             
+
 % Questions, comments, support:
-%    edoc-latex@cms.hu-berlin.de    
+%    edoc-latex@cms.hu-berlin.de
 
 % Documentation and information about the conditions of a publication:
-%    http://edoc.hu-berlin.de/e_autoren/latex          
+%    http://edoc.hu-berlin.de/e_autoren/latex
 
 % Upload:
 %    https://edoc.hu-berlin.de/cgi/dokupload/dokupload.cgi
@@ -50,19 +50,19 @@ BCOR=10mm,
     draft=false, % set to 'false' for submission
     qserie=false
  ]{hudiss}
-                  
+
 \hudisssetup{%
     titlepagefont={\Large\sffamily} % Use to change the titlepage font
 }
 
 % Fill out all the metadata here:
 \hudissmetadata{%
-    authorprefix={Dipl.-Phys.}, % e.g. Dipl.-Inf.
-    authorfirstname={...}, % first name
-    authorsurname={...}, % surname
+    authorprefix={MSc.}, % e.g. Dipl.-Inf.
+    authorfirstname={Jakob J.}, % first name
+    authorsurname={Kolb}, % surname
     %authorsuffix={ }, % e.g. Ph.D.
     %authoradd={geboren am 22. April 1983 in Engelskirchen}, % date and place of birth
-    doctitle={...}, % title of the thesis
+    doctitle={Heuristic Decision Making in World Earth Models}, % title of the thesis
     docsubtitle={...}, % subtitle of the thesis
     % docsubject={}, % subject of the thesis (used in the properties of the pdf-document)
     approvala={...}, % approvals: a-e
@@ -72,10 +72,11 @@ BCOR=10mm,
     % approvale={},
     degree={\so{doctor rerum naturalium} \\ (Dr. rer. nat.)}, % e.g. Dr. Rer. Nat.
     subject={Physik}, % e.g. Informatik
+    specialization={Theoretische Physik},
     faculty={Mathematisch-Naturwissenschaftlichen Fakult\"at}, % in Dativ/Genitiv! e.g. Mathematisch-Naturwissenschaftlichen Fakult\"at II
     university={der Humboldt-Universit\"at zu Berlin}, % e.g. Humboldt-Universit\"at zu Berlin
     dean={Prof. Dr. Elmar Kulke}, % dean of the faculty
-    president={Prof. Dr. Jan-Hendrik Olbertz}, % president of the university
+    president={Prof. Dr.-Ing. Dr. Sabine Kunst}, % president of the university
     datesubmitted={...}, % the date of the submission
     dateexam={...}, % the date of your last exam
     keywordsen={...}, % english keywords comma separated
@@ -107,17 +108,17 @@ BCOR=10mm,
     \mainmatter
         \include{list_of_symbols}
         \include{chapter01}
-        
+
 %        \setpartpreamble{\vspace{1cm} \centering \parbox[l]{9cm}{...}}
 %        \part{Theoretical foundations} \label{part:theoretical_foundations}
-        
+
 %        \include{chapter02}
 %        \include{chapter03}
 %	 \include{chapter04}
-        
+
 %        \setpartpreamble{\vspace{1cm} \centering \parbox[l]{9cm}{...}}
 %        \part{Applications} \label{part:applications}
-        
+
 	
 %	\include{chapter08}
     \appendix
@@ -131,7 +132,7 @@ BCOR=10mm,
 		% for the list of the permitted styles.
     \backmatter
     \bibliographystyle{plainnat}
-    	\bibliography{bibliography.bib}
+    \bibliography{bibliography.bib}
 	%\printbibliography % biblatex bibliography
         %\printindex
         \include{declaration}    % Use our template or write your own.

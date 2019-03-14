@@ -1,24 +1,24 @@
-% Style file to be used while publishing    
+% Style file to be used while publishing
 % a scientific work (PhD Thesis etc.)
-% at the EDOC-Server of HU-Berlin                      
+% at the EDOC-Server of HU-Berlin
 %    developed 2003-2008 by
-% AG Elektronisches Publizieren, 
+% AG Elektronisches Publizieren,
 % Computer- und Medienservice,
 % Humboldt-Universitaet zu Berlin
 %    with friendly support of
-% TeX-Stammtisch in Berlin     
+% TeX-Stammtisch in Berlin
 
 % $Revision: 12 $
 % $HeadURL: svn+ssh://ryckojox@svn.cms.hu-berlin.de/svn/projects/epub/latex/hudiss/hudiss.sty $
 % $Date: 2009-06-08 19:07:06 +0200 (pon, 08 cze 2009) $
 % $Author$
 % $Id: hudiss.sty 12 2009-06-08 17:07:06Z ryckojox $
-                             
+
 % Questions, comments, support:
 %    edoc-latex@cms.hu-berlin.de    
 
 % Documentation and information about the conditions of a publication:
-%    http://edoc.hu-berlin.de/e_autoren/latex          
+%    http://edoc.hu-berlin.de/e_autoren/latex
 
 % Upload:
 %    https://edoc.hu-berlin.de/cgi/dokupload/dokupload.cgi
@@ -93,6 +93,7 @@
 
 \DeclareStringOption{degree} % degree
 \DeclareStringOption{subject} % subject
+\DeclareStringOption{specialization} % specialization
 \DeclareStringOption{faculty} % faculty
 
 \DeclareStringOption{university} % university
@@ -220,7 +221,7 @@
    pdfpagemode=UseOutlines,
    pdfpagelayout=TwoPageRight,
    pdfstartview=Fit,
-   plainpages=false,       
+   plainpages=false,
    colorlinks
 }
 
@@ -228,10 +229,10 @@
    \KOMAoptions{draft=true}
 \else
    \hypersetup{
-   		linkcolor=black,                
-   		filecolor=black,                
-   		urlcolor=black,                    
-   		citecolor=black,                
+   		linkcolor=black,
+   		filecolor=black,
+   		urlcolor=black,
+   		citecolor=black,
    }
       \KOMAoptions{draft=false}
 \fi
@@ -270,7 +271,7 @@
 	\InputIfFileExists{titlepage.tex}{}{
   	\ClassWarning{hudiss}{titlepage.tex file not found. It is necessary to create the titlepage. Copy the file from the template.}		
 	}
-}                                                                
+}
 
 \newenvironment*{abstract}{%
      \if@twocolumn
@@ -298,7 +299,7 @@
 \hypersetup{pdfkeywords={\ifx\Hu@keywordsen\empty\else\Hu@keywordsen; \fi\if\Hu@keywordsde\empty\else\Hu@keywordsde\fi}}
 }
 
-\expandafter\KOMAoptions\expandafter{\Hu@scrbook}                    
+\expandafter\KOMAoptions\expandafter{\Hu@scrbook}
 
 
 % Einstellungen für die Q-Print-Serie	
