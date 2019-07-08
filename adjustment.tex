@@ -56,6 +56,24 @@
 %%%
 \fi
 
+% easy column vectors
+\newcount\colveccount
+\newcommand*\colvec[1]{
+        \global\colveccount#1
+        \begin{pmatrix}
+        \colvecnext
+}
+\def\colvecnext#1{
+        #1
+        \global\advance\colveccount-1
+        \ifnum\colveccount>0
+                \\
+                \expandafter\colvecnext
+        \else
+                \end{pmatrix}
+        \fi
+}
+ 
 \raggedbottom 				% Change page layout style
 \allowdisplaybreaks[2]		% Allow page breaks in "align" environment
 
