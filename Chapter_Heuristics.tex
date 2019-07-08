@@ -6,7 +6,7 @@ Also, as long as the physical capital relying on fossil fuels already exists, ec
 Therefore, a general economic shift from dirty to clean technology needs changes in investment in physical capital or a political imperative mandated by a (qualified) majority. Therefore, I consider a model focussing on savings and investment decisions appropriate to investigate the possible dynamics of an economic transition towards fossil resource independent technologies.\\
 In the following I propose a preliminary scheme of such a model.
 
-\begin{figure}[h]
+\begin{figure}[t]
 	\centering
 	\includegraphics[width =.7 \textwidth]{figures/Model_Scheme.pdf}
 	\caption{Schematic sketch of the model including four major components: Households, Firms (grouped by sector), Ecosystem and optional Policy makers.}
@@ -91,7 +91,7 @@ Nevertheless, some strategies are suspected to have more profitable long term re
 
 % As the outcomes of social learning depend on network topology, we model topology endogenously.
 As the outcomes of social learning crucially depend on the structural properties of the complex network of social ties amongst the households \cite{Barkoczi2016}, we model the adaptive formation of this social network endogenously.
-A well established principle for the emergence of structured ties in social networks is homophily, i.e. the tendency that similar individuals are linked \cite{McPherson2007, Centola2007HomophilyGroups, Centola2011}. Especially the concept of value homophily \cite{McPherson2007} is in line with the interpretation of cue orders above not only as a means to the end of making profitable investment decisions but also as an expression of identity and beliefs with regards to clean technology.
+A well established principle for the emergence of structured ties in social networks is homophily, i.e. the tendency that similar individuals are linked \cite{McPherson2007, Centola2007, Centola2011}. Especially the concept of value homophily \cite{McPherson2007} is in line with the interpretation of cue orders above not only as a means to the end of making profitable investment decisions but also as an expression of identity and beliefs with regards to clean technology.
 The following model specification uses social learning in combination with endogenous network adaptation based on homophily to model the changes in heuristic decision strategies that households use to make investment decisions.
 
 % How I do this technically (Individual Household earnings and investment)
@@ -385,7 +385,7 @@ Since the capital depreciation rate $\delta$ is (at least for infrastructure) ar
 
 \begin{wrapfigure}[16]{o}{.55 \textwidth}
 	\vspace{-1.5 cm}
-	\includegraphics[width = .9 \textwidth]{./figures/phasespace.pdf}
+	\includegraphics[width = .55 \textwidth]{./figures/phasespace.pdf}
 	\caption{Phase space plot of equations \eqref{eq:full_clean_ca} \label{phase_space_plot}}
 \end{wrapfigure}
 Along the same lines, we can treat the case of a full clean economy (assuming that the fossil resource is depleted, or the households have for some other reason decided to only invest in clean capital $K_c$). \\
@@ -539,7 +539,7 @@ Since, at least according to my impression, people don't really change their min
 
 To investigate the full dynamics of the model, I conducted different numerical experiments. For these experiments, I used the following parameter values if not state otherwise:
 
-\begin{table}[H] 
+\begin{table}[t] 
 	\centering
 	\begin{tabular}{r|l}
 		Parameter & Default Value \\\hline
@@ -570,40 +570,40 @@ Since I am interested in the transition from a dirty to a clean economy, I start
 For the adaptive voter experiment the only possible cues were [0] and [1] such that the only way for changes in investment decisions were imitation of neighbors behavior.
 The vertical grey lines show the time at which two thirds of households have opted for investment in the clean sector, assuming that this would be the point when shutting down the dirty sector would be opportune for a policy maker. The background coloring shows the proportion of max.\ economically extractable fossil resources still left in the ground at that point.
 \subsubsection{Decisions}
-\begin{figure}[H]
+\begin{figure}[t]
 	\centering
 %	\includegraphics[width = \textwidth]{divestdata/X5o2_Dirty_Clean_Transition_No_TTB/results_N/decisions'alpha'=0o1.pdf}
 	\caption{Fraction of households investing in clean capital for $\alpha=0.1$. The vertical grey lines show the time at which two thirds of households have opted for investment in the clean sector, assuming that this would be the point when shutting down the dirty sector would be opportune. }
 \end{figure}
-\begin{figure}[H]
+\begin{figure}[t]
 	\centering
 %	\includegraphics[width = \linewidth]{divestdata/X5o2_Dirty_Clean_Transition_No_TTB/results_N/decisions'alpha'=0o05.pdf}
 	\caption{Fraction of households investing in clean capital for $\alpha=0.05$. The vertical grey lines show the time at which two thirds of households have opted for investment in the clean sector, assuming that this would be the point when shutting down the dirty sector would be opportune. }
 
 \end{figure}
 \subsubsection{Capital Rates}
-\begin{figure}[H]
+\begin{figure}[t]
 	\centering
 %	\includegraphics[width = \linewidth]{divestdata/X5o2_Dirty_Clean_Transition_No_TTB/results_N/capital_rates'alpha'=0o1.pdf}
 	\caption{Development of Capital rates for $\alpha=0.1$, $r_c$ is blue, $r_d$ is red. Background color indicates the fraction of economically useful fossil resource that is left in the ground as two thirds of households opt for clean investment.}
 	\label{5o2_3}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[t]
 	\centering
 %	\includegraphics[width = \linewidth]{divestdata/X5o2_Dirty_Clean_Transition_No_TTB/results_N/capital_rates'alpha'=0o05.pdf}
 	\caption{Development of Capital rates for $\alpha=0.05$, $r_c$ is blue, $r_d$ is red. Background color indicates the fraction of economically useful fossil resource that is left in the ground as two thirds of households opt for clean investment.}
 	\label{5o2_4}
 \end{figure}
 \subsubsection{Market Shares}
-\begin{figure}[H]
+\begin{figure}[t]
 	\centering
 %	\includegraphics[width = \linewidth]{divestdata/X5o2_Dirty_Clean_Transition_No_TTB/results_N/market_shares'alpha'=0o1.pdf}
 	\caption{Development of market shares for $\alpha=0.1$}
 
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[t]
 	\centering
 %	\includegraphics[width = \linewidth]{divestdata/X5o2_Dirty_Clean_Transition_No_TTB/results_N/market_shares'alpha'=0o05.pdf}
 	\caption{Development of market shares for $\alpha=0.05$}
@@ -626,41 +626,41 @@ To nevertheless imitate the clustering of similar opinions in the initial condit
 \par
 Figure~\ref{5o3_1} shows that - especially with high shares of cue orders depending on neighbors decisions - increased clustering leads to inhibition of successful investment decision making. Somewhat unsurprisingly, there is some mixtures of cue orders where clean investment decisions are maximal for intermediate clustering of same opinions.
 \subsubsection{Decisions}
-\begin{figure}[H]
+\begin{figure}[t]
 	\centering
 %	\includegraphics[width = \linewidth]{divestdata/X5o3_Types_Transition/results_N/decisions'alpha'=0o1.pdf}
 	\caption{Fraction of households investing in clean capital for $\alpha=0.1$. The fractions of households with different cue orders investing in either clean or dirty capital are color coded.}
 	\label{5o3_1}
 \end{figure}
-\begin{figure}[H]
+\begin{figure}[t]
 	\centering
 %	\includegraphics[width = \linewidth]{divestdata/X5o3_Types_Transition/results_N/decisions'alpha'=0o05.pdf}
 	\caption{Fraction of households investing in clean capital for $\alpha=0.05$. The fractions of households with different cue orders investing in either clean or dirty capital are color coded.}
 	\label{5o3_2}
 \end{figure} 
 \subsubsection{Capital Rates}
-\begin{figure}[H]
+\begin{figure}[t]
 	\centering
 %	\includegraphics[width = \linewidth]{divestdata/X5o3_Types_Transition/results_N/capital_rates'alpha'=0o1.pdf}
 	\caption{Development of Capital rates for $\alpha=0.1$, $r_c$ is blue, $r_d$ is red. Background color indicates the fraction of economically useful fossil resource that is left in the ground as two thirds of households opt for clean investment.}
 	\label{5o3_3}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[t]
 	\centering
 %	\includegraphics[width = \linewidth]{divestdata/X5o3_Types_Transition/results_N/capital_rates'alpha'=0o05.pdf}
 	\caption{Development of Capital rates for $\alpha=0.05$, $r_c$ is blue, $r_d$ is red. Background color indicates the fraction of economically useful fossil resource that is left in the ground as two thirds of households opt for clean investment.}
 
 \end{figure}
 \subsubsection{Market Shares}
-\begin{figure}[H]
+\begin{figure}[t]
 	\centering
 %	\includegraphics[width = \linewidth]{divestdata/X5o3_Types_Transition/results_N/market_shares'alpha'=0o1.pdf}
 	\caption{Development of market shares for $\alpha=0.1$, $Y_c$ is blue, $Y_d$ is red.}
 
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[t]
 	\centering
 %	\includegraphics[width = \linewidth]{divestdata/X5o3_Types_Transition/results_N/market_shares'alpha'=0o05.pdf}
 	\caption{Development of market shares for $\alpha=0.05$, $Y_c$ is blue, $Y_d$ is red.}
@@ -675,41 +675,41 @@ This experiment combines the effects of rewiring and imitation of cue orders and
 	\item Cue orders that rely on the investment decision of neighbors tap into the `wisdom of the crowd'. This only works if households with different opinions are sufficiently connected. Otherwise, clusters of households relying on each others decisions stabilize one another (this can be seen for instance in figure~\ref{5o3_1} and~\ref{5o3_2})
 \end{itemize}
 
-\begin{figure}[H]
+\begin{figure}[t]
 	\centering
 %	\includegraphics[width = \linewidth]{divestdata/X5o2_Dirty_Clean_Transition/results_N/decisions'alpha'=0o1.pdf}
 	\caption{Fraction of households investing in clean capital for $\alpha=0.1$. The fractions of households with different cue orders investing in either clean or dirty capital are color coded.}
 	\label{5o2_1}
 \end{figure}
-\begin{figure}[H]
+\begin{figure}[t]
 	\centering
 %	\includegraphics[width = \linewidth]{divestdata/X5o2_Dirty_Clean_Transition/results_N/decisions'alpha'=0o05.pdf}
 	\caption{Fraction of households investing in clean capital for $\alpha=0.05$. The fractions of households with different cue orders investing in either clean or dirty capital are color coded.}
 	\label{5o2_2}
 \end{figure}
 \subsubsection{Capital Rates}
-\begin{figure}[H]
+\begin{figure}[t]
 	\centering
 %	\includegraphics[width = \linewidth]{divestdata/X5o2_Dirty_Clean_Transition/results_N/capital_rates'alpha'=0o1.pdf}
 	\caption{Development of Capital rates for $\alpha=0.1$, $r_c$ is blue, $r_d$ is red. Background color indicates the fraction of economically useful fossil resource that is left in the ground as two thirds of households opt for clean investment.}
 
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[t]
 	\centering
 %	\includegraphics[width = \linewidth]{divestdata/X5o2_Dirty_Clean_Transition/results_N/capital_rates'alpha'=0o05.pdf}
 	\caption{Development of Capital rates for $\alpha=0.05$, $r_c$ is blue, $r_d$ is red. Background color indicates the fraction of economically useful fossil resource that is left in the ground as two thirds of households opt for clean investment.}
 
 \end{figure}
 \subsubsection{Market Shares}
-\begin{figure}[H]
+\begin{figure}[t]
 	\centering
 %	\includegraphics[width = \linewidth]{divestdata/X5o2_Dirty_Clean_Transition/results_N/market_shares'alpha'=0o1.pdf}
 	\caption{Development of market shares for $\alpha=0.1$, $Y_c$ is blue, $Y_d$ is red.}
 
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[t]
 	\centering
 %	\includegraphics[width = \linewidth]{divestdata/X5o2_Dirty_Clean_Transition/results_N/market_shares'alpha'=0o05.pdf}
 	\caption{Development of market shares for $\alpha=0.05$, $Y_c$ is blue, $Y_d$ is red.}
@@ -731,7 +731,7 @@ Consequently, with the appropriate choice of parameters, the system becomes bist
 \end{itemize}
 Choice of parameters for the economic system is the following:
 
-\begin{table}[H] 
+\begin{table}[t] 
 	\centering
 	\begin{tabular}{r|l}
 		Parameter & Default Value \\\hline
@@ -756,14 +756,14 @@ Choice of parameters for the network amongst households is $N=100$, $p=0.125$ wi
 
 Like before, the initial conditions for the experiment are an equilibrium dirty economy with abundant fossil resources. At the start of the experiment the fossil resource depletion is switched on.\
 
-\begin{figure}[H]
+\begin{figure}[t]
 	\centering
 %	\includegraphics[width = \linewidth]{divestdata/X5o4_Dirty_Clean_Transition/results_N/decisions'alpha'=0o1.pdf}
 	\caption{Fraction of households investing in clean capital with different households types marked by colors. $\alpha=0.1$.}
 	\label{fig:learning_decisions0o1}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[t]
 	\centering
 %	\includegraphics[width = \linewidth]{divestdata/X5o4_Dirty_Clean_Transition/results_N/decisions'alpha'=0o05.pdf}
 	\caption{Fraction of households investing in clean capital with different households types marked by colors. $\alpha=0.5$.}
@@ -774,13 +774,13 @@ The plots in the uppermost row of figure~\ref{fig:learning_decisions0o1} and~\re
 
 But looking at the transition in terms of economic variables, it becomes obvious that it is still mainly driven by the depletion of the fossil resource. This is most visible, if we look at the cost in the dirty sector in figure \ref{fig:learning_dirty_cost0o1} and \ref{fig:learning_dirty_cost0o05}.
 
-\begin{figure}[H]
+\begin{figure}[t]
 	\centering
 %	\includegraphics[width = \linewidth]{./divestdata/X5o4_Dirty_Clean_Transition/results_N/dirty_costs'alpha'=0o1.pdf}
 	\caption{Factor costs in the dirty sector for $\alpha = 0.1$. Solid gray vertical lines indicate the time of qualified majority of clean investment decisions, the transparent gray area marks the standard error of this mean and the dashed/dot dashed gray lines indicate the earliest/latest times of incident. Background colors indicate the fraction of the fossil resource that is still in the ground when the clean majority is reached.}
 	\label{fig:learning_dirty_cost0o1}
 \end{figure}
-\begin{figure}[H]
+\begin{figure}[t]
 	\centering
 %	\includegraphics[width = \linewidth]{./divestdata/X5o4_Dirty_Clean_Transition/results_N/dirty_costs'alpha'=0o05.pdf}
 	\caption{Same as fig.~\ref{fig:learning_dirty_cost0o1} but with $\alpha = 0.05$.}
@@ -795,7 +795,7 @@ Maybe interesting to look into: Runs with large amount of fossil resources that 
 \subsection{Experiments with a divestment/green investment campaign}
 In this experiment, I want to look into the effect that a green investment campaign might have on the transition from a dirty to a clean state of the economic model.\\
 The campaign is implemented as follows: In addition to the types of households that were used previously (as described in sec.~\ref{sec:oppinion_formation_and_decision_making}) there is an additional type that I call \textit{campaigner}. Campaigners have the following properties:
-\begin{figure}[H]
+\begin{figure}[t]
 	\centering
 %	\includegraphics[width = \linewidth]{./divestdata/X5o5_Dirty_Clean_Transition/results_N/dirty_costs'alpha'=0o1.pdf}
 	\caption{Factor costs in the dirty sector for $\alpha = 0.1$. Solid gray vertical lines indicate the time of qualified majority of clean investment decisions, the transparent gray area marks the standard error of this mean and the dashed/dot dashed gray lines indicate the earliest/latest times of incident. Background colors indicate the fraction of the fossil resource that is still in the ground when the clean majority is reached.}
@@ -806,7 +806,7 @@ The campaign is implemented as follows: In addition to the types of households t
 	\item Campaigners value their integrity over capital income e.g.\ they do not imitate other households even if they have higher income (in other contexts this behavior is called zealotry),
 	\item Other households may become part of the campaign by imitating a campaigner through the established adaptive voter mechanism.
 \end{itemize}
-\begin{figure}[H]
+\begin{figure}[t]
 	\centering
 %	\includegraphics[width = \linewidth]{./divestdata/X5o5_Dirty_Clean_Transition/results_N/dirty_costs'alpha'=0o05.pdf}
 	\caption{Same as fig.~\ref{fig:campaign_dirty_cost0o1} but with $\alpha = 0.05$.}
@@ -823,13 +823,13 @@ The campaign is implemented as follows: In addition to the types of households t
 Looking at the costs in the dirty sector again, it is apparent that the initial size of the campaign has significant influence on the transition towards clean investment.This influence is also shown in fig \ref{fig:remaining_reserves}. Although from this plot, no clean tendencies can be deduced except that increasing initial campaign size as well as decreasing rewiring probability both have positive influence on the remaining resources.
 Also, with the campaign present, the value of $\alpha$ has larger influence on the resulting fraction of fossil resource staying in the ground. I suspect that this can be explained as follows: As speculated earlier, larger $\alpha$ leads to smaller basin of attraction of the dirty state of the economy. If at a given point in time a fraction of the households is made to invest in the clean sector, this poses a disturbance to the system. This disturbance is more likely to tip the system into its other state, if the barrier between these states is smaller. Additionally, due to learning in the clean sector, a starting investment makes return rates in this sector go up, which leads all households that invest according to trends in return rates to join in - multiplying the effect of the initial investment of the campaigners.\\
 Since being a campaigner is an absorbing state in the opinion dynamic, it is clear that eventually all other opinions will vanish. The question is, at what rate this happens and when. Looking at the shares of different types of households in figures \ref{fig:campaign_decisions0o1} and \ref{fig:campaign_decisions0o05} one finds that the fraction of campaigners grows very slowly first and then explodes to leave all other types marginalized.\\
-\begin{figure}[H]
+\begin{figure}[t]
 	\centering
 %	\includegraphics[width = \linewidth]{./divestdata/X5o5_Dirty_Clean_Transition/results_N/decisions'alpha'=0o1.pdf}
 	\caption{Household investment decisions marked by household types. Thick red line marks the fraction of households investing in clean capital. The stacked colors below this line mark the fractions these decisions according to the types of household who made them. The stacked colors above the red line indicate the types of households investing in dirty capital. The area in mint green marks the fraction of households that are campaigners.}
 	\label{fig:campaign_decisions0o1}
 \end{figure}
-\begin{figure}[H]
+\begin{figure}[t]
 	\centering
 %	\includegraphics[width = \linewidth]{./divestdata/X5o5_Dirty_Clean_Transition/results_N/decisions'alpha'=0o05.pdf}
 	\caption{Same as fig.~\ref{fig:campaign_decisions0o1} but with $\alpha = 0.05$.}
