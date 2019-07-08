@@ -33,7 +33,7 @@ Following \cite{argote1990learning}, we model technological process as learning 
 Capital, labor and technology/knowledge are assumed to be mutual substitutes. To satisfy these requirements, we use the following production functions:
 \begin{align}
 	Y_c &= b_c C^{\gamma} L_c^{\alpha_c}K_c^{\beta_c}, \label{eq:clean_production} \\
-	Y_d &= {\rm min}\left( b_d L_d^{\alpha_d}K_d^{\beta_d}, e R \right), \label{eq:dirty_production}
+	Y_d &= {\mathrm min}\left( b_d L_d^{\alpha_d}K_d^{\beta_d}, e R \right), \label{eq:dirty_production}
 \end{align}
 Subscripts $c$ and $d$ denote the clean and dirty sector respectively, $L_c$ and $L_d$ are labor shares, $\alpha$ and $\beta$ are elasticities of the respective input factors and $b_c$ and $b_d$ are the total factor productivity and $K_c$ and $K_d$ are the capital stocks for the respective sector. Measuring unit production cost in the number of working hours as in the original study by Wright \cite{wright1936factors}, $\gamma$ is equivalent the elasticity of learning by doing in the clean sector as outlined in \cite{Kahouli-Brahmi2008}.
 
@@ -324,7 +324,7 @@ It is assumed, that these opinions that are the reasoning for individual decisio
 The imitation probability monotonously increases with the income difference between the households: 
 
 \begin{equation} 
-	P(x_k \rightarrow x_j) = 1/2 ({\rm tanh}(I_k - I_l)-1).
+	P(x_k \rightarrow x_j) = 1/2 ({\mathrm tanh}(I_k - I_l)-1).
 	\label{primitive_imitation_probability}
 \end{equation}
 
@@ -452,13 +452,13 @@ For this analysis, we assume a full dirty economy like in \ref{sec:full_dirty_ec
 \end{align}
 This means, that unsurprisingly, $G$ converges to a stable fix point $G^* = \sqrt{b_R/e}\ G_0$. Separating variables and substituting $g = G/G_0$ and $\varepsilon = \sqrt{b_R/e}$, the transient dynamic is given by
 \begin{equation}
-	\int_1^{g(t)} \frac{{\rm d} g'}{1 - \varepsilon^2/g'^2} = - \frac{s b_d^2 P}{e \delta G_0} \ t
+	\int_1^{g(t)} \frac{{\mathrm d} g'}{1 - \varepsilon^2/g'^2} = - \frac{s b_d^2 P}{e \delta G_0} \ t
 	\label{eq:resource_transient_integral}
 \end{equation}
 To get a rough estimate of the time that it takes for the resource to deplete, we assume that $\varepsilon << 1$ and consequently for the most time, $\varepsilon^2/g'^2 << 1$.
 This means, that the integrand of the lhs.\ in eq.~\eqref{eq:resource_transient_integral} can be approximated by
 \begin{equation}
-	\int_1^{g(t)}1+\frac{\varepsilon^2}{g'^2} {\rm d}g' = \left[ g' - \frac{\varepsilon^2}{g'} \right]_1^{g(t)} = g(t) - \frac{\varepsilon^2}{g(t)} -1+\varepsilon^2.
+	\int_1^{g(t)}1+\frac{\varepsilon^2}{g'^2} {\mathrm d}g' = \left[ g' - \frac{\varepsilon^2}{g'} \right]_1^{g(t)} = g(t) - \frac{\varepsilon^2}{g(t)} -1+\varepsilon^2.
 	\label{eq:resource_transient_solution}
 \end{equation}
 This results in the implicit approximate solution:
@@ -501,8 +501,8 @@ There are four possible events in the system
 The probabilities for these events to happen are
 \begin{align}
 	p_1 &= \varphi\frac{z(1+x)}{2(1+y)}, \quad p_2 = \varphi \frac{z (1-x)}{2(1-y)} \\
-	p_3 &= (1-\varphi)\frac{z(1+x)}{2(1+y)}1/2({\rm tanh}(\Delta I)-1),\\
-	p_4 &= (1-\varphi)\frac{z(1-x)}{2(1-y)}1/2({\rm tanh}(-\Delta I)-1)
+	p_3 &= (1-\varphi)\frac{z(1+x)}{2(1+y)}1/2({\mathrm tanh}(\Delta I)-1),\\
+	p_4 &= (1-\varphi)\frac{z(1-x)}{2(1-y)}1/2({\mathrm tanh}(-\Delta I)-1)
 	\label{avm_event_ps}
 \end{align}
 and their influence on the state vector $s = (x, y, z)^T$ are $s' = s + s_i$ with $s_i$ one of the following:
@@ -513,11 +513,11 @@ and their influence on the state vector $s = (x, y, z)^T$ are $s' = s + s_i$ wit
 \end{align}
 Such that in the limit for large N, one gets deterministic equations for $x$, $y$ and $z$:
 \begin{align}
-	\frac{\dot{x}}{\tau} =& -(1-\varphi)\frac{z}{2}\frac{1-x}{1-y}({\rm tanh}(\Delta I)-1) + (1-\varphi)\frac{z}{2}\frac{1+x}{1+y}({\rm tanh}(-\Delta I)-1) \\
-\frac{\dot{y}}{\tau} =& \quad \varphi\frac{z}{2}\left( \frac{1+x}{1+y} + \frac{1-x}{1-y} \right) + (1-\varphi)kz\left( {\rm tanh}(-\Delta I) - {\rm tanh}(\Delta I) \right) \\
+	\frac{\dot{x}}{\tau} =& -(1-\varphi)\frac{z}{2}\frac{1-x}{1-y}({\mathrm tanh}(\Delta I)-1) + (1-\varphi)\frac{z}{2}\frac{1+x}{1+y}({\mathrm tanh}(-\Delta I)-1) \\
+\frac{\dot{y}}{\tau} =& \quad \varphi\frac{z}{2}\left( \frac{1+x}{1+y} + \frac{1-x}{1-y} \right) + (1-\varphi)kz\left( {\mathrm tanh}(-\Delta I) - {\mathrm tanh}(\Delta I) \right) \\
 	\frac{\dot{z}}{\tau} =& -\varphi\frac{z}{2}\left( \frac{1+x}{1+y} + \frac{1-x}{1-y} \right) \nonumber \\
-	& + (1-\varphi)\frac{z}{2} \left[ \frac{1+x}{1+y} \frac{1}{2}({\rm tanh}(\Delta I)-1) \left( (1+y-2z)\left( \frac{2k}{1+x}-\frac{1}{1+y} \right)-1 \right) \right. \nonumber \\
-	& \hspace{1.9 cm} + \left.\frac{1-x}{1-y}\frac{1}{2}({\rm tanh}(-\Delta I)-1)\left( (1-y-2z)\left( \frac{2k}{1-x}-\frac{1}{1-y} \right)-1 \right)  \right]
+	& + (1-\varphi)\frac{z}{2} \left[ \frac{1+x}{1+y} \frac{1}{2}({\mathrm tanh}(\Delta I)-1) \left( (1+y-2z)\left( \frac{2k}{1+x}-\frac{1}{1+y} \right)-1 \right) \right. \nonumber \\
+	& \hspace{1.9 cm} + \left.\frac{1-x}{1-y}\frac{1}{2}({\mathrm tanh}(-\Delta I)-1)\left( (1-y-2z)\left( \frac{2k}{1-x}-\frac{1}{1-y} \right)-1 \right)  \right]
 	\label{avm_ode}
 \end{align}
 assuming that the income difference $\Delta I$ between different cue orders is sufficiently large, this can be reduced to
