@@ -166,7 +166,7 @@ In the following, I discuss the technical details ans specification of this impl
 	\caption{Variables of the model with description.}
 	\label{tab:independent_variables}
 \end{table}
- 
+
 \begin{table}[t]
 	\centering
 	\begin{tabular}{r|l}
@@ -183,26 +183,6 @@ In the following, I discuss the technical details ans specification of this impl
 	\label{tab:derived_variables}
  \end{table}
 
-\begin{table}[t]
-	\centering
-	\begin{tabular}{r|l}
-		Parameter & Description \\\hline
-		$b_j$ & total factor productivity in sector $j$ \\
-		$\alpha_j$ & elasticity of labor in sector $j$ \\
-		$\beta_j$ & elasticity of capital in sector $j$ \\
-                $\gamma$ & Elasticity of knowledge in the clean sector\\
-		$\rho$ & Elasticity of fossil resource in resource extraction costs \\
-		$b_R$ & resource uptake efficiency for fossil resource \\
-		$L$ & Total population \\
-		$s$ & savings rate \\
-		$\delta $ & Capital depreciation rate \\
-                $\chi$ & Knowledge depreciation rate\\
-		$\tau$ & activity rate of households \\
-		$\varphi$ & rewiring probability given an interaction event
-	\end{tabular}
-	\caption{Parameters of the model with description.}
-	\label{tab:parameters}
-\end{table}
  
 \section{Implementation} 
 
@@ -267,120 +247,25 @@ It is also worth noting that if we assume constant returns to scale with respect
 	Y_c &= w L_c + r_c K_c, \nonumber \\
 	Y_d &= w L_d + r_d K_d + c_R. \nonumber
 \end{align}
-
-%It is also worth noting, that the assumption of zero profits, e.g.
-%\begin{align}
-%	Y_c &= w L_c + r_c K_c \nonumber \\
-%	Y_d &= w L_d + r_d K_d + c_R \nonumber
-%\end{align}
-%results in the following restraints for the capital and labor elasticities $\alpha$, $\beta_c$ and $\beta_d$:
-%\begin{equation}
-%	\beta_c = \beta_d = 1-\alpha.
-%	\label{eq:elasticities_restriction}
-%\end{equation}
 To sum up, we solved the algebraic constraints to the ordinary differential equations describing the economic production process resulting in the following equations:
 \begin{subequations}
-\begin{empheq}{gather}%[box=\widefbox]
-	X_c = (b_c K_c^{\beta_c}C^{\gamma})^{\frac{1}{1-\alpha}}, \quad X_d = (b_d K_d^{\beta_d})^{\frac{1}{1-\alpha}}, \quad X_R = \left( 1 - \frac{b_R}{e}\frac{G_0^2}{G^2} \right)^{\frac{1}{1-\alpha}}, \\
-	w = \alpha L^{\alpha-1}\left( X_c + X_d X_R \right)^{1-\alpha}, \label{eq:equilibrium_wage_solution}\\
+\begin{empheq}[box={\fboxsep=10pt\fbox}]{gather}
+	X_c = (b_c K_c^{\beta_c})^{\frac{1}{1-\alpha}}, \qquad X_d = (b_d K_d^{\beta_d})^{\frac{1}{1-\alpha}}, \qquad X_R = \left( 1 - \frac{b_R}{e}\frac{G_0^2}{G^2} \right)^{\frac{1}{1-\alpha}}, \\
+	w = \alpha L^{\alpha-1}\left( X_c + X_d X_R \right)^{1-\alpha}, \\
 	r_c = \frac{\beta_c}{K_c}X_c L^{\alpha}\left( X_c + X_d X_R \right)^{-\alpha}, \\
 	r_d = \frac{\beta_d}{K_d}X_d X_R L^{\alpha}\left( X_c + X_d X_R \right)^{-\alpha}, \\
 	R = \frac{b_d}{e}K_d^{\beta_d}L^{\alpha}\left( \frac{X_d X_R}{X_c + X_d X_R} \right)^{\alpha}, \\
-	\dot{G} = - R \label{eq:sum_up_resource_depletion}, \\ 
-	\dot{K}_c^{(i)} = s \delta(o_i - c) (r_c K_c^{(i)} + r_d K_d^{(i)} + w L^{(i)}) - \kappa K_c^{(i)}, \label{eq:clean_capital_accumulation} \\
-	\dot{K}_d^{(i)} = s \delta(o_i - d) (r_c K_c^{(i)} + r_d K_d^{(i)} + w L^{(i)}) - \kappa K_d^{(i)}, \label{eq:dirty_capital_accumulation} \\
-	\dot{C} = Y_c- \chi C.
-	\label{eq:resource_depreciation}
-\end{empheq}
+        \dot{K}_i^{(c)} = s \delta(o_i - c) (r_c K_i^{(c)} + r_d K_i^{(d)} + w L_i) - \delta K_i^{(c)}, \label{eq:clean_capital_accumulation}\\
+        \dot{K}_i^{(d)} = s \delta(o_i - d) (r_c K_i^{(c)} + r_d K_i^{(d)} + w L_i) - \delta K_i^{(d)}, \label{eq:dirty_capital_accumulation}\\
+        \dot{G} = - R, \label{eq:sum_up_resource_depletion}
+      \end{empheq}
 \end{subequations}
 
 
-\subsection{Opinion formation and decision making}
-\label{sec:oppinion_formation_and_decision_making}
 
-Households use the Take the Best heuristic to make investment decisions. This heuristic chooses between two options. Therefore, it sequentially evaluates cues (pieces of information), and as soon as one discriminates, it takes the option with the higher value on the discriminating cue. Possible cues in our model are:
-\begin{itemize}
-	\item[0] investment is dirty,
-	\item[1] investment is clean,
-	\item[2] Capital return rate $r_c$ and $r_d$,	
-	\item[3] trend of capital return rates $\dot{r}_c$ and $\dot{r}_d$, interpolated from previous capital rents,
-	\item[4] action observed in the majority of neighbors.
-\end{itemize}
-Preferences or opinions (I use the expressions synonymously in the context of this model) of the households are combinations of these cues without repetition. Investment decisions according to these preferences are updated immediately. \\
-Since the number of possible combinations of these opinions is large ($38$) and consequently, to get statistically valid results one would need a very large number of households ($ ~ 10^2 \times 38$), which would be computationally expensive, we reduce the number of cue combinations to a set of presumably relevant `types':
-\begin{itemize}
-	\item [[2, 3]]: myopic investor,
-	\item [[3, 2]]: trend sensitive investor,
-	\item [[4, 2]]: myopic herder,
-	\item [[4, 3]]: trend sensitive herder,
-	\item [[4, 1]]: Green conformer,
-	\item [[4, 0]]: Conservative conformer,
-	\item [[1]]: `Gutmensch',
-	\item [[0]]: Redneck
-\end{itemize}
-It is assumed, that these opinions that are the reasoning for individual decision making are spread amongst households in an opinion dynamics process. This opinion dynamics process is a variation of the adaptive voter model. The activity of households is governed by a poison process with mean waiting time $\tau$. If a households becomes active, it randomly chooses one of its neighbors to interact with and if they are of different opinion, there are two possible options:
-\begin{itemize}
-	\item [1)] with probability $\varphi$ the households cuts the link to its neighbor and connects to a random neighbor with the same opinion,
-	\item [2)] with probability $1-\varphi$ they compare their income and with probability $P(x_k \rightarrow x_j)$ the household adopts the opinion of its neighbor.
-\end{itemize}
-The imitation probability monotonously increases with the income difference between the households: 
-
-\begin{equation} 
-	P(x_k \rightarrow x_j) = 1/2 ({\mathrm tanh}(I_k - I_l)-1).
-	\label{primitive_imitation_probability}
-\end{equation}
-
-To eliminate pathological attractors of this dynamic (as mentioned earlier), a fraction $\varepsilon$ of the rewiring and imitation events are assumed to be random, e.g.\ leading to households making a new connection to another household uniformly at random and in disregard of his opinion or adopting a new opinion amongst the set of opinions that are possible in the system.
-\newpage
-
-
-\newpage
 \subsection{Limiting cases and timescales}
 
 To estimate some parameters of the system, we analyze some limiting cases of the system and compare them with real world timescales. Such, we can set reasonable values to some parameters.
-
-
-\subsubsection{Full on dirty economy}
-\label{sec:full_dirty_economy}
-
-Assuming, the fossil resources are very large, the dirty capital stock is significantly more profitable than the clean capital stock and subsequently all households decided to only invest in dirty capital. In this case we can treat the dirty sector isolated:
-\begin{equation}
-	\dot{K}_d = s I - \delta K_d, \quad I = w L + r_d K_d
-	\label{eq:full_dirty_ca1}
-\end{equation}
-As shown before, $r_d$ is given by:
-\begin{align}
-	r &= \frac{\partial Y_d}{\partial K_d} - \frac{\partial c_R}{\partial K_d}, \quad c_R = b_R\left( \frac{G_0}{G} \right)^{2} R, \quad Y_d = eR, \\
-	&\approx \left( 1-\frac{b_R}{e} \right)\frac{\partial Y_d}{\partial K_d},
-	\label{eq:full_dirty_capital_rent}
-\end{align}
-and similarly for the wage $w$:
-\begin{equation}
-	w = \left( 1-\frac{b_R}{e} \right)\frac{\partial Y_d}{\partial L}.
-	\label{eq:full_dirty_wage}
-\end{equation}
-So combining these, the income $I$ is equal to
-\begin{equation}
-	I = \left( 1-\frac{b_R}{e} \right)b_d (\alpha + \beta) L^{\alpha} K_d^{\beta}
-	\label{eq_full_dirty_income}
-\end{equation}
-and using the assumption of zero profits e.g. $\alpha + \beta = 1$ the equation for capital accumulation \eqref{eq:full_dirty_ca1} reads
-\begin{equation}
-	\dot{K}_d = s\left( 1 - \frac{b_R}{e} \right) b_d L^{\alpha} K_d^{\beta} - \delta K_d
-	\label{eq:full_dirty_ca2}
-\end{equation}
-This ordinary nonlinear differential equation can be solved by separation of variables.
-\begin{equation}
-  K_d (t) = K_d^{*} \left(1 - e^{(t_0-t)/t_d^{*}} \right)^{\frac{1}{\alpha}}
-	\label{eq:dirty_capital_ac_solution}
-\end{equation}
-where the timescale for capital accumulation $t^*_d$ and the equilibrium dirty capital stock $K^*_d$ are
-\begin{equation}
-	t_d^{*} = \frac{1}{\alpha \delta}, \qquad K_d^{*} = \left( \frac{s b_d L^\alpha}{\delta}\left(1-\frac{b_R}{e}  \right) \right)^{\frac{1}{\alpha}}.
-	\label{eq:full_dirty_capital_equilibrium_values}
-\end{equation}
-Since the capital depreciation rate $\delta$ is (at least for infrastructure) around 5\% p.a.\ and I assumed $\beta_d=1/2$ for the capital elasticity, the timescale for capital accumulation is $t^*_d \approx 40 y$.
-%\newpage
 
 
 \subsubsection{Full clean economy}
@@ -441,6 +326,54 @@ Assuming the same capital depreciation rate for clean capital as for dirty capit
 
 
 
+\newpage
+
+
+
+\subsubsection{Full on dirty economy}
+\label{sec:full_dirty_economy}
+
+Assuming, the fossil resources are very large, the dirty capital stock is significantly more profitable than the clean capital stock and subsequently all households decided to only invest in dirty capital. In this case we can treat the dirty sector isolated:
+\begin{equation}
+	\dot{K}_d = s I - \delta K_d, \quad I = w L + r_d K_d
+	\label{eq:full_dirty_ca1}
+\end{equation}
+As shown before, $r_d$ is given by:
+\begin{align}
+	r &= \frac{\partial Y_d}{\partial K_d} - \frac{\partial c_R}{\partial K_d}, \quad c_R = b_R\left( \frac{G_0}{G} \right)^{2} R, \quad Y_d = eR, \\
+	&\approx \left( 1-\frac{b_R}{e} \right)\frac{\partial Y_d}{\partial K_d},
+	\label{eq:full_dirty_capital_rent}
+\end{align}
+and similarly for the wage $w$:
+\begin{equation}
+	w = \left( 1-\frac{b_R}{e} \right)\frac{\partial Y_d}{\partial L}.
+	\label{eq:full_dirty_wage}
+\end{equation}
+So combining these, the income $I$ is equal to
+\begin{equation}
+	I = \left( 1-\frac{b_R}{e} \right)b_d (\alpha + \beta) L^{\alpha} K_d^{\beta}
+	\label{eq_full_dirty_income}
+\end{equation}
+and using the assumption of zero profits e.g. $\alpha + \beta = 1$ the equation for capital accumulation \eqref{eq:full_dirty_ca1} reads
+\begin{equation}
+	\dot{K}_d = s\left( 1 - \frac{b_R}{e} \right) b_d L^{\alpha} K_d^{\beta} - \delta K_d
+	\label{eq:full_dirty_ca2}
+\end{equation}
+This ordinary nonlinear differential equation can be solved by separation of variables.
+\begin{equation}
+  K_d (t) = K_d^{*} \left(1 - e^{(t_0-t)/t_d^{*}} \right)^{\frac{1}{\alpha}}
+	\label{eq:dirty_capital_ac_solution}
+\end{equation}
+where the timescale for capital accumulation $t^*_d$ and the equilibrium dirty capital stock $K^*_d$ are
+\begin{equation}
+	t_d^{*} = \frac{1}{\alpha \delta}, \qquad K_d^{*} = \left( \frac{s b_d L^\alpha}{\delta}\left(1-\frac{b_R}{e}  \right) \right)^{\frac{1}{\alpha}}.
+	\label{eq:full_dirty_capital_equilibrium_values}
+\end{equation}
+Since the capital depreciation rate $\delta$ is (at least for infrastructure) around 5\% p.a.\ and I assumed $\beta_d=1/2$ for the capital elasticity, the timescale for capital accumulation is $t^*_d \approx 40 y$.
+%\newpage
+
+
+
 
 \subsubsection{Fossil resource depletion}
 \label{sec:resource_depletion}
@@ -455,13 +388,13 @@ Assuming the same capital depreciation rate for clean capital as for dirty capit
 For this analysis, we assume a full dirty economy like in \ref{sec:full_dirty_economy}. In addition, we assume that we can separate the timescales of resource depletion and dirty capital accumulation, e.g. we assume that dirty capital accumulation happens fast compared to fossil resource depletion such that we can approximate $K_d(t)$ with eq. \ref{eq:full_dirty_capital_equilibrium_values}. Consequently, the ode for fossil resource depletion is given by
 \begin{align}
 	\dot{G} &= -R \nonumber \\
-        &= -\frac{b_d}{e}P^{\pi}K_d^{*\ \kappa_d} \nonumber \\
+        &= -\frac{b_d}{e}L^{\alpha}K_d^{*\ \beta_d} \nonumber \\
 	&= - \frac{b_d}{e}L^{\alpha}\left(L^{\alpha} \frac{s}{\delta}b_d\left( 1-\frac{b_R}{e}\left( \frac{G_0}{G(t)} \right)^2 \right) \right)^{\frac{\beta_d}{1-\beta_d}}
 	\label{eq:resource_deprec_approx}
 \end{align}
 This means, that unsurprisingly, $G$ converges to a stable fix point $G^* = \sqrt{b_R/e}\ G_0$. Separating variables and substituting $g = G/G_0$ and $\varepsilon = \sqrt{b_R/e}$, the transient dynamic is given by
 \begin{equation}
-	\int_1^{g(t)} \frac{{\mathrm d} g'}{1 - \varepsilon^2/g'^2} = - \frac{s b_d^2 P}{e \delta G_0} \ t
+	\int_1^{g(t)} \frac{{\mathrm d} g'}{1 - \varepsilon^2/g'^2} = - \frac{s b_d^2 L}{e \delta G_0} \ t
 	\label{eq:resource_transient_integral}
 \end{equation}
 To get a rough estimate of the time that it takes for the resource to deplete, we assume that $\varepsilon << 1$ and consequently for the most time, $\varepsilon^2/g'^2 << 1$.
@@ -472,12 +405,12 @@ This means, that the integrand of the lhs.\ in eq.~\eqref{eq:resource_transient_
 \end{equation}
 This results in the implicit approximate solution:
 \begin{equation}
-  g(t) - \frac{\varepsilon^2}{g(t)} = 1 -\varepsilon^2 - \frac{s b_d^2 P}{e \delta G_0} \ t.
+  g(t) - \frac{\varepsilon^2}{g(t)} = 1 -\varepsilon^2 - \frac{s b_d^2 L}{e \delta G_0} \ t.
 	\label{eq:resource_transient_solution2}
 \end{equation}
 According to this approximate solution, $g$ reaches $\alpha$ after a finite time $t^*_G$, which I use as the timescale for resource depletion:
 \begin{equation}
-	t^*_G = G_0\frac{e \delta}{s P b_d^2}\left( 1-\frac{b_R}{e} \right)
+	t^*_G = G_0\frac{e \delta}{s L b_d^2}\left( 1-\frac{b_R}{e} \right)
 	\label{eq:resource_depletion_time}
 \end{equation}
 Figure \ref{fig:g_depletion} shows this resource depletion time in comparison to the numerical solution from eq. \ref{eq:resource_deprec_approx} for different values of $\alpha$ to give an impression of the goodness of the approximation.
@@ -492,6 +425,65 @@ So, we assume $t^*_G \approx 100y$. Using this, the initial resource stock $G_0$
 %   \label{ep:estimate_e}
 % \end{equation}
 
+\subsection{Parameter Values}
+
+\begin{table}[t]
+	\centering
+	\begin{tabular}{r|l|c|l}
+          \makecell[l]{Symbol} & \makecell[l]{Default \\ Value} & \rotatebox[origin=c]{90}{Variable} & \makecell[l]{Parameter \\ Description} \\\hline
+          $b_c$ & 1 & & \multirow{2}{*}{\makecell[l]{total factor productivity (TFP) in \\the clean and dirty sector. \tablefootnote{As TFP is considered somewhat arbitrary even in economic circles as it is critcized for lacking meaningful units of measurement as well as the heterogeneity of factors that are accounted for. Official statistics  avoid measuring levels and instead construct unitless rates of growth.}}} \\ \hhline{---~}
+		$b_d$ & 4 & & \\ \hline
+                $\alpha_c$ & $1/2$ & & \multirow{3}{*}{\makecell[l]{Labor elasticities in the clean and dirty sector. \\Are assumed to be equal to allow for analytic \\calculation of labor shares between sectors}} \\ \hhline{---~}
+                $\alpha_d$ & $1/2$ & & \\
+                && & \\ \hline
+                $\beta_c$ & $1-\alpha_c$ & & \multirow{3}{*}{\makecell[l]{Capital elasticities in the clean and dirty sector. \\ Are fixed through the assumption of no profits \\that is equivalent to $\alpha_i + \beta_i = 1$.}} \\ \hhline{---~}
+                $\beta_d$ & $1-\alpha_d$ & & \\
+                && & \\ \hline
+                $\gamma$ & $1/8$ & X & Elasticity of knowledge in the clean sector\\ \hline
+                $L$ & 1 & & Total labor. \tablefootnote{As TFP is arbitrary, so is labor (as it only scales total output in our case. Therefore, set it to one.}\\ \hline
+                $\rho$ & 1 & X & \multirow{2}{*}{\makecell[l]{Exponents of resource usage $R$ and remaining \\resource stock $G$ in the resource extraction costs $c_R$. }} \\ \hhline{---~}
+                $\mu$ & 2 & X & \\ \hline
+                $b_R$ & & & \multirow{3}{*}{\makecell[l]{Resource uptake efficiency and fossil usage efficiency for \\fossil resource. Together, they define the fraction of fossil \\resources that is not economically viable $G^* = G_0 \left(b_R/e^\rho\right)^{1/\mu}$.}} \\ \hhline{---~}
+                $e$ & 1 & & \\
+                & & & \\ \hline
+                $G_0$ & & & \multirow{2}{*}{\makecell[l]{Initial fossil resource stock. Set according to \eqref{eq:resource_depletion_time} \\ depending on $b_R$, $e$, $b_d$,  $\delta$, $s$ and $L$.}}\\
+                & & & \\ \hline
+                $s$ & 0.25 & & Savings rate. \tablefootnote{Default value is roughly in line with data for OECD countries.}\\ \hline
+                $\delta $ & $0.06$ p.a. & & \multirow{2}{*}{\makecell[l]{Capital depreciation rate. \\ Is assumed to be equal for both sectors}} \\
+                &&\\ \hline
+                $\chi$ & 0.1 & & Knowledge depreciation rate \tablefootnote{Commonly estimated somewhere between 10\% p.a. and 30\% p.a.}\\ \hline
+		$\tau$ & 1 & X & activity rate of households \\ \hline
+		$\varphi$ & $1\leq\varphi\leq1$ & X & rewiring probability given an interaction event
+	\end{tabular}
+	\caption{Parameters of the model with description.}
+	\label{tab:Heuristics_Parameter_list}
+\end{table}
+
+There are too many parameters in this model to evaluate the qualitative influence of every single one. Therefore, I will discuss some of them shortly here and fix them to constant values for further considerations. \\
+
+\textit{Side note on physical units and dimensions:} It is widely recognized that the use physical dimensions and units in economic modeling leads to inconsistencies and or economically unreasonable results - see e.g. \cite{Barnett2007}. Coincitentally, the overwhelming majority of macroeconomic models does not use dimensional units. From a physicists perspective this seems curious but I will nevertheless adhere to the standard and not use units with parameters and variables in this model. Last but not least to be able to build on said macroeconomic models without running into inconsistencies or producing economically unreasonable results. \\
+
+\textit{Total factor productivities} (TFP) are defining parameters for a Cobb Douglas production function \eqref{eq:clean_production}, They act as a multiplier to set the total output level given a set of input factors such as labor, capital and knowledge and account for all other unaccounted factors in the production process. As such, they are subject to the above critique of lacking meaningful physical units. This is also one of the reasons that if estimated in econometric studies, one usually avoids actual quantities in favour of dimensionless growth rates or values relative to a given base rate like in e.g. \cite{Gal2013, Hooper1997, Bernstein2018}. Therefore, I set the values for TFP in the clean and dirty sector to $b_c=1$ and $b_d=4$ which is arbitrary (and therefore, so is the output of economic production in my model) but makes sure, that the dirty sector is more productive in a scenario with abundant fossil resources $G$ and low clean technology knowledge stock $C$ which is one of the premisses of the model. \\
+
+\textit{Input factor elasticities} are the second defining set of parameters for Cobb Douglas production functions. They measure the responsiveness of output with respect to a change in input factors. Historically, according to \cite{Douglas1976} the values for $\alpha$ range between approximately 0.5 and 0.75. For simplicity, I set $\alpha=1/2$ which however does not limit the generality of the approximate solutions that are developed later REFERENCE.\\
+
+\textit{Elasticity of knowledge $\gamma$} is also the rate of learning of technology in the clean sector as discussed in \ref{sec:model_description}. This heavily depends on the technology under consideration. Estimates for learning by doing rates approximately range between 10\% and 20\%. I set $\gamma=1/8$ as default and study its influence on qualitative model dynamics.\\
+
+\textit{Total labor $L$} like total factor productivity scales the overall level of economic output in the model. Since this is arbitrary as discussed above, I set it to one (without loss of generality in the approximation methods developed later).\\
+
+\textit{Exponents of resource usage $\rho$ and remaining resource stock $\mu$} are very hard to estimate from data (also, this is not the focus of this thesis). I therefore set them to arbitrary values $\rho=1$ and $\mu=2$ but test different values for comparison.\\
+
+\textit{Resource extraction efficiency $b_R$ and resource usage efficiency $e$} set the share of fossil resources that is not economically viable \eqref{eq:resource_deprec_approx}. Since in the model the fossil resource is accounted for in arbitrary units, I can set $e=1$ without loss of generality and only vary $b_R$ for the analysis of the models dynamics.\\
+
+\textit{The initial fossil resource stock $G_0$} is determined via \eqref{eq:resource_depletion_time} from the value of other parameters by setting the approximate depletion time of the fossil resource.\\
+
+\textit{The savings rate $s$} indicates the fraction of income that households save on average. I use a fixed savings rate for all households that is set to $s=0.25$ which is roughly in line with data for OECD countries\footnote{see https://data.worldbank.org/indicator/NY.GNS.ICTR.ZS}.\\
+
+\textit{The capital depreciation rate $\delta$} is assumed to be equal in both sectors. Capital depreciation rates strongly depend on the type of capital under consideration.\\
+
+\textit{The knowledge depreciation rate $\chi$ in the clean sector} is influenced by different factors. Tacit individual knowledge depreciates with a rate that can be approximated by the rate of workers leaving the workforce. 
+
+\iffalse
 \subsubsection{Opinion spreading in the adaptive voter model}
 A common way to describe the dynamics of the adaptive voter model in terms of macroscopic variables is the pair approximation.
 For simplicity, lets assume a system with two possible opinions $A$ and $B$, on a network with $N$ nodes and $K$ edges.
@@ -543,32 +535,49 @@ and from this we see, that the timescale for $x$ to reach its equilibrium values
 	\label{avm_timescale}
 \end{equation}
 Since, at least according to my impression, people don't really change their minds or make new friends too often, I propose keeping this timescale between $1<t_a^*<10$ years.
+\fi
+\subsection{Opinion formation and decision making}
+\label{sec:oppinion_formation_and_decision_making}
+
+Households use the Take the Best heuristic to make investment decisions. This heuristic chooses between two options. Therefore, it sequentially evaluates cues (pieces of information), and as soon as one discriminates, it takes the option with the higher value on the discriminating cue. Possible cues in our model are:
+\begin{itemize}
+	\item[0] investment is dirty,
+	\item[1] investment is clean,
+	\item[2] Capital return rate $r_c$ and $r_d$,	
+	\item[3] trend of capital return rates $\dot{r}_c$ and $\dot{r}_d$, interpolated from previous capital rents,
+	\item[4] action observed in the majority of neighbors.
+\end{itemize}
+Preferences or opinions (I use the expressions synonymously in the context of this model) of the households are combinations of these cues without repetition. Investment decisions according to these preferences are updated immediately. \\
+Since the number of possible combinations of these opinions is large ($38$) and consequently, to get statistically valid results one would need a very large number of households ($ ~ 10^2 \times 38$), which would be computationally expensive, we reduce the number of cue combinations to a set of presumably relevant `types':
+\begin{itemize}
+	\item [[2, 3]]: myopic investor,
+	\item [[3, 2]]: trend sensitive investor,
+	\item [[4, 2]]: myopic herder,
+	\item [[4, 3]]: trend sensitive herder,
+	\item [[4, 1]]: Green conformer,
+	\item [[4, 0]]: Conservative conformer,
+	\item [[1]]: `Gutmensch',
+	\item [[0]]: Redneck
+\end{itemize}
+It is assumed, that these opinions that are the reasoning for individual decision making are spread amongst households in an opinion dynamics process. This opinion dynamics process is a variation of the adaptive voter model. The activity of households is governed by a poison process with mean waiting time $\tau$. If a households becomes active, it randomly chooses one of its neighbors to interact with and if they are of different opinion, there are two possible options:
+\begin{itemize}
+	\item [1)] with probability $\varphi$ the households cuts the link to its neighbor and connects to a random neighbor with the same opinion,
+	\item [2)] with probability $1-\varphi$ they compare their income and with probability $P(x_k \rightarrow x_j)$ the household adopts the opinion of its neighbor.
+\end{itemize}
+The imitation probability monotonously increases with the income difference between the households: 
+
+\begin{equation} 
+	P(x_k \rightarrow x_j) = 1/2 ({\mathrm tanh}(I_k - I_l)-1).
+	\label{primitive_imitation_probability}
+\end{equation}
+
+To eliminate pathological attractors of this dynamic (as mentioned earlier), a fraction $\varepsilon$ of the rewiring and imitation events are assumed to be random, e.g.\ leading to households making a new connection to another household uniformly at random and in disregard of his opinion or adopting a new opinion amongst the set of opinions that are possible in the system.
+\newpage
+
 
 \section{Preliminary Results}  
 
-To investigate the full dynamics of the model, I conducted different numerical experiments. For these experiments, I used the following parameter values if not state otherwise:
-
-\begin{table}[t] 
-	\centering
-	\begin{tabular}{r|l}
-		Parameter & Default Value \\\hline
-		$\alpha$ & 1/2 \\
-		$\beta_c$ & 1/2 \\
-		$\beta_d$ & 1/2 \\
-                $\gamma$ & 1/4 \\
-		$b_c$ & 1 \\
-		$b_d$ & 1.2 \\
-		$b_R$ & 1 \\
-		$e$ & 100 \\
-		$s$ & 0.23 \\
-		$\delta $ & 0.06 \\
-		$L$ & 500 \\
-		$G_0$ & $\sim$ 35000 \\
-	\end{tabular}
-	\caption{Parameter values for numerical studies in arbitrary units.}
-	\label{tab:parameter_values}
-\end{table} 
-Since I did not yet find a reliable estimate for $\varepsilon = \sqrt{b_R/e}$, I will conduct experiments for two different values, to point out any qualitative differences, that there might be.
+To investigate the full dynamics of the model, I conducted different numerical experiments. Since I did not yet find a reliable estimate for $\varepsilon = \sqrt{b_R/e}$, I will conduct experiments for two different values, to point out any qualitative differences, that there might be.
 
 To separate the effects of the adaptive voter dynamic and the heuristic decision making in the model, I conducted separate studies for only the dynamic voter dynamics, only the heuristic decision making and the combination of both effects. \\
 Since I am interested in the transition from a dirty to a clean economy, I started the experiment with an equilibrium state with infinite fossil resource supply.\\
