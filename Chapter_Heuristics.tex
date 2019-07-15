@@ -1,4 +1,4 @@
-
+\chapter{Heuristic Decision Making in a Social Economic Model of Fossil Resource Usage}
 \section{Model Development} 
 
 Previous studies \cite{Ans2013} suggest that feedback through supply-demand price mechanisms will have only limited impact on fossil fuel companies. This is due to the fact, that only approximately 15 \% of investors invest subject to socially responsible guidelines \cite{SIF2014Report} and that divested holdings are, especially in liquid markets, very likely to quickly find their way to less responsible investors. \\
@@ -324,12 +324,6 @@ So, the system approaches its equilibrium approxitely exponentially from below, 
 \end{equation}
 Assuming the same capital depreciation rate for clean capital as for dirty capital previously, together with $\gamma = 1/4$ (as suggested by Jobst Heitzig), the timescale for clean capital accumulation is $t^*_c \approx 53 y$.
 
-
-
-\newpage
-
-
-
 \subsubsection{Full on dirty economy}
 \label{sec:full_dirty_economy}
 
@@ -465,7 +459,7 @@ There are too many parameters in this model to evaluate the qualitative influenc
 
 \textit{Total factor productivities} (TFP) are defining parameters for a Cobb Douglas production function \eqref{eq:clean_production}, They act as a multiplier to set the total output level given a set of input factors such as labor, capital and knowledge and account for all other unaccounted factors in the production process. As such, they are subject to the above critique of lacking meaningful physical units. This is also one of the reasons that if estimated in econometric studies, one usually avoids actual quantities in favour of dimensionless growth rates or values relative to a given base rate like in e.g. \cite{Gal2013, Hooper1997, Bernstein2018}. Therefore, I set the values for TFP in the clean and dirty sector to $b_c=1$ and $b_d=4$ which is arbitrary (and therefore, so is the output of economic production in my model) but makes sure, that the dirty sector is more productive in a scenario with abundant fossil resources $G$ and low clean technology knowledge stock $C$ which is one of the premisses of the model. \\
 
-\textit{Input factor elasticities} are the second defining set of parameters for Cobb Douglas production functions. They measure the responsiveness of output with respect to a change in input factors. Historically, according to \cite{Douglas1976} the values for $\alpha$ range between approximately 0.5 and 0.75. For simplicity, I set $\alpha=1/2$ which however does not limit the generality of the approximate solutions that are developed later REFERENCE.\\
+\textit{Input factor elasticities} are the second defining set of parameters for Cobb Douglas production functions. They measure the responsiveness of output with respect to a change in input factors. Historically, according to \cite{Douglas1976} the values for $\alpha$ range between approximately 0.5 and 0.75. For simplicity, I set $\alpha=1/2$ which however does not limit the generality of the approximate solutions that are developed later in section \ref{sec:Approximation} ff.\\
 
 \textit{Elasticity of knowledge $\gamma$} is also the rate of learning of technology in the clean sector as discussed in \ref{sec:model_description}. This heavily depends on the technology under consideration. Estimates for learning by doing rates approximately range between 10\% and 20\%. I set $\gamma=1/8$ as default and study its influence on qualitative model dynamics.\\
 
@@ -575,7 +569,7 @@ To eliminate pathological attractors of this dynamic (as mentioned earlier), a f
 \newpage
 
 
-\section{Preliminary Results}  
+\section{Results and Discussion}  
 
 To investigate the full dynamics of the model, I conducted different numerical experiments. Since I did not yet find a reliable estimate for $\varepsilon = \sqrt{b_R/e}$, I will conduct experiments for two different values, to point out any qualitative differences, that there might be.
 
@@ -734,6 +728,8 @@ This experiment combines the effects of rewiring and imitation of cue orders and
 
 \end{figure}
 
+
+\section{Conclusion}
 \section{Outlook}
 Next, I thought I'd implement `campaigners', green investors who are persistent in their opinion and who rewire not preferably to themselves but randomly to households of other opinions. Then I'd experiment on how many of these campaigners are necessary in order to tip the system to a qualified majority of clean investment for a given amount of resource staying in the ground. \\
 
