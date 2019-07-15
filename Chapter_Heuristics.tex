@@ -206,12 +206,12 @@ In the following, I discuss the technical details ans specification of this impl
  
 \section{Implementation} 
 
-For simplicity, I assume equal labor elasticities in both sectors ($\alpha_c = \alpha_d$), linear resource extraction costs ($\rho=1$) and no profits e.g. $\alpha_j + \beta_j = 1$.\\
+
+
+\subsection{Solution for Algebraic Constraints: Calculation of wages, resource uptake and capital rent}
+\label{sec:algebraic_constraints}
 
 The conditions for labor shares and wages as well as optimal resource uptake pose algebraic constraints for the system of ordinary differential equations that describe the dynamics of the capital stocks $\dot{K}_i^{(j)}$, the resource stock $\dot{G}$ and the dynamics of the knowledge stock in the clean sector $\dot{C}$. In order to solve these differential equations more efficiently, one can solve these algebraic constraints analytically.
-
-
-\subsection{Calculation of wages, resource uptake and capital rent}
 
 To calculate the labor shares $L_c$ and $L_d$ as well as the wages in the two sectors, we use equations \eqref{eq:resource_cost} and \eqref{eq:equilibrium_wage} and for simplicity assume $\rho=1$ and $\mu=2$. We also assume equal labor elasticities in both sectors $\alpha_d = \alpha_c = \alpha$ resulting in
 \begin{align}
@@ -280,15 +280,17 @@ It is also worth noting that if we assume constant returns to scale with respect
 %\end{equation}
 To sum up, we solved the algebraic constraints to the ordinary differential equations describing the economic production process resulting in the following equations:
 \begin{subequations}
-\begin{empheq}[box=\widefbox]{gather}
-	X_c = (b_c K_c^{\beta_c})^{\frac{1}{1-\alpha}}, \qquad X_d = (b_d K_d^{\beta_d})^{\frac{1}{1-\alpha}}, \qquad X_R = \left( 1 - \frac{b_R}{e}\frac{G_0^2}{G^2} \right)^{\frac{1}{1-\alpha}}, \\
-	w = \alpha L^{\alpha-1}\left( X_c + X_d X_R \right)^{1-\alpha}, \\
+\begin{empheq}{gather}%[box=\widefbox]
+	X_c = (b_c K_c^{\beta_c}C^{\gamma})^{\frac{1}{1-\alpha}}, \quad X_d = (b_d K_d^{\beta_d})^{\frac{1}{1-\alpha}}, \quad X_R = \left( 1 - \frac{b_R}{e}\frac{G_0^2}{G^2} \right)^{\frac{1}{1-\alpha}}, \\
+	w = \alpha L^{\alpha-1}\left( X_c + X_d X_R \right)^{1-\alpha}, \label{eq:equilibrium_wage_solution}\\
 	r_c = \frac{\beta_c}{K_c}X_c L^{\alpha}\left( X_c + X_d X_R \right)^{-\alpha}, \\
 	r_d = \frac{\beta_d}{K_d}X_d X_R L^{\alpha}\left( X_c + X_d X_R \right)^{-\alpha}, \\
 	R = \frac{b_d}{e}K_d^{\beta_d}L^{\alpha}\left( \frac{X_d X_R}{X_c + X_d X_R} \right)^{\alpha}, \\
-	\dot{K}_i^{(c)} = s \delta(o_i - c) (r_c K_i^{(c)} + r_d K_i^{(d)} + w L_i) - \delta K_i^{(c)}, \\
-	\dot{K}_i^{(d)} = s \delta(o_i - d) (r_c K_i^{(c)} + r_d K_i^{(d)} + w L_i) - \delta K_i^{(d)}, \\
-	\dot{G} = - R, 
+	\dot{G} = - R \label{eq:sum_up_resource_depletion}, \\ 
+	\dot{K}_c^{(i)} = s \delta(o_i - c) (r_c K_c^{(i)} + r_d K_d^{(i)} + w L^{(i)}) - \kappa K_c^{(i)}, \label{eq:clean_capital_accumulation} \\
+	\dot{K}_d^{(i)} = s \delta(o_i - d) (r_c K_c^{(i)} + r_d K_d^{(i)} + w L^{(i)}) - \kappa K_d^{(i)}, \label{eq:dirty_capital_accumulation} \\
+	\dot{C} = Y_c- \chi C.
+	\label{eq:resource_depreciation}
 \end{empheq}
 \end{subequations}
 
@@ -332,6 +334,7 @@ To eliminate pathological attractors of this dynamic (as mentioned earlier), a f
 \newpage
 
 
+\newpage
 \subsection{Limiting cases and timescales}
 
 To estimate some parameters of the system, we analyze some limiting cases of the system and compare them with real world timescales. Such, we can set reasonable values to some parameters.
@@ -377,24 +380,25 @@ where the timescale for capital accumulation $t^*_d$ and the equilibrium dirty c
 	\label{eq:full_dirty_capital_equilibrium_values}
 \end{equation}
 Since the capital depreciation rate $\delta$ is (at least for infrastructure) around 5\% p.a.\ and I assumed $\beta_d=1/2$ for the capital elasticity, the timescale for capital accumulation is $t^*_d \approx 40 y$.
-\newpage
+%\newpage
 
 
 \subsubsection{Full clean economy}
 \label{sec:full_clean_economy}
 
 \begin{wrapfigure}[16]{o}{.55 \textwidth}
-	\vspace{-1.5 cm}
+	\vspace{-1.8 cm}
 	\includegraphics[width = .55 \textwidth]{./figures/phasespace.pdf}
-	\caption{Phase space plot of equations \eqref{eq:full_clean_ca} \label{phase_space_plot}}
+        \caption{Phase space plot of equations \eqref{eq:full_clean_ca1} and \eqref{eq:full_clean_ca2} \label{phase_space_plot}}
 \end{wrapfigure}
 Along the same lines, we can treat the case of a full clean economy (assuming that the fossil resource is depleted, or the households have for some other reason decided to only invest in clean capital $K_c$). \\
 In this case, the equations for capital and knowledge accumulation are
+\begin{subequations}
 \begin{align}
-	\dot{K}_c &= s b_c L^{\alpha} K_c^{\beta} C^\gamma - \delta K_c \\
-	\dot{C} &= b_c L^\alpha K_c^\beta C^\gamma - \chi C
-	\label{eq:full_clean_ca}
+    \dot{K}_c &= s b_c L^{\alpha} K_c^{\beta} C^\gamma - \delta K_c \label{eq:full_clean_ca1} \\
+	\dot{C} &= b_c L^\alpha K_c^\beta C^\gamma - \chi C \label{eq:full_clean_ca2}
 \end{align}
+\end{subequations}
 Assuming that $\alpha + \beta$ = 1, with equal elasticities for capital and labor e.g. $\alpha = \beta$, the stationary points of the system are 
 \begin{equation}
   (K_c^*, C^*) = (0,0), \left( \left( \frac{\chi s}{\delta} \right) \left( \frac{s b_c^2 L}{\delta \chi} \right)^{\frac{1}{1-2\gamma}}, \left( \frac{s b_c^2 L}{\delta \chi} \right)^{\frac{1}{1-2 \gamma}}  \right)
@@ -404,8 +408,8 @@ where the first one is non hyperbolic and the second one is stable which can be 
 \begin{equation}
 	J_{(K_c^*,C^*)} = 
 		\begin{pmatrix}
-			-\frac{1}{2}\delta & \frac{1}{2}\gamma s \delta \\
-			\frac{\delta}{2 s} & \delta \left( \frac{\gamma}{2}-1 \right)
+			-\frac{1}{2}\delta & \gamma s \chi \\
+			\frac{\delta}{2 s} & \chi \left(\gamma-1 \right)
 		\end{pmatrix}
 	\label{eq:learning_jacobian}
 \end{equation}
@@ -436,13 +440,18 @@ So, the system approaches its equilibrium approxitely exponentially from below, 
 Assuming the same capital depreciation rate for clean capital as for dirty capital previously, together with $\gamma = 1/4$ (as suggested by Jobst Heitzig), the timescale for clean capital accumulation is $t^*_c \approx 53 y$.
 
 
+
+
 \subsubsection{Fossil resource depletion}
 \label{sec:resource_depletion}
-
 \begin{wrapfigure}[16]{o}{.45 \textwidth}
-	\includegraphics[width = .9 \textwidth]{./figures/g_depletion.pdf}
+    \vspace{-.8 cm}
+    \hspace{-1.8 cm}
+	\includegraphics[width = .6 \textwidth]{figures/g_depletion.pdf}
 	\caption{Resource depletion in a full dirty economy as described by eq. \eqref{eq:resource_deprec_approx}. The dashed line marks the approximate resource depletion time $t^*_G$. \label{fig:g_depletion}}
 \end{wrapfigure}
+
+
 For this analysis, we assume a full dirty economy like in \ref{sec:full_dirty_economy}. In addition, we assume that we can separate the timescales of resource depletion and dirty capital accumulation, e.g. we assume that dirty capital accumulation happens fast compared to fossil resource depletion such that we can approximate $K_d(t)$ with eq. \ref{eq:full_dirty_capital_equilibrium_values}. Consequently, the ode for fossil resource depletion is given by
 \begin{align}
 	\dot{G} &= -R \nonumber \\
@@ -471,7 +480,7 @@ According to this approximate solution, $g$ reaches $\alpha$ after a finite time
 	t^*_G = G_0\frac{e \delta}{s P b_d^2}\left( 1-\frac{b_R}{e} \right)
 	\label{eq:resource_depletion_time}
 \end{equation}
-Figure \ref{fig:g_depletion} shows this resource depletion time in comparison to the numerical solution from eq. \ref{eq:resource_deprec_approx} for different values of $\alpha$ to give an impression of the goodness of the approximation. \\
+Figure \ref{fig:g_depletion} shows this resource depletion time in comparison to the numerical solution from eq. \ref{eq:resource_deprec_approx} for different values of $\alpha$ to give an impression of the goodness of the approximation.
 
 There are different estimates for the depletion time of fossil resources ranging from approximately 60 years for crude oil to 100 years for gas and 200 years for coal.
 So, we assume $t^*_G \approx 100y$. Using this, the initial resource stock $G_0$, the total population, the integrated world BIP (with an assumed growth rate of 2\%p.a.) we could get approximate estimates for $e$ and a relation of $b_d$ to  $b_R$.
@@ -484,7 +493,7 @@ So, we assume $t^*_G \approx 100y$. Using this, the initial resource stock $G_0$
 % \end{equation}
 
 \subsubsection{Opinion spreading in the adaptive voter model}
-A common way to describe the dynamics of the adaptive voter model in terms of macroscopic variables is the pair approgammamation.
+A common way to describe the dynamics of the adaptive voter model in terms of macroscopic variables is the pair approximation.
 For simplicity, lets assume a system with two possible opinions $A$ and $B$, on a network with $N$ nodes and $K$ edges.
 We describe the model using a vector $(x, y, z)^T$:
 \begin{equation}
@@ -723,7 +732,7 @@ Learning in the clean sector also seems to be a promising lead. This could resul
 
 \subsection{Experiments with learning in the clean sector}
 
-In the next series of experiments, I implemented learning in the clean sector as outlined in section~\ref{learning}.
+In the next series of experiments, I implemented learning in the clean sector as outlined in section~\ref{eq:learning_by_doing}.
 Consequently, with the appropriate choice of parameters, the system becomes bistable with 
 \begin{itemize}
 	\item one stable state of high fossil resource use, low clean investment and small clean tech.\ knowledge stock,
@@ -814,9 +823,9 @@ The campaign is implemented as follows: In addition to the types of households t
 \end{figure}
 
 
-\begin{wrapfigure}[19]{i}{.55 \textwidth}
+\begin{wrapfigure}[20]{o}{.55 \textwidth}
 	\vspace{-.4 cm}
-%	\includegraphics[width = 1 \textwidth]{./figures/remaining_reserves.png}
+	%\includegraphics[width = .5 \textwidth]{./figures/remaining_reserves.png}
 	\caption{Fraction of economically valuable fossil resources remaining in the ground at the point in time when a qualified clean majority is reached \label{fig:remaining_reserves}}
 \end{wrapfigure}
 
