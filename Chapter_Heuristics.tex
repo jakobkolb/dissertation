@@ -445,7 +445,7 @@ So, we assume $t^*_G \approx 100y$. Using this, the initial resource stock $G_0$
                 $s$ & 0.25 & & Savings rate. \tablefootnote{Default value is roughly in line with data for OECD countries.}\\ \hline
                 $\delta $ & $0.06$ p.a. & & \multirow{2}{*}{\makecell[l]{Capital depreciation rate. \\ Is assumed to be equal for both sectors}} \\
                 &&\\ \hline
-                $\chi$ & 0.1 & & Knowledge depreciation rate \tablefootnote{Commonly estimated somewhere between 10\% p.a. and 30\% p.a.}\\ \hline
+                $\chi$ & 0.02 & & Knowledge depreciation rate \tablefootnote{Commonly estimated somewhere between 10\% p.a. and 30\% p.a.}\\ \hline
 		$\tau$ & 1 & X & activity rate of households \\ \hline
 		$\varphi$ & $1\leq\varphi\leq1$ & X & rewiring probability given an interaction event
 	\end{tabular}
@@ -473,9 +473,10 @@ There are too many parameters in this model to evaluate the qualitative influenc
 
 \textit{The savings rate $s$} indicates the fraction of income that households save on average. I use a fixed savings rate for all households that is set to $s=0.25$ which is roughly in line with data for OECD countries\footnote{see https://data.worldbank.org/indicator/NY.GNS.ICTR.ZS}.\\
 
-\textit{The capital depreciation rate $\delta$} is assumed to be equal in both sectors. Capital depreciation rates strongly depend on the type of capital under consideration.\\
+\textit{The capital depreciation rate $\delta$} is assumed to be equal in both sectors. Capital depreciation rates strongly depend on the type of capital under consideration. Typical estimates range from 1.5 \% to 8.5\% for different kinds of capital see \cite{Kamps2005} and 
+\cite{Gupta2014}. I therefore chose a depreciation rate of capital of 5\%\\
 
-\textit{The knowledge depreciation rate $\chi$ in the clean sector} is influenced by different factors. Tacit individual knowledge depreciates with a rate that can be approximated by the rate of workers leaving the workforce. 
+\textit{The knowledge depreciation rate $\chi$ in the clean sector} is assumed to be primarily a human capital effect. Therefore, I approximate the rate of knowledge depreciation with the rate workers leaving the workforce which assuming a typical career length of ~45 years results in $\chi=0.02$. 
 
 \iffalse
 \subsubsection{Opinion spreading in the adaptive voter model}
