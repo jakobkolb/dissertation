@@ -452,23 +452,23 @@ So, we assume $t^*_G \approx 100y$. Using this, the initial resource stock $G_0$
 	\label{tab:Heuristics_Parameter_list}
 \end{sidewaystable}
 
-To make the model results more intuitively accessible I roughly estimate the model parameters from real world data where possible. I chose 2010 as the base year, since for this year there are all the necessary estimates and data available. I do not intend to achieve any predictive accuracy with the model results and therefore use only very crude estimates for the model parameters. However, I believe that being able the express the model results at least in the right order of magnitude of real world quantities, makes also the qualitative results of the model easier to interpret.\\
+To make the model results more intuitively accessible I roughly estimate the model parameters from real world data where possible. I chose 2010 as the base year, since for this year there are all the necessary estimates and data available. I do not intend to achieve any predictive accuracy with the model results and therefore use only very crude estimates for the model parameters. However, I believe that being able to express the model results at least in the right order of magnitude of real-world quantities makes also the qualitative results of the model easier to interpret.\\
 
 First, I collect estimates for all parameters where there are values in the literature.\\
 
-\textit{Input factor elasticities} are a defining set of parameters for Cobb Douglas production functions. They measure the responsiveness of output with respect to a change in input factors. Historically, according to \cite{Douglas1976} the values for $\alpha$ range between approximately 0.5 and 0.75. For simplicity, I set $\alpha=2/3$ which however does not limit the generality of the approximate solutions that are developed later in section \ref{sec:Approximation} ff. \cite{Douglas1976} also states, that $\alpha+\beta=1$ is a fair approximation of the actual data.\\
+\textit{Input factor elasticities} are a defining set of parameters for Cobb-Douglas production functions. They measure the responsiveness of output with respect to a change in input factors. Historically, according to \cite{Douglas1976} the values for $\alpha$ range between approximately 0.5 and 0.75. For simplicity, I set $\alpha=2/3$ which however does not limit the generality of the approximate solutions that are developed later in section \ref{sec:Approximation} ff. \cite{Douglas1976} also states that $\alpha+\beta=1$ is a fair approximation of the actual data.\\
 \begin{wrapfigure}[20]{i}{.55 \textwidth}
 	\vspace{-.4 cm}
         \hspace{-1.5 cm}
         \includegraphics[width = .65 \textwidth]{./figures/energy_consumption_clean_dirty.pdf}
-        \caption{Energy usage divided by dirty (coal, oil, gas) and clean (hydro, nuclear, other renewables). The dashed line indicates the fraction of clean energy consumption. Data from \cite{dudley2019bp}.\label{fig:energy_data}}
+        \caption{Energy usage divided into dirty (coal, oil, gas) and clean (hydro, nuclear, other renewables). The dashed line indicates the fraction of clean energy consumption. Data from \cite{dudley2019bp}.\label{fig:energy_data}}
 \end{wrapfigure}
-\textit{Elasticity of knowledge $\gamma$} is also the rate of learning of technology in the clean sector as discussed in \ref{sec:model_description}. This heavily depends on the technology under consideration. According to \cite{Kahouli-Brahmi2008} estimates for learning by doing rates approximately range between 10\% and 20\%. As an approximate value, I set $\gamma=1/8$. \\
+\textit{Elasticity of knowledge $\gamma$} is also the rate of learning of technology in the clean sector as discussed in \ref{sec:model_description}. This heavily depends on the technology under consideration. According to \cite{Kahouli-Brahmi2008} estimates for learning-by-doing rates approximately range between 10\% and 20\%. As an approximate value, I set $\gamma=1/8$. \\
 \textit{The savings rate $s$} indicates the fraction of income that households save on average. I use a fixed savings rate for all households that is set to $s=0.25$ which is roughly in line with data for OECD countries\footnote{see \url{https://data.worldbank.org/indicator/NY.GNS.ICTR.ZS}}.\\
-\textit{Total labor $L$} is taken from wold bank data \footnote{see \url{https://data.worldbank.org/indicator/SL.TLF.TOTL.IN}} which estimates it at 3.38 billion people for 2016.\\
-Second, I estimate parameters for which this can be done with a back of the envelope calculation.\\
-\textit{The knowledge depreciation rate $\chi$ in the clean sector} is assumed to be primarily a human capital effect. Therefore, I approximate the rate of knowledge depreciation with the rate workers leaving the workforce which assuming a typical career length of ~45 years results in $\chi=0.02$. \\
-\textit{The energy intensity in the dirty sector $e$} is estimated from world GDP\footnote{according to \url{https://data.worldbank.org/indicator/NY.GDP.MKTP.CD} world GDP was ~ $5.35 \cdot 10^{14}$ U.S. \$ for the year 2010} and the consumption of fossil ($R$) and renewable ($E$) energy \footnote{both values are taken from the BP statistical review of world energy \cite{dudley2019bp}. I count the consumption of energy from Oil, Coal and Gas as fossil and everything else as renewable.} as follows. I approximate the fraction of total economic output coming from the clean sector as the fraction of fossil energy production and estimate the energy intensity e as $Y_d/R$ for the base year 2010:
+\textit{Total labor $L$} is taken from world bank data\footnote{see \url{https://data.worldbank.org/indicator/SL.TLF.TOTL.IN}} which estimates it at 3.38 billion people for 2016.\\
+Second, I estimate parameters for which this can be done with a back-of-the-envelope calculation.\\
+\textit{The knowledge depreciation rate $\chi$ in the clean sector} is assumed to be primarily a human capital effect. Therefore, I approximate the rate of knowledge depreciation with the rate workers leaving the workforce which assuming a typical career length of ~45 years results in roughly $\chi=0.02$. \\
+\textit{The energy intensity in the dirty sector $e$} is estimated from world GDP\footnote{according to \url{https://data.worldbank.org/indicator/NY.GDP.MKTP.CD} world GDP was ~ $5.35 \cdot 10^{14}$ U.S. \$ for the year 2010} and the consumption of fossil ($R$) and renewable ($E$) energy\footnote{both values are taken from the BP statistical review of world energy \cite{dudley2019bp}. I count the consumption of energy from Oil, Coal and Gas as fossil and everything else as renewable.} as follows. I approximate the fraction of total economic output coming from the clean sector as the fraction of fossil energy production and estimate the energy intensity $e$ as $Y_d/R$ for the base year 2010:
 \begin{equation}
   e = \frac{Y_d}{R} \approx \frac{GDP \frac{R}{R+E}}{R} = \frac{GDP}{R+E} \approx \frac{5.3 10^{14} \$}{11.9 10^9 \mathrm{toe}} = 4505 \frac{\$}{\mathrm{toe}}
   \label{eq:energy_intensity_estimate}
@@ -487,7 +487,7 @@ and
   \label{eq:approx_clean_capital}
 \end{equation}
 
-\textit{The capital depreciation rate $\delta$} is assumed to be equal in both sectors. Capital depreciation rates strongly depend on the type of capital under consideration. Typical estimates range from 1.5 \% to 8.5\% for different kinds of capital see \cite{Kamps2005} and \cite{Gupta2014}. This leaves some freedom to chose $\delta$. I use this, to set $\delta$ such that the estimated total capital stock $K = K_c + K_d$ together with the chose savings rate of $s=0.25$ is an equilibrium solution to 
+\textit{The capital depreciation rate $\delta$} is assumed to be equal in both sectors. Capital depreciation rates strongly depend on the type of capital under consideration. Typical estimates range from 1.5 \% to 8.5\% for different kinds of capital see \cite{Kamps2005} and \cite{Gupta2014}. This leaves some freedom to chose $\delta$. I use this to set $\delta$ such that the estimated total capital stock $K = K_c + K_d$ together with the chosen savings rate of $s=0.25$ is an equilibrium solution to 
 \begin{equation}
   \dot{K} = s \cdot Y - \delta K
   \label{eq:delta_estimate}
@@ -495,34 +495,34 @@ and
 \begin{wrapfigure}[21]{i}{.55 \textwidth}
 	\vspace{-.4 cm}
         %\hspace{-1.5 cm}
-        \includegraphics[width = .65 \textwidth]{./figures/fossil_resource_per_year_extrapolated.pdf}
+        \includegraphics[width = .65 \textwidth]{./figures/fossil_resource_per_year.pdf}
         \caption{Historical resource of fossil resources (coal, oil and gas) for the years 1965-2018 according to \cite{dudley2019bp} extrapolated for the years 1948-1964. \label{fig:historical_resource_use}}
 \end{wrapfigure}
 which results in a depreciation rate of $\delta\approx 5.68 \% \mathrm{p.a.}$.\\
 
-\textit{I estimate the initial value of the knowledge stock in the clean sector $C$} for the base year from the time series of production in the clean sector that is approximated equivalently to \ref{eq:energy_intensity_estimate} as world GDP times the fraction of clean energy consumption for the years of 1965-2010. I use the discrete version of \eqref{eq:learning_by_doing}:
-\begin{equation}
+\textit{I estimate the initial value of the knowledge stock in the clean sector $C$} for the base year from the time series of production in the clean sector. Production in the clean sector is approximated equivalently to eq. \ref{eq:energy_intensity_estimate} as world GDP times the fraction of clean energy consumption for the years of 1965-2010. I use the discrete version of \eqref{eq:learning_by_doing}:
+\begin{equation} 
   C(t+1) = (1-\chi)C(t) + Y_c(t)
   \label{eq:discrete_clean_knowledge}
 \end{equation}
 
 to approximate the knowledge stock for the year 2010 as $C \approx 7.8 \cdot 10^{14}$ U.S. \$. \\
-I estimate \textit{the initial fossil resource stock $G_0$ and the current resource stock $G$} for the base year from the historical usage of fossil fuels (which I extrapolate for the time before 1965 -- see fig. \ref{fig:historical_resource_use}) and the current estimates of fossil fuels remaining according to current use. There are different estimates for the depletion time of fossil resources ranging from approximately 60 years for crude oil to 100 years for gas and 200 years for coal. As the model does not differentiate between different types of fossil resources, I use a depletion time of 100 years and approximate the current resource stock as the depletion time times the current fossil resource use:
-\begin{equation}
+I estimate \textit{the initial fossil resource stock $G_0$ and the current resource stock $G$} for the base year from the historical usage of fossil fuels (after 1965 for which I have the data depicted in fig. \ref{fig:historical_resource_use}) and the current estimates of fossil fuels remaining according to current use. There are different estimates for the depletion time of fossil resources ranging from approximately 60 years for crude oil to 100 years for gas and 200 years for coal. As the model does not differentiate between different types of fossil resources, I use a depletion time of 100 years and approximate the current resource stock as the depletion time times the current fossil resource use:
+\begin{equation} 
   G(t=2010) \approx R(t=2010) \cdot 100, = 11.6 \cdot 10^{5} ~ \mathrm{Mtoe},
   \label{eq:current_fossil_resource_stock}
 \end{equation}
 and the initial fossil resource stock as the current fossil resource stock plus the estimated cumulative resource stock according to the extrapolated fossil resource use depicted in fig. \ref{fig:historical_resource_use}:
-\begin{equation}
-  G_0 \approx G(t=2010) + \sum_{t=1948}^{2010} R(t) = 15.8 \cdot 10^{5} ~ \mathrm{Mtoe}.
+\begin{equation} 
+  G_0 \approx G(t=2010) + \sum_{t=1965}^{2010} R(t) = 15.5 \cdot 10^{5} ~ \mathrm{Mtoe}.
   \label{eq:initial_fossil_resource_approximation}
 \end{equation}
 
 Finally, I estimate the set of remaining parameters $b_R$, $\mu$, $b_c$ and $b_d$ as follows:
 
-The I estimate the parameters of the fossil resource cost function $b_R$ and $\mu$ from historical energy price and fossil resource consumption data. I use the historical oil price\footnote{I use the yearly average oil price for different types of crude oil according to \url{https://www.statista.com/statistics/262858/change-in-opec-crude-oil-prices-since-1960/}} as proxy for the fossil resource price $p_R$ as historical data for prices for different types of fossil energy sources \cite{owidfossilfuels} shows that prices are correlated and of the same order of magnitude. I create a time series of the fossil resource stock $G(t)$ from $G_0$ as estimated in eq. \ref{eq:initial_fossil_resource_approximation} and the time series of fossil resource use in fig. \ref{fig:historical_resource_use} like
+I estimate the parameters of the fossil resource cost function $b_R$ and $\mu$ from historical energy price and fossil resource consumption data. I use the historical oil price\footnote{I use the yearly average oil price for different types of crude oil according to \url{https://www.statista.com/statistics/262858/change-in-opec-crude-oil-prices-since-1960/}} as proxy for the fossil resource price $p_R$ as historical data for prices for different types of fossil energy sources \cite{owidfossilfuels} shows that prices are strongly correlated and of the same order of magnitude. I create a time series of the fossil resource stock $G(t)$ from $G_0$ as estimated in eq. \ref{eq:initial_fossil_resource_approximation} and the time series of fossil resource use in fig. \ref{fig:historical_resource_use} like
 
-\begin{equation}
+\begin{equation} 
   G(t) = G_0 - \sum_{t=1948}^{t}R(t),
   \label{eq:fossil_resource_time_series}
 \end{equation}
@@ -543,15 +543,29 @@ I approximate the yearly cost of fossil resource as the product of the approxima
 The resulting fit is given in fig. \ref{fig:resource_cost_fit}.
 
 To estimate the total factor productivities in the clean and dirty sector $b_c$ and $b_d$, I use equations \ref{eq:clean_production} and \ref{eq:dirty_production} and plug in the solutions for the labor shares $L_c$ and $L_d$ from equations \ref{eq:clean_labor} and \ref{eq:dirty_labor} as well as the estimates for $K_c$, $K_f$, $\alpha$, $\beta$, $\gamma$, $s$, $\delta$, $\chi$, $e$, $C$, $G0$, $G$, $b_R$, $\mu$ and the data for $R$ and $L$. Then, I can set them equal to the estimates for $Y_c$ and $Y_d$ to obtain an implicit condition for $b_c$ and $b_d$. Using numerical root finding, this results in 
-\begin{align}
+ \begin{align}
   &b_c \approx 22.94 ~ \mathrm{people} ^{-\alpha} ~ \mathrm{U.S. \$}^{1-\beta-\gamma} \quad \mathrm{and} \\
   &b_d \approx 1844 ~ \mathrm{people}^{-\alpha} ~ \mathrm{U.S. \$}^{1-\beta}.
   \label{eq:estimate_total_factor_productivities}
 \end{align}
 
-Now, if you think that these units look weird, you are not alone. Maybe comment here on the discourse about this and on possible ways to circumvent the problem all together. \\
+Now, if you think that these units look weird, you are not alone. The concept of total factor productivity has been criticized for various reasons and i.e.\cite{Barnett2007} says with regards to their units that they are ``either meaningless or economically unreasonable''. Official statistics usually bypass this problem insofar as they avoid measuring levels but construct unitless growth rates for the outputs and inputs and therefore also for the residual. Inspired by this practice I will do a similar trick. I rescale the total factor productivity by dividing the input variables by arbitrarily chosen typical values:
+\begin{align}
+  Y_c &= \tilde{b}_c \left( \frac{L_c}{L_0} \right)^{\alpha} \left( \frac{K_c}{K_{c0}} \right)^{\beta} \left( \frac{C}{C_0} \right)^{\gamma} \nonumber \\
+  Y_d &= \tilde{b}_d \left( \frac{L_d}{L_0} \right)^{\alpha} \left( \frac{K_d}{K_{d0}} \right)^{\beta}.
+  \label{eq:rescalled_TFP}
+\end{align}
+This brings a number of advantages. First, the rescaled total factor productivities $\tilde{b}_c$ and $\tilde{b}_d$ are measured in the same units as economic output, thereby avoiding the weird physical units from above. Second, the rescaled TFPs are independent of the input factor elasticities $\alpha$, $\beta$ and $\gamma$.
+To rescale the TFPs, I will use the values of labor, capital and knowledge for the base year of the previous estimates. This results in
+\begin{align}
+  &\tilde{b}_c = b_c L_0^{\alpha}K_{c0}^\beta C_0^{\gamma} = 2.501 \cdot 10^{14} ~ \mathrm{U.S. \$}, \\
+  &\tilde{b}_d = b_d L_0^{\alpha}K_{d0}^\beta = 5.175 \cdot 10^{14} ~ \mathrm{U.S. \$}.
+  \label{eq:rescalled_TFP_values}
+\end{align}
+Note, that these estimates for $\tilde{b}_c$ and $\tilde{b}_d$ can only be used in combination with the values of labor, capital and knowledge for the base year $L_0$, $K_{c}$, $K_{d0}$ and $C_0$. However, this the advantage, that these values can be changed independently from the estimates. This is very useful once I want to change the values of e.g. input factor elasticities such as the rate of learning-by-doing to evaluate their influence on the qualitative behavior of the model.\\
 
 The parameter values that were estimated in this chapter are the foundation on which the following model analysis can be interpreted in terms of real economic quantities which hopefully helps to evaluate the findings intuitively in a sociopolitical and economic context of the twenty first century.
+Still, both the model and the parameter estimates are obviously oversimplified and are unsuitable to derive quantitative predictions but quantitative predictions were never the goal of the model.
 
 \iffalse
 \subsubsection{Opinion spreading in the adaptive voter model}
