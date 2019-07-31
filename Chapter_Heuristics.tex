@@ -423,28 +423,32 @@ So, we assume $t^*_G \approx 100y$. Using this, the initial resource stock $G_0$
 \begin{sidewaystable}
 	\centering
 	\begin{tabular}{r|l|c|l}
-          \makecell[l]{Symbol} & \makecell[l]{Default \\ Value} & \rotatebox[origin=c]{90}{Unit} & \makecell[l]{Parameter \\ Description} \\\hline
-          $b_c$ & 22.94444 & $\mathrm{people}^{-\alpha} ~ \mathrm{U.S.\$}^{1-\beta-\gamma}$ & \multirow{2}{*}{\makecell[l]{total factor productivity (TFP) in \\the clean and dirty sector. }} \\ \hhline{---~}
-          $b_d$ & 1844 & $\mathrm{people}^{-\alpha} ~ \mathrm{U.S.\$}^{1-\beta}$& \\ \hline
+          \makecell[l]{Symbol} & \makecell[l]{Default Value} & Unit & \makecell[l]{Parameter Description} \\\hline
+
                 $\alpha_c$ & $2/3$ & & \multirow{3}{*}{\makecell[l]{Labor elasticities in the clean and dirty sector. \\Are assumed to be equal to allow for analytic \\calculation of labor shares between sectors}} \\ \hhline{---~}
                 $\alpha_d$ & $2/3$ & & \\
                 && & \\ \hline
-                $\beta_c$ & $1-\alpha_c$ & & \multirow{3}{*}{\makecell[l]{Capital elasticities in the clean and dirty sector. \\ Are fixed through the assumption of no profits \\that is equivalent to $\alpha_i + \beta_i = 1$.}} \\ \hhline{---~}
-                $\beta_d$ & $1-\alpha_d$ & & \\
-                && & \\ \hline
-                $\gamma$ & $1/8$ &  & Elasticity of knowledge in the clean sector\\ \hline
-                $L$ & $3.38 \cdot 10 ^{9}$ & billion people & Total labor. \\ \hline
-                  $\mu$ & 5.72 &  & \multirow{2}{*}{\makecell[l]{Exponents of resource usage $R$ and remaining \\resource stock $G$ in the resource extraction costs $c_R$. }} \\ \hhline{---~}
+                $\beta_c$ & $1-\alpha_c$ & & \multirow{2}{*}{\makecell[l]{Capital elasticities in the clean and dirty sector. Are fixed through the \\ assumption of no profits that is equivalent to $\alpha_i + \beta_i = 1$.}} \\ \hhline{---~}
+                $\beta_d$ & $1-\alpha_d$ & & \\ \hline
+                $\gamma$ & $1/8$ &  & Elasticity of knowledge in the clean sector.\\ \hline
+                $L_1$ & $3.38 \cdot 10 ^{9}$ & billion people & Total labor in 2010. \\ \hline
+                $\mu$ & 5.72 &  & \multirow{2}{*}{\makecell[l]{Exponents of resource usage $R$ and remaining \\resource stock $G$ in the resource extraction costs $c_R$. }} \\ \hhline{---~}
                  &  &  & \\ \hline
-                 $b_R$ & $184410.4 \cdot 10^{8}$ & \$/Mtoe & \multirow{3}{*}{\makecell[l]{Resource uptake efficiency and fossil usage efficiency for \\fossil resource. Together, they define the fraction of fossil \\resources that is not economically viable $G^* = G_0 \left(b_R/e^\rho\right)^{1/\mu}$.}} \\ \hhline{---~}
+                $b_R$ & $184410.4 \cdot 10^{8}$ & \$/Mtoe & \multirow{3}{*}{\makecell[l]{Resource uptake efficiency and fossil usage efficiency for \\fossil resource. Together, they define the fraction of fossil \\resources that is not economically viable $G^* = G_0 \left(b_R/e^\rho\right)^{1/\mu}$.}} \\ \hhline{---~}
                 $e$ & 4505 & \$/toe & \\
                 & & & \\ \hline
-                $G_0$ & $15.8 \cdot 10^5$ & Mtoe & \multirow{2}{*}{\makecell[l]{Initial fossil resource stock. Set according to \eqref{eq:resource_depletion_time} \\ depending on $b_R$, $e$, $b_d$,  $\delta$, $s$ and $L$.}}\\
-                & & & \\ \hline
-                $s$ & 0.25 & & Savings rate. \\ \hline
-                $\delta $ & $5.6$ \% p.a. & & \multirow{2}{*}{\makecell[l]{Capital depreciation rate. \\ Is assumed to be equal for both sectors}} \\
+                $G_0$ & $15.8 \cdot 10^5$ & Mtoe & \multirow{2}{*}{\makecell[l]{Initial and current fossil resource stock estimated from historical \\ data depicted in fig \ref{fig:historical_resource_use}.}}\\\hhline{---~}
+
+                $G_1$ &  & Mtoe & \\ \hline
+                $s$ & 0.25 & & Gross savings rate. \\ \hline
+                $\delta $ & $5.6$ & \% p.a.  & \multirow{2}{*}{\makecell[l]{Capital depreciation rate. \\ Is assumed to be equal for both sectors}} \\
                 &&\\ \hline
-                $\chi$ & 0.02 & & Knowledge depreciation rate \\ \hline
+                $\tilde{b}_c$ &  $2.501 \cdot 10^{14}$ & U.S.\$ & \multirow{2}{*}{\makecell[l]{rescaled total factor productivity (TFP) in the clean and dirty sector. \\ as defined in eq. \ref{eq:rescalled_TFP_clean} and \ref{eq:rescalled_TFP_dirty}}} \\ \hhline{---~}
+                $\tilde{b}_d$ & $5.175 \cdot 10^{14}$ & U.S. \$ & \\ \hline
+                $K_{c1}$      & $2.04  \cdot 10^{15}$ & U.S. \$ & Estimated capital in the clean sector in 2010 \\ \hline
+                $K_{d1}$      & $3.12  \cdot 10^{14}$ & U.S. \$ & Estimated capital in the dirty sector in 2010 \\ \hline
+                $C_1$         & $7.8   \cdot 10^{14}$ & U.S. \$ & Estimated knowledge stock in the clean sector in 2010\\ \hline
+                $\chi$ & 2 & \% p.a. & Knowledge depreciation rate \\ \hline
 		$\tau$ & 1 & years & activity rate of households \\ \hline
 		$\varphi$ & $1\leq\varphi\leq1$ & X & rewiring probability given an interaction event
 	\end{tabular}
@@ -496,7 +500,7 @@ and
 	\vspace{-.4 cm}
         %\hspace{-1.5 cm}
         \includegraphics[width = .65 \textwidth]{./figures/fossil_resource_per_year.pdf}
-        \caption{Historical resource of fossil resources (coal, oil and gas) for the years 1965-2018 according to \cite{dudley2019bp} extrapolated for the years 1948-1964. \label{fig:historical_resource_use}}
+        \caption{Historical resource of fossil resources (coal, oil and gas) for the years 1965-2018 according to \cite{dudley2019bp} and estimated historical fossil resource stock according to eq. \ref{eq:current_fossil_resource_stock} and \ref{eq:fossil_resource_time_series}. \label{fig:historical_resource_use}}
 \end{wrapfigure}
 which results in a depreciation rate of $\delta\approx 5.68 \% \mathrm{p.a.}$.\\
 
@@ -551,15 +555,14 @@ To estimate the total factor productivities in the clean and dirty sector $b_c$ 
 
 Now, if you think that these units look weird, you are not alone. The concept of total factor productivity has been criticized for various reasons and i.e.\cite{Barnett2007} says with regards to their units that they are ``either meaningless or economically unreasonable''. Official statistics usually bypass this problem insofar as they avoid measuring levels but construct unitless growth rates for the outputs and inputs and therefore also for the residual. Inspired by this practice I will do a similar trick. I rescale the total factor productivity by dividing the input variables by arbitrarily chosen typical values:
 \begin{align}
-  Y_c &= \tilde{b}_c \left( \frac{L_c}{L_0} \right)^{\alpha} \left( \frac{K_c}{K_{c0}} \right)^{\beta} \left( \frac{C}{C_0} \right)^{\gamma} \nonumber \\
-  Y_d &= \tilde{b}_d \left( \frac{L_d}{L_0} \right)^{\alpha} \left( \frac{K_d}{K_{d0}} \right)^{\beta}.
-  \label{eq:rescalled_TFP}
+  Y_c &= \tilde{b}_c \left( \frac{L_c}{L_0} \right)^{\alpha} \left( \frac{K_c}{K_{c0}} \right)^{\beta} \left( \frac{C}{C_0} \right)^{\gamma} \label{eq:rescalled_TFP_clean} \\
+  Y_d &= \tilde{b}_d \left( \frac{L_d}{L_0} \right)^{\alpha} \left( \frac{K_d}{K_{d0}} \right)^{\beta}. \label{eq:rescalled_TFP_dirty}
 \end{align}
 This brings a number of advantages. First, the rescaled total factor productivities $\tilde{b}_c$ and $\tilde{b}_d$ are measured in the same units as economic output, thereby avoiding the weird physical units from above. Second, the rescaled TFPs are independent of the input factor elasticities $\alpha$, $\beta$ and $\gamma$.
 To rescale the TFPs, I will use the values of labor, capital and knowledge for the base year of the previous estimates. This results in
-\begin{align}
+\begin{align} 
   &\tilde{b}_c = b_c L_0^{\alpha}K_{c0}^\beta C_0^{\gamma} = 2.501 \cdot 10^{14} ~ \mathrm{U.S. \$}, \\
-  &\tilde{b}_d = b_d L_0^{\alpha}K_{d0}^\beta = 5.175 \cdot 10^{14} ~ \mathrm{U.S. \$}.
+  &\tilde{b}_d = b_d L_0^{\alpha}K_{d0}^\beta =              5.175 \cdot 10^{14} ~ \mathrm{U.S. \$}.
   \label{eq:rescalled_TFP_values}
 \end{align}
 Note, that these estimates for $\tilde{b}_c$ and $\tilde{b}_d$ can only be used in combination with the values of labor, capital and knowledge for the base year $L_0$, $K_{c}$, $K_{d0}$ and $C_0$. However, this the advantage, that these values can be changed independently from the estimates. This is very useful once I want to change the values of e.g. input factor elasticities such as the rate of learning-by-doing to evaluate their influence on the qualitative behavior of the model.\\
