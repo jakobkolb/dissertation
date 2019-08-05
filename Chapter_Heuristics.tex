@@ -70,6 +70,7 @@ We assume physical capital to be specific to the technology employed such that i
 \end{align}
 
 \subsection{Investment Decision Making}
+\label{sec:investment_decision_making}
 We model households as bounded rational decision makers \cite{simon1972theories, simon1982models, gigerenzer2002bounded}.
 That is, households take their investment decisions, i.e. whether to invest their savings in the clean or the dirty sector, not by forming rational expectations \cite{Evans2006, Kirman2014} but by A) using \emph{heuristic decision strategies} to make robust decisions with sparce information and with limited computational work and B) engaging in \emph{social learning} \cite{bandura1977} to obtain successful decision strategies \cite{Traulsen2010} with reasonable effort.
 
@@ -553,7 +554,7 @@ To estimate the total factor productivities in the clean and dirty sector $b_c$ 
   \label{eq:estimate_total_factor_productivities}
 \end{align}
 
-Now, if you think that these units look weird, you are not alone. The concept of total factor productivity has been criticized for various reasons and i.e.\cite{Barnett2007} says with regards to their units that they are ``either meaningless or economically unreasonable''. Official statistics usually bypass this problem insofar as they avoid measuring levels but construct unitless growth rates for the outputs and inputs and therefore also for the residual. Inspired by this practice I will do a similar trick. I rescale the total factor productivity by dividing the input variables by arbitrarily chosen typical values:
+Now, if you think that these units look weird, you are not alone. There is an ongoing debate between economists about sound ways to interpret total factor productivity with regards -- but not limited to -- their units. Up to the point that e.g. \cite{Barnett2007} goes so far as to state that there is no other way as to regard them in their current formulation as ``either meaningless or economically unreasonable''. Official statistics usually bypass this problem insofar as they avoid measuring levels but construct unitless growth rates for the outputs and inputs and therefore also for the residual. Inspired by this practice I will do a similar trick. I rescale the total factor productivity by dividing the input variables by typical yet arbitrarily chosen values:
 \begin{align}
   Y_c &= \tilde{b}_c \left( \frac{L_c}{L_0} \right)^{\alpha} \left( \frac{K_c}{K_{c0}} \right)^{\beta} \left( \frac{C}{C_0} \right)^{\gamma} \label{eq:rescalled_TFP_clean} \\
   Y_d &= \tilde{b}_d \left( \frac{L_d}{L_0} \right)^{\alpha} \left( \frac{K_d}{K_{d0}} \right)^{\beta}. \label{eq:rescalled_TFP_dirty}
@@ -623,42 +624,114 @@ and from this we see, that the timescale for $x$ to reach its equilibrium values
 \end{equation}
 Since, at least according to my impression, people don't really change their minds or make new friends too often, I propose keeping this timescale between $1<t_a^*<10$ years.
 \fi
+\newpage
 \subsection{Opinion formation and decision making}
 \label{sec:oppinion_formation_and_decision_making}
 
-Households use the Take the Best heuristic to make investment decisions. This heuristic chooses between two options. Therefore, it sequentially evaluates cues (pieces of information), and as soon as one discriminates, it takes the option with the higher value on the discriminating cue. Possible cues in our model are:
-\begin{itemize}
-	\item[0] investment is dirty,
-	\item[1] investment is clean,
-	\item[2] Capital return rate $r_c$ and $r_d$,	
-	\item[3] trend of capital return rates $\dot{r}_c$ and $\dot{r}_d$, interpolated from previous capital rents,
-	\item[4] action observed in the majority of neighbors.
-\end{itemize}
-Preferences or opinions (I use the expressions synonymously in the context of this model) of the households are combinations of these cues without repetition. Investment decisions according to these preferences are updated immediately. \\
-Since the number of possible combinations of these opinions is large ($38$) and consequently, to get statistically valid results one would need a very large number of households ($ ~ 10^2 \times 38$), which would be computationally expensive, we reduce the number of cue combinations to a set of presumably relevant `types':
-\begin{itemize}
-	\item [[2, 3]]: myopic investor,
-	\item [[3, 2]]: trend sensitive investor,
-	\item [[4, 2]]: myopic herder,
-	\item [[4, 3]]: trend sensitive herder,
-	\item [[4, 1]]: Green conformer,
-	\item [[4, 0]]: Conservative conformer,
-	\item [[1]]: `Gutmensch',
-	\item [[0]]: Redneck
-\end{itemize}
-It is assumed, that these opinions that are the reasoning for individual decision making are spread amongst households in an opinion dynamics process. This opinion dynamics process is a variation of the adaptive voter model. The activity of households is governed by a poison process with mean waiting time $\tau$. If a households becomes active, it randomly chooses one of its neighbors to interact with and if they are of different opinion, there are two possible options:
-\begin{itemize}
-	\item [1)] with probability $\varphi$ the households cuts the link to its neighbor and connects to a random neighbor with the same opinion,
-	\item [2)] with probability $1-\varphi$ they compare their income and with probability $P(x_k \rightarrow x_j)$ the household adopts the opinion of its neighbor.
-\end{itemize}
-The imitation probability monotonously increases with the income difference between the households: 
+I assume that households use the Take-the-Best heuristic as explained in [GIVE REFERENCE HERE] to decide whether to invest their savings in the clean or the dirty sector. This assumption results in three follow up questions that have to be answered for the model setup. A) Which ques i.e. bits of information to the households use to compare the two sectors for their decision? B) Which combinations of these ques (i.e. which cue orders) do I want to model? C) Which initial distribution of cue orders should I use as an initial condition. This chapter will answer these three questions in this order.
 
-\begin{equation} 
-	P(x_k \rightarrow x_j) = 1/2 ({\mathrm tanh}(I_k - I_l)-1).
-	\label{primitive_imitation_probability}
+To represent the cue order in the model and in this text, I assign numbers to the different cues $(c_l)$ and represent cue orders $O$ as lists of these numbers: $O: (c_l,\dots c_m)$. As a rule, cues only appear once in each cue order and if one cue definitively discriminates between options, there will be no other cues after it.
+
+\subsubsection*{A) Which information do households use to compare the clean and the dirty sector for their investment decision?}
+I assume that households use information that is available to them either in their own mind such as inherent norms and preferences as well as information that is available to them in their surroundings such as factual data about their economic performance of the clean and the dirty sector or the behaviour of their acquaintances.\\
+
+\textit{Inherent norms:}
+I assume that it is an option for households to invest in one or the other sector purely out of their inherent conviction to do so, disregarding all other information that might be available. This constitutes two cues: 
+\begin{itemize}
+  \item [ $(0)$ ] the household invests its savings in the clean sector, regardless of all other information,
+  \item [ $(1)$ ] the household invests its savings in the dirty sector, regardless of all other information.
+\end{itemize}
+Both of these cues definitively discriminate between the two sectors.\\
+
+\textit{Factual data about the economic performance of the clean and the dirty sector:}
+Many behavioral investment models such as \cite{Lux1999}, \cite{Alfarano2008a}, \cite{Chiarella2011a} and \cite{Hommes2017BoomsPrices} assume two possible ways to make investment decisions and hence model two types of investors - for an overview see e.g. \cite{Hommes2006a} or \cite{Chakraborti2011}. Such models usually assume that investors either invest based on their beliefs about an inherent value of an investment (such investors are called fundamentalists as they believe in an inherent fundamental value of an asset and that the asset price will return to this value eventually) or based on their beliefs on a future value of an investment (such investors are called chartists as they do believe that asset prices are inherently volatile and that their future price can best be read out out of the price time series - the chart).
+Motivated by this approach, I assume that households can use either the current value of an investment to ground their decision or they can use an estimate about which of the investments will be more valuable in the future. I also assume that they use the current return rates $r_c$ and $r_d$ as a proxy for the inherent value of an investment in the clean or the dirty sector and that they use their first derivatives with respect to time $\dot{r}_c$ and $\dot{r}_d$ as a proxy for the future development of the value of an investment in one or the other sector. I implement these as the two following cues:
+\begin{itemize}
+  \item [$(2)$] households invest in the sector whose capital return rate is distinctly higher e.g. $r_j > (1+\iota) r_k$,
+  \item [$(3)$] households invest in the sector whose trend in capital return rates is distinctly more positive e.g. $\dot{r}_k > (1+\iota) r_k$,
+\end{itemize}
+and with distinctly, I mean $\iota = 0.1$.\\
+
+\textit{Behavior of households' acquaintances:}
+As discussed previously in section \ref{sec:investment_decision_making}, I assume that one of the households different drivers is homophily, i.e. the desire to be similar to ones acquaintances. I have already used this in the motivation of the social learning component where households are homophilic with regards to their beliefs that are represented by their cue orders. To be consistent, I use it again here where I say that one possible driver for households investment decision is that they want to behave similar to their acquaintances. This behavior is also referred to as `Imitate the Majority' in the heuristic decision making literature see e.g. \cite{Gigerenzer2009} \cite{garcia2009does} and \cite{gigerenzer2011heuristic}. 
+I implement this in terms of the following cue:
+\begin{itemize}
+  \item [$(4)$] A household invests its savings in the sector in which the majority of its acquaintances invest e.g. it invests in the sector $k$ if $\sigma_k > 0.5 + \iota$
+\end{itemize}
+with $\sigma_k$ being the fraction of acquaintances investing in sector $k$ and again $\iota=0.1$.
+
+\subsubsection*{B) Which cue orders to consider in the model?}
+With regards to the cue orders in the model, there is a trade off to consider. For a hight number of cue orders, one needs a considerably higher number of households to get enough households to use each cue order to get meaningful results in terms of statistics. But a higher number of households leads to significantly more costly numerical simulations. (For a short study of model run times in its current implementation depending on the number of simulated households, see fig. \ref{fig:runtime}.) Therefore, I will not consider all $38$ possible cue orders, but I will restrict the model to cue orders of length $2$\footnote{I hypothicise that only a vanishing fraction of decisions would be made with more than two cues and that making these decisions at random (as the TTP Heuristic prescribes it) instead of with more cues does not make a difference. I could track the fraction of decisions that are made at random for an ensemble of simulations at some point to prove this.}. Additionally, of all $14$ remaining possible cue orders of length $2$, I only consider a subset. This subset must still represents all possible cues and should therefore be sufficient to answer the question of how different possible grounds for an investments
+\begin{wrapfigure}[20]{i}{.4 \textwidth}
+	\vspace{-.4 cm}
+        \hspace{-1.5 cm}
+        \includegraphics[width = .5 \textwidth]{./figures/runtime.pdf}
+        \caption{Run times of the model in my implementation (Python) depending on the number of households modelled.\label{fig:runtime}}
+\end{wrapfigure}
+decision that are prevalent in the population influence the aggregate behavior of the social-economic system with regards to a possible rapid decarbonization transition.\\
+
+Overall, I consider three different types of households. First, households that ground their decisions based on financial incentives e.g. that consider cues $(2)$ and $(3)$ in different order. Second, I consider households that ground their investment decision on homophily, but fall back to other discriminating information, if there is no clear majority amongst their acquaintances e.g. they use cue $(4)$ first and one of the other cues second. Finally, I consider households that invest in one or the other sector out of an inherent preference, e.g. they use cue $(0)$ or $(1)$ and no other cues, since these cues are always decisive. \\
+
+To sum up, I consider the following set of eight cue orders and for a more intuitive description also the following names for the households using them:
+\begin{itemize}
+  \item [$(2, 3)$]: myopic investor,
+	\item [$(3, 2)$]: trend sensitive investor,
+	\item [$(4, 2)$]: myopic herder,
+	\item [$(4, 3)$]: trend sensitive herder,
+	\item [$(4, 1)$]: Green conformer,
+	\item [$(4, 0)$]: Conservative conformer,
+	\item [$(1)$]: `Gutmensch',
+	\item [$(0)$]: Redneck
+\end{itemize}
+With this set of cue orders, the remaining question is their frequency among the population of households.
+
+\subsubsection*{C) Which initial distribution of cue orders should be used?}
+
+The distribution of cue orders among the population of households together with the distribution of the different kinds of capital among them and the configuration of the acquaintance network between them determines the investment decisions of individual households and thus the fraction of savings that is invested in the two economic sectors. \\
+Arguably, to yield realistic results, the initial fraction of savings that goes into the two economic sectors should be consistent with the economic situation and historical data that the parameters of the economic model were fitted to. On the one hand, considering this situation, there is no actual data on the relative shares of investment. However, since we chose the parameters such that the total capital stock is in equilibrium subject to investment and depreciation according to eq. \ref{eq:delta_estimate}, it is sufficiently close to require that the relative shares of the capital stocks in the two sectors $K_c(t)/K_d(t)$ remains approximately constant.\\
+
+To find an initial distribution of cue orders that is likely to fulfill this criterion of an approximately constant ratio of capital in the two sectors, I use a method that is loosely inspired by Bayesian updating. Put simply, I first sample the initial distribution of cue orders from an uniformed prior then second, simulate the resulting model trajectory and calculate its distance $d$ to the formalized criterion and third, I calculate the weighted sum over the sample of initial cue order distributions using the inverse of the distance as weight to use it as the actual initial condition.\\
+
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width= \textwidth]{figures/initial_condition_sampling.pdf}
+  \caption{\textbf{Trajectories of N=200 runs with initial distribution of cue orders sampled from an uninformed prior.} Panel a shows the distance of the simulated relative shares of capital $K_c(t)/K_d(t)$ from the initial condition. Panel b shows the fraction of total investment going into the capital stock of the clean sector. Panel c shows the distribution of closeness as defined by eq. \ref{eq:distance_criterion} and eq. \ref{eq:closeness} for the simulated trajectories.}
+  \label{fig:initial_conditions_sampled}
+\end{figure}
+
+More precisely, I define the initial distribution of the 8 different cue orders by their relative frequencies $Q: [n_1, \cdots n_8]$ among the households. Given a fixed number of households $H$, the set of possible cue order distributions is equal to the discrete points on the 7 dimensional hyperplane that is given through $H = \sum_i n_i, n_i \in \mathbf{N^{+}}$. To get an equally distributed sample of these points $Q_m$, I use a Dirichlet distribution $\mathrm{Dir}(\mathbf{\alpha})$ with $\mathbf{\alpha}=(\alpha_1, \cdots \alpha_8), ~ \alpha_i=1$. I then randomly assign a cue order to each households according to their frequencies as given by $Q_m$. I also randomly assign equal shares of either clean or dirty capital each household - independent from their assigned cue order. Finally, I use an Erd\``{o}s-Renyi random graph with $p=0.1$ as the initial acquaintance network between households where acquaintance relations are set independent of the households' cue orders.\\
+
+For these initial conditions, I simulate model trajectories for the years 2010-2030. For these trajectories, I calculate the distance to the chosen criterion of constant relative capital stocks between the sectors as as the Euclidean distance for the years 2010-2019:
+\begin{equation}
+  d_m = \sqrt{\sum_{t=2010}^{2019}\left( \frac{K_c(2010)}{K_d(2010)} - \frac{K_{c,m}(t)}{K_{d,m}(t)} \right)^{2}}.
+  \label{eq:distance_criterion}
 \end{equation}
+I chose the years 2010-2019, as I would argue, that looking back at the last decade, a major decarbonization transition is yet to come.
+Figure \ref{fig:initial_conditions_sampled} a) shows the relative shares of capital for a sample of $M=200$ initial cue order distributions $Q_m$ with the one that can be considered close to the desired criterion highlighted in orange. In quantitative therms, I define closeness $cl$ as
+\begin{equation}
+  cl = \frac{1}{1+d}
+  \label{eq:closeness}
+\end{equation}
+and consider a trajectory to be close if $cl > 0.5$.
+The resulting initial distribution of cue orders $Q_r$ that hopefully fulfills the desired criterion is then calculated as
+\begin{equation}
+  Q_r = \frac{1}{\sum_m \frac{1}{d_m}}\sum_{m}\frac{1}{d_m} Q_m.
+  \label{eq:updated_cue_order_distribution}
+\end{equation}
+Note that this only sets the relative frequencies of cue orders and does not determine the microscopic configuration of acquaintance relations, initial capital distribution and individual cue order assignment.
 
-To eliminate pathological attractors of this dynamic (as mentioned earlier), a fraction $\varepsilon$ of the rewiring and imitation events are assumed to be random, e.g.\ leading to households making a new connection to another household uniformly at random and in disregard of his opinion or adopting a new opinion amongst the set of opinions that are possible in the system.
+\begin{figure}[t]
+  \centering
+  \includegraphics[width= \textwidth]{figures/initial_condition_fitted.pdf}
+  \caption{\textbf{Trajectories of N=200 runs with updated initial conditions.} Initial relative frequencies of cue orders are calculated as to the weighted sum of the initial relative frequencies in fig. \ref{fig:initial_conditions_sampled}. The weighs are the inverse distances as defined by eq. \ref{eq:distance_criterion}.}
+  \label{fig:initial_conditions_fitted}
+\end{figure}
+
+To determine the success of this procedure, I simulate an ensemble of trajectories with the resulting $Q_r$ and display the trajectories in fig. \ref{fig:initial_conditions_fitted} analogously to the results from uniformly distributed $Q_m$ in fig. \ref{fig:initial_conditions_sampled}. Again, I highlight the trajectories that I consider `close' to the desired criterion. Comparing the distributions of closeness $cl$ in fig. \ref{fig:initial_conditions_sampled} c and fig. \ref{fig:initial_conditions_fitted} c, some things are apparent. First, sampling initial $Q_m$ from an uniformed prior results in a Poisson like distribution of closeness $cl$ for the resulting trajectories with the majority of trajectories exhibiting far from constant relative shares of capital in the two sectors and Second, the `posterior' $Q_r$ results in dramatic improvements in terms of closeness meaning that I can consider approximately one third of the trajectories as `close' e.g. $cl>0.5$ and only a vanishing fraction as `far' e.g. $cl<0.1$.\\
+
+A third fact that comes as a surprise to me is found in fig \ref{fig:initial_conditions_fitted} b. Here, it becomes apparent, that most of the simulated trajectories exhibit a major opinion swing around 9 years into the simulation from households investing primarily in the dirty sector to households investing primarily in the clean sector. To me, this timing coincides so stunningly well with the Fridays-for-Future movement -- even more so, as I would call the model conceptional and the parameter fitting crude, that I fell I have to emphasise that I did not put this behavior into the model in the first place.
+
 \newpage
 
 
