@@ -628,7 +628,7 @@ Since, at least according to my impression, people don't really change their min
 \subsection{Opinion formation and decision making}
 \label{sec:oppinion_formation_and_decision_making}
 
-I assume that households use the Take-the-Best heuristic as explained in [GIVE REFERENCE HERE] to decide whether to invest their savings in the clean or the dirty sector. This assumption results in three follow up questions that have to be answered for the model setup. A) Which ques i.e. bits of information to the households use to compare the two sectors for their decision? B) Which combinations of these ques (i.e. which cue orders) do I want to model? C) Which initial distribution of cue orders should I use as an initial condition. This chapter will answer these three questions in this order.
+I assume that households use the Take-the-Best heuristic as explained in [GIVE REFERENCE HERE] to decide whether to invest their savings in the clean or the dirty sector. This assumption results in three follow up questions that have to be answered for the model setup. A) Which cues i.e. bits of information to the households use to compare the two sectors for their decision? B) Which combinations of these cues (i.e. which cue orders) do I want to model? C) Which initial distribution of cue orders should I use as an initial condition. This chapter will answer these three questions in this order.
 
 To represent the cue order in the model and in this text, I assign numbers to the different cues $(c_l)$ and represent cue orders $O$ as lists of these numbers: $O: (c_l,\dots c_m)$. As a rule, cues only appear once in each cue order and if one cue definitively discriminates between options, there will be no other cues after it.
 
@@ -702,6 +702,25 @@ To find an initial distribution of cue orders that is likely to fulfill this cri
 
 More precisely, I define the initial distribution of the 8 different cue orders by their relative frequencies $Q: [n_1, \cdots n_8]$ among the households. Given a fixed number of households $H$, the set of possible cue order distributions is equal to the discrete points on the 7 dimensional hyperplane that is given through $H = \sum_i n_i, n_i \in \mathbf{N^{+}}$. To get an equally distributed sample of these points $Q_m$, I use a Dirichlet distribution $\mathrm{Dir}(\mathbf{\alpha})$ with $\mathbf{\alpha}=(\alpha_1, \cdots \alpha_8), ~ \alpha_i=1$. I then randomly assign a cue order to each households according to their frequencies as given by $Q_m$. I also randomly assign equal shares of either clean or dirty capital each household - independent from their assigned cue order. Finally, I use an Erd\``{o}s-Renyi random graph with $p=0.1$ as the initial acquaintance network between households where acquaintance relations are set independent of the households' cue orders.\\
 
+
+\begin{table}[t]
+    \centering
+    \begin{tabular}{c|c|l}
+        Relative frequency & Cue order & Name \\ \hline
+        $0.145$&$(2, 3)~$&myopic investor\\
+    $0.075$& $(3, 2)~$& trend sensitive investor\\
+        $0.124$& $(4, 2)~$& myopic herder\\
+        $0.118$& $(4, 3)~$& trend sensitive herder\\
+        $0.139$& $(4, 1)~$& Green conformer\\
+        $0.166$& $(4, 0)~$& Conservative conformer\\
+        $0.074$& $(1)~$& `Gutmensch'\\
+        $0.158$& $(0)~$& Redneck
+
+    \end{tabular}
+    \caption{Fitted initial cue order distribution in terms of relative frequencies.}
+    \label{tab:initial_cue_order_dist}
+\end{table}
+
 For these initial conditions, I simulate model trajectories for the years 2010-2030. For these trajectories, I calculate the distance to the chosen criterion of constant relative capital stocks between the sectors as as the Euclidean distance for the years 2010-2019:
 \begin{equation}
   d_m = \sqrt{\sum_{t=2010}^{2019}\left( \frac{K_c(2010)}{K_d(2010)} - \frac{K_{c,m}(t)}{K_{d,m}(t)} \right)^{2}}.
@@ -716,9 +735,10 @@ Figure \ref{fig:initial_conditions_sampled} a) shows the relative shares of capi
 and consider a trajectory to be close if $cl > 0.5$.
 The resulting initial distribution of cue orders $Q_r$ that hopefully fulfills the desired criterion is then calculated as
 \begin{equation}
-  Q_r = \frac{1}{\sum_m \frac{1}{d_m}}\sum_{m}\frac{1}{d_m} Q_m.
+    Q_r = \frac{1}{\sum_m \frac{1}{d_m}}\sum_{m}\frac{1}{d_m} Q_m.
   \label{eq:updated_cue_order_distribution}
 \end{equation}
+The resulting cue order distribution is given in table \ref{tab:initial_cue_order_dist}.
 Note that this only sets the relative frequencies of cue orders and does not determine the microscopic configuration of acquaintance relations, initial capital distribution and individual cue order assignment.
 
 \begin{figure}[t]
