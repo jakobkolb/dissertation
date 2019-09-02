@@ -1,6 +1,6 @@
 \chapter{Heuristic Decision Making in a Social Economic Model of Fossil Resource Usage}
 \section{Model Development} 
-
+\label{sec:heuristics_model}
 Previous studies \cite{Ans2013} suggest that feedback through supply-demand price mechanisms will have only limited impact on fossil fuel companies. This is due to the fact that only approximately 15 \% of investors invest subject to socially responsible guidelines \cite{SIF2014Report} and that divested holdings are, especially in liquid markets, very likely to quickly find their way to less responsible investors. \\
 Also, as long as the physical capital relying on fossil fuels already exists, economic reasoning follows that it will be used as long as variable costs are covered.
 Therefore, a general economic shift from dirty to clean technology needs changes in investment in physical capital or a political imperative mandated by a (qualified) majority. Therefore, I consider a model focussing on savings and investment decisions appropriate to investigate the possible dynamics of an economic transition towards fossil resource independent technologies.\\
@@ -16,14 +16,14 @@ In the following I propose a preliminary scheme of such a model.
 \subsection{Economic Production}
 \label{sec:model_description}
 
-Out model consists of two sectors for production and a set of heterogeneous households that interact via an adaptive complex social network. The production sectors employ different technology. We call them the \textit{clean} and the \textit{dirty} sector for illustrative clarity. The heterogeneous households in the model provide capital $K$ and labor $L$ to both sectors.
-In addition, the production technology in the dirty sector depends on the input of an exhaustible (fossil) energy-resource $R$ that is used up in the process. We assume that the technology in the dirty sector is fully developed and adequately described in terms of the total factor productivity. 
-Price elasticities of demand for fossil fuel are evidently low in real economies \cite{IMF2011, Hosslinger2017, Labandeira2017}, even with the choice between alternative technologies factored in. We approximate this by setting the elasticity of substitution between the fossil resource and the pair of capital and labor to zero in the dirty sector. This is also in line with contemporary critique of the neoclassical growth models \cite{Daly1997,georgescu1975energy,georgescu1979comments, Ayres2007, Ayres2013} that highlights the generally assumed substitutability of natural resources in production as being physically implausible and lacking empirical evidence.
+The model consists of two sectors for production and a set of heterogeneous households that interact via an adaptive complex social network. The production sectors employ different technology. I call them the \textit{clean} and the \textit{dirty} sector for illustrative clarity. The heterogeneous households in the model provide capital $K$ and labor $L$ to both sectors.
+In addition, the production technology in the dirty sector depends on the input of an exhaustible (fossil) energy-resource $R$ that is used up in the process. I assume that the technology in the dirty sector is fully developed and adequately described in terms of the total factor productivity. 
+Price elasticities of demand for fossil fuel are evidently low in real economies \cite{IMF2011, Hosslinger2017, Labandeira2017}, even with the choice between alternative technologies factored in. I approximate this by setting the elasticity of substitution between the fossil resource and the pair of capital and labor to zero in the dirty sector. This is also in line with contemporary critique of the neoclassical growth models \cite{Daly1997,georgescu1975energy,georgescu1979comments, Ayres2007, Ayres2013} that highlights the generally assumed substitutability of natural resources in production as being physically implausible and lacking empirical evidence.
 
-We acknowledge the common argument for substitutability between capital, labor and energy resources due to a shift in the output of economic production from manufacturing to services and would argue that our model pictures this in a shift of economic production from the dirty sector to the clean one which is described in the following.
+I acknowledge the common argument for substitutability between capital, labor and energy resources due to a shift in the output of economic production from manufacturing to services and would argue that our model pictures this in a shift of economic production from the dirty sector to the clean one which is described in the following.
 
 The clean sector represents a circular economy in which the output of final goods depends on the machinery, knowledge and effort used in its production and is not limited by entropy laws or resource scarcity on the timescale under consideration. The technology $C$ used in the clean sector is assumed to be still in development and is therefore explicitly modeled.
-Following \cite{argote1990learning}, we model technological process as learning by doing according to Wright's law \cite{wright1936factors, Nagy2013} with a one-factor learning curve. We assume that $C$ is proportional to cumulative production but also depreciates with a constant rate $\chi$. Depreciation can be regarded as a human capital effect that leads to knowledge depreciation over time \cite{Kahouli-Brahmi2008}. This is also in line with the empirically observed decrease in learning rates for maturing technologies \cite{argote1990learning}
+Following \cite{argote1990learning}, we model technological process as learning by doing according to Wright's law \cite{wright1936factors, Nagy2013} with a one-factor learning curve. I assume that $C$ is proportional to cumulative production but also depreciates with a constant rate $\chi$. Depreciation can be regarded as a human capital effect that leads to knowledge depreciation over time \cite{Kahouli-Brahmi2008}. This is also in line with the empirically observed decrease in learning rates for maturing technologies \cite{argote1990learning}
 
 \begin{equation}
 	\dot{C} = Y_c - \chi C.
@@ -37,7 +37,7 @@ Capital, labor and technology/knowledge are assumed to be mutual substitutes. To
 \end{align}
 Subscripts $c$ and $d$ denote the clean and dirty sector respectively, $L_c$ and $L_d$ are labor shares, $\alpha$ and $\beta$ are elasticities of the respective input factors and $b_c$ and $b_d$ are the total factor productivity and $K_c$ and $K_d$ are the capital stocks for the respective sector. Measuring unit production cost in the number of working hours as in the original study by Wright \cite{wright1936factors}, $\gamma$ is equivalent the elasticity of learning by doing in the clean sector as outlined in \cite{Kahouli-Brahmi2008}.
 
-We assume efficient an usage of resources in the dirty sector, such that
+I assume efficient an usage of resources in the dirty sector, such that
 \begin{equation}
     b_d L_d^{\alpha_d}K_d^{\beta_d} = e R
     \label{eq:efficient_dirty_resources}
@@ -47,7 +47,7 @@ where $1/e$ is the resource intensity of the sector. The usage of the fossil res
     \dot{G} = -R. 
     \label{eq:resource_depletion}
 \end{equation} 
-In line with the assumptions common in the literature \cite{Dasgupta1974, Perman2003}, the total cost $c_R$ for the usage of the fossil resource depends on the resource use $R$ and the remaining fossil resource stock $G$ such that $\partial c_R / \partial R >0$ and $\partial c_R / \partial G < 0$. We chose the specific form to be
+In line with the assumptions common in the literature \cite{Dasgupta1974, Perman2003}, the total cost $c_R$ for the usage of the fossil resource depends on the resource use $R$ and the remaining fossil resource stock $G$ such that $\partial c_R / \partial R >0$ and $\partial c_R / \partial G < 0$. I chose the specific form to be
 \begin{equation}
 	c_R = b_R R^{\rho}\left( \frac{G_0}{G} \right)^{\mu}; \quad \rho \geq 1, \quad \mu > 0,
 	\label{eq:resource_cost}
@@ -63,7 +63,7 @@ with the sum of the labor shares equal to the total amount of labor available:
 	L_c + L_d = L.
 	\label{eq:population}
 \end{equation}
-We assume physical capital to be specific to the technology employed such that it can only be used in the sector that it has been invested in originally, resulting in separate capital markets for the two sectors. We assume these capital markets to be fully competitive resulting in capital rents equal to marginal productivity:
+I assume physical capital to be specific to the technology employed such that it can only be used in the sector that it has been invested in originally, resulting in separate capital markets for the two sectors. I assume these capital markets to be fully competitive resulting in capital rents equal to marginal productivity:
 \begin{align}
 	r_c &= \frac{\partial Y_c}{\partial K_c} \label{eq:clean_capital_rent}\\
 	r_d &= \frac{\partial Y_d}{\partial K_d} - \frac{\partial c_R}{\partial K_d} \label{eq:dirty_capital_rent}
@@ -71,13 +71,13 @@ We assume physical capital to be specific to the technology employed such that i
 
 \subsection{Investment Decision Making}
 \label{sec:investment_decision_making}
-We model households as bounded rational decision makers \cite{simon1972theories, simon1982models, gigerenzer2002bounded}.
-That is, households take their investment decisions, i.e. whether to invest their savings in the clean or the dirty sector, not by forming rational expectations \cite{Evans2006, Kirman2014} but by A) using \emph{heuristic decision strategies} to make robust decisions with sparce information and with limited computational work and B) engaging in \emph{social learning} \cite{bandura1977} to obtain successful decision strategies \cite{Traulsen2010} with reasonable effort.
+I model households as bounded rational decision makers \cite{simon1972theories, simon1982models, gigerenzer2002bounded}.
+That is, households take their investment decisions, i.e. whether to invest their savings in the clean or the dirty sector, not by forming rational expectations \cite{Evans2006, Kirman2014} but by A) using \emph{heuristic decision strategies} to make robust decisions with sparce information and with limited computational work and B) engaging in \emph{social learning} \cite{Bandura1971} to obtain successful decision strategies \cite{Traulsen2010} with reasonable effort.
 
 % Why use Fast and Frugal heuristics for decision making?
 Regarding individual decision making, there is ample evidence that real investors rather use a diverse set of heuristic strategies to make investment decisions \cite{Gigerenzer2018} and researchers in the field strongly suggest to consider these so called \emph{Fast and Frugal heuristic} decision models as a complementary alternative to established probabilistic and optimizing decision models. 
 In general, Fast and Frugal Heuristics are described in terms of three building blocks; one for information search, one for stopping information search and one for evaluating the available information and drawing a conclusion from it.
-We use a decision heuristic called \emph{Take The Best} that is observed to be frequently used in situations where individuals need to decide between one of two options that are comparable in different aspects [CITE]. 
+I use a decision heuristic called \emph{Take The Best} that is observed to be frequently used in situations where individuals need to decide between one of two options that are comparable in different aspects [CITE]. 
 Take the Best has the following building blocks: 1) Search through cues in a predefined order, 2) stop as soon as one cue discriminates between the two options, 3) chose the option with the preferable value on the discriminating cue. \\
 This requires a so called \textit{cue order} e.g.\ a hierarchy of validity for the pieces of information that are considered relevant for the decision. \\
 
@@ -96,7 +96,7 @@ A well established principle for the emergence of structured ties in social netw
 The following model specification uses social learning in combination with endogenous network adaptation based on homophily to model the changes in heuristic decision strategies that households use to make investment decisions.
 
 % How I do this technically (Individual Household earnings and investment)
-We model $N$ heterogeneous households denoted with the index $i$ as owners of one unit of labor $L^{(i)} = L/N$ and capital $K_c^{(i)}$ and $K_d^{(i)}$ in the clean and dirty economic sector respectively.
+I model $N$ heterogeneous households denoted with the index $i$ as owners of one unit of labor $L^{(i)} = L/N$ and capital $K_c^{(i)}$ and $K_d^{(i)}$ in the clean and dirty economic sector respectively.
 Households generate an income $I^{(i)}$ from their labor and capital income which they use for consumption $F^{(i)}$ and savings $I^{(i)}$:
 \begin{align}
 	I^{(i)} &= w L^{(i)} + r_c K_c^{(i)} + r_d K_d^{(i)}, \label{eq:household_income} \\
@@ -111,22 +111,22 @@ Each household is characterized by a cue order $O$ containing some or all of the
 \par
 
 % How I do this technically (social learning of cue orders)
-We describe households as the nodes in a graph of acquaintance relations. Households get active at a constant rate $1/\tau$. When a household $i$ becomes active, it interacts with one of its acquaintances $j$ chosen at random. If they follow the same strategy, i.e. they share the same cue order $O$, nothing happens. If they follow a different strategy, i.e. they differ in their cue order, one of two actions can happen:
+I describe households as the nodes in a graph of acquaintance relations. Households get active at a constant rate $1/\tau$. When a household $i$ becomes active, it interacts with one of its acquaintances $j$ chosen at random. If they follow the same strategy, i.e. they share the same cue order $O$, nothing happens. If they follow a different strategy, i.e. they differ in their cue order, one of two actions can happen:
 \begin{itemize}
 	\item Homophilic network adaptation: with probability $\varphi$, the households end their relation and household $i$ connects to another household $k$ that has the same cue order. 
 	\item Imitation: with probability $1-\varphi$, household $i$ engages in social learning i.e. it imitates the cue order of household $j$ with a probability $p_{ji}$ that increases with their difference in income.
 \end{itemize}
-We follow previous results on human strategy updating in repeated interactions \cite{Traulsen2010}, when we assume the imitation probability as a monotonously increasing function of the relative difference in consumption between both households:
+I follow previous results on human strategy updating in repeated interactions \cite{Traulsen2010}, when we assume the imitation probability as a monotonously increasing function of the relative difference in consumption between both households:
 \begin{equation}
 	p_{ji} =  \left(1 + \exp \left(- \frac{a(F^{(i)} - F^{(j)})}{F^{(i)} + F^{(j)}} \right) \right)^{-1}.
     \label{eq:imitation_probability}
 \end{equation}
 As opposed to the absolute difference in the original study \cite{Traulsen2010}, the probability in our model depends on relative differences. This dependence on relative differences in per household quantities is crucial for approximation methods as we will discuss later at the end of \ref{sec:large_system_limit}.
-We set $a = 8$ to conform to their empirical evidence.
-We model strategy exploration as a fraction $\varepsilon$ of events that are random, e.g. rewiring to a random other household or randomly choosing one of the possible cue orders with equal probability.
+I set $a = 8$ to conform to their empirical evidence.
+I model strategy exploration as a fraction $\varepsilon$ of events that are random, e.g. rewiring to a random other household or randomly choosing one of the possible cue orders with equal probability.
 
 % Yes, we know, this is only one of the many possible ways to implement such a model.
-We acknowledge the fact that different model specifications are possible and interesting.
+I acknowledge the fact that different model specifications are possible and interesting.
 For instance, we only consider fixed savings rates and the decision between two capital assets and leave the investigation of households setting their savings rates individually to another study \cite{Asano2018}.
 Also, this framework might as well be used to test other strategies for decision making such as tallying or pure social learning similar to the approach taken by Barkoczi \cite{Barkoczi2013}, \cite{Barkoczi2016}
 
@@ -194,7 +194,7 @@ In the following, I discuss the technical details ans specification of this impl
 
 The conditions for labor shares and wages as well as optimal resource uptake pose algebraic constraints for the system of ordinary differential equations that describe the dynamics of the capital stocks $\dot{K}_i^{(j)}$, the resource stock $\dot{G}$ and the dynamics of the knowledge stock in the clean sector $\dot{C}$. In order to solve these differential equations more efficiently, one can solve these algebraic constraints analytically.
 
-To calculate the labor shares $L_c$ and $L_d$ as well as the wages in the two sectors, we use equations \eqref{eq:resource_cost} and \eqref{eq:equilibrium_wage} and for simplicity assume $\rho=1$ and $\mu=2$. We also assume equal labor elasticities in both sectors $\alpha_d = \alpha_c = \alpha$ resulting in
+To calculate the labor shares $L_c$ and $L_d$ as well as the wages in the two sectors, we use equations \eqref{eq:resource_cost} and \eqref{eq:equilibrium_wage} and for simplicity assume $\rho=1$ and $\mu=2$. I also assume equal labor elasticities in both sectors $\alpha_d = \alpha_c = \alpha$ resulting in
 \begin{align}
 	w &= \frac{\partial Y_d}{\partial L_d} - \frac{\partial c_R}{\partial L_d} \nonumber \\
 	&= \frac{\partial Y_d}{\partial L_d} - \frac{\partial c_R}{\partial R} \frac{\partial R}{\partial L_d} \nonumber = \frac{\partial Y_d}{\partial L_d} - \frac{\partial c_R}{\partial R} \frac{\partial}{\partial L_d} \frac{Y_d}{e} \nonumber \\
@@ -575,7 +575,7 @@ Still, both the model and the parameter estimates are obviously oversimplified a
 \subsubsection{Opinion spreading in the adaptive voter model}
 A common way to describe the dynamics of the adaptive voter model in terms of macroscopic variables is the pair approximation.
 For simplicity, lets assume a system with two possible opinions $A$ and $B$, on a network with $N$ nodes and $K$ edges.
-We describe the model using a vector $(x, y, z)^T$:
+I describe the model using a vector $(x, y, z)^T$:
 \begin{equation}
 	x = \frac{[A]-[B]}{N}, \quad y = \frac{[AA]-[BB]}{K}, \quad z = \frac{[AB]}{K}
 	\label{avm_variables}
@@ -700,7 +700,7 @@ To find an initial distribution of cue orders that is likely to fulfill this cri
   \label{fig:initial_conditions_sampled}
 \end{figure}
 
-More precisely, I define the initial distribution of the 8 different cue orders by their relative frequencies $Q: [n_1, \cdots n_8]$ among the households. Given a fixed number of households $H$, the set of possible cue order distributions is equal to the discrete points on the 7 dimensional hyperplane that is given through $H = \sum_i n_i, n_i \in \mathbf{N^{+}}$. To get an equally distributed sample of these points $Q_m$, I use a Dirichlet distribution $\mathrm{Dir}(\mathbf{\alpha})$ with $\mathbf{\alpha}=(\alpha_1, \cdots \alpha_8), ~ \alpha_i=1$. I then randomly assign a cue order to each households according to their frequencies as given by $Q_m$. I also randomly assign equal shares of either clean or dirty capital each household - independent from their assigned cue order. Finally, I use an Erd\``{o}s-Renyi random graph with $p=0.1$ as the initial acquaintance network between households where acquaintance relations are set independent of the households' cue orders.\\
+More precisely, I define the initial distribution of the 8 different cue orders by their relative frequencies $Q: [n_1, \cdots n_8]$ among the households. Given a fixed number of households $H$, the set of possible cue order distributions is equal to the discrete points on the 7 dimensional hyperplane that is given through $H = \sum_i n_i, n_i \in \mathbf{N^{+}}$. To get an equally distributed sample of these points $Q_m$, I use a Dirichlet distribution $\mathrm{Dir}(\mathbf{\alpha})$ with $\mathbf{\alpha}=(\alpha_1, \cdots \alpha_8), ~ \alpha_i=1$. I then randomly assign a cue order to each households according to their frequencies as given by $Q_m$. I also randomly assign equal shares of either clean or dirty capital each household - independent from their assigned cue order. Finally, I use an Erd\H{o}s-Renyi random graph with $p=0.1$ as the initial acquaintance network between households where acquaintance relations are set independent of the households' cue orders.\\
 
 
 \begin{table}[t]
