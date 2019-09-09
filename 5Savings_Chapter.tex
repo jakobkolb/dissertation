@@ -1,14 +1,26 @@
 \chapter{Emergent inequality and endogenous dynamics in a simple behavioral macroeconomic model}
 
+In this chapter I answers the question of what happens if heterogeneous agents in a simple economic investment model use a social learning heuristic to set their individual savings rates. To do this, I used a strong simplification of the heterogeneous agent investment model that I introduced in the previous chapter that is essentially equivalent to an extension of the standard Ramsey-Cass-Koopmans (RCK) model to heterogeneous bounded rational households. To introduce, I motivate the use of bounded rational heterogeneous agents in economic growth and savings models to study endogenous dynamics such as business cycles in sec. \ref{sec:savings_introduction}. To give some more context, I discuss the standard RCK model which is one of the foundational economic growth models in section \ref{sec:savings_standard_rck} before I give the specifications of the simplified agent-based heterogeneous household savings model in section \ref{sec:savings_model}. I present the result of numerical simulations of the model in section \ref{sec:savings_results} and discuss two different dynamical regimes of the model in section \ref{sec:savings_stable} and \ref{sec:savings_oscillations} as well as the transition between them in section \ref{sec:savings_critical_tau} before concluding.
+
 \section{Introduction}
-Should briefly cover the following topics:
-\begin{itemize}
-  \item Economic growth models
-  \item Heterogeneous agent models
-  \item Social Learning?
-\end{itemize}
-\newpage
+\label{sec:savings_introduction}
+
+Economic growth and inequality are important problems in economics \cite{Acemoglu2009, piketty2015capital}. Standard macroeconomic models are based on the assumption of a single representative rational utility maximizing agent and assume that the dynamics of business cycles are driven by exogenous shocks. However, empirical evidence from behavioral economics indicates that real households are heterogeneous and make substantial deviations from rationality.   This has led to new directions of research, including the incorporation of heterogeneous or boundedly rational agents into macroeconomic models. This is typically done by allowing the agents to differ in terms of factors such as education while preserving the assumption of rationality \cite{ hank_reviewLeahy2018, hank_branch2009new, hank_zhao2018many}, or alternatively allowing for bounded rationality but maintaining utility maximization \cite{hank_gabaix2016behavioral}.  Realism is injected through imposing frictions, such as sticky wages.  These models require shocks to generate economic dynamics.
+
+However, it has long been known that endogenous dynamics are possible in economic models~\cite{day1983emergence,BOLDRIN198626, Scheinkman, boldrin1992equilibrium, boldrin1992sources,blume1992evolution}, and more recently Beaudry \textit{et al.}\ have shown how limit cycles can emerge in a standard framework where agents are perfect utility maximizers \cite{beaudry2015reviving, beaudry2016putting}.  An alternative approach bases household decision making on simple heuristics rather than rationality \cite{DeGrauwe2011,DeGrauwe2010the}.  This leads to waves of optimism and pessimism, generating irregular business cycles and giving fat-tailed distributions for economic outcomes such as GDP. This chapter further develops this line of research by demonstrating how a very simple heterogeneous behavioral macroeconomic model leads to an endogenous business cycle that is not driven by externally imposed shocks. The purpose here is not to make a fully realistic model, but rather to demonstrate that rich emergent behavior can occur even under very simple assumptions.
+
+This is done by extending the RCK model, which is one of the foundational models of economic growth theory. In this model a representative agent rationally chooses a savings rate in order to maximize discounted consumption.  However, there is ample evidence that households do not act as intertemporal optimizing agents and often respond myopically~\cite{Benartzi1995,Loewenstein2000,Choi2016}.  Evidence from lab experiments suggests that individuals perform poorly in finding optimal consumption paths. In reference \cite{carbone2014lifecycle} subjects deviated from optimal consumption choices by roughly 30 percent on average, increasing to roughly 50 percent when subjects were shown the average consumption level in the previous period.  Learning from past generations' consumption paths is somewhat more successful, but the errors are still substantial \cite{ballinger2003precautionary,brown2009learning}.  
+
+Here, I take the opposite approach and assume a strong form of bounded rationality.  In this model households are embedded in a social network and make their savings decisions by simply copying their most successful neighbor. They do this episodically and myopically: From time to time they check all their neighbors and adopt the savings rate of the neighbor with the highest consumption.   
+
+Although I do not claim that this behavior is fully realistic, there is empirical justification for considering a simple rule of this type.  The agents can be viewed as short-sighted, profligate ``conspicuous consumers'', and the tendency of households to copy one another has been well-documented since the time of Thorstein Veblen \cite{veblen1899}.  Imitate-the-best is one of the decision-making heuristics often applied in settings of high uncertainty and variability~\cite{Gigerenzer2011} and is observed in economic experiments~\cite{Traulsen2010}.  Savings behavior is highly dependent on social interaction with peers~\cite{Lu2011,Zhang2018,Kaustia2012, cascades} and comparing consumption levels incorporates the visibility bias and selection neglect observed in savings rate decisions~\cite{enke2015you}.  This implementation by copying based on consumption alone is partly motivated by the fact that a neighbor's consumption is more visible than its capital.    This makes it particularly surprising that in some circumstances their average behavior can be close to optimal.
+
+I find that a key parameter governing economic behavior is the average time interval $\tau$ at which households update their savings rate, which I call the \textit{social interaction time}.  When $\tau$ is small, meaning the households update frequently, the savings rate is low, and the performance of the economy is suboptimal in terms of aggregate consumption. When $\tau$ is sufficiently large, in contrast, the economy-wide aggregate savings rate, which equals the income-weighted average household savings rate, becomes close to the optimal rate.  For small $\tau$ the population of households remains homogeneous, but as $\tau$ increases there is a sharp phase transition at a critical value $\tau_{c}$ where the population becomes strongly bimodal, dividing into rich households with high savings rates and poor households with low savings rates.  Correspondingly, for low values of $\tau$ the GDP and other economic indicators are constant with only small fluctuations, whereas above the critical transition there is an endogenous aperiodic oscillation, resembling a business cycle, in which the aggregate savings rate fluctuates, the population of households alternately becomes richer or poorer, and economic output varies substantially over time.  
+
+This model shows that the use of heterogeneous agents following explicit behavioral rules can produce aggregate behavior that is qualitatively different from that of rational agents. This model is only qualitative, but its results suggest that an approach that explicitly incorporates empirical behavioral knowledge into household decision making may naturally lead to an explanation of business cycles in terms of endogenous dynamics. 
+
 \section{The Standard Ramsey-Cass-Koopmans model}
+\label{sec:savings_standard_rck}
 
 This formulation of the standard Ramsey-Cass-Koopmans (RCK) model follows \cite[p.287--317]{Acemoglu2009}, \cite[p.85--135]{Barro2004}  and \cite[p.38--90]{Blanchard1989} and uses continuous time, as in the original \citep{Ramsey1928}.
 
@@ -110,14 +122,11 @@ An interesting extension of this model including heterogeneous agents and relaxi
 
 
 \section{An Agent-Based Version of the RCK Model}
+\label{sec:savings_model}
 \subsection{Economic Model}
 The model introduced in this chapter originated as a derivative and modification of the model in section \ref{sec:heuristics_model}. The aim of this model is to answer some of the questions that I raised at the end of the previous chapter namely, what effects may raise from heterogeneous agents individually setting their savings rates according to a simple social learning rule. In the following, I will explain the model in detail.\\
 
 I introduce a heterogeneous agent model in the tradition of agent-based modeling \cite{LeBaron1999,Berry2002,Epstein2006,Dosi2010, Dawid2014,Hommes2018,Simon2018},
-% we can leave out Simon2018abmmigration
-%Conte2002
-%Farmer2009,
-%Kirman2010
 using agents that follow a very simple behavioral rule.  
 This model contains $N$ households labeled by $i$ with heterogenous capital $K_i$. For simplicity, all households supply the same labor $L_i = L/N$.  (Introducing heterogeneous labor has little effect on the results).
 As in the original RCK model, total economic production is given by the Cobb--Douglas production function, in this case applied to the aggregate input factors $K = \sum_{i=1}^N K_i$ and $L = N L_i$.
@@ -146,12 +155,7 @@ This leads to smoother transitions than synchronous updates \citep{Vizzari2005, 
 %
 according to a Poisson process with rate $1/\tau$.
 
-Households are embedded in a social network in which each household $i$ has neighbors $\mathcal{N}(i)$. Inspired by a recent study on heuristic behavior in social learning by \cite{Barkoczi2016}, I implement household behavior in the following way.
-Whenever household $i$ updates its savings rate, it compares the consumption rates of its neighbors and applies the `imitate-the-best' heuristic,
-copying the savings rate of the neighbor with the highest current consumption with a small deviation that can either be interpreted as an error or as an exploration \cite{Mehlhorn2015}.
-More precisely, when the consumption of a neighbor is higher,
-%Jobst deleted this to save a line: when the household performs the update 
-it adopts a new savings rate of
+Households are embedded in a social network in which each household $i$ has neighbors $\mathcal{N}(i)$. Inspired by a recent study on heuristic behavior in social learning by \cite{Barkoczi2016}, I implement household behavior in the following way. Whenever household $i$ updates its savings rate, it compares the consumption rates of its neighbors and applies the `imitate-the-best' heuristic, copying the savings rate of the neighbor with the highest current consumption with a small deviation that can either be interpreted as an error or as an exploration \cite{Mehlhorn2015}. More precisely, when the consumption of a neighbor is higher, it adopts a new savings rate of
 \begin{equation} 
 	s^\mathrm{new}_i = s_{\underset{j\in \mathcal{N}(i)}\argmax_{} (C_j)} + \epsilon,
 \end{equation}
@@ -160,11 +164,11 @@ Note that in this model households savings rates are strictly non-negative. Whil
 
 \subsection{Simulation Details}
 
-For the simulations that are presented in the subsequent results section, the parameters and initial conditions are as follows if not explicitly stated otherwise.
-$\mu_L = 1/N, K(t=0)_i \!= \!1 \forall\,\, i$ and a fully connected network with $N=100$, $\delta=0.05$. I have found that adding small heterogeneity in each household's labor does not change the dynamics significantly and the equilibrium dynamics also remain the same for different initial capital distributions with different $\sum_i K_i = K$. I use Gillespies algorithm \citep{Gillespie1977} to simulate the stochastic trajectory.
+For the simulations that are presented in the subsequent results section, the parameters and initial conditions are as follows if not explicitly stated otherwise:
+$\mu_L = 1/N, K(t=0)_i \!= \!1 \forall\,\, i$ and a fully connected network with $N=100$, $\delta=0.05$. We have found that adding small heterogeneity in each household's labor does not change the dynamics significantly and the equilibrium dynamics also remain the same for different initial capital distributions with different $\sum_i K_i = K$. We used Gillespies algorithm \citep{Gillespie1977} to simulate the stochastic trajectory.
 
 \section{Results}
-
+\label{sec:savings_results}
 I present the results as follows: To begin I show the model dynamics depending on the social interaction time $\tau$ and classify it in two qualitatively different regions. Then I consecutively analyze these two regions with respect to their dynamic properties and explain the underlying mechanisms. Finally, I explain the origin of the critical social interaction time that separates the different dynamical regimes and discuss its dependency on the structure of the interaction network.\\
 \begin{figure}[ht]
      \centering
@@ -176,7 +180,7 @@ I present the results as follows: To begin I show the model dynamics depending o
 	
    \label{phase}
 \end{figure}
-I simulate the model for a variety of different parameters such as the average social interaction time $\tau$ and the network topology. Fig.\,\ref{phase} shows the distribution of the final savings rates as a function of the social interaction time $\tau$ for a complete network with the other parameters fixed.  The figure compares this to the optimal, `golden rule' savings rate $s_\mathrm{gold}$,  corresponding to the rational expectations equilibrium where the consumption of the representative agent is maximized as well as to the analytical approximation of the steady state savings rate of the model $s^*$ in eq. \eqref{eq:s_optimal}.\\
+We simulated the model for a variety of different parameters such as the average social interaction time $\tau$ and the network topology. Fig.\,\ref{phase} shows the distribution of the final savings rates as a function of the social interaction time $\tau$ for a complete network with the other parameters fixed.  The figure compares this to the optimal, `golden rule' savings rate $s_\mathrm{gold}$,  corresponding to the rational expectations equilibrium where the consumption of the representative agent is maximized as well as to the analytical approximation of the steady state savings rate of the model $s^*$ in eq. \eqref{eq:s_optimal}.\\
 
 These results clearly show that there are two distinct regimes, separated by a critical social interaction time $\tau_{c} \approx 250$.
 In the \emph{stable regime}, corresponding to $\tau < \tau_{c}$, the savings rates of the households are unimodally distributed around a low savings rate.  For very small values of $\tau$ the savings rates are close to zero, and because of this, the economy is stuck in a poverty trap in which its output is very low.  As $\tau$ increases, the savings rate and output increase, but the distribution remains unimodal, with a sub-optimal aggregate saving rate.
@@ -212,19 +216,18 @@ For $\tau \! > \! \tau_\mathrm{c}$ there is an endogenous oscillation in many of
 
 
 \subsection{Understanding the stable regime ($\mathbf{\tau \! < \! \tau_{c} }$)}
-
+\label{sec:savings_stable}
 Although the behavioral rule of the `imitate-the-best' heuristic requires minimal intelligence, the selection process of copying the household with the highest consumption provides a simple mechanism of collective search that becomes more effective as the social updating time $\tau$ increases.  This is perhaps counter-intuitive, as it means that inattention results in superior collective outcomes. The underlying explanation is as follows:  The  savings rate of the household that is copied has on average been fixed for a time interval of order $\tau$. When $\tau$ is small, planning is too myopic, ``short term thinking'' dominates, and the households cannot escape using low savings rates with high consumption.  As $\tau$ gets bigger, however, the time between updates becomes long enough that there is more time to accrue an advantage by saving. This drives the savings rate up and increases economic output. The competitive selection process guarantees that for a sufficiently large population and large $\tau$ the savings rates are close to optimal. This is similar to the behavior of a model of local resource exploitation \cite{Wiedermann2015}.
 
-I use this intuition to derive an approximate formula for the aggregate savings rate $s^*$ as a function of~$\tau$. This derivation takes advantage of the fact that in the stable regime the distribution is unimodal and assumes that all households have essentially the same savings rate. With this, I derive the optimal savings rate for time horizon $\tau$ in the following.\\ 
+We can use this intuition to derive an approximate formula for the aggregate savings rate $s^*$ as a function of~$\tau$. This derivation takes advantage of the fact that in the stable regime the distribution is unimodal and assumes that all households have essentially the same savings rate. With this, one can derive the optimal savings rate for time horizon $\tau$ as follows.\\ 
 
 \subsubsection{Analytical approximation of the stable regimes steady state}
-\label{sec:rck_stable_regime}
-The main idea is to study which member of an ensemble of households starting at similar but slightly different savings rates and capital stocks will have the largest consumption after the short time interval $\tau$, 
-and then assume all households will copy the savings rate of this best household with some error. 
+\label{sec:rck_stable}
+The main idea is to study which member of an ensemble of households starting at similar but slightly different savings rates and capital stocks will have the largest consumption after the short time interval $\tau$, and then assume all households will copy the savings rate of this best household with some error. 
 This is only an approximation since in the actual model, households do not simultaneously imitate and not after exactly time $\tau$, and the approximation will only be good when households have already converged to similar savings rates and capital stocks.
 However, it turns out that it describes rather well the joint motion towards a steady state once households have converged towards each other.
 
-To see how individual households' consumption at time $\tau$ depends on their individual savings rate, one has to approximate the evolution of $r$ and thus of total capital $K$ first. I assume that all households' savings rates $s_i$ are close to the overall savings rate $s$ and stay constant between time zero and time $\tau$. 
+To see how individual households' consumption at time $\tau$ depends on their individual savings rate, one has to approximate the evolution of $r$ and thus of total capital $K$ first. Let us assume that all households' savings rates $s_i$ are close to the overall savings rate $s$ and stay constant between time zero and time $\tau$. 
 Then according to eq. \eqref{eq:rcka_kdot} $K$ evolves as 
 \begin{equation}
     \begin{split}
@@ -253,7 +256,7 @@ and
 $E$ has the two possible values $s\sqrt{L} \pm \delta \sqrt{K_0}$.
 Since the only relevant solution is that in which $r$ is positive, subsequently $E = s\sqrt{L} - \delta \sqrt{K_0} < B$.
 
-Knowing $r(t)$ and $w(t)$, I can now determine which household consumes most after time $\tau$.
+Knowing $r(t)$ and $w(t)$, we can now determine which household consumes most after time $\tau$.
 Household $i$'s capital $K_i(t)$ evolves as 
 \begin{equation}
 \begin{split}
@@ -289,7 +292,7 @@ with
         H = \frac{A}{B - E e^{-\delta\tau/2}} = \frac{A}{s\sqrt L (1 - e^{-\delta\tau/2}) + \delta \sqrt{K_0} e^{-\delta\tau/2}}.\nonumber
 \end{equation}
 %Note that $F_i/G_i$ decreases as $s_i$ increases.
-Since we assume that at time $\tau$ all households imitate that $s_i$ which has led to the largest $C_i(\tau)$,
+Since we assumed that at time $\tau$ all households imitate that $s_i$ which has led to the largest $C_i(\tau)$,
 we can determine whether $s$ will increase or decrease by identifying whether the $s_i$ that gets copied is larger or smaller than $s$.
 Since we also assume households' savings rates $s_i$ are distributed closely around $s$ and all $K_i(0), L_i$ are similar, this question can be answered by seeing whether $C_i(\tau)$ increases or decreases when $s_i$ is increased from below $s$ to above $s$, i.e., by studying the derivative $\partial C_i(\tau)/\partial s_i$ at the point $s_i = s$. Up to a factor of $N$, this derivative is given by
 \begin{align}
@@ -307,7 +310,7 @@ A steady state will then be reached when both $s$ and $K$ change no longer, i.e.
 are zero.
 The solution of $\dot K = 0$ is 
 $K_0 = L s^2 / \delta^2$, 
-at which point we have
+at which point I have
 $E = 0$,
 $H = \delta / 2 s$, 
 $G = - \delta / 2$, 
@@ -322,19 +325,15 @@ s^\ast(\tau) = \frac{1 - e^{-\delta \tau/2}}{2 - e^{-\delta \tau/2}}.
 \end{equation}
 This approximation describes the aggregate macroscopic behavior of the model in the stable regime. It illustrates that this macroscopic behavior is determined by the relative time scales of the two major processes in this model, the capital depreciation rate $\delta$ in the economic system that determines the transient dynamics of capital accumulation through savings and the social interaction time $\tau$ that determines the speed of speed of collective search in the social learning process. Such behavior is common for many coupled dynamical systems. [Maybe some citations here.] This approximation is shown in green in Fig.~\ref{phase} comparing it to the aggregate savings rate and the distribution of individual savings rates from numerical simulations. This shows that this analytical approximation provides a good fit of the aggregate savings rate throughout the stable regime.
 
-The analytical approximation of the aggregate savings rate in the stable regime of the agent-based RCK model can be compared to the optimal savings rate in the steady state of the standard RCK model.
-In the standard RCK model as given in eq. \ref{eq:rck_steady_state}, the optimal savings rate depends on the capital depreciation rate $\delta$ and the discount rate $\rho$, which is a free parameter. Substituting $s^\ast$ from eq.~\eqref{eq:s_optimal} into the relation for the classical RCK model from eq. \eqref{eq:rck_steady_state} and solving for $\rho$ gives an effective discounting rate for this model in terms of the social interaction time $\tau$ and the depreciation rate $\delta$,
+The analytical approximation of the aggregate savings rate in the stable regime of the agent-based RCK model can be compared to the optimal savings rate in the steady state of the standard RCK model. In the standard RCK model as given in eq. \ref{eq:rck_steady_state}, the optimal savings rate depends on the capital depreciation rate $\delta$ and the discount rate $\rho$, which is a free parameter. Substituting $s^\ast$ from eq.~\eqref{eq:s_optimal} into the relation for the classical RCK model from eq. \eqref{eq:rck_steady_state} and solving for $\rho$ gives an effective discounting rate for this model in terms of the social interaction time $\tau$ and the depreciation rate $\delta$,
 \begin{equation}
    \rho(\tau) = \frac{\delta/2}{e^{\delta \tau/2} - 1}. \label{eq:rhotau}
 \end{equation}
-In the limit as $\tau \to 0$, the discount rate $\rho \to \infty$, consistent with the observed collectively myopic behavior. But for $\tau \to \infty$, $\rho \to 0$ consistent with collectively farsighted behavior and an optimal savings rate in the sense that this would be the savings rate that a social planner would chose to achieve the highest sustainable aggregate consumption.  
-Thus in this case the individually myopic households act collectively ``as if'' they were farsighted, with an emergent effective discounting rate $\rho(\tau)$ which is not a free parameter but is rather a function of the social interaction time $\tau$.
-Similar emergent behavior has been found in the interaction of adaptive voter type social learning with individual management of renewable resources where sustainable far sighted management of the resource is possible when the interaction time in the social learning process is sufficiently large compared to the time scale of the inherent dynamic renewable resource \citep{Wiedermann2015}. 
-%old version: When $\tau \to 0$ this has the limit $\rho \to \infty$, which is consistent with the observed myopic behavior, and when $\tau \to \infty$ this has the limit $\rho \to 0$, consistent with the observed far-sighted behavior and the near-optimality of the savings rate.  Note that in this model the effective discounting rate is not a free parameter, but rather it emerges from the collective behavior of the households as determined by the social interaction time $\tau$.
+In the limit as $\tau \to 0$, the discount rate $\rho \to \infty$, consistent with the observed collectively myopic behavior. But for $\tau \to \infty$, $\rho \to 0$ consistent with collectively farsighted behavior and an optimal savings rate in the sense that this would be the savings rate that a social planner would chose to achieve the highest sustainable aggregate consumption. Thus in this case the individually myopic households act collectively ``as if'' they were farsighted, with an emergent effective discounting rate $\rho(\tau)$ which is not a free parameter but is rather a function of the social interaction time $\tau$. Similar emergent behavior has been found in the interaction of adaptive voter type social learning with individual management of renewable resources where sustainable far sighted management of the resource is possible when the interaction time in the social learning process is sufficiently large compared to the time scale of the inherent dynamic renewable resource \citep{Wiedermann2015}. 
 
 
 \subsection{Understanding the oscillatory regime ($\mathbf{\tau \!>\! \tau_{c} }$)}
-
+\label{sec:savings_oscillations}
 To get a deeper understanding of what is happening in the oscillatory regime, where $\tau > \tau_{c}$, fig.\,\ref{fig:dynamics} illustrates the collective and individual dynamics.
 
 Fig.\,\ref{fig:dynamics}A shows the average per capita consumption rate $c$ as a function of the average capital $k$. 
@@ -351,34 +350,38 @@ When the household shown in blue gets its chance to update its savings rate, it 
 Other households follow, and eventually the economy reaches the state shown in the lower panel at time $t_2$, where many houses have high savings rates and are rich.
 The resulting excess capital drives the returns on savings down, which when combined with their high savings rates, depresses the consumption of these households.
 As a result, when one of the rich households gets its turn to update, it copies a household with a low savings rate and goes on a spending spree.  
+
 At this point its consumption rate becomes very high, and all of its neighbors copy it, creating a boom in consumption while decreasing the aggregate savings rate and consequently depreciating the capital stock of the economy.
 A majority of households eventually become impoverished, return on capital recover, high savings rates become more attractive again and the cycle repeats itself.
-%These dynamics are also given as an animation in the Supplementary Material.
-
+\newpage
 \subsection{Critical Social Interaction Time}
+\label{sec:savings_critical_tau}
 
+What determines the critical social interaction time $\tau_\mathrm{c}$?
+This question can best be answered by a closer analysis of eq. \eqref{eq:Citau} which gives the consumption of an individual household after time $\tau$ given that this household sets its savings rate $s_i$ individually relative to the constant aggregate savings rate $\tilde{s}$. 
 \begin{wrapfigure}[27]{O}{.6 \textwidth}
   \centering
   \hspace{-1.5cm}\includegraphics[width = .7 \textwidth]{figures/best_response.pdf}
   \caption{Best response dynamics. Optimal individual savings rate $s_i^\star$ (circles and triangles) given a very small perturbation of either $+\Delta$ (blue circles) or $-\Delta$ (orange triangles) of the aggregate savings rate $s$ away from its equilibrium value $s^\star$ (green line) as a function of the social interaction time $\tau$, for $\Delta = 10^{-7}$.}\hspace{.5cm}
   \label{fig:best_response}
 \end{wrapfigure}
-What determines the critical social interaction time $\tau_\mathrm{c}$?
-This question can best be answered by a closer analysis of eq. \eqref{eq:Citau} which gives the consumption of an individual household after time $\tau$ given that this household sets its savings rate $s_i$ individually relative to the constant aggregate savings rate $\tilde{s}$. 
-In sec. \ref{sec:rck_stable_regime}, the analysis of the steady state of this equation as lead to the approximation that the imitate-the-best heuristic can result in behavior that is collectively optimal over a time horizon $\tau$ in so far as it maximizes aggregate consumption. 
+
+In sec. \ref{sec:rck_stable}, the analysis of the steady state of this equation as lead to the approximation that the imitate-the-best heuristic can result in behavior that is collectively optimal over a time horizon $\tau$ in so far as it maximizes aggregate consumption. 
 The reasoning behind this analysis also helps to understand the instability driving the transition in so far as eq. \eqref{eq:Citau} also determines the incentives of a single household to set its individual savings rate equal to, close to or far from the aggregate savings rate to maximize its individual consumption. 
 Suppose that an external shock of size $\Delta$ perturbs the aggregate savings rate $\tilde{s}$ away from its collectively optimal value $s^\ast$, and suppose that household $i$ is allowed to optimize its savings rate $s_i$ while the others hold theirs constant. 
 I call this optimal savings rate $s^*_i$ the \emph{best response} of the individual household. 
 As displayed in fig. \ref{fig:best_response}, a numerical investigation shows that when $\tau \ll \tau_{c}$ i.e. in the \emph{stable regime}, the best response $s^*_i$ that maximizes the individual households consumption after $\tau$ remains close to $\tilde{s}$. 
 In contrast, when  $\tau \gg \tau_{c}$ e.g. in the \emph{oscillatory regime}, if $\Delta > 0$ then the individual households best response $s^*_i$ is very small, with $s_i$ approaching $0$, and if $\Delta < 0$ the optimal savings rate is large, with $s_i$ approaching $1$. 
+
+
 This happens because when $\Delta > 0$ the aggregate savings rate is high, so the returns on investment are low, which discourages saving and vice versa, when $\Delta < 0$ the aggregate savings rate is low, so returns on investment are high, which encourages saving. 
 This destabilizes the unimodal solution around $s^\ast$. 
 The transition occurs sharply at a parameter value near $\tau_{c}$, though the precise value depends on $\Delta$.
-
-
-
+\newpage
 \subsection{Dependence of the Critical Social Interaction Time on Network Size and Structure}  
-\begin{wrapfigure}[26]{o}{.6 \textwidth}
+\label{sec:savings_network_structure}
+
+\begin{wrapfigure}[26]{I}{.6 \textwidth}
   \centering
   \includegraphics[width = .6 \textwidth]{figures/taucrit_N2.pdf}
   \includegraphics[width = .6 \textwidth]{figures/taucrit_N_k.pdf}
@@ -389,7 +392,6 @@ I have so far used complete networks in the simulations, but in general the beha
 Starting at any given node and moving one link at a time, the number of neighbors that are reached grows exponentially with each step at rate $\langle k \rangle$.  
 The typical distance required for a disturbance to propagate across the network is the average shortest path length $\chi$, defined as the average number of nodes that must be traversed in order to go from any given node to any other node. Motivated by this logic, 
 I investigate the empirical relationship between $\tau_c$, $\chi$, and $\langle k \rangle$, finding the proportionality
-%Jobst: I felt this sounded like the finding rather than the study was motivated by the logic: we find empirically that the critical social interaction time roughly satisfies the proportionality relation 
 \begin{equation}
 \tau_c \sim e^{-\chi} / \langle k \rangle.
 \label{scaling_relation}
@@ -406,7 +408,6 @@ Fig.\,\ref{taucrit} shows that this makes a good prediction of $\tau_{c}$.  Beca
 \end{figure}
 
 \section{Discussion and Conclusion}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 The primary purpose of the analysis of this model is to analyze the possible implications of heterogeneous households individually setting their savings rates according to a simple behavioral heuristic. This analysis makes a somewhat surprising conceptual point by demonstrating how emergent inequality and endogenous dynamics can naturally emerge from a heterogeneous behavioral model. Nonetheless, this model makes the prediction that during recessions savings rates increase before output rises (see Fig.~\ref{fig:micro_trajs}).
 This has been %Jobst reworded this a little
@@ -416,11 +417,6 @@ Household savings rates are influenced by many things, and conspicuous consumpti
 
 Absent shocks, standard macroeconomic models move toward an equilibrium and stay there.   Dynamics occur only because shocks knock the economy away from equilibrium. In this model, in contrast, in the oscillatory regime the economy makes irregular endogenous oscillations that are reminiscent of business cycles.  
 Although this model has two random inputs, they are small and very different in character from the shocks that drive the dynamics of standard models. The first random input determines the time at which individual households update their savings rates under the Poisson process.  This must be random to ensure that the order in which households update their savings rates varies.  (A fixed order leads to a static economy).  The second random input is the copying error for the savings rate.  This is small ($1\%$) and its value makes little difference to the behavior.  In contrast to standard shocks, which affect the economy as a whole, both of these inputs are at the level of individual households, and affect each household differently.  For a large number of households the copying errors cancel out but the endogenous dynamics nonetheless persist.  Thus while random inputs are necessary in this model, they do not directly drive booms and recessions as the shocks of standard models do.  This is why the economic dynamics in this model can indeed be considered endogenous.
-
-%It has long been known that endogenous dynamics are possible in economic models \cite{day1983emergence, 
-%Jobst: removed the textbook day1994complex,
-%boldrin1992equilibrium, BOLDRIN198626,%boldrin1992sthisces,
-%blume1992evolution}, and more recently Beaudry \textit{et al.}\ have shown how limit cycles can emerge in a standard framework where agents are perfect utility maximizers \cite{beaudry2015reviving, beaudry2016putting}. This model here differs in that the endogenous dynamics are caused by the combination of the inherent instability of the RCK model with the heterogeneous and non-optimal behavior of the households.  I believe that this is in part because large values of $\tau$ introduce a lag in optimization {\color{red}``optimization''?}, which in control theory is well-known to cause instability.  I hypothesize that imperfect utility maximization, which makes the system behave as if outcomes do not match expectations, makes the system more prone to oscillations such as business cycles.
 
 To illustrate the conceptual difference between this model and standard macroeconomic models it is useful to draw an analogy to a simple physical system.  Consider the problem of pole balancing, in which a man attempts to move his hand to maintain a pole in a vertical position, as shown in Fig.\,\ref{pole_balancing}. 
 \begin{figure}
