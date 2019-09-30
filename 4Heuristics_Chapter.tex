@@ -2,28 +2,25 @@
 \label{chapter:heuristics}
 \section{Introduction}
 
-In the IPCCs current business as usual scenarios, the CO$_{2}$ emissions budget that limits global warming to below 1.5$^{\circ}$C with a likelihood of 0.5 will be exceeded by approximately 2030. This means that in order to limit global warming below 1.5$^{\circ}$C, the global economy needs a rapid shift away from fossil fuel based technologies. Currently, the two main measures that are expected to incentivize the necessary changes are taxation and cap and trade schemes for CO$_{2}$ emissions. I suspect that these measures are favoured by many because they are expected to be efficient. This is most likely because their effects are thought be adequately understood as they can be estimated well with the current integrated assessment models that are used to generate the economic projections for the IPCCs reports. However, there are also with these policy measures. First, with view exceptions, the political process to implement these measures is sluggish and the outcomes are all but certain and second, the particulars of their implementation are not straight forward and competing interests of various powerful lobbying groups may lead to numerous exceptions and loopholes in the final results.
-Therefore, others argue that in addition to top down policy measures, bottom up initiatives are essential to mitigate global warming. 
+In the IPCCs current business as usual scenarios, the CO$_{2}$ emissions budget that limits global warming to below 1.5$^{\circ}$C with a likelihood of 0.5 will be exceeded by approximately 2030. This means that in order to limit global warming below 1.5$^{\circ}$C, the global economy needs a rapid shift away from fossil fuel based technologies. Currently, the two main measures that are expected to incentivize the necessary changes are taxation and cap and trade schemes for CO$_{2}$ emissions. I suspect that these measures are favoured by many because they are expected to be efficient. This is most likely because their effects are thought to be adequately understood as they can be estimated well with the current integrated assessment models that are used to generate the economic projections for the IPCCs reports. However, there are some issues with these policy measures. First, the expected effects of these policy measures are estimated in an idealized model world whereas their real effects come from their real implementation that might include a number of exceptions, loopholes and unintended consequences. And second, with few exceptions, the political process to implement these measures is sluggish and the outcomes are all but certain.
 
-Measures currently discussed 
+Therefore, I argue that in addition to top down policy measures, bottom up initiatives are essential to successfully mitigate global warming. 
+There are a number of such bottom up initiatives such as Fridays for Future or Extinction Rebellion that are currently gaining more and more traction. However, as these initiatives are essentially driven by opinion formation and individual decision processes amongst heterogeneous individuals, as discussed in sec. \ref{sec:intro_complex_systems}, the models that are currently used for climate change mitigation scenarios are unable to picture them due to their reliance on a representative agent approach.
 
-Will write this after I wrote the general introduction.
+With this motivation I develop a conceptual economic model of fossil resource use and technological change that is able to explicitly depict individual decision making of heterogeneous agents, as well as social learning and opinion formation in order to better understand the possible effects of social movements in mitigating global warming.
 
-Should cover the following topics:
-\begin{itemize}
-  \item Divestment,
-  \item Agent-based modeling,
-  \item Economic growth?
-  \item Resource economics?
-\end{itemize}
+This model combines individual decision making via a simple fast and frugal decision heuristic and interactions between individuals via a social learning process with feedbacks on an aggregated supply and demand level in a two sector investment economy.
 
+In the reminder of this chapter, I will outline and explain this model in section \ref{sec:heuristics_model}, simplify it analytically as far as possible and explore some of its limiting cases in sections \ref{sec:algebraic_constraints} and \ref{sec:limiting_cases} and fit its parameters to past economic data in section \ref{sec:parameter_values}. Subsequently, I analyze the models default dynamics in section \ref{sec:default_scenario} and showcase the possibility to analyze a stylized social movement with this model in section \ref{sec:campaign} before concluding.
+
+
+\newpage
 \section{Model Development}  
 \label{sec:heuristics_model}
 Previous studies \cite{Ans2013} suggest that feedback through supply-demand price mechanisms will have only limited impact on fossil fuel companies. This is due to the fact that only approximately 15 \% of investors invest subject to socially responsible guidelines \cite{SIF2014Report} and that divested holdings are, especially in liquid markets, very likely to quickly find their way to less responsible investors. \\
 Also, as long as the physical capital relying on fossil fuels already exists, economic reasoning follows that it will be used as long as variable costs are covered.
 Therefore, a general economic shift from dirty to clean technology needs changes in investment in physical capital or a political imperative mandated by a (qualified) majority. Therefore, I consider a model focussing on savings and investment decisions appropriate to investigate the possible dynamics of an economic transition towards fossil resource independent technologies.\\
 In the following I propose a preliminary scheme of such a model.
-
 \newpage
 \begin{figure}[t]
 	\centering
@@ -195,7 +192,7 @@ In the following, I discuss the technical details ans specification of this impl
 
 
 
-\subsection{Solution for Algebraic Constraints: Calculation of wages, resource uptake and capital rent}
+\subsection{Solution for Alg ebraic Constraints: Calculation of wages, resource uptake and capital rent}
 \label{sec:algebraic_constraints}
 
 The conditions for labor shares and wages as well as optimal resource uptake pose algebraic constraints for the system of ordinary differential equations that describe the dynamics of the capital stocks $\dot{K}_i^{(j)}$, the resource stock $\dot{G}$ and the dynamics of the knowledge stock in the clean sector $\dot{C}$. In order to solve these differential equations more efficiently, one can solve these algebraic constraints analytically.
@@ -259,6 +256,7 @@ To sum up, I solved the algebraic constraints to the ordinary differential equat
 
 
 \subsection{Limiting cases and timescales} 
+\label{sec:limiting_cases}
 
 
 \begin{wrapfigure}[21]{o}{.55 \textwidth}
@@ -761,6 +759,7 @@ In the previous section, I have fitted parameters of the model to reproduce real
 In the following section, I will have a closer look at the actual model dynamics and possible qualitative insights from the structure of the transformation process that it depicts.
 
 \subsubsection{The Default Scenario}
+\label{sec:default_scenario}
 Figure \ref{fig:default_alpha_05} shows results from an ensemble of 1000 runs with 100 households for the parameters and initial conditions that I have outlined in the previous two sections. These results -- especially the fraction of total investment that goes into the clean sector -- 
 \begin{wrapfigure}[26]{i}{.5 \textwidth}
 	\vspace{-.1 cm}
@@ -830,7 +829,8 @@ If the rewiring probability further increases to $\varphi=0.9$, at the time when
     \label{fig:p15in2050}
 \end{figure}
 
-\subsubsection{A Campaign fo r Clean Investment}
+\subsubsection{A Campaign for Clean Investment}
+\label{sec:campaign}
 The previous section has shown that given the models' assumptions it is unlikely that cumulative fossil resource usage will stay below what is necessary to prevent global warming above $1.5^{\circ}$C. In a default scenario with technological progress in clean technology and individual investment decision making most simulated trajectories exceeded the emissions budget T3 associated with a $p=0.33$ chance of keeping global warming below $1.5^{\circ}$C even for a moderate tendency of like-minded households to cluster together. For higher tendencies of clustering, the modeled economy almost surely exceeds this budget as soon as 2050 without a tendency to slow down fossil resource use.\\
 
 This section will discuss if in the model a social movement in favor of clean investment can drive social tipping to clean investment sufficiently to stay within at least the T2 budget associated with a $p=.5$ chance to keep global warming below $1.5^{\circ}$C.\\
@@ -919,7 +919,7 @@ In this context, the model describes the interplay of social dynamics and indivi
 In contrast to many other social ecological models, this model differentiates between judgement and action of individuals. In most social ecological models that emulate individual opinion formation, behavior, opinion and action are equivalent and spread via imitation of successful behavior. In contrast, in this model individuals learn heuristics that they use to judge which action would be best given the circumstances.
 
 % how did i do it
-I used adaptive network dynamics for social learning, ordinary differential equations with algebraic constraints for to model economic dynamics economic dynamics and fast and frugal heuristics to describe individual decision making individual decision making.
+I used adaptive network dynamics for social learning, ordinary differential equations with algebraic constraints to model economic dynamics economic dynamics and fast and frugal heuristics to describe individual decision making individual decision making.
 I solved the algebraic constraints of the model analytically and I roughly estimated parameters from data where possible. I complemented this with the analysis of different limiting scenarios to estimate the parameter dependence of timescales for different processes in the model and I conducted numeric experiments to analyze the models default behavior.
 I implemented a social movement in the model in which members of the movement only ever invested in the clean sector and did -- unlike the other households -- not change their judgement heuristic subject to the social learning process. Subsequently, I conducted different numeric simulation experiments to analyze the prospects of success of such a campaign in the given model subject to different parameters and potential accompanying public policy measures.
 

@@ -1,1 +1,46 @@
-\chapter{General Conclusion}
+\chapter{Final Conclusion}
+
+\section{Conclusions}
+
+In this thesis, I makes the case for networked heterogeneous agent models that as a tool to better understand complex social-ecological and socioeconomic systems in order to explore transition pathways to sustainability in the Anthropocene. 
+Particularly, I show how established models for opinion formation and norm change can be complemented with results from behavioral psychology and cognitive science for individual decision making to depict emergent social phenomena.
+I also illustrated how methods from complex systems modelling and statistical physics can be used to A) explore such models in a systematic and meaningful way and B) reduce such models to approximate ordinary differential equations in order to better understand their structural dynamical properties and to help generalize their results.
+To make these points, I followed the subsequent line of argument:
+
+In chapter \ref{chapter:maya}, I modeled the social ecological system of the ancient Maya on the Yucatan peninsula and analyzed the models response to climatic changes in the form of drought events.
+This study showed, that given the assumptions of the model, it is highly unlikely that drought events are the single cause for the catastrophic decline and reorganization of the Maya civilization.
+From this I concluded, that to model such fundamental societal change -- without putting the desired results into the model structure in the first place -- one needs a more refined understanding of societal dynamics such as norm change and opinion formation as well as individual decision making.
+
+In chapter \ref{chapter:introduction}, I motivated and proposed a general framework to model societal change that is based on a combination of social and individual processes e.g., opinion formation, norm change and individual decision making in the form of fast and frugal heuristics.
+
+Subsequently, in chapter \ref{chapter:heuristics}, I developed a model of a two sector investment economy in which one sector depends on a fossil resource and the other sector doesn't but instead relies on a developing renewable technology. In this model, individual households decide in which of the two sectors capital stocks to invest their savings. They do so via a heuristic decision scheme whose internal structure they learn from their peers via social learning. I fit the models parameters to historical economic data and analyzed the models default behavior as well as the effects of a hypothetical social movement that advocates investment in renewable technologies.
+The results from this study suggested two things: First, that individual decisions that are driven by social dynamics alone are insufficient to keep global warming below 1.5$^\circ$C and second, that policy measures to sufficiently restrict GHG emissions in order to keep global warming below 1.5$^\circ$C is likely to be late due to a missing political majority to support it. However, the results also showed, that a combination of a social movement that advocates for the abandonment of fossil fuel ca A) help to bring about the support that is necessary for timely public policy and B) substantially prolong the window of opportunity to implement this policy. Even though this model is highly simplified and its results can therefore by no means be interpreted as quantitative predictions, I dare to draw the following conclusions:
+I conclude, that to successfully mitigate catastrophic global warming, it is advised to understand the coevolution of social dynamics, individual behavior, economic development and the resulting political opportunities and to consequently acknowledge and implement these dynamics in the models that are supposed to inform decisions about the mitigation of climate change.
+
+In chapter \ref{chapter:savings}, I followed up on a question that resulted from the previous chapter, namely: what are the consequences of heterogeneous households that learn how much to invest rather than where? The simple model that I designed to answer this question -- a heterogeneous household extension of the famous Ramsey-Cass-Koopmans model -- exhibits a surprisingly rich endogenous dynamic including spontaneous emergence of strong wealth inequality among households and cyclic fluctuations in savings rates and economic output that resemble a business cycle.
+From this I concluded that it is worthwhile to reexamine the contemporary understanding of the origin of business cycles that sees them as a result of exogenous shocks and to follow a research agenda that examines the consequences of heterogeneous agents (firms, households or others) whose behavior is motivated by results from behavioral experiments.
+
+Finally, in chapter \ref{chapter:approximation}, I developed an analytical approximation methods for models that are structurally similar to the models that I used in chapters \ref{chapter:heuristics} and \ref{chapter:savings}. I used this method on a simplified version of the heterogeneous household, two sector investment model from chapter \ref{chapter:heuristics} to derive an approximation of the model in terms of ordinary differential equations. I compared the approximation to numerical simulations of the full model and I used the approximation of the model it to conduct a numerical bifurcation analysis with respect to the relative total factor productivity of the two sectors and the learning rate of the clean technology. 
+From the analysis of the results of the model approximation I concluded that this and similar approximation methods are suitable tools to bridge the methodological gap between complex computational models that are backed by evidence from behavioral experiments and simpler models conceptualizing dependencies between aggregated variables that are used in e.g. the mainstream economic discourse.
+
+\section{Outlook}
+Based on the results and conclusions laid out in the previous section, there are a number of obvious next steps:
+
+% more specific outlook
+There are several promising avenues to develop the model two sector investment model and approximation techniques further: 
+
+% economic modifications
+The model could be extended to explicitly include policy instruments such as a carbon tax and explore its impact on the investment decisions of the heterogeneous agent population. Another promising modification could include consumption decisions into this two-sector model. Consumption decisions are strongly influenced by social norms and interactions \citep{Peattie2010}. Their inclusion could inform the discussion about green consumption as a potential mechanism for a bottom-up transformation towards a more sustainable economy.
+
+
+% methodological extentions
+Instead of binary opinions, the social interaction model can use continuous variables to represent gradual opinions, drawing on a variety of models of social influence \citep[see ref.][pp. 988 f.]{Mueller-Hansen2017}. An approximation of the agent ensemble would then need a Fokker-Planck-type description rather than a master equation.
+
+Also, I finite system description without the large system limit could be used to study noise induced transitions between metastable states of the economic model.
+
+% Finally, the techniques proposed in this paper could be used to approximate other systems that interact both locally on a network and in an aggregate way on the system level, for example social-ecological systems or neural networks.
+% cite here? \citep{Schlueter2012}
+
+Finally, one could use methods similar to Felix' machine learning to complement the approximation methods in chapter \ref{chapter:approximation} in order to find optimal policy paths for this and other complex, heterogeneous agent economic and social-ecological models.
+
+
