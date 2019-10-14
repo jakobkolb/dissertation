@@ -140,7 +140,7 @@ Capital rents equal marginal productivity e.g.,
 \subsection{Adaptive Network Model for Investment Decision Making}
 \label{sec:investment_decision_making_descr.}
 %\JJK{Maybe comment on the relationship between individual optimization, group level optimization and the imitation of successful strategies.}
-For the approximation methods derived here, I have do abstract from the separation of judgment and actions that I proposed in section \ref{sec:investment_decision_making} [TODO: also cite part of general introduciton].
+For the approximation methods derived here, I have do abstract from the separation of judgment and actions that I proposed in section \ref{sec:intro_learning_heuristics} and \ref{sec:investment_decision_making}.
 Still, I model households as bounded rational decision makers \citep{simon1972theories, simon1982models, gigerenzer2002bounded}.
 That is, households take their investment decisions, i.e. whether to invest their savings in the clean or the dirty sector, not by forming rational expectations \citep{Evans2006, Kirman2014} but by engaging in social learning \citep{Bandura1971} to obtain successful strategies \citep{Traulsen2010} with reasonable effort.
 As the outcomes of social learning crucially depend on the structural properties of the complex network of social ties amongst the households \citep{Barkoczi2016}, I model the adaptive formation of this social network endogenously.
@@ -172,7 +172,7 @@ I follow previous results on human strategy updating in repeated interactions fr
     \label{eq:approx_ip}
 \end{equation}
 As opposed to the absolute difference in the original study by \cite{Traulsen2010}, the probability in this model depends on relative differences. 
-I set $a = 8$ to conform to their empirical evidence. This dependence on relative differences in per household quantities is crucial for my method as I will discuss later at the end of sec. \ref{sec:large_system_limit}.
+I set $a = 8$ to conform to their empirical evidence. This dependence on relative differences in per household quantities is crucial for my method as I will discuss later at the end of section \ref{sec:large_system_limit}.
 I model strategy exploration as a fraction $\varepsilon$ of events that are random, e.g. rewiring to a random other household or randomly investing in one of the two sectors.
 Given the savings decisions of the individual households, and assuming equal capital depreciation rates $\kappa$ in both sectors, the time development of their capital holdings is given by
 
@@ -198,7 +198,7 @@ However, I want to point out that the approximation methods that I develop in th
 \textcolor{red}{I think that this subsection is a candidate for removal.}\\
 
 % JK: distinguish better between assumptions, initial conditions and findings/results.
-With the model specifications from sec. \ref{sec:approx_Model_Description}, the parametrization in Tab.~\ref{tab:Parameter_list} and appropriate initial conditions for the dynamic variables, the model can be simulated numerically.
+With the model specifications from section \ref{sec:approx_Model_Description}, the parametrization in Tab.~\ref{tab:Parameter_list} and appropriate initial conditions for the dynamic variables, the model can be simulated numerically.
 For this, I implemented the dynamics in the multi-purpose programming language python. The implementation of the ABM as well as the numerical analysis using the approximation methods described in the following are available on github in \cite{kolb2018}.
 In the following, I discuss the resulting aggregate dynamics.
 
@@ -210,7 +210,7 @@ Initial conditions are $G=G_0$, $C=1$, $K_j^{(i)}=1$ for the economic subsystem.
 \end{figure}
 
 Figure \ref{fig:example_trajectory} displays an exemplary average evolution of the model calculated as the mean of 100 simulation runs.
-The simulation starts with initial conditions of abundant fossil resources $g$ and low clean technology knowledge stock $c$ (panel b) as well as equally low capital stocks in the clean and dirty sector $k_c$ and $k_d$ (panel d). As I show later (see Sec.~\ref{sec:bifurcation-analysis}), the rest of the initial configuration of the model is rather irrelevant for the selected parameter values listed in Tab.~\ref{tab:Parameter_list}, since there is only one stable dynamical equilibrium as long as resource extraction costs are negligibly low.
+The simulation starts with initial conditions of abundant fossil resources $g$ and low clean technology knowledge stock $c$ (panel b) as well as equally low capital stocks in the clean and dirty sector $k_c$ and $k_d$ (panel d). As I show later (see section~\ref{sec:bifurcation-analysis}), the rest of the initial configuration of the model is rather irrelevant for the selected parameter values listed in Tab.~\ref{tab:Parameter_list}, since there is only one stable dynamical equilibrium as long as resource extraction costs are negligibly low.
 The high initial capital rents $r_c$ and $r_d$ are a direct result of the model assumptions and initial conditions. More precisely, the assumption that capital rent equals marginal productivity in eq. \ref{eq:approx_ccr} and \ref{eq:approx_dcr} and that of decreasing marginal productivity due to the choice of $\beta_i$ in combination with the initial condition of low capital and a fixed labor supply. Also as a direct consequence of these assumptions, the capital rents $r_c$ and $r_d$ decrease over time as the capital stock is built up.
 Initially (from $t=0$ to $t=100$), as a result of the choice of total factor productivities $b_i$ and due to low fossil resource extraction costs, capital productivity (and therefore capital rent $r$) is higher in the dirty sector than the clean sector (see panel a). 
 Consequently, the majority of households invest in the dirty sector which leads to a high per-household capital stock $k_d$ (panel d) and high production output $Y_d$ (panel c) in this sector.
@@ -256,7 +256,7 @@ Notably, I find an increasing variance in the fraction of households investing i
 \section{Approximate Analytical Solution}
 \label{sec:Approximation}
 
-Structurally, the model described in Section \ref{sec:approx_Model_Description} consists of a set of coupled ordinary differential equations \cref{eq:approx_lbd,eq:approx_rdep,eq:approx_ci,eq:approx_di} with algebraic constraints \cref{eq:approx_edr,eq:approx_equilibrium_wage,eq:approx_L,eq:approx_ccr,eq:approx_dcr} for the economic production process and a stochastic adaptive network process for the social learning component that is described by the rules \ref{r1} to \ref{rn} in section \ref{sec:investment_decision_making_descr.}. The state space of this combined process consists of two degrees of freedom of the knowledge stock and the geological resource stock as well as $2N$ degrees of freedom for the capital holdings of the set of all individual households plus the configuration space of the adaptive network process of the social learning component. I denote the variables of this process by capital letters ($C, G, K_j^{(i)}\dots$).
+Structurally, the model described in section \ref{sec:approx_Model_Description} consists of a set of coupled ordinary differential equations \cref{eq:approx_lbd,eq:approx_rdep,eq:approx_ci,eq:approx_di} with algebraic constraints \cref{eq:approx_edr,eq:approx_equilibrium_wage,eq:approx_L,eq:approx_ccr,eq:approx_dcr} for the economic production process and a stochastic adaptive network process for the social learning component that is described by the rules \ref{r1} to \ref{rn} in section \ref{sec:investment_decision_making_descr.}. The state space of this combined process consists of two degrees of freedom of the knowledge stock and the geological resource stock as well as $2N$ degrees of freedom for the capital holdings of the set of all individual households plus the configuration space of the adaptive network process of the social learning component. I denote the variables of this process by capital letters ($C, G, K_j^{(i)}\dots$).
 To find an analytic description of the model in terms of a low dimensional system of ordinary differential equations, I approximate it via a Pair Based Proxy (PBP) process, a stochastic process in terms of aggregated quantities, thereby drastically reducing the dimensionality of the phase space. I denote the variables of this process with capital letter with bars ($\bar{X}, \bar{Y}, \bar{Z}, \bar{K}_l^{(k)}\dots$).
 
 The derivation of this approximate process is done in three steps: First, I solve the algebraic constraints to the economic production process given by market clearing in the labor market and efficient production in the dirty sector - loosely following \cite{Nitzbon2017}. Second I use a pair approximation to describe the complex adaptive network process of social learning in terms of aggregated variables, similar to \cite{Rogers2012}. Third, I use a moment closure-like method to approximate higher moments of the distribution of the capital holdings of the heterogeneous households by quantities related to the first moments of their distribution.
@@ -284,7 +284,7 @@ To calculate the labor shares $L_c$ and $L_d$ as well as the wages in the two se
 
 \subsection{Pair Approximation}
 \label{sec:pair_approximation}
-To derive a macroscopic approximation of the social learning process described by rules \ref{r1} to \ref{rn} in sec. \ref{sec:investment_decision_making_descr.}, I make use of a Pair based proxy (PBP) process that is derived via pair approximation from the adaptive network process. This proxy process is not equivalent but sufficiently close to the microscopic process approximating it in terms of aggregated quantities by making certain assumptions about the properties of their microscopic structure. The aggregated quantities of interest are: the number of households investing in clean capital $N^{(c)}$, the number of households investing in dirty capital $N^{(d)}$, the number of links between agents of the same group $[cc]$ and $[dd]$ as well as between the two groups $[cd]$. Since the total number of households $N$ and links $M$ are fixed, these five variables reduce to three degrees of freedom, which I parameterize as follows:
+To derive a macroscopic approximation of the social learning process described by rules \ref{r1} to \ref{rn} in section \ref{sec:investment_decision_making_descr.}, I make use of a Pair based proxy (PBP) process that is derived via pair approximation from the adaptive network process. This proxy process is not equivalent but sufficiently close to the microscopic process approximating it in terms of aggregated quantities by making certain assumptions about the properties of their microscopic structure. The aggregated quantities of interest are: the number of households investing in clean capital $N^{(c)}$, the number of households investing in dirty capital $N^{(d)}$, the number of links between agents of the same group $[cc]$ and $[dd]$ as well as between the two groups $[cd]$. Since the total number of households $N$ and links $M$ are fixed, these five variables reduce to three degrees of freedom, which I parameterize as follows:
 
 \begin{equation}
 	\bar{X} = N^{(c)} - N^{(d)}, \quad \bar{Y} = [cc] - [dd], \quad \bar{Z} = [cd].
@@ -462,7 +462,7 @@ It is interesting to note that the freedom to chose equations for economic produ
 \label{fig:comparison2}
 \end{figure}
 %\JK{Maybe better to structure the results as (1), (2), ... and do the same for the full model - then easier to compare}
-The results in  fig.~\ref{fig:comparison2} are to some extent complementary to the results in fig.~\ref{fig:example_trajectory} that I discussed in sec.~\ref{sec:numerical_results}. Fig.~\ref{fig:comparison2}d shows capital in both sectors belonging to households that actually invest in these sectors, which is almost equivalent to the variables in fig.~\ref{fig:example_trajectory}d as it makes up almost the entirety of these capital stocks. This can be seen in fig. \ref{fig:comparison2}c: It shows capital of households in the sector that they do not currently invest in, which is approximately an order of magnitude smaller (note the different scale of the y-axis in the figure).
+The results in  fig.~\ref{fig:comparison2} are to some extent complementary to the results in fig.~\ref{fig:example_trajectory} that I discussed in section \ref{sec:numerical_results}. Fig.~\ref{fig:comparison2}d shows capital in both sectors belonging to households that actually invest in these sectors, which is almost equivalent to the variables in fig.~\ref{fig:example_trajectory}d as it makes up almost the entirety of these capital stocks. This can be seen in fig. \ref{fig:comparison2}c: It shows capital of households in the sector that they do not currently invest in, which is approximately an order of magnitude smaller (note the different scale of the y-axis in the figure).
 
 A comparison of the results of the approximation (dashed lines) with those of the numerical simulation of the ABM (solid lines) in fig.~\ref{fig:comparison2} shows that the approximation exhibits the same qualitative features, such as trends, timing and order of magnitude of the displayed variables, as the microscopic model.
 
@@ -500,7 +500,7 @@ As a proof of concept application I subsequently show the results of a bifurcati
 Bifurcation theory is the analysis of qualitative changes of dynamical systems under parameter variation, for example between a regime with a unique equilibrium (fixed point) and a multi-stable regime.
 The parameter value at which a qualitative change, for example in the stability of an equilibrium, occurs is called a critical value or bifurcation point. Bifurcations are classified according to the changes in dynamical properties of the system \cite{Strogatz1994,Kuznetsov1998}.
 % Methods for Bifurcation Analysis
-Analytical methods have limited scope to identify bifurcation points in non-linear systems. Methods like numerical continuation can handle complex systems of ordinary differential equations like the one derived in Sec.~\ref{sec:Approximation} \citep{Allgower2003}.
+Analytical methods have limited scope to identify bifurcation points in non-linear systems. Methods like numerical continuation can handle complex systems of ordinary differential equations like the one derived in section \ref{sec:Approximation} \citep{Allgower2003}.
 Consequently, I use numerical continuation from PyDSTool, a Python package for dynamical systems modeling and analysis \citep{pydstool,10.1371/journal.pcbi.1002628}.\footnote{PyDSTool is building on the AUTO-07p continuation library \citep{Doedel07auto-07p:continuation}.}
 
 % Introduce those kinds of bifurcations that I observe in the analysis:
@@ -571,7 +571,7 @@ Because of this, the shift of investments from the dirty (fossil) to the clean (
 Thus, I conclude that neutral imitation of better performing peers is not a feasible mechanism to initiate a bottom-up transformation of the economy. Directed imitation, for example driven by changes in social norms, and supporting policies that make dirty production less profitable are needed to initiate a transformation towards a sustainable economy in the absence of fossil resource shortage.
 
 % Why is analytical description desirable
-Finding a system of ordinary differential equations to approximate ABMs is useful because it makes the analysis of the dynamical properties of the model much easier. One promising application here is bifurcation theory, as illustrated in Sec.~\ref{sec:bifurcation-analysis}.
+Finding a system of ordinary differential equations to approximate ABMs is useful because it makes the analysis of the dynamical properties of the model much easier. One promising application here is bifurcation theory, as illustrated in section \ref{sec:bifurcation-analysis}.
 Furthermore, it opens the possibility to mathematically proof model properties such as the dependency between different parameters and variables in the model.
 
 % Outlook

@@ -5,7 +5,7 @@
 In the IPCCs current business as usual scenarios, the CO$_{2}$ emissions budget that limits global warming to below 1.5$^{\circ}$C with a likelihood of 0.5 will be exceeded by approximately 2030. This means that in order to limit global warming below 1.5$^{\circ}$C, the global economy needs a rapid shift away from fossil fuel based technologies. Currently, the two main measures that are expected to incentivize the necessary changes are taxation and cap and trade schemes for CO$_{2}$ emissions. I suspect that these measures are favoured by many because they are expected to be efficient. This is most likely because their effects are thought to be adequately understood as they can be estimated well with the current integrated assessment models that are used to generate the economic projections for the IPCCs reports. However, there are some issues with these policy measures. First, the expected effects of these policy measures are estimated in an idealized model world whereas their real effects come from their real implementation that might include a number of exceptions, loopholes and unintended consequences. And second, with few exceptions, the political process to implement these measures is sluggish and the outcomes are all but certain.
 
 Therefore, I argue that in addition to top down policy measures, bottom up initiatives are essential to successfully mitigate global warming. 
-There are a number of such bottom up initiatives such as Fridays for Future or Extinction Rebellion that are currently gaining more and more traction. However, as these initiatives are essentially driven by opinion formation and individual decision processes amongst heterogeneous individuals, as discussed in sec. \ref{sec:intro_complex_systems}, the models that are currently used for climate change mitigation scenarios are unable to picture them due to their reliance on a representative agent approach.
+There are a number of such bottom up initiatives such as Fridays for Future or Extinction Rebellion that are currently gaining more and more traction. These initiatives use means of collective and direct action make their claims and to influence public discourse. The analysis of similar movements shows that their dynamics are essentially driven by opinion formation and individual decision processes amongst heterogeneous individuals \cite{Graeber2009, Engler2016}. Consequently, as discussed in section \ref{sec:intro_complex_systems}, the models that are currently used for climate change mitigation scenarios are unable to picture them due to their reliance on a representative agent approach.
 
 With this motivation I develop a conceptual economic model of fossil resource use and technological change that is able to explicitly depict individual decision making of heterogeneous agents, as well as social learning and opinion formation in order to better understand the possible effects of social movements in mitigating global warming.
 
@@ -13,47 +13,49 @@ This model combines individual decision making via a simple fast and frugal deci
 
 In the reminder of this chapter, I will outline and explain this model in section \ref{sec:heuristics_model}, simplify it analytically as far as possible and explore some of its limiting cases in sections \ref{sec:algebraic_constraints} and \ref{sec:limiting_cases} and fit its parameters to past economic data in section \ref{sec:parameter_values}. Subsequently, I analyze the models default dynamics in section \ref{sec:default_scenario} and showcase the possibility to analyze a stylized social movement with this model in section \ref{sec:campaign} before concluding.
 
-
-\newpage
 \section{Model Development}  
 \label{sec:heuristics_model}
-Previous studies \cite{Ans2013} suggest that feedback through supply-demand price mechanisms will have only limited impact on fossil fuel companies. This is due to the fact that only approximately 15 \% of investors invest subject to socially responsible guidelines \cite{SIF2014Report} and that divested holdings are, especially in liquid markets, very likely to quickly find their way to less responsible investors. \\
+Previous studies by \cite{Ans2013} suggest that feedback through supply-demand price mechanisms will have only limited impact on fossil fuel companies. This is due to the fact that only approximately 15 \% of investors invest subject to socially responsible guidelines \cite{SIF2014Report} and that divested holdings are, especially in liquid markets, very likely to quickly find their way to less responsible investors. \\
 Also, as long as the physical capital relying on fossil fuels already exists, economic reasoning follows that it will be used as long as variable costs are covered.
 Therefore, a general economic shift from dirty to clean technology needs changes in investment in physical capital or a political imperative mandated by a (qualified) majority. Therefore, I consider a model focussing on savings and investment decisions appropriate to investigate the possible dynamics of an economic transition towards fossil resource independent technologies.\\
 In the following I propose a preliminary scheme of such a model.
-\newpage
 \begin{figure}[t]
 	\centering
 	\includegraphics[width =.8 \textwidth]{figures/model_scheme_1.pdf}
-        \caption{Schematic sketch of the model consisting of two production sectors (a \emph{clean} and a \emph{dirty} one) and heterogeneous households that are heuristic decision makers that interact on a complex adaptive acquaintance network. Households supply labor and capital to the production sectors. The production sectors each have their separate capital market but are linked via a shared labor market. The \emph{dirt} sector depends on the input of a exhaustible fossil resource, the \emph{clean} sector depends on a developing technology that is endogenously modelled via learning by doing. Boxes and bubbles signify modelled entities, arrows signify interactions. Numbers ($x$) next to entities and interactions give the decimal place ($4.x$) of equations in the model description section \ref{sec:model_description} that describe the respective processes.}
+        \caption{Schematic sketch of the model consisting of two production sectors (a \emph{clean} and a \emph{dirty} one) and heterogeneous households that are heuristic decision makers that interact on a complex adaptive acquaintance network. Households supply labor and capital to the production sectors. The production sectors each have their separate capital market but are linked via a shared labor market. The \emph{dirt} sector depends on the input of an exhaustible fossil resource, the \emph{clean} sector depends on a developing technology that is endogenously modelled via learning by doing. Boxes and bubbles signify modelled entities, arrows signify interactions. Numbers ($x$) next to entities and interactions give the decimal place of equations in the model description section \ref{sec:model_description} that describe the respective processes.}
 	\label{fig:model}
 \end{figure}
 
 \subsection{Economic Production}
 \label{sec:model_description}
 
-As illustrated in fig. \ref{fig:model}, the model consists of two sectors for production and a set of heterogeneous households that interact via an adaptive complex social network. The production sectors employ different technology. I call them the \textit{clean} and the \textit{dirty} sector for illustrative clarity. The heterogeneous households in the model provide capital $K$ and labor $L$ to both sectors.i
+As illustrated in fig. \ref{fig:model}, the model consists of two sectors for production and a set of heterogeneous households that interact via an adaptive complex social network. The production sectors employ different technology. I call them the \textit{clean} and the \textit{dirty} sector for illustrative clarity. The heterogeneous households in the model provide capital $K$ and labor $L$ to both sectors.
 In addition, the production technology in the dirty sector depends on the input of an exhaustible (fossil) energy-resource $R$ that is used up in the process. I assume that the technology in the dirty sector is fully developed and adequately described in terms of the total factor productivity. 
-Price elasticities of demand for fossil fuel are evidently low in real economies \cite{IMF2011, Hosslinger2017, Labandeira2017}, even with the choice between alternative technologies factored in. I approximate this by setting the elasticity of substitution between the fossil resource and the pair of capital and labor to zero in the dirty sector. This is also in line with contemporary critique of the neoclassical growth models \cite{Daly1997,georgescu1975energy,georgescu1979comments, Ayres2007, Ayres2013} that highlights the generally assumed substitutability of natural resources in production as being physically implausible and lacking empirical evidence.
+Price elasticities\footnote{The price elasticity of demand ($PED$) for a good describes the change in demand $Q$ for that good when the price of that good $P$ (and nothing else) changes. Formally, it is defined as $PED = \partial Q / \partial P \times P/Q$. Informally this means that if the price elasticity of a good is low, it will be bought in similar quantities regardless of rising prices.} of demand for fossil fuel are evidently low in real economies \citep{IMF2011, Hosslinger2017, Labandeira2017}, even with the choice between alternative technologies factored in. I approximate this by setting the marginal rate of substitution\footnote{The marginal rate of substitution $MRS_{12}$ of two goods $G_1$ and $G_2$ describes the extent to which good $G_1$ can be replaced by good $G_2$ in a given economic process. More precisely, in this case it would be called the marginal rate of \emph{technical} substitution as it refers to the substitution of two goods in a production process (as opposed to the substitution of goods in consumption). Technically, it is defined as 
+\begin{equation}
+  MRS_{12} = \frac{\partial Y(G_1,G_2)}{\partial G_1} / \frac{\partial Y(G_1, G_2)}{\partial G_2} \nonumber
+\end{equation}
+where $Y(G_1, G_2)$ is the economic production function that links the input of goods $G_1$ and $G_2$ to economic output $Y$. In effect, this means that when the marginal rate of technical substitution between two goods is zero, they cannot be replaced by one another in a production e.g., when one of the goods is missing, production halts regardless of the quantities of the other good that are available.} between the fossil resource and the pair of capital and labor to zero in the dirty sector. This is also in line with contemporary critique of the neoclassical growth models \citep{Daly1997,georgescu1975energy,georgescu1979comments, Ayres2007, Ayres2013} that highlights the generally assumed substitutability of natural resources in production as being physically implausible and lacking empirical evidence.
 
 I acknowledge the common argument for substitutability between capital, labor and energy resources due to a shift in the output of economic production from manufacturing to services and would argue that this model pictures this in a shift of economic production from the dirty sector to the clean one which is described in the following.
 
 The clean sector represents a circular economy in which the output of final goods depends on the machinery, knowledge and effort used in its production and is not limited by entropy laws or resource scarcity on the timescale under consideration. The technology $C$ used in the clean sector is assumed to be still in development and is therefore explicitly modeled.
-Following \cite{argote1990learning}, I model technological process as learning by doing according to Wright's law \cite{wright1936factors, Nagy2013} with a one-factor learning curve. I assume that $C$ is proportional to cumulative production but also depreciates with a constant rate $\chi$. Depreciation can be regarded as a human capital effect that leads to knowledge depreciation over time \cite{Kahouli-Brahmi2008}. This is also in line with the empirically observed decrease in learning rates for maturing technologies \cite{argote1990learning}
-
+Following \cite{argote1990learning}, I model technological process as learning by doing according to Wright's law \citep{wright1936factors, Nagy2013} with a one-factor learning curve. I assume that $C$ is proportional to cumulative production but also depreciates with a constant rate $\chi$. 
 \begin{equation}
 	\dot{C} = Y_c - \chi C.
 	\label{eq:learning_by_doing}
 \end{equation}
-
-Capital, labor and technology/knowledge are assumed to be mutual substitutes. To satisfy these requirements, I use the following production functions:
+Depreciation can be regarded as a human capital effect that leads to knowledge depreciation over time \citep{Kahouli-Brahmi2008}. This is also in line with the empirically observed decrease in learning rates for maturing technologies \citep{argote1990learning}
+In the clean sector, capital $K$, labor $L$ and technology/knowledge $C$ are assumed to be mutual substitutes. To satisfy these requirements, I use the following production functions:
 \begin{align}
 	Y_c &= b_c C^{\gamma} L_c^{\alpha_c}K_c^{\beta_c}, \label{eq:clean_production} \\
-	Y_d &= {\mathrm min}\left( b_d L_d^{\alpha_d}K_d^{\beta_d}, e R \right), \label{eq:dirty_production}
+	Y_d &= \mathrm{ min}\left( b_d L_d^{\alpha_d}K_d^{\beta_d}, e R \right), \label{eq:dirty_production}
 \end{align}
-Subscripts $c$ and $d$ denote the clean and dirty sector respectively, $L_c$ and $L_d$ are labor shares, $\alpha$ and $\beta$ are elasticities of the respective input factors and $b_c$ and $b_d$ are the total factor productivity and $K_c$ and $K_d$ are the capital stocks for the respective sector. Measuring unit production cost in the number of working hours as in the original study by Wright \cite{wright1936factors}, $\gamma$ is equivalent the elasticity of learning by doing in the clean sector as outlined in \cite{Kahouli-Brahmi2008}.
+Subscripts $c$ and $d$ denote the clean and dirty sector respectively, $Y_c$ and $Y_d$ are their economic outputs and $L_c$ and $L_d$ are labor shares in each sector. $\alpha$ and $\beta$ are elasticities of the respective input factors and $b_c$ and $b_d$ are the total factor productivity and $K_c$ and $K_d$ are the capital stocks for the respective sector.
+% Measuring unit production cost in the number of working hours as in the original study by Wright \cite{wright1936factors}, $\gamma$ is equivalent the elasticity of learning by doing in the clean sector as outlined in \cite{Kahouli-Brahmi2008}.
+% This is probably too much info and confusing for a physics audience.
 
-I assume efficient an usage of resources in the dirty sector, such that
+The structure of eq. \ref{eq:dirty_production} implies that if $b_d L_d^{\alpha_d}K_d^{\beta_d} \ne e R$, either capital and labor or fossil resource would be available in excess but unused and idle, which would be inefficient. I assume efficient an usage of resources in the dirty sector, such that
 \begin{equation}
     b_d L_d^{\alpha_d}K_d^{\beta_d} = e R
     \label{eq:efficient_dirty_resources}
@@ -63,7 +65,7 @@ where $1/e$ is the resource intensity of the sector. The usage of the fossil res
     \dot{G} = -R. 
     \label{eq:resource_depletion}
 \end{equation} 
-In line with the assumptions common in the literature \cite{Dasgupta1974, Perman2003}, the total cost $c_R$ for the usage of the fossil resource depends on the resource use $R$ and the remaining fossil resource stock $G$ such that $\partial c_R / \partial R >0$ and $\partial c_R / \partial G < 0$. I chose the specific form to be
+In line with the assumptions common in the literature \cite{Dasgupta1974, Perman2003}, the total cost $c_R$ for the usage of the fossil resource depends on the resource use $R$ and the remaining fossil resource stock $G$ such that total resource costs increase with resource use ($\partial c_R / \partial R >0$) and also with continued resource depletion ($\partial c_R / \partial G < 0$). I chose the specific form to be
 \begin{equation}
 	c_R = b_R R^{\rho}\left( \frac{G_0}{G} \right)^{\mu}; \quad \rho \geq 1, \quad \mu > 0,
 	\label{eq:resource_cost}
@@ -88,12 +90,12 @@ I assume physical capital to be specific to the technology employed such that it
 \subsection{Investment Decision Making}
 \label{sec:investment_decision_making}
 I model households as bounded rational decision makers \cite{simon1972theories, simon1982models, gigerenzer2002bounded}.
-That is, households take their investment decisions, i.e. whether to invest their savings in the clean or the dirty sector, not by forming rational expectations \cite{Evans2006, Kirman2014} but by A) using \emph{heuristic decision strategies} to make robust decisions with sparce information and with limited computational work and B) engaging in \emph{social learning} \cite{Bandura1971} to obtain successful decision strategies \cite{Traulsen2010} with reasonable effort.
+That is, households take their investment decisions, i.e. whether to invest their savings in the clean or the dirty sector, not by forming rational expectations \cite{Evans2006, Kirman2014} but by A) using \emph{heuristic decision strategies} to make robust decisions with sparse information and with limited computational work and B) engaging in \emph{social learning} \cite{Bandura1971} to obtain successful decision strategies \cite{Traulsen2010} with reasonable effort.
 
 % Why use Fast and Frugal heuristics for decision making?
 Regarding individual decision making, there is ample evidence that real investors rather use a diverse set of heuristic strategies to make investment decisions \cite{Gigerenzer2018} and researchers in the field strongly suggest to consider these so called \emph{Fast and Frugal heuristic} decision models as a complementary alternative to established probabilistic and optimizing decision models. 
 In general, Fast and Frugal Heuristics are described in terms of three building blocks; one for information search, one for stopping information search and one for evaluating the available information and drawing a conclusion from it.
-I use a decision heuristic called \emph{Take The Best} that is observed to be frequently used in situations where individuals need to decide between one of two options that are comparable in different aspects [CITE]. 
+I use a decision heuristic called \emph{Take The Best} that is observed to be frequently used in situations where individuals need to decide between one of two options that are comparable in different aspects \citep{gigerenzer1999simple, Newell2003a}. 
 Take the Best has the following building blocks: 1) Search through cues in a predefined order, 2) stop as soon as one cue discriminates between the two options, 3) chose the option with the preferable value on the discriminating cue. \\
 This requires a so called \textit{cue order} e.g.\ a hierarchy of validity for the pieces of information that are considered relevant for the decision. \\
 
@@ -104,7 +106,7 @@ The case of savings decisions that is considered in this model poses an intermed
 Additionally, I argue that imitation of peers is not only an efficient learning strategy in many situations but also a value in its own - especially if the question is to some extend ethical. 
 
 % Heuristics can be learned from others. This is why we model social learning.
-Nevertheless, some strategies are suspected to have more profitable long term results then others as the performance of this decision heuristic depends on the order of the sequence of cues [CITE]. Empirical evidence shows that if participants in an experiment are allowed to share information about their cue orders and respective performance, they do so and thereby greatly increase the speed of learning of cue orders that fit their decision environment compared to individual trial and error reinforcement learning [CITE]. Therefore, I use social learning among households to determine the particular cue order that determines their investment decision making.
+Nevertheless, some strategies are suspected to have more profitable long term results then others as the performance of this decision heuristic depends on the order of the sequence of cues \citep{Gigerenzer2011}. Empirical evidence shows that if participants in an experiment are allowed to share information about their cue orders and respective performance, they do so and thereby greatly increase the speed of learning of cue orders that fit their decision environment compared to individual trial and error reinforcement learning \citep{garcia2009does}. Therefore, I use social learning among households to determine the particular cue order that determines their investment decision making.
 
 % As the outcomes of social learning depend on network topology, we model topology endogenously.
 As the outcomes of social learning crucially depend on the structural properties of the complex network of social ties amongst the households \cite{Barkoczi2016}, I model the adaptive formation of this social network endogenously.
@@ -122,7 +124,7 @@ Households generate an income $I^{(i)}$ from their labor and capital income whic
 A binary decision parameter $o_i \in [c,d]$ denotes the sector in which the households decide to invest. As motivated above, I model decision making that is driven by three processes: Heuristic decision making via the Take The Best heuristic, social learning via the imitation of successful cue orders and homophily towards individuals exhibiting the same beliefs as represented by its cue order. \par
 
 % How I do this technically (Heuristic and cue order here)
-Concerning the information that households use to make their investment decisions, they are assumed to have no knowledge of the future, e.g.\ they make decisions based solely upon information about the past and present. Possible sources of information are economic indicators such as capital rents in both sectors $r_c$ and $r_d$ and their trends $\dot{r}_c$ and $\dot{r}_d$ as well as observable behavior of other households that they are connected to via the social network and subjective beliefs of superiority of one over the other sector that are not explained by other factors.\\
+Concerning the information that households use to make their investment decisions, they are assumed to be unable to form rational expectations about the future, e.g.\ they make decisions based solely upon information about the past and present. Possible sources of information are economic indicators such as capital rents in both sectors $r_c$ and $r_d$ and their trends $\dot{r}_c$ and $\dot{r}_d$ as well as observable behavior of other households that they are connected to via the social network and subjective beliefs of superiority of one over the other sector that are not explained by other factors.\\
 Each household is characterized by a cue order $O$ containing some or all of the above cues in a specific order. At each time, it uses the Take the Best Heuristic with this cue order to evaluate the information that is available and make an investment decision accordingly.
 \par
 
@@ -187,12 +189,9 @@ In the following, I discuss the technical details ans specification of this impl
 	\label{tab:derived_variables}
  \end{table}
 
- 
-  \section{Implementation} 
+\section{Implementation} 
 
-
-
-\subsection{Solution for Alg ebraic Constraints: Calculation of wages, resource uptake and capital rent}
+\subsection{Solution for Algebraic Constraints: Calculation of wages, resource uptake and capital rent}
 \label{sec:algebraic_constraints}
 
 The conditions for labor shares and wages as well as optimal resource uptake pose algebraic constraints for the system of ordinary differential equations that describe the dynamics of the capital stocks $\dot{K}_i^{(j)}$, the resource stock $\dot{G}$ and the dynamics of the knowledge stock in the clean sector $\dot{C}$. In order to solve these differential equations more efficiently, one can solve these algebraic constraints analytically.
@@ -254,8 +253,8 @@ To sum up, I solved the algebraic constraints to the ordinary differential equat
 \end{subequations}
 
 
-
-\subsection{Limiting cases and timescales} 
+\newpage
+\subsection{Limiting cases and Timescales} 
 \label{sec:limiting_cases}
 
 
@@ -264,7 +263,7 @@ To sum up, I solved the algebraic constraints to the ordinary differential equat
         \caption{Phase space plot of equations \eqref{eq:full_clean_ca1} and \eqref{eq:full_clean_ca2} \label{phase_space_plot}}
 \end{wrapfigure}
 
-To estimate some parameters of the system, I analyze some limiting cases of the system and compare them with real world timescales. Such, I can set reasonable values to some parameters.
+To estimate the parameters of the model, I analyze some limiting cases of the system and compare them with real world timescales. , I can set reasonable values to some parameters.
 
 
 \subsubsection{Full clean economy}
@@ -277,9 +276,9 @@ In this case, the equations for capital and knowledge accumulation are
 	\dot{C} &= b_c L^\alpha K_c^\beta C^\gamma - \chi C \label{eq:full_clean_ca2}
 \end{align}
 \end{subequations}
-Assuming that $\alpha + \beta$ = 1, with equal elasticities for capital and labor e.g. $\alpha = \beta$, the stationary points of the system are 
+Assuming that $\alpha + \beta$ = 1, with equal elasticities for capital and labor e.g. $\alpha = \beta$, the stationary point of the system (except for the trivial one at $(0, 0)$ is 
 \begin{equation}
-  (K_c^*, C^*) = (0,0), \left( \left( \frac{\chi s}{\delta} \right) \left( \frac{s b_c^2 L}{\delta \chi} \right)^{\frac{1}{1-2\gamma}}, \left( \frac{s b_c^2 L}{\delta \chi} \right)^{\frac{1}{1-2 \gamma}}  \right)
+  K_c^*= \left( \frac{\chi s}{\delta} \right) \left( \frac{s b_c^2 L}{\delta \chi} \right)^{\frac{1}{1-2\gamma}}, \qquad C^*\left( \frac{s b_c^2 L}{\delta \chi} \right)^{\frac{1}{1-2 \gamma}}
 	\label{stationary_points}
 \end{equation}
 where the first one is non hyperbolic and the second one is stable which can be seen in the phase space plot in fig \ref{phase_space_plot} and the corresponding Jacobian
@@ -454,13 +453,13 @@ To make the model results more intuitively accessible I roughly estimate the mod
 
 First, I collect estimates for all parameters where there are values in the literature.\\
 
-\begin{wrapfigure}[21]{o}{.55 \textwidth}
+\textit{Input factor elasticities} are a defining set of parameters for Cobb-Douglas production functions. They measure the responsiveness of output with respect to a change in input factors. Historically, according to \cite{Douglas1976} the values for $\alpha$ range between approximately 0.5 and 0.75. For simplicity, I set $\alpha=2/3$ which however does not limit the generality of the approximate solutions that are developed later in section \ref{sec:Approximation} ff. \cite{Douglas1976} also states that $\alpha+\beta=1$ is a fair approximation of the actual data.
+\begin{wrapfigure}[21]{i}{.55 \textwidth}
 	\vspace{-.4 cm}
         \hspace{-1.5 cm}
         \includegraphics[width = .65 \textwidth]{./figures/energy_consumption_clean_dirty.pdf}
         \caption{Energy usage divided into dirty (coal, oil, gas) and clean (hydro, nuclear, other renewables). The dashed line indicates the fraction of clean energy consumption. Data from \cite{dudley2019bp}.\label{fig:energy_data}}
 \end{wrapfigure}
-\textit{Input factor elasticities} are a defining set of parameters for Cobb-Douglas production functions. They measure the responsiveness of output with respect to a change in input factors. Historically, according to \cite{Douglas1976} the values for $\alpha$ range between approximately 0.5 and 0.75. For simplicity, I set $\alpha=2/3$ which however does not limit the generality of the approximate solutions that are developed later in section \ref{sec:Approximation} ff. \cite{Douglas1976} also states that $\alpha+\beta=1$ is a fair approximation of the actual data.\\
 \textit{Elasticity of knowledge $\gamma$} is also the rate of learning of technology in the clean sector as discussed in \ref{sec:model_description}. This heavily depends on the technology under consideration. According to \cite{Kahouli-Brahmi2008} estimates for learning-by-doing rates approximately range between 10\% and 20\%. As an approximate value, I set $\gamma=1/8$. \\
 \textit{The savings rate $s$} indicates the fraction of income that households save on average. I use a fixed savings rate for all households that is set to $s=0.25$ which is roughly in line with data for OECD countries\footnote{see \url{https://data.worldbank.org/indicator/NY.GNS.ICTR.ZS}}.\\
 \textit{Total labor $L$} is taken from world bank data\footnote{see \url{https://data.worldbank.org/indicator/SL.TLF.TOTL.IN}} which estimates it at 3.38 billion people for 2016.\\
@@ -484,18 +483,11 @@ and
   K_c \approx CIR \cdot Y_c \approx CIR \cdot GDP \cdot \frac{E}{E + R} \approx 3.12 \cdot 10^{14} ~ \textrm{U.S.} \$
   \label{eq:approx_clean_capital}
 \end{equation}
-
 \textit{The capital depreciation rate $\delta$} is assumed to be equal in both sectors. Capital depreciation rates strongly depend on the type of capital under consideration. Typical estimates range from 1.5 \% to 8.5\% for different kinds of capital see \cite{Kamps2005} and \cite{Gupta2014}. This leaves some freedom to chose $\delta$. I use this to set $\delta$ such that the estimated total capital stock $K = K_c + K_d$ together with the chosen savings rate of $s=0.25$ is an equilibrium solution to 
 \begin{equation}
   \dot{K} = s \cdot Y - \delta K
   \label{eq:delta_estimate}
 \end{equation} 
-\begin{wrapfigure}[22]{o}{.55 \textwidth}
-	\vspace{-.4 cm}
-        %\hspace{-1.5 cm}
-        \includegraphics[width = .68 \textwidth]{./figures/fossil_resource_per_year.pdf}
-        \caption{Historical resource of fossil resources (coal, oil and gas) for the years 1965-2018 according to \cite{dudley2019bp} and estimated historical fossil resource stock according to eq. \ref{eq:current_fossil_resource_stock} and \ref{eq:fossil_resource_time_series}. \label{fig:historical_resource_use}}
-\end{wrapfigure}
 which results in a depreciation rate of $\delta\approx 5.68 \% \mathrm{p.a.}$.\\
 
 \textit{I estimate the initial value of the knowledge stock in the clean sector $C$} for the base year from the time series of production in the clean sector. Production in the clean sector is approximated equivalently to eq. \ref{eq:energy_intensity_estimate} as world GDP times the fraction of clean energy consumption for the years of 1965-2010. I use the discrete version of \eqref{eq:learning_by_doing}:
@@ -505,11 +497,20 @@ which results in a depreciation rate of $\delta\approx 5.68 \% \mathrm{p.a.}$.\\
 \end{equation}
 
 to approximate the knowledge stock for the year 2010 as $C \approx 7.8 \cdot 10^{14}$ U.S. \$. \\
-I estimate \textit{the initial fossil resource stock $G_0$ and the current resource stock $G$} for the base year from the historical usage of fossil fuels (after 1965 for which I have the data depicted in fig. \ref{fig:historical_resource_use}) and the current estimates of fossil fuels remaining according to current use. There are different estimates for the depletion time of fossil resources ranging from approximately 60 years for crude oil to 100 years for gas and 200 years for coal. As the model does not differentiate between different types of fossil resources, I use a depletion time of 100 years and approximate the current resource stock as the depletion time times the current fossil resource use:
-\begin{equation} 
-  G(t=2010) \approx R(t=2010) \cdot 100, = 11.6 \cdot 10^{5} ~ \mathrm{Mtoe},
+\begin{wrapfigure}[22]{o}{.55 \textwidth}
+	%\vspace{-.4 cm}
+        %\hspace{-1.5 cm}
+        \includegraphics[width = .68 \textwidth]{./figures/fossil_resource_per_year.pdf}
+        \caption{Historical resource of fossil resources (coal, oil and gas) for the years 1965-2018 according to \cite{dudley2019bp} and estimated historical fossil resource stock according to eq. \ref{eq:current_fossil_resource_stock} and \ref{eq:fossil_resource_time_series}. \label{fig:historical_resource_use}}
+\end{wrapfigure}
+I estimate \textit{the initial fossil resource stock $G_0$ and the current resource stock $G$} for the base year from the historical usage of fossil fuels (after 1965 for which I have the data depicted in fig. \ref{fig:historical_resource_use}) and the current estimates of fossil fuels remaining according to current use. 
+There are different estimates for the depletion time of fossil resources ranging from approximately 60 years for crude oil to 100 years for gas and 200 years for coal.\\ As the model does not differentiate between different types of fossil resources, I use a depletion time of 100 years and approximate the current resource stock as the depletion time times the current fossil resource use:
+\begin{align} 
+  G(t=2010) 
+  &\approx R(t=2010) \cdot 100, \nonumber \\
+  &= 11.6 \cdot 10^{5} ~ \mathrm{Mtoe},
   \label{eq:current_fossil_resource_stock}
-\end{equation}
+\end{align}
 and the initial fossil resource stock as the current fossil resource stock plus the estimated cumulative resource stock according to the extrapolated fossil resource use depicted in fig. \ref{fig:historical_resource_use}:
 \begin{equation} 
   G_0 \approx G(t=2010) + \sum_{t=1965}^{2010} R(t) = 15.5 \cdot 10^{5} ~ \mathrm{Mtoe}.
@@ -524,15 +525,15 @@ I estimate the parameters of the fossil resource cost function $b_R$ and $\mu$ f
   G(t) = G_0 - \sum_{t=1948}^{t}R(t),
   \label{eq:fossil_resource_time_series}
 \end{equation}
+
+I approximate the yearly cost of fossil resource as the product of the approximate resource price times the yearly resource use: $c_R(t) \approx p_R(t) \cdot R(t)$. 
 \begin{wrapfigure}[19]{o}{.55 \textwidth}
 	\vspace{-.4 cm}
         \hspace{-1.25 cm}
         \includegraphics[width = .67 \textwidth]{./figures/resource_price_fit.pdf}
         \caption{Fit of resource cost according to eq. \ref{eq:resource_cost} to historical data generated from fossil resource use and yearly average crude oil prices as approximate fossil resource price. \label{fig:resource_cost_fit}}
 \end{wrapfigure}
-
-
-I approximate the yearly cost of fossil resource as the product of the approximate resource price times the yearly resource use: $c_R(t) \approx p_R(t) \cdot R(t)$. Then I use least squares to fit resource cost eq. \ref{eq:resource_cost} as a function of the data for resource use $R(t)$ and remaining resource $G(t)$ to the estimate data for the total resource cost $c_R(t)$ which results in 
+Then I use least squares to fit resource cost eq. \ref{eq:resource_cost} as a function of the data for resource use $R(t)$ and remaining resource $G(t)$ to the estimate data for the total resource cost $c_R(t)$ which results in 
 \begin{align}
   &b_R \approx 10.4 \cdot 10^{8} \frac{\$}{\mathrm{Mtoe}} ~ \mathrm{and}\\
   & \mu \approx 5.72.
@@ -595,11 +596,11 @@ and their influence on the state vector $s = (x, y, z)^T$ are $s' = s + s_i$ wit
 \end{align}
 Such that in the limit for large N, one gets deterministic equations for $x$, $y$ and $z$:
 \begin{align}
-	\frac{\dot{x}}{\tau} =& -(1-\varphi)\frac{z}{2}\frac{1-x}{1-y}({\mathrm tanh}(\Delta I)-1) + (1-\varphi)\frac{z}{2}\frac{1+x}{1+y}({\mathrm tanh}(-\Delta I)-1) \\
-\frac{\dot{y}}{\tau} =& \quad \varphi\frac{z}{2}\left( \frac{1+x}{1+y} + \frac{1-x}{1-y} \right) + (1-\varphi)kz\left( {\mathrm tanh}(-\Delta I) - {\mathrm tanh}(\Delta I) \right) \\
+	\frac{\dot{x}}{\tau} =& -(1-\varphi)\frac{z}{2}\frac{1-x}{1-y}(\mathrm{ tanh}(\Delta I)-1) + (1-\varphi)\frac{z}{2}\frac{1+x}{1+y}(\mathrm{ tanh}(-\Delta I)-1) \\
+\frac{\dot{y}}{\tau} =& \quad \varphi\frac{z}{2}\left( \frac{1+x}{1+y} + \frac{1-x}{1-y} \right) + (1-\varphi)kz\left( \mathrm{ tanh}(-\Delta I) - \mathrm{ tanh}(\Delta I) \right) \\
 	\frac{\dot{z}}{\tau} =& -\varphi\frac{z}{2}\left( \frac{1+x}{1+y} + \frac{1-x}{1-y} \right) \nonumber \\
-	& + (1-\varphi)\frac{z}{2} \left[ \frac{1+x}{1+y} \frac{1}{2}({\mathrm tanh}(\Delta I)-1) \left( (1+y-2z)\left( \frac{2k}{1+x}-\frac{1}{1+y} \right)-1 \right) \right. \nonumber \\
-	& \hspace{1.9 cm} + \left.\frac{1-x}{1-y}\frac{1}{2}({\mathrm tanh}(-\Delta I)-1)\left( (1-y-2z)\left( \frac{2k}{1-x}-\frac{1}{1-y} \right)-1 \right)  \right]
+	& + (1-\varphi)\frac{z}{2} \left[ \frac{1+x}{1+y} \frac{1}{2}(\mathrm{ tanh}(\Delta I)-1) \left( (1+y-2z)\left( \frac{2k}{1+x}-\frac{1}{1+y} \right)-1 \right) \right. \nonumber \\
+	& \hspace{1.9 cm} + \left.\frac{1-x}{1-y}\frac{1}{2}(\mathrm{ tanh}(-\Delta I)-1)\left( (1-y-2z)\left( \frac{2k}{1-x}-\frac{1}{1-y} \right)-1 \right)  \right]
 	\label{avm_ode}
 \end{align}
 assuming that the income difference $\Delta I$ between different cue orders is sufficiently large, this can be reduced to
@@ -621,7 +622,7 @@ Since, at least according to my impression, people don't really change their min
 \subsection{Opinion formation and decision making}
 \label{sec:oppinion_formation_and_decision_making}
 
-I assume that households use the Take-the-Best heuristic as explained in [GIVE REFERENCE HERE] to decide whether to invest their savings in the clean or the dirty sector. This assumption results in three follow up questions that have to be answered for the model setup. A) Which cues i.e. bits of information to the households use to compare the two sectors for their decision? B) Which combinations of these cues (i.e. which cue orders) do I want to model? C) Which initial distribution of cue orders should I use as an initial condition. This chapter will answer these three questions in this order.
+I assume that households use the Take-the-Best heuristic as explained in section~\ref{sec:intro_bounded_rationality} to decide whether to invest their savings in the clean or the dirty sector. This assumption results in three follow up questions that have to be answered for the model setup. A) Which cues i.e. bits of information to the households use to compare the two sectors for their decision? B) Which combinations of these cues (i.e. which cue orders) do I want to model? C) Which initial distribution of cue orders should I use as an initial condition. This chapter will answer these three questions in this order.
 
 To represent the cue order in the model and in this text, I assign numbers to the different cues $(c_l)$ and represent cue orders $O$ as lists of these numbers: $O: (c_l,\dots c_m)$. As a rule, cues only appear once in each cue order and if one cue definitively discriminates between options, there will be no other cues after it.
 
