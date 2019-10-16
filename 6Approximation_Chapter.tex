@@ -163,7 +163,7 @@ I describe households as the nodes in a graph of acquaintance relations that fol
         \item If they follow a different strategy, i.e. they invest in different sectors, one of two actions can happen:
         \begin{enumerate}
                 \item Homophilic network adaptation: with probability $\varphi$, the households end their relation and household $i$ connects to another household $k$, that follows the same strategy. 
-                \item Imitation: with probability $1-\varphi$, household $i$ engages in social learning i.e. it imitates the strategy of household $j$ with a probability $p_{ji}$ that increases with their difference in income. \label{rn}
+                \item Learning: with probability $1-\varphi$, household $i$ engages in social learning i.e. it imitates the strategy of household $j$ with a probability $p_{ji}$ that increases with their difference in income. \label{rn}
         \end{enumerate}
 \end{enumerate}
 I follow previous results on human strategy updating in repeated interactions from \cite{Traulsen2010}, when I assume the imitation probability as a monotonously increasing function of the relative difference in consumption between both households:
@@ -181,9 +181,9 @@ Given the savings decisions of the individual households, and assuming equal cap
 	\dot{K}_d^{(i)} =& \delta_{o_id} \left( r_c K_c^{(i)} + r_d K_d^{(i)} + w L_i \right) - \kappa K_d^{(i)} \label{eq:approx_di}
 \end{align}
 
-where $\delta_{ij}$ is the Kronecker Delta. The total capital stocks in the two sectors are made up of the sum of the individual capital stocks as
+where $\delta_{ij}$ is Kroneckers Delta. The total capital stocks in the two sectors are given by the sum of the individual capital stocks as
 \begin{equation}
-K_j = \sum_i^N K_j^{(i)} = N k_j,
+  K_j = \sum_i^N K_j^{(i)} = N k_j, \quad j \in \{c, d\}
 \end{equation}
 where $k_j$ is the average per household capital stock of a given capital type.
 
@@ -195,45 +195,48 @@ However, I want to point out that the approximation methods that I develop in th
    
 \subsection{Numerical Modelling and Results} 
 \label{sec:numerical_results}
-\textcolor{red}{I think that this subsection is a candidate for removal.}\\
+%\textcolor{red}{I think that this subsection is a candidate for removal.}\\
 
 % JK: distinguish better between assumptions, initial conditions and findings/results.
-With the model specifications from section \ref{sec:approx_Model_Description}, the parametrization in Tab.~\ref{tab:Parameter_list} and appropriate initial conditions for the dynamic variables, the model can be simulated numerically.
+With the model specifications from section \ref{sec:approx_Model_Description}, the parametrization in Tab.~\ref{tab:Parameter_list} the model can be simulated numerically.
 For this, I implemented the dynamics in the multi-purpose programming language python. The implementation of the ABM as well as the numerical analysis using the approximation methods described in the following are available on github in \cite{kolb2018}.
+
+As initial conditions for the remaining dynamical variables, I use a high fossil resource stock $G=G_0$, low knowledge about clean technology $C=1$, and equally low capital in both economic sectors that is uniformly distributed to all households $K_j^{(i)}=1$. For the investment decision process, the initial opinions of the $N=100$ households are drawn from a uniform distribution and their initial acquaintance structure is an Erd\H{o}s-Renyi random graph with mean degree k=10.
 In the following, I discuss the resulting aggregate dynamics.
 
-\begin{figure}[ht]
-  \centering\includegraphics[width=.85\linewidth]{figures/example_trajectory.pdf}
-  \caption{\textbf{Example trajectory of the ABM.} Solid lines show mean results from 100 runs of the model in per capita variables. Grey areas around solid lines show their standard deviation. The panels show capital rents in the clean and dirty sector $r_c$ and $r_d$ as well as the fraction of households investing in the clean sector $n_c$ in panel a, knowledge and resource stock $c$ and $g$ in panel b, output of clean and dirty sector $Y_c$ and $Y_d$ in panel c and per capita capital $k_c$ and $k_d$ in the clean and dirty sector (d).
+
+
+Figure \ref{fig:example_trajectory} displays an exemplary average evolution of the model calculated as the average of 100 simulation runs.
+The simulation starts with initial conditions of abundant fossil resources $g$ and low clean technology knowledge stock $c$ (fig.~\ref{fig:example_trajectory}b) as well as equally low capital stocks in the clean and dirty sector $k_c$ and $k_d$ (fig.~\ref{fig:example_trajectory}d). As I show later (see section~\ref{sec:bifurcation-analysis}), the rest of the initial configuration of the model is rather irrelevant for the selected parameter values listed in Tab.~\ref{tab:Parameter_list}, since there is only one stable dynamical equilibrium as long as resource extraction costs are negligibly low.
+The high initial capital rents $r_c$ and $r_d$ are a direct result of the model assumptions and initial conditions. More precisely, the assumption that capital rent equals marginal productivity in eq. \eqref{eq:approx_ccr} and \eqref{eq:approx_dcr} and that of decreasing marginal productivity due to the choice of capital elasticity $\beta_i$  result in $r_i \sim L_i^{\alpha_i}/K_i^{\beta_i}$. Together with the initial condition of low capital and a fixed labor supply this results in high initial capital rents. Also, as a direct consequence of these assumptions, the capital rents $r_c$ and $r_d$ decrease over time as the capital stock is built up.
+Initially (from $t=0$ to $t=100$), as a result of the choice of total factor productivities $b_i$ and due to low fossil resource extraction costs, capital productivity (and therefore capital rent $r_d$) is higher in the dirty sector than the clean sector (see fig.~\ref{fig:example_trajectory}a). 
+Consequently, the majority of households invest in the dirty sector which leads to a high per-household capital stock $k_d$ (fig~\ref{fig:example_trajectory} d) and high production output $Y_d$ (fig. ~\ref{fig:example_trajectory}c) in this sector.
+
+Naively, because of decreasing returns to capital in both sectors i.e. $r_i \sim 1/K_i$, I would expect the system to move towards a dynamic equilibrium in which the capital rent is equal in both sectors, i.e., $r_d = r_c$. In this dynamic equilibrium two households
+\begin{figure}[H]
+  \hspace{-1.3 cm}\includegraphics[width=1.2\linewidth]{figures/example_trajectory_square_thesis.pdf}
+  \caption{\textbf{Example trajectory of the ABM.} Solid lines show mean results from 100 runs of the model in per capita variables. Colored areas around solid lines show their standard deviation. The panels show capital rents in the clean and dirty sector $r_c$ and $r_d$ as well as the fraction of households investing in the clean sector $n_c$ in panel a, knowledge and resource stock $c$ and $g$ in panel b, output of clean and dirty sector $Y_c$ and $Y_d$ in panel c and per capita capital $k_c$ and $k_d$ in the clean and dirty sector (d).
 Initial conditions are $G=G_0$, $C=1$, $K_j^{(i)}=1$ for the economic subsystem. For the investment decision process, the initial opinions of the $N=100$ households are drawn from a uniform distribution. Their initial acquaintance structure is an Erd\H{o}s-Renyi random graph with mean degree k=10.}
 \label{fig:example_trajectory}
 \end{figure}
+($i$ and $j$) investing in different sectors ($\sigma_i=c$ and $\sigma_j=d$) would generate the same income and therefore the same consumption $F^{(i)}=F^{(j)}$ such that on average the probability to switch (as given by eq.~\eqref{eq:approx_ip}) from dirty to clean investment and vice versa would equal. However, I find that there is a persisting difference between $r_c$ and $r_d$ between $t=50$ and $t=100$.
+This difference can be explained by the exploration of investment strategies i.e. that learning of investment strategies is not only determined by imitation according to eq.~\eqref{eq:approx_ip} but also by exploration events where the resulting investment strategy is independent of the income that can be generated from investing in one or the other sector. This brings the shares of clean and dirty investors closer together because in this case the outflux from investment strategy $c$ to $d$ only depends on the number of households that use investment strategy $c$ and vice versa. In terms of the depicted variables this means that it brings the shares of households that invest in the clean and dirty sector $N_c$ and $N_d$ closer together and therefore relative share of households that invest in the clean sector $n_c=N_c/N$ closer to $0.5$. 
 
-Figure \ref{fig:example_trajectory} displays an exemplary average evolution of the model calculated as the mean of 100 simulation runs.
-The simulation starts with initial conditions of abundant fossil resources $g$ and low clean technology knowledge stock $c$ (panel b) as well as equally low capital stocks in the clean and dirty sector $k_c$ and $k_d$ (panel d). As I show later (see section~\ref{sec:bifurcation-analysis}), the rest of the initial configuration of the model is rather irrelevant for the selected parameter values listed in Tab.~\ref{tab:Parameter_list}, since there is only one stable dynamical equilibrium as long as resource extraction costs are negligibly low.
-The high initial capital rents $r_c$ and $r_d$ are a direct result of the model assumptions and initial conditions. More precisely, the assumption that capital rent equals marginal productivity in eq. \ref{eq:approx_ccr} and \ref{eq:approx_dcr} and that of decreasing marginal productivity due to the choice of $\beta_i$ in combination with the initial condition of low capital and a fixed labor supply. Also as a direct consequence of these assumptions, the capital rents $r_c$ and $r_d$ decrease over time as the capital stock is built up.
-Initially (from $t=0$ to $t=100$), as a result of the choice of total factor productivities $b_i$ and due to low fossil resource extraction costs, capital productivity (and therefore capital rent $r$) is higher in the dirty sector than the clean sector (see panel a). 
-Consequently, the majority of households invest in the dirty sector which leads to a high per-household capital stock $k_d$ (panel d) and high production output $Y_d$ (panel c) in this sector.
-
-Regarding the capital rents, I would expect the system to move towards a dynamic equilibrium in which the capital rent is equal in both sectors, i.e., $r_d = r_c$, if everything else remained constant. However, I find that there is a persisting difference between $r_c$ and $r_d$ between $t=50$ and $t=100$.
-This difference can be explained by the exploration of investment strategies, which brings the shares of clean and dirty investors closer together. In terms of the depicted variables this means that it brings $n_c$ closer to $0.5$. 
-% \FMH{I reformulated the last sentences, because they were difficult to understand, please check! - Checked}
-
-For $t>100$ the depletion of the fossil resource leads to significantly increasing resource extraction costs. Consequently, the marginal productivity of dirty capital $k_d$ decreases and so does $r_d$, leading to a peak in accumulation of capital in the dirty sector around $t=100$ (panel d).
-Once the relative return on capital in the clean sector increases, households start to adopt a clean investment strategy visible in an increase in $n_c$ in panel a.
+For $t>100$ the depletion of the fossil resource leads to significantly increasing resource extraction costs. Consequently, the marginal productivity of dirty capital $k_d$ decreases and so does $r_d$, leading to a peak in accumulation of capital in the dirty sector around $t=100$ (fig.~\ref{fig:example_trajectory}d).
+Once the relative return on capital in the clean sector increases, households start to adopt a clean investment strategy visible in an increase in $n_c$ in fig.~\ref{fig:example_trajectory}a.
 When the fossil resource stock reaches its economically exploitable share at around $t=200$, the overall productivity in the dirty sector reaches zero, leading to full employment of all available labor in the clean sector.
 This drives demand for capital up, accelerating the investment change from clean to dirty investment.
-As all households except for the share caused by exploration are investing in the clean sector, the system reaches an equilibrium with high capital in the clean sector and low capital in the dirty sector.
+As all households except for the share caused by exploration are investing in the clean sector, the system reaches an equilibrium with high capital in the clean sector and low capital in the dirty sector (see fig.~\ref{fig:example_trajectory}d).
 
-Notably, I find an increasing variance in the fraction of households investing in the clean sector before and around the transition, which means that due to the stochasticity of the social learning process the transition happens earlier for some simulation runs than for others. Nevertheless, I find that the inertia of the model resulting from the large accumulated stock of capital that is specific to the dirty sector eventually leads to an almost entire depletion of the fossil resource.
+Notably, I find an increasing variance in the fraction of households investing in the clean sector before and around the transition (see grey area round $n_c$ in fig.~\ref{fig:example_trajectory}a), which means that due to the stochasticity of the social learning process the transition happens earlier for some simulation runs than for others. Nevertheless, I find that the inertia of the model resulting from the large accumulated stock of capital that is specific to the dirty sector eventually leads to an almost entire depletion of the fossil resource.
 
 \begin{table}
 	\centering
 	\begin{tabular}{l|l|l}
 		\hline
-		$b_c$ & 1. & Total factor productivity in the clean sector \\
-		$b_d$ & 4. & Total factor productivity in the dirty sector \\
-		$b_R$ & .1 & Initial resource extraction cost \\
+		$b_c$ & 1 & Total factor productivity in the clean sector \\
+		$b_d$ & 4 & Total factor productivity in the dirty sector \\
+		$b_R$ & 0.1 & Initial resource extraction cost \\
 		$e$   & 1 & Resource conversion efficiency \\
 		$\kappa$   & 0.06 & Capital depreciation rate \\
 		$\chi$      & 0.1 & Knowledge depreciation rate \\
@@ -243,9 +246,9 @@ Notably, I find an increasing variance in the fraction of households investing i
 		$\beta_c$ & 0.5 & Elasticity of capital in the clean sector \\
 		$\beta_d$ & 0.5 & Elasticity of capital in the dirty sector \\
 		$\varphi$ & 0.5 & Fraction of rewiring events in opinion formation \\
-		$1/\tau$ & 1. & Rate of opinion formation events \\ 
-		$\varepsilon$ & 0.05 & Fraction of noise events in opinion formation \\ 
-        $G_0$ & 1000000 & Initial resource stock \\
+		$1/\tau$ & 1 & Rate of social interaction \\ 
+		$\varepsilon$ & 0.05 & Exploration probability \\ 
+                $G_0$ & 1,000,000 & Initial resource stock \\
         $L$ & 100 & Total labor \\ 
         \hline
 	\end{tabular}
@@ -257,16 +260,16 @@ Notably, I find an increasing variance in the fraction of households investing i
 \label{sec:Approximation}
 
 Structurally, the model described in section \ref{sec:approx_Model_Description} consists of a set of coupled ordinary differential equations \cref{eq:approx_lbd,eq:approx_rdep,eq:approx_ci,eq:approx_di} with algebraic constraints \cref{eq:approx_edr,eq:approx_equilibrium_wage,eq:approx_L,eq:approx_ccr,eq:approx_dcr} for the economic production process and a stochastic adaptive network process for the social learning component that is described by the rules \ref{r1} to \ref{rn} in section \ref{sec:investment_decision_making_descr.}. The state space of this combined process consists of two degrees of freedom of the knowledge stock and the geological resource stock as well as $2N$ degrees of freedom for the capital holdings of the set of all individual households plus the configuration space of the adaptive network process of the social learning component. I denote the variables of this process by capital letters ($C, G, K_j^{(i)}\dots$).
-To find an analytic description of the model in terms of a low dimensional system of ordinary differential equations, I approximate it via a Pair Based Proxy (PBP) process, a stochastic process in terms of aggregated quantities, thereby drastically reducing the dimensionality of the phase space. I denote the variables of this process with capital letter with bars ($\bar{X}, \bar{Y}, \bar{Z}, \bar{K}_l^{(k)}\dots$).
+To find an analytic approximation of the model in terms of a low dimensional system of ordinary differential equations, I approximate it via a Pair Based Proxy (PBP) process, a stochastic process in terms of aggregated quantities, thereby drastically reducing the dimensionality of the phase space. I denote the variables of this process with capital letter with bars ($\bar{X}, \bar{Y}, \bar{Z}, \bar{K}_l^{(k)}\dots$).
 
-The derivation of this approximate process is done in three steps: First, I solve the algebraic constraints to the economic production process given by market clearing in the labor market and efficient production in the dirty sector - loosely following \cite{Nitzbon2017}. Second I use a pair approximation to describe the complex adaptive network process of social learning in terms of aggregated variables, similar to \cite{Rogers2012}. Third, I use a moment closure-like method to approximate higher moments of the distribution of the capital holdings of the heterogeneous households by quantities related to the first moments of their distribution.
+The derivation of this approximate process is done in three steps: First, I solve the algebraic constraints to the economic production process given by market clearing in the labor market and efficient production in the dirty sector - loosely following \cite{Nitzbon2017}. Second, I use a pair approximation to describe the complex adaptive network process of social learning in terms of aggregated variables, similar to \cite{Rogers2012}. Third, I use a moment closure-like method to approximate higher moments of the distribution of the capital holdings of the heterogeneous households by quantities related to the first moments of their distribution.
 
 Finally, I take the limit of infinitely many households (large system- or thermodynamic limit) to obtain a deterministic description of the system.
 
 \subsection{Algebraic Constraints}
 %\JJK{Most of this subsection could move to supplementary material to be replaced by a verbal explanation, depending on the journal requirements}
 
-To calculate the labor shares $L_c$ and $L_d$ as well as the wages in the two sectors, one uses equations \eqref{eq:approx_equilibrium_wage} and \eqref{eq:approx_L} and for simplicity assumes $\rho=1$ and $\mu=2$. Additionally, one assumes equal labor elasticities in both sectors $\alpha_d = \alpha_c = \alpha$. A series of algebraic manipulations that was done before in section \ref{sec:algebraic_constraints} solves the algebraic constraints to the ordinary differential equations describing the economic production and eventually leads us the set of independent equations below:
+To calculate the labor shares $L_c$ and $L_d$ as well as the wages in the two sectors, I use equations \eqref{eq:approx_equilibrium_wage} and \eqref{eq:approx_L} and for simplicity assumes $\rho=1$ and $\mu=2$. Additionally, I assume equal labor elasticities in both sectors $\alpha_d = \alpha_c = \alpha$. A step by step solution for the algebraic constraints to the ordinary differential equations is given in section \ref{sec:algebraic_constraints}. The final results are reiterated here:
 
 \begin{subequations}
 \begin{empheq}{gather}
@@ -348,7 +351,7 @@ To describe the capital structure in the model that consists of $2N$ equations o
   \bar{K}_l^{(k)} = \sum_{i}^{N} \delta_{o_ik} K_l^{(i)}.%, \qquad \lim_{N \rightarrow \infty} \bar{K}_{l}^{(k)} = \braket{K_l^{(i)}}{o_i = k} = \mu_l^{(k)}
 	\label{eq:moments_definition}
 \end{align}
-Here, the upper index in $\bar{K}_l^{(k)}$ indicates the shared investment decision of the cohort of households as opposed to the index of the individual household before. The lower index still denotes the capital type. $\delta_{o_ik}$ is the Kronecker Delta.
+Here, the upper index in $\bar{K}_l^{(k)}$ indicates the shared investment decision of the cohort of households as opposed to the index of the individual household before. The lower index still denotes the capital type. $\delta_{o_ik}$ is Kroneckers Delta.
 
 Later, I use the fact that in the limit of $N \rightarrow \infty$ these aggregates should converge their expected values, e.g. the first moments of their distribution with probability one.
 The time derivative of the aggregates defined in \eqref{eq:moments_definition} is given by the deterministic process of capital accumulation \eqref{eq:sum_up_clean_capital_accumulation} and \eqref{eq:sum_up_dirty_capital_accumulation} as well as terms resulting from the stochastic process of agents switching their saving decisions. 
