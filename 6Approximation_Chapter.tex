@@ -1,7 +1,9 @@
 %% main text
 \chapter{Macroscopic Approximation methods for networked agent-based models}
 \label{chapter:approximation}
-In this chapter, I develop a method to find approximate solutions to heterogeneous-agent models with interactions that happen pair wise as well as on a mean field level. To introduce, I elaborate on the implications that this has for the use of agent-based models in economics in section \ref{sec:approx_intro}. I develop the method at hand of a simplification of the model that I introduced in section \ref{sec:heuristics_model} and will give a short recap of the simplified model specifications in section \ref{sec:approx_Model_Description}. I give a detailed explanation of the method in section \ref{sec:Approximation} and illustrate one of its advantages by doing a bifurcation analysis of the approximated model in section \ref{sec:bifurcation-analysis} before concluding. 
+In this chapter, I develop a method to find approximate solutions to heterogeneous-agent models with interactions that happen pairwise as well as on a mean field level. To introduce, I elaborate on the implications that this has for the use of agent-based models in economics in section \ref{sec:approx_intro}. I develop the method at hand of a simplification of the model that I introduced in section \ref{sec:heuristics_model} and will give a short recap of the simplified model specifications in section \ref{sec:approx_Model_Description}. I give a detailed explanation of the method in section \ref{sec:Approximation} and illustrate one of its advantages by doing a bifurcation analysis of the approximated model in section \ref{sec:bifurcation-analysis}. I close this chapter with a conclusion in section \ref{sec:approx_conclusion}
+
+
 \section{Introduction}
 \label{sec:approx_intro}
 
@@ -14,36 +16,35 @@ These interactions can be structured by spatial embedding of agents or by social
 In economics, ABMs have been used to study for example business cycles \citep{DelliGatti2008}, market power \citep{Tesfatsion2006} and trade \citep{Hamill2015}.
 
 % Introduction to macroeconomic modeling and the aggregation problem
-ABMs are a promising alternative to dynamic stochastic general equilibrium (DSGE) modeling, the current workhorse of theoretical macroeconomics. 
-DSGE models usually build on the representative agent approach, i.e., they represent all individuals of one type such as firms or consumers by one representative decision maker.
-%to hold up to Lucas' influential critique that macroeconomic model should not use statistical correlations between aggregate variables but rather build on the behavior of individual economic agents \citep{Janssen2016, Lucas1976}.
+ABMs are a promising alternative to dynamic stochastic general equilibrium (DSGE) modeling, the current workhorse of theoretical macroeconomics \citep{Farmer2009b}. 
+DSGE models usually build on the representative agent approach, i.e., they represent all individuals of one type such as firms or consumers by one representative decision maker \citep{Hartley2002}. This is done mainly to hold up to Lucas' influential critique that macroeconomic model should not use statistical correlations between aggregate variables but rather build on the behavior of individual economic agents \citep{Janssen2016, Lucas1976}.
 
 % Disadvantages/critique of representative agent, 
 % pros and cons of DSGEs
 % cons:
 The representative-agent approach implies that theoretical macroeconomics reduces macroeconomic phenomena to assumptions about a few different representative agents, leaving out many explanatory mechanisms for fluctuations in aggregate variables based on intra-group interaction and heterogeneity.\footnote{Approaches to represent heterogeneous agents in DSGE models have been used to counter this criticism and add more realism regarding the distribution of agent attributes \citep[see for example the review by][]{Heathcote2009}.
-Particularly, because the representative agent approach cannot account for interactions within a heterogeneous group, models using this approach do not allow for the representation of emergent phenomena \citet{Kirman1992}.\footnote{I use here a weak notion of emergence, which allows explaining macro-phenomena on the basis of micro-interactions of the systems constituents that differ from the explained macro-phenomena. This is opposed to strong emergence, that embraces the irreducibility of macro-phenomena to lower-level dynamics. For a discussion see \citet{Bedau1997}.}
-But their solution require complex numerical methods and cannot integrate local interactions between agents.}
-Furthermore, DSGE model often assume rational expectations, i.e., agents know the constraints and dynamics of the entire economy which has been criticised as philosophically unsound and empirically unjustified \citep{Kirman2014}.
+Particularly, because the representative agent approach cannot account for interactions within a heterogeneous group, models using this approach do not allow for the representation of emergent phenomena \citep{Kirman1992}\footnote{Here, we use a weak notion of emergence, which allows explaining macro-phenomena on the basis of micro-interactions of the systems constituents that differ from the explained macro-phenomena. This is opposed to strong emergence, that embraces the irreducibility of macro-phenomena to lower-level dynamics. For a discussion see \citet{Bedau1997}.}
+but their solution requires complex numerical methods and cannot integrate local interactions between agents.}
+Furthermore, DSGE model often assume rational expectations, i.e., agents know the constraints and dynamics of the entire economy. This has been criticised as philosophically unsound and empirically unjustified \citep{Kirman2014}.
 % pros:
-But, due to these assumptions, most DSGEs allow for a thorough analytical analysis.
+However, due to these assumptions, most DSGEs allow for a thorough analytical analysis.
 
 % pros and cons of ABMs:
 % pros:
-ABMs allow implementing various individual decision models that are behaviorally more realistic than full economic rationality.
+In contrast, ABMs allow implementing various individual decision models that are behaviorally more realistic than full economic rationality  \citep{Mueller-Hansen2017}.
 Agents are often assumed to be boundedly rational and adapt their expectations, which is compatible with the Lucas critique \citep{Evans2006}.
-In ABMs, fluctuations in aggregate variables do not only arise from exogenous shocks as in DSGE models but primarily from irregularities in local interactions.
-Therefore, they offer an avenue for explaining various emergent phenomena studied in empirical macroeconomics.
+In ABMs, fluctuations in aggregate variables do not only arise from exogenous shocks as in DSGE models but primarily from irregularities in local interactions \citep{Tesfatsion2001}.
+Therefore, they offer an avenue for explaining various emergent phenomena studied in empirical macroeconomics \citep{Tesfatsion2006a}.
 
 % cons:
-On the other hand, ABMs are often very detailed so that an analytic treatment is unfeasible. 
+As a potential downside, ABMs are often very detailed so that an analytic treatment is unfeasible. 
 Therefore, in ABMs, the difficulties arising from the aggregation of heterogeneous and interacting agents are usually solved computationally.
 Because the model mechanisms are difficult to trace in the `black box' of a computational model, the results of ABMs are often difficult to interpret and cannot provide mathematically sound proofs of relationships between model variables. Results may therefore be difficult to generalize \citep{Leombruni2005}.
 There has been some progress in the standardization of model descriptions for ABMs \citep{Grimm2006}, but the lack of standardization, e.g., of decision rules, makes the models difficult to compare \citep[][p. 239]{Hamill2015}. Even though there are various techniques available for comprehensive model analysis \citep{Lee2015}, a systematic model exploration is uncommon and mostly limited to sensitivity analysis with respect to crucial parameters.
 
 % Bringing the two together
 Methods from theoretical physics have been applied successfully to various problems in economics for many years \citep{Mantegna1999}. Here, aggregation methods from statistical physics can bridge the gap between analytic macroeconomic models such as DSGE approaches and agent-based computational models \citep[for a review of physics methods in social modeling, see ref.][]{castellano2009statistical}. In contrast to macroeconomic models, these approaches account for local interactions and use aggregation techniques to derive macro-dynamics, providing a true microfoundation of the resulting macromodel.
-These kinds of approximation methods have found much interest in the fields of financial economics, behavioral finance and evolutionary game theory recently and have produced interesting and promising results, e.g., to explain macroeconomic fluctuations and understand propagation of financial shocks and the resulting systemic risk.
+These kinds of approximation methods have recently found much interest in the fields of financial economics \citep{DiGuilmi2008, DiGuilmi2012a, Chiarella2011a} and behavioral finance \citep{Hommes2017BoomsPrices} and have produced interesting and promising results, e.g., to explain macroeconomic fluctuations and understand propagation of financial shocks and the resulting systemic risk.
 
 %short discussion of some of the work already done in this field
 
@@ -58,33 +59,32 @@ But many social and economic interactions are structured and the structure can b
 
 Yet, most of the literature regards either the network between agents or the states of agents as static, implicitly assuming different time scales for dynamics of and processes on the network.
 However, recent literature on opinion formation processes and the spreading of social norms in the field of computational social sciences suggests that both happen on a comparable timescale and can therefore not be treated separately \citep{Gross2008, gross2009adaptive}.
-A typical example of a model that takes this into account is the one that I present in this paper. I use this model to demonstrate how the individual techniques mentioned above may be combined. In this model, the network of interactions between agents as well as the spreading of behavior between agents on this interaction network happen on a comparable timescale.
+A typical example of a model that takes this into account is the one that I present here. I use this model to demonstrate how the individual techniques mentioned above may be combined. In this model, the network of interactions between agents as well as the spreading of behavior between agents on this interaction network happen on a comparable timescale.
 For such adaptive networks \citep{Gross2008}, moment closure techniques have been introduced in the physics literature to aggregate the feedback between complex adaptive network dynamics and dynamics of single node states \citep{Do2009, Demirel2014, Wiedermann2015, Min2017}.
 Here, I introduce these techniques to economic modeling and combine them with approaches from macroeconomics where interactions also happen globally via aggregated variables.
 
 % Discussion of usefulness of analytic approximations
-The technical challenges of analytic approximation methods for agent-based model has so far hampered their wide-spread use in economics. But they have a huge potential in providing profound insights into dynamical properties of economic systems: First, they help increasing performance of computer simulations, making calculation of single model runs much faster and therefore allowing for a wider range of bifurcation and parameter analyses. Second, in contrast to stochastic simulations, they make formal proofs of relations between macroscopic variables possible. Third, they allow the derivation of analytical expressions of relations between model variables from the dynamic equations, which is not possible from single simulation runs. This paper makes a step forward in showcasing how such methods can be used to combine interactions on complex adaptive networks with macroeconomic modeling. It is therefore a contribution to integrate non-standard behavioral assumptions into macroeconomic models.
+The technical challenges of analytic approximation methods for agent-based model has so far hampered their wide-spread use in economics. But they have a huge potential in providing profound insights into dynamical properties of economic systems: First, they help increasing performance of computer simulations, making calculation of single model runs much faster and therefore allowing for a wider range of bifurcation and parameter analyses. Second, in contrast to stochastic simulations, they make formal proofs of relations between macroscopic variables possible. Third, they allow the derivation of analytical expressions of relations between model variables from the dynamic equations, which is not possible from single simulation runs. This work makes a step forward in showcasing how such methods can be used to combine interactions on complex adaptive networks with macroeconomic modeling. It is therefore a contribution to integrate non-standard behavioral assumptions into macroeconomic models.
 
 % Contribution of this paper % Introduce the model in the paper
-The agent-based model I use for the illustration of these methods comes from the context of climate economics to show how these approximation techniques can be applied to models that combine local interactions on a network with system-level interactions through markets.
-In particular, I use moment closure, pair, and large system limit approximations to derive an aggregate description for the dynamics of my model.
-The model consists of heterogeneous households that interact and learn from neighbors on a social network and a two-sector productive economy.
-The households differ in their investment strategy: they invest their savings either in the ``dirty'' or the ``clean'' sector, each representing a separate capital market through which the agents interact.
+This chapter relies on a simplification of the ABM that was introduced in section \ref{sec:heuristics_model}. The model consists of heterogeneous households that interact and learn from neighbors on a social network and a two-sector productive economy.
 Agents imitate the investment strategy of acquaintances that are better off with a higher probability.
+This model is used to show how these approximation techniques can be applied to models that combine local interactions on a network with system-level interactions through markets.
+In particular, I use a combination of moment closure, pair, and large system limit approximations to derive an aggregate description for the dynamics of my model. Moment closure is used to describe the properties of heterogeneous households via the moments of their distribution. The pair approximation is used to describe the adaptive network dynamic of the full model by an approximate proxy process, a so called Pair Based Proxy, in terms of aggregate network properties. Both techniques together facilitate a low dimensional stochastic approximation of the originally very high dimensional ABM. The large system limit is then used to further approximate this proxy process by a set of ordinary differential equations.
 To the best of my knowledge this is the first study that applies such a combination of approximation methods on a model that combines structured local with global interactions of heterogeneous agents in a socioeconomic setting.
 Self-evidently, despite the fact that the reference application is an economic one, this approximation method can also be used to describe similarly structured models in other fields of research such as social-ecology, neuroscience or computational social science.
 
 % Outline
-In the following section, I give a specification of the model that I use to illustrate the approximation method. The model is a simplification of the one introduced in section \ref{sec:heuristics_model}. I will therefore not discuss its details again but only give a short recap of its specifications and elaborate on the simplifications.
+In the following section, I give a specification of the model that I use to illustrate the approximation method. As the model is a simplification of the one introduced in section \ref{sec:heuristics_model}, I will not discuss its details again but only give a short recap of its specifications and elaborate on the simplifications.
 %In the remainder of the paper, I first describe the details of the model (Sec.~\ref{sec:approx_Model_Description}). Then, I derive an aggregate description of the model by applying three approximation techniques, moment closure, pair approximation, and large system limit (Sec.~\ref{sec:Approximation}). I discuss commonalities and differences between computer simulations and the approximation approach. Before concluding, I illustrate how the derived macro-approximation can be used in a bifurcation analysis to better understand the qualitative properties of the non-linear model (Sec.~\ref{sec:bifurcation-analysis}).
 
 \section{Model Description}
 \label{sec:approx_Model_Description}
 
-To illustrate the application of the methods that I put forward, I use a model of a stylized two sector investment economy that captures the shift from fossil-fuel to renewable energy-based based production. Essentially, this equals the model that I introduced in section \ref{sec:heuristics_model} with the difference that I abstract from the separation of judgement and actions in terms of a heuristic decision model. Instead, households decisions whether to invest in one or the other sector are directly governed by the adaptive voter dynamic.
+To illustrate the application of the methods that I put forward, I use a model of a stylized two sector investment economy that captures the shift from fossil-fuel to renewable energy-based based production. Essentially, this equals the model that I introduced in section \ref{sec:heuristics_model} with the difference that I abstract from the separation of judgement and actions in terms of a heuristic decision model. Instead, households decisions whether to invest in one or the other sector are directly governed by the adaptive voter dynamic \citep{Holme2006a}.
 Consequently, if the reader still has the model in mind, they can safely skip the model description and continue with section \ref{sec:numerical_results} where I present first results.
 
-This model is designed to incorporate the dynamics of social norms that underlie investment decisions in the context of climate economics and policy. Decarbonization pathways consistent with the Paris agreement require a rapid shift of investments away from fossil fuel exploration and extraction to the development and deployment of renewable energies \citep{IPCC2014}. However, the implementation of climate policies is uncertain and expectations cannot be based on self-consistent beliefs about the future.  In conventional macroeconomic models such shifts can only occur due to price signals either from improvements in green technology, increasing scarcity of fossil reserves, or carbon pricing. While price signals are certainly important, movements advocating for the divestment from fossil fuels point to the role of social norms and practices regarding investment decision to initiate and accelerate the energy transition \citep{Ans2013}. To better understand such culturally driven situations of socioeconomic change, it is important to work with models that can incorporate endogenous preferences and aspects of bounded rationality such as imperfect foresight and information as well as learning.
+This model is designed to incorporate the dynamics of social norms that underlie investment decisions in the context of climate economics and policy. Decarbonization pathways consistent with the Paris agreement require a rapid shift of investments away from fossil fuel exploration and extraction to the development and deployment of renewable energies \citep{IPCC2014}. However, the implementation of climate policies is uncertain and expectations cannot be based on self-consistent beliefs about the future.  In conventional macroeconomic models such shifts can only occur due to price signals either from improvements in renewable technology, increasing scarcity of fossil reserves, or carbon pricing. While price signals are certainly important, movements advocating for the divestment from fossil fuels point to the role of social norms and practices regarding investment decision to initiate and accelerate the energy transition \citep{Ans2013,Nyborg2016}. To better understand such culturally driven situations of socioeconomic change, it is important to work with models that can incorporate endogenous preferences and aspects of bounded rationality such as imperfect foresight and information as well as learning.
 %\begin{figure}[t]
 %  \centering
 %  \includegraphics[width=.8 \textwidth]{figures/model_scheme.pdf}
@@ -96,12 +96,12 @@ This model is designed to incorporate the dynamics of social norms that underlie
 
 The underlying assumptions of the economic model are discussed in detail in section \ref{sec:heuristics_model}. This is a brief recap of the specifications of the economic production model. 
 
-The model consists of two sectors for production and a set of heterogeneous households that interact via a complex adaptive social network. The two production sectors employ different technologies where the production technology in one sector depends on the input of an exhaustible (fossil) energy-resource $R$ that is used up in the process whereas the technology in the other sector does not. They are called the \textit{dirty} and the \textit{clean} sector accordingly. Capital is technology specific and can not be reallocated between the two sectors.
+The model consists of two sectors for production and a set of heterogeneous households that interact via a complex adaptive social network. The two production sectors employ different technologies where the production technology in one sector depends on the input of an exhaustible (fossil) energy-resource $R$ that is used up in the economic production process whereas the technology in the other sector does not. They are called the \textit{dirty} and the \textit{clean} sector accordingly. Capital is technology specific and can not be reallocated between the two sectors.
 Therefore, the heterogeneous households in the model provide different types of capital $K_j$ as well as labor $L$ to the sectors.
 The technology in the dirty sector is fully developed and adequately described in terms of the total factor productivity. 
 
-The clean sector represents a circular economy in which the output of final goods depends on the machinery, knowledge and effort used in its production and is not limited by entropy laws or resource scarcity on the timescale under consideration. The technology $C$ used in the clean sector is assumed to be still in development and is therefore explicitly modeled.
-Technological progress is implemented as learning by doing according to Wright's law \citep{wright1936factors, Nagy2013} with a one-factor learning curve. $C$ is proportional to cumulative production but also depreciates with a constant rate $\chi$.
+The clean sector represents a circular economy\footnote{A circular economy is an economic system that employs sharing, reuse, repair, refurbishment and recycling to create a close-loop system that minimizes the use of resource inputs and waste outputs, pollution and carbon emissions \citep{Stahel2016, Geissdoerfer2017}.} in which the output of final goods depends on the machinery, knowledge and effort used in its production and is not limited by entropy laws\footnote{It is often noted, that circular economic processes are eventually limited by the second law of thermodynamics, stating that even though the material flows in economic activity may be circular, they still produce excess entropy that on would have to get rid of. Consequently, in this scheme, economic growth is eventually limited by the earths capacity to get rid of entropy in the form of high entropy radiation \citep{Georgescu-Roegen1993, Kaberger2001, Korhonen2018}.} or resource scarcity on the timescale under consideration. The technology $C$ used in the clean sector is assumed to be still in development and is therefore explicitly modeled.
+Technological progress is implemented as learning by doing according to Wright's law \citep{wright1936factors, Nagy2013} with a one-factor learning curve. $C$ is proportional to the cumulative production $\int Y_c \mathrm{d}t$ but also depreciates with a constant rate $\chi$.
 
 \begin{equation}
 	\dot{C} = Y_c - \chi C.
@@ -120,7 +120,7 @@ where $1/e$ is the resource intensity of the sector. The usage of the fossil res
     \label{eq:approx_rdep}
 \end{equation} 
 The total cost $c_R$ for the usage of the fossil resource depends on the resource use $R$ and the remaining fossil resource stock $G$ as $c_R = b_R R^{\rho}\left( \frac{G_0}{G} \right)^{\mu}$ with $\rho \geq 1$ and $\mu > 0$ such that $\partial c_R / \partial R >0$ and $\partial c_R / \partial G < 0$.
-This means that at some point $\partial Y_d / \partial R < \partial c_R / \partial R$ to take into account that some part of the resource is not economic, e.g. its marginal cost exceeds its marginal productivity.
+This means that at some point $\partial Y_d / \partial R < \partial c_R / \partial R$ to take into account that some part of the resource is not economic as its marginal cost exceeds its marginal productivity.
 The equilibrium wage $w$ equals the marginal return for labor:
 \begin{equation}
 	w = \frac{\partial Y_c}{\partial L_c} = \frac{\partial Y_d}{\partial L_d} - \frac{\partial c_R}{\partial L_d}
@@ -131,7 +131,7 @@ with the sum of the labor shares equal to the total amount of labor available:
 	L_c + L_d = L.
 	\label{eq:approx_L}
 \end{equation}
-Capital rents equal marginal productivity e.g., 
+Capital rents equal marginal productivity i.e., 
 \begin{align}
   r_c &= \frac{\partial Y_c}{\partial K_c}, \label{eq:approx_ccr}\\
   r_d &= \frac{\partial Y_d}{\partial K_d} - \frac{\partial c_R}{\partial K_d}. \label{eq:approx_dcr}
@@ -140,24 +140,25 @@ Capital rents equal marginal productivity e.g.,
 \subsection{Adaptive Network Model for Investment Decision Making}
 \label{sec:investment_decision_making_descr.}
 %\JJK{Maybe comment on the relationship between individual optimization, group level optimization and the imitation of successful strategies.}
-For the approximation methods derived here, I have do abstract from the separation of judgment and actions that I proposed in section \ref{sec:intro_learning_heuristics} and \ref{sec:investment_decision_making}.
+For the approximation methods derived here, I have to abstract from the separation of judgment and actions that I proposed in section \ref{sec:intro_learning_heuristics} and \ref{sec:investment_decision_making}.
 Still, I model households as bounded rational decision makers \citep{simon1972theories, simon1982models, gigerenzer2002bounded}.
 That is, households take their investment decisions, i.e. whether to invest their savings in the clean or the dirty sector, not by forming rational expectations \citep{Evans2006, Kirman2014} but by engaging in social learning \citep{Bandura1971} to obtain successful strategies \citep{Traulsen2010} with reasonable effort.
 As the outcomes of social learning crucially depend on the structural properties of the complex network of social ties amongst the households \citep{Barkoczi2016}, I model the adaptive formation of this social network endogenously.
 A well established principle for the emergence of structured ties in social networks is homophily, i.e. the tendency that similar individuals are linked \citep{McPherson2007, Centola2007, Centola2011}.
 The following model specification uses social learning in combination with endogenous network formation based on homophily to model the investment decisions of the households.
 
-I model $N$ heterogeneous households denoted with the index $i$ as owners of one unit of labor $L^{(i)} = L/N$ and capital $K_c^{(i)}$ and $K_d^{(i)}$ in the clean and dirty economic sector respectively.
+I model $N$ heterogeneous households denoted with the index $i$ as owners of labor $L^{(i)} = L/N$ and capital $K_c^{(i)}$ and $K_d^{(i)}$ in the clean and dirty economic sector respectively.
 Households generate an income $I^{(i)}$ from their labor and capital income which they use for consumption $F^{(i)}$ and savings $I^{(i)}$:
-\begin{align}
+\begin{align} 
 	I^{(i)} &= w L^{(i)} + r_c K_c^{(i)} + r_d K_d^{(i)}, \label{eq:approx_hi} \\
 	F^{(i)} &= (1-s) I^{(i)}, \label{eq:approx_c} \\
 	S^{(i)} &= s I^{(i)}. \label{eq:approx_s}
 \end{align}
-A binary decision parameter $o_i \in [c,d]$ denotes the sector in which the households decide to invest. As motivated above, I model decision making that is driven by two processes: social learning via the imitation of successful strategies and homophily towards individuals exhibiting the same behavior. \\
-I describe households as the nodes in a graph of acquaintance relations that follow the following rules. 
+where $s$ is the savings rate that specifies the fraction of income $S^{(i)}$ that saved and $r_c$ and $r_d$ are the rents for clean and dirty capital respectively.
+A binary decision parameter $o_i \in \{c,d\}$ denotes the sector in which the households decide to invest. Investment decisions are driven by social learning via the imitation of successful strategies and homophily towards individuals exhibiting the same behavior. \\
+I describe households as the nodes in a graph of acquaintance relations that follow the following rules: 
 \begin{enumerate}
-  \item Households get active at a constant rate $1/\tau$. \label{r1}
+    \item Households randomly become active at a constant rate $1/\tau$ i.e. their activity is given by a Poisson-Process. \label{r1}
         \item When a household $i$ becomes active, it interacts with one of its acquaintances $j$ chosen uniformly at random. 
         \item If they follow the same strategy, i.e. they invest in the same sector, nothing happens. 
         \item If they follow a different strategy, i.e. they invest in different sectors, one of two actions can happen:
@@ -183,13 +184,13 @@ Given the savings decisions of the individual households, and assuming equal cap
 
 where $\delta_{ij}$ is Kroneckers Delta. The total capital stocks in the two sectors are given by the sum of the individual capital stocks as
 \begin{equation}
-  K_j = \sum_i^N K_j^{(i)} = N k_j, \quad j \in \{c, d\}
+    K_j = \sum_i^N K_j^{(i)} = N k_j, \qquad j \in \left\{ c, d \right\}
 \end{equation}
 where $k_j$ is the average per household capital stock of a given capital type.
 
 I acknowledge the fact that different model specifications are possible and interesting.
 For instance, I only consider fixed savings rates and the decision between two capital assets and leave the analysis of the interesting possible effects of households setting their savings rates individually to another study \citep{Asano2019}.
-However, I want to point out that the approximation methods that I develop in the following are highly useful to gain insights from different but similar models that rely on complex adaptive interaction networks.
+However, I want to point out that the approximation methods that I develop in the following can also be useful to gain insights from different but similar models that rely on complex adaptive interaction networks.
 
 
    
@@ -321,7 +322,7 @@ This results in $n^{(c)}$ additional clean neighbors and $n^{(d)}$ additional di
 	n^{(c)} = (1-1/k^{(c)})\frac{2[cc]}{N^{(c)}}, \quad n^{(d)} = (1-1/k^{(c)})\frac{[cd]}{N^{(c)}},
 	\label{eq:additional_neighbors}
 \end{equation}
-where $k^{(c)}$ is the mean degree, e.g. the mean number of neighbors of a clean household in the network.
+where $k^{(c)}$ is the mean degree, i.e. the mean number of neighbors of a clean household in the network.
 With the results from \eqref{eq:additional_neighbors} the changes in the expected values of the state space variables can be approximated as follows:
 \begin{align}
 	\Delta N^{(c)} &= -1 \nonumber \\
@@ -353,7 +354,7 @@ To describe the capital structure in the model that consists of $2N$ equations o
 \end{align}
 Here, the upper index in $\bar{K}_l^{(k)}$ indicates the shared investment decision of the cohort of households as opposed to the index of the individual household before. The lower index still denotes the capital type. $\delta_{o_ik}$ is Kroneckers Delta.
 
-Later, I use the fact that in the limit of $N \rightarrow \infty$ these aggregates should converge their expected values, e.g. the first moments of their distribution with probability one.
+Later, I use the fact that in the limit of $N \rightarrow \infty$ these aggregates should converge their expected values, i.e. the first moments of their distribution with probability one.
 The time derivative of the aggregates defined in \eqref{eq:moments_definition} is given by the deterministic process of capital accumulation \eqref{eq:sum_up_clean_capital_accumulation} and \eqref{eq:sum_up_dirty_capital_accumulation} as well as terms resulting from the stochastic process of agents switching their saving decisions. 
 \begin{equation}
       \begin{aligned}
@@ -390,7 +391,7 @@ The imitation probability $p_{cd}$ in eq. \eqref{eq:cdswitchingprob} is approxim
 	p_{dc} &= \frac{1}{2} + \frac{a}{4 F_0} \Delta F. \label{eq:approx_p_dc}
 \end{align}
 
-To make the approximation work in the biggest part of the systems state space, I set the reference point $F_0$ to be the middle of the sum of the estimated upper and lower bounds for the attainable income of households investing in the clean, resp. dirty sector. The minimum attainable income is assumed to be zero. The maximum attainable income for a household investing in the clean sector is assumed to be reached in equilibrium given all other households also invest in the clean sector e.g. I calculate $F^{(c)*}$ as half of an average household income at the steady state of $\dot{K}_c = s b_c L^\alpha K_c^{\beta_c} C^\gamma - \delta K_c$ and $\dot{C} = b_c L^\alpha K_c^{\beta_c} C^\gamma - \delta C$:
+To make the approximation work in the biggest part of the systems state space, I set the reference point $F_0$ to be the middle of the sum of the estimated upper and lower bounds for the attainable income of households investing in the clean, resp. dirty sector. The minimum attainable income is assumed to be zero. The maximum attainable income for a household investing in the clean sector is assumed to be reached in equilibrium given all other households also invest in the clean sector i.e. I calculate $F^{(c)*}$ as half of an average household income at the steady state of $\dot{K}_c = s b_c L^\alpha K_c^{\beta_c} C^\gamma - \delta K_c$ and $\dot{C} = b_c L^\alpha K_c^{\beta_c} C^\gamma - \delta C$:
 \begin{equation}
 	C^* = \left( \frac{b_c L^\alpha s^{\beta_c}}{\delta}\right)^{\frac{1}{1-\beta_c-\gamma}}, \quad K_c^* = \left( \frac{b_c L^\alpha s^{1-\gamma}}{\delta}\right)^{\frac{1}{1-\beta_c-\gamma}}.
 	\label{eq:clean_steady_state}
@@ -516,30 +517,30 @@ Varying two bifurcation parameters at the same time can result in even richer qu
 
 \begin{figure}[ht!]
 \centering\includegraphics[width=.95\linewidth]{figures/ba_plot.pdf}
-\caption{\textbf{Bifurcation diagram:} Continuation of the stationary solution of the macroscopic approximation without resource depletion, e.g. $\dot{G} = 0$ instead of the rate $R$ as given by eq. \eqref{eq:approx_surd}. Bifurcation parameter is $\gamma$, the elasticity of knowledge in the clean sector that also reflects the elasticity of learning by doing of the respective technology. The points labeled P1 and P2 are the beginning and end points of the continuation line, the points labeled LP1 and LP2 are the bifurcation points of two fold bifurcations. The stable unstable manyfold is indicated by a dotted line, the stable manyfold is indicated by solid line. Note that the intersections of the curves in the two right panels do not actually mean that the stationary manifold is not a bijective function of the bifurcation parameter $\gamma$ but rather a result of the projection of the multidimensional manifold onto the two dimensional space.\label{fig:bifurcation_analysis}}
+\caption{\textbf{Bifurcation diagram:} Continuation of the stationary solution of the macroscopic approximation without resource depletion, i.e. $\dot{G} = 0$ instead of the rate $R$ as given by eq. \eqref{eq:approx_surd}. Bifurcation parameter is $\gamma$, the elasticity of knowledge in the clean sector that also reflects the elasticity of learning by doing of the respective technology. The points labeled P1 and P2 are the beginning and end points of the continuation line, the points labeled LP1 and LP2 are the bifurcation points of two fold bifurcations. The stable unstable manyfold is indicated by a dotted line, the stable manyfold is indicated by solid line. Note that the intersections of the curves in the two right panels do not actually mean that the stationary manifold is not a bijective function of the bifurcation parameter $\gamma$ but rather a result of the projection of the multidimensional manifold onto the two dimensional space.\label{fig:bifurcation_analysis}}
 \end{figure}
 
 \begin{figure}[ht!]
 \centering\includegraphics[width=\linewidth]{figures/cusp_better.pdf}
 \caption{\textbf{Cusp Bifurcation diagram:}
-Stationary manyfold from figure \ref{fig:bifurcation_analysis} panel a for different values of the total factor productivity on the dirty sector $b_d$. Red dots indicate the limit points of the one dimensional fold bifurcation separating the stable and the unstable parts of the stationary manyfold indicated by a solid and a dashed line respectively. For a critical value of $b_d \approx 1.4$ and $\gamma \approx 0.03034$ the two limit points converge and annihilate each other. This codimension two bifurcation with bifurcation parameters $\gamma$ and $b_d$ is called a cusp catastrophe. In this two-sector economic model, this results in a lock in effect in the dirty sector e.g. below this point, there is a smooth transition of production from the dirty to the clean sector and above this point production in the dirty sector is continued even though production in the clean sector would be more efficient. \label{fig:cusp}}
+Stationary manyfold from figure \ref{fig:bifurcation_analysis} panel a for different values of the total factor productivity on the dirty sector $b_d$. Red dots indicate the limit points of the one dimensional fold bifurcation separating the stable and the unstable parts of the stationary manyfold indicated by a solid and a dashed line respectively. For a critical value of $b_d \approx 1.4$ and $\gamma \approx 0.03034$ the two limit points converge and annihilate each other. This codimension two bifurcation with bifurcation parameters $\gamma$ and $b_d$ is called a cusp catastrophe. In this two-sector economic model, this results in a lock in effect in the dirty sector i.e. below this point, there is a smooth transition of production from the dirty to the clean sector and above this point production in the dirty sector is continued even though production in the clean sector would be more efficient. \label{fig:cusp}}
 \end{figure}
 
 A considerable advantage of the description of my model in terms of ordinary differential equations \eqref{eq:approx_surd}, \eqref{eq:sum_up_learning} \eqref{eq:lsl_transitions} and \eqref{eq:lsl_capital} over agent based modeling is the fact that it allows for the usage of established tools for bifurcation analysis.
 As a proof of concept, I show some results in figure \ref{fig:bifurcation_analysis}.
-Here, I analyze the possible steady states of the system with abundant fossil resources e.g. the possible equilibrium states of the model in the regime before the fossil resource becomes scarce and acts as an external driver on the system pushing it towards clean investment.
-Therefore, I set the resource depletion to zero e.g. I keep the resource stock in eq. \eqref{eq:approx_surd} constant $G(t) \equiv G_0$ such that the resource usage cost $c_R$ still depends on resource use $R$ but is not increased by deceasing resource stock $G$. Thereby, I eliminate the rising resource extraction cost as the constraint in \cref{eq:approx_equilibrium_wage,eq:approx_dcr} that eventually halts production in the dirty sector. 
+Here, I analyze the possible steady states of the system with abundant fossil resources i.e. the possible equilibrium states of the model in the regime before the fossil resource becomes scarce and acts as an external driver on the system pushing it towards clean investment.
+Therefore, I set the resource depletion to zero i.e. I keep the resource stock in eq. \eqref{eq:approx_surd} constant $G(t) \equiv G_0$ such that the resource usage cost $c_R$ still depends on resource use $R$ but is not increased by deceasing resource stock $G$. Thereby, I eliminate the rising resource extraction cost as the constraint in \cref{eq:approx_equilibrium_wage,eq:approx_dcr} that eventually halts production in the dirty sector. 
 I chose the learning rate $\gamma$ as bifurcation parameter as I expect it to yield interesting results.
 %That is because as an exponent to a dynamical variable it determines its growth pattern leading to subexponential, exponential or superexponential growth for different values \JK{CITATION NEEDED}. \FMH{I would drop the last sentence because this should be only relevant if I would also consider gamma > 1, but this is certainly not a valid parameter value}.
 Generally, in nonlinear dynamical systems, exponential factors are expected to have a strong influence on dynamical properties. Therefore, changing these factors is expected to lead to bifurcation behavior.
 Consequently, in figure \ref{fig:bifurcation_analysis} panel a and c I see that for certain learning rates $\gamma$ the macroscopic approximation exhibits a bistable regime limited by two fold bifurcations with bifurcation points indicated by LP1 and LP2.
-In this regime both low investment in the clean sector together with hight investment in the dirty sector and low knowledge as well as high investment in the clean sector together with low investment in the dirty sector and high knowledge are stable states of the economic system. This means that in this region economic outcomes are highly path dependent e.g. starting with slightly different knowledge about clean technologies may lead to widely differing adoption levels of the technology in the long run.
+In this regime both low investment in the clean sector together with hight investment in the dirty sector and low knowledge as well as high investment in the clean sector together with low investment in the dirty sector and high knowledge are stable states of the economic system. This means that in this region economic outcomes are highly path dependent i.e. starting with slightly different knowledge about clean technologies may lead to widely differing adoption levels of the technology in the long run.
 
 Figure \ref{fig:cusp} shows an example of how this bifurcation structure of the dynamical system depends on other parameters. Varying the total factor productivity in the dirty sector $b_d$, the system undergoes a cusp bifurcation. Above a certain value of $b_d$ the system exhibits bi-stability whereas below this value it does not.
 
 %\FMH{Add some words about possible extensions of this analysis?}
 
-Clearly, this choice of bifurcation parameters is only one of many and other choice may very well lead to interesting results. However, I had to limit ourselves to this proof of concept study as an extensive analysis of all possible combinations would be well beyond the scope of this paper.
+Clearly, this choice of bifurcation parameters is only one of many and other choice may very well lead to interesting results. However, I had to limit ourselves to this proof of concept study as an extensive analysis of all possible combinations would be well beyond the scope of this work.
 
 %\FMH{Do I need this sentence?: Such a configuration would have profound implications on policy design to foster clean technology in order to drive a decarbonization transition in the models production economy.}
 
@@ -550,9 +551,9 @@ Another possibility to take advantage of the system's inherent dynamical structu
 For such considerations, tools from dynamical systems theory and topology can be used to classify the phase-space of the system into regions with respect to the reachability of a desirable state \citep{Heitzig2016,Nitzbon2017}. This allows designing temporary policies that leverage the multi-stability of the socio-economic system.
 
 \section{Discussion and Conclusion}
-
+\label{sec:approx_conclusion}
 % Summary: Method
-This paper combines a set of methods to overcome shortcomings of current approaches to base macroeconomic models on microfoundations.
+This chapter combines a set of methods to overcome shortcomings of current approaches to base macroeconomic models on microfoundations.
 While representative agent approaches are unable to capture dynamics that emerge from structured and local interactions of multiple heterogeneous agents, computational agent-based approaches have the disadvantage that they make tractable model analysis difficult and computationally challenging.
 I demonstrated that a combination of approximation techniques allows finding a macro description of a multi-agent system in which heterogeneous agents interact locally on a complex adaptive network as well as via aggregated quantities. 
 In contrast to previous analytic work, where the network structure was either static \cite{Lux2016}, restricted to star like clusters \cite{DiGuilmi2012} or approximated by a mean field interaction approach and hence neglected \cite{Aoki1998, Aoki2007, Alfarano2008a, DiGuilmi2008, Chiarella2011a}, I explicitly treat the structure of the adaptive complex interaction network with appropriate approximation methods.

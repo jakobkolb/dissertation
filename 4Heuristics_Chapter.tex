@@ -5,7 +5,7 @@
 In the IPCCs current business as usual scenarios, the CO$_{2}$ emissions budget that limits global warming to below 1.5$^{\circ}$C with a likelihood of 0.5 will be exceeded by approximately 2030. This means that in order to limit global warming below 1.5$^{\circ}$C, the global economy needs a rapid shift away from fossil fuel based technologies. Currently, the two main measures that are expected to incentivize the necessary changes are taxation and cap and trade schemes for CO$_{2}$ emissions. I suspect that these measures are favoured by many because they are expected to be efficient. This is most likely because their effects are thought to be adequately understood as they can be estimated well with the current integrated assessment models that are used to generate the economic projections for the IPCCs reports. However, there are some issues with these policy measures. First, the expected effects of these policy measures are estimated in an idealized model world whereas their real effects come from their real implementation that might include a number of exceptions, loopholes and unintended consequences. And second, with few exceptions, the political process to implement these measures is sluggish and the outcomes are all but certain.
 
 Therefore, I argue that in addition to top down policy measures, bottom up initiatives are essential to successfully mitigate global warming. 
-There are a number of such bottom up initiatives such as Fridays for Future or Extinction Rebellion that are currently gaining more and more traction. These initiatives use means of collective and direct action make their claims and to influence public discourse. The analysis of similar movements shows that their dynamics are essentially driven by opinion formation and individual decision processes amongst heterogeneous individuals \cite{Graeber2009, Engler2016}. Consequently, as discussed in section \ref{sec:intro_complex_systems}, the models that are currently used for climate change mitigation scenarios are unable to picture them due to their reliance on a representative agent approach.
+There are a number of such bottom up initiatives such as Fridays for Future or Extinction Rebellion that are currently gaining more and more traction. These initiatives use means of collective and direct action make their claims and to influence public discourse. The analysis of similar movements shows that their dynamics are essentially driven by opinion formation and individual decision processes amongst heterogeneous individuals \citep{Graeber2009, Engler2016}. Consequently, as discussed in section \ref{sec:intro_complex_systems}, the models that are currently used for climate change mitigation scenarios are unable to picture them due to their reliance on a representative agent approach.
 
 With this motivation I develop a conceptual economic model of fossil resource use and technological change that is able to explicitly depict individual decision making of heterogeneous agents, as well as social learning and opinion formation in order to better understand the possible effects of social movements in mitigating global warming.
 
@@ -29,7 +29,7 @@ In the following I propose a preliminary scheme of such a model.
 \subsection{Economic Production}
 \label{sec:model_description}
 
-As illustrated in fig. \ref{fig:model}, the model consists of two sectors for production and a set of heterogeneous households that interact via an adaptive complex social network. The production sectors employ different technology. I call them the \textit{clean} and the \textit{dirty} sector for illustrative clarity. The heterogeneous households in the model provide capital $K$ and labor $L$ to both sectors.
+As illustrated in fig.~\ref{fig:model}, the model consists of two sectors for production and a set of heterogeneous households that interact via an adaptive complex social network. The production sectors employ different technology. I call them the \textit{clean} and the \textit{dirty} sector for illustrative clarity. The heterogeneous households in the model provide capital $K$ and labor $L$ to both sectors.
 In addition, the production technology in the dirty sector depends on the input of an exhaustible (fossil) energy-resource $R$ that is used up in the process. I assume that the technology in the dirty sector is fully developed and adequately described in terms of the total factor productivity. 
 Price elasticities\footnote{The price elasticity of demand ($PED$) for a good describes the change in demand $Q$ for that good when the price of that good $P$ (and nothing else) changes. Formally, it is defined as $PED = \partial Q / \partial P \times P/Q$. Informally this means that if the price elasticity of a good is low, it will be bought in similar quantities regardless of rising prices.} of demand for fossil fuel are evidently low in real economies \citep{IMF2011, Hosslinger2017, Labandeira2017}, even with the choice between alternative technologies factored in. I approximate this by setting the marginal rate of substitution\footnote{The marginal rate of substitution $MRS_{12}$ of two goods $G_1$ and $G_2$ describes the extent to which good $G_1$ can be replaced by good $G_2$ in a given economic process. More precisely, in this case it would be called the marginal rate of \emph{technical} substitution as it refers to the substitution of two goods in a production process (as opposed to the substitution of goods in consumption). Technically, it is defined as 
 \begin{equation}
@@ -266,7 +266,7 @@ To sum up, I solved the algebraic constraints to the ordinary differential equat
 To estimate the parameters of the model, I analyze some limiting cases of the system and compare them with real world timescales. , I can set reasonable values to some parameters.
 
 
-\subsubsection{Full clean economy}
+\subsubsection{Full Clean Economy}
 \label{sec:full_clean_economy}
 Along the same lines, I can treat the case of a full clean economy (assuming that the fossil resource is depleted, or the households have for some other reason decided to only invest in clean capital $K_c$). \\
 In this case, the equations for capital and knowledge accumulation are
@@ -295,7 +295,7 @@ whose Eigenvalues are strictly negative:
   \lambda_{1,2} = \frac{\delta}{2}(\gamma-1), \quad -\delta.
 	\label{eq:learning_eigenvalues}
 \end{equation}
-The phase space plot in fig. \ref{phase_space_plot} also suggests that there is a trajectory that satisfies 
+The phase space plot in fig.~\ref{phase_space_plot} also suggests that there is a trajectory that satisfies 
 \begin{equation}
 	\frac{K_c(t)}{C(t)} = \frac{K^*_c}{C^*}
 \end{equation}
@@ -314,9 +314,9 @@ So, the system approaches its equilibrium approxitely exponentially from below, 
 	t_c^* = \frac{2}{\delta(1-\gamma)}
 	\label{eq_learning_equilibrium_timescale}.
 \end{equation}
-Assuming the same capital depreciation rate for clean capital as for dirty capital previously, together with $\gamma = 1/4$ (as suggested by Jobst Heitzig), the timescale for clean capital accumulation is $t^*_c \approx 53 y$.
+Assuming the same capital depreciation rate for clean capital as for dirty capital previously, together with $\gamma = 1/4$ which appears to be a fitting value according to \cite{Kahouli-Brahmi2008}, the timescale for clean capital accumulation is $t^*_c \approx 53 y$.
 
-\subsubsection{Full on dirty economy}
+\subsubsection{Full on Dirty Economy}
 \label{sec:full_dirty_economy}
 
 Assuming, the fossil resources are very large, the dirty capital stock is significantly more profitable than the clean capital stock and subsequently all households decided to only invest in dirty capital. In this case I can treat the dirty sector isolated:
@@ -361,7 +361,7 @@ Since the capital depreciation rate $\delta$ is (at least for infrastructure) ar
 
 
 
-\subsubsection{Fossil resource depletion}
+\subsubsection{Fossil Resource Depletion}
 \label{sec:resource_depletion}
 
 
@@ -503,7 +503,7 @@ to approximate the knowledge stock for the year 2010 as $C \approx 7.8 \cdot 10^
         \includegraphics[width = .68 \textwidth]{./figures/fossil_resource_per_year.pdf}
         \caption{Historical resource of fossil resources (coal, oil and gas) for the years 1965-2018 according to \cite{dudley2019bp} and estimated historical fossil resource stock according to eq. \ref{eq:current_fossil_resource_stock} and \ref{eq:fossil_resource_time_series}. \label{fig:historical_resource_use}}
 \end{wrapfigure}
-I estimate \textit{the initial fossil resource stock $G_0$ and the current resource stock $G$} for the base year from the historical usage of fossil fuels (after 1965 for which I have the data depicted in fig. \ref{fig:historical_resource_use}) and the current estimates of fossil fuels remaining according to current use. 
+I estimate \textit{the initial fossil resource stock $G_0$ and the current resource stock $G$} for the base year from the historical usage of fossil fuels (after 1965 for which I have the data depicted in fig.~\ref{fig:historical_resource_use}) and the current estimates of fossil fuels remaining according to current use. 
 There are different estimates for the depletion time of fossil resources ranging from approximately 60 years for crude oil to 100 years for gas and 200 years for coal.\\ As the model does not differentiate between different types of fossil resources, I use a depletion time of 100 years and approximate the current resource stock as the depletion time times the current fossil resource use:
 \begin{align} 
   G(t=2010) 
@@ -511,7 +511,7 @@ There are different estimates for the depletion time of fossil resources ranging
   &= 11.6 \cdot 10^{5} ~ \mathrm{Mtoe},
   \label{eq:current_fossil_resource_stock}
 \end{align}
-and the initial fossil resource stock as the current fossil resource stock plus the estimated cumulative resource stock according to the extrapolated fossil resource use depicted in fig. \ref{fig:historical_resource_use}:
+and the initial fossil resource stock as the current fossil resource stock plus the estimated cumulative resource stock according to the extrapolated fossil resource use depicted in fig.~\ref{fig:historical_resource_use}:
 \begin{equation} 
   G_0 \approx G(t=2010) + \sum_{t=1965}^{2010} R(t) = 15.5 \cdot 10^{5} ~ \mathrm{Mtoe}.
   \label{eq:initial_fossil_resource_approximation}
@@ -519,7 +519,7 @@ and the initial fossil resource stock as the current fossil resource stock plus 
 
 Finally, I estimate the set of remaining parameters $b_R$, $\mu$, $b_c$ and $b_d$ as follows:
 
-I estimate the parameters of the fossil resource cost function $b_R$ and $\mu$ from historical energy price and fossil resource consumption data. I use the historical oil price\footnote{I use the yearly average oil price for different types of crude oil according to \url{https://www.statista.com/statistics/262858/change-in-opec-crude-oil-prices-since-1960/}} as proxy for the fossil resource price $p_R$ as historical data for prices for different types of fossil energy sources \cite{owidfossilfuels} shows that prices are strongly correlated and of the same order of magnitude. I create a time series of the fossil resource stock $G(t)$ from $G_0$ as estimated in eq. \ref{eq:initial_fossil_resource_approximation} and the time series of fossil resource use in fig. \ref{fig:historical_resource_use} like
+I estimate the parameters of the fossil resource cost function $b_R$ and $\mu$ from historical energy price and fossil resource consumption data. I use the historical oil price\footnote{I use the yearly average oil price for different types of crude oil according to \url{https://www.statista.com/statistics/262858/change-in-opec-crude-oil-prices-since-1960/}} as proxy for the fossil resource price $p_R$ as historical data for prices for different types of fossil energy sources \cite{owidfossilfuels} shows that prices are strongly correlated and of the same order of magnitude. I create a time series of the fossil resource stock $G(t)$ from $G_0$ as estimated in eq. \ref{eq:initial_fossil_resource_approximation} and the time series of fossil resource use in fig.~\ref{fig:historical_resource_use} like
 
 \begin{equation} 
   G(t) = G_0 - \sum_{t=1948}^{t}R(t),
@@ -539,7 +539,7 @@ Then I use least squares to fit resource cost eq. \ref{eq:resource_cost} as a fu
   & \mu \approx 5.72.
   \label{eq:estimate_resource_cost}
 \end{align}
-The resulting fit is given in fig. \ref{fig:resource_cost_fit}.
+The resulting fit is given in fig.~\ref{fig:resource_cost_fit}.
 
 To estimate the total factor productivities in the clean and dirty sector $b_c$ and $b_d$, I use equations \ref{eq:clean_production} and \ref{eq:dirty_production} and plug in the solutions for the labor shares $L_c$ and $L_d$ from equations \ref{eq:clean_labor} and \ref{eq:dirty_labor} as well as the estimates for $K_c$, $K_f$, $\alpha$, $\beta$, $\gamma$, $s$, $\delta$, $\chi$, $e$, $C$, $G0$, $G$, $b_R$, $\mu$ and the data for $R$ and $L$. Then, I can set them equal to the estimates for $Y_c$ and $Y_d$ to obtain an implicit condition for $b_c$ and $b_d$. Using numerical root finding, this results in 
  \begin{align}
@@ -563,7 +563,7 @@ To rescale the TFPs, I will use the values of labor, capital and knowledge for t
 Note, that these estimates for $\tilde{b}_c$ and $\tilde{b}_d$ can only be used in combination with the values of labor, capital and knowledge for the base year $L_0$, $K_{c}$, $K_{d0}$ and $C_0$. However, this has the advantage that these values can be changed independently from the estimates. This is very useful once I want to change the values of e.g. input factor elasticities such as the rate of learning-by-doing to evaluate their influence on the qualitative behavior of the model.\\
 
 The parameter values that were estimated in this chapter are the foundation on which the following model analysis can be interpreted in terms of real economic quantities which hopefully helps to evaluate the findings intuitively in a sociopolitical and economic context of the twenty first century.
-Still, both the model and the parameter estimates are obviously oversimplified and are unsuitable to derive quantitative predictions but quantitative predictions were never the goal of the model.
+Still, both the model and the parameter estimates are obviously oversimplified for exact quantitative predictions but quantitative predictions were never the goal of the model.
 
 \iffalse
 \subsubsection{Opinion spreading in the adaptive voter model}
@@ -655,7 +655,7 @@ I implement this in terms of the following cue:
 with $\sigma_k$ being the fraction of acquaintances investing in sector $k$ and again $\iota=0.1$.
 
 \subsubsection*{B) Which cue orders to consider in the model?}
-With regards to the cue orders in the model, there is a trade off to consider. For a hight number of cue orders, one needs a considerably higher number of households to get enough households to use each cue order to get meaningful results in terms of statistics. But a higher number of households leads to significantly more costly numerical simulations. (For a short study of model run times in its current implementation depending on the number of simulated households, see fig. \ref{fig:runtime}.) Therefore, I will not consider all $38$ possible cue orders, but I will restrict the model to cue orders of length $2$\footnote{I hypothicise that only a vanishing fraction of decisions would be made with more than two cues and that making these decisions at random (as the TTP Heuristic prescribes it) instead of with more cues does not make a difference. I could track the fraction of decisions that are made at random for an ensemble of simulations at some point to prove this.}. Additionally, of all $14$ remaining possible cue orders of length $2$, I only consider a subset. This subset must still represents all possible cues and should therefore be sufficient to answer the question of how different possible grounds for an investments
+With regards to the cue orders in the model, there is a trade off to consider. For a high number of cue orders, one needs a considerably higher number of households to get enough households to use each cue order to get meaningful results in terms of statistics. But a higher number of households leads to significantly more costly numerical simulations. (For a short study of model run times in its current implementation depending on the number of simulated households, see fig.~\ref{fig:runtime}.) Therefore, I will not consider all possible cue orders\footnote{All possible combinations would be $5!=120$, however since cues 0 and 1 end the heuristic, only $38$ of these cue orders are distinct.}, but I will restrict the model to cue orders of length two\footnote{I hypothicise that only a vanishing fraction of decisions would be made with more than two cues and that making these decisions at random (as the TTP Heuristic prescribes it) instead of with more cues does not make a difference. I could track the fraction of decisions that are made at random for an ensemble of simulations at some point to prove this.}. Additionally, of all $14$ remaining possible cue orders of length $2$, I only consider a subset. This subset must still represents all possible cues and should therefore be sufficient to answer the question of how different possible grounds for an investments
 \begin{wrapfigure}[23]{o}{.4 \textwidth}
 	\vspace{-.4 cm}
         \hspace{-1.9 cm}
@@ -681,11 +681,8 @@ With this set of cue orders, the remaining question is their frequency among the
 
 \subsubsection*{C) Which initial distribution of cue orders should be used?}
 
-The distribution of cue orders among the population of households together with the distribution of the different kinds of capital among them and the configuration of the acquaintance network between them determines the investment decisions of individual households and thus the fraction of savings that is invested in the two economic sectors. \\
+The initial condition for the heterogeneous households consists of the distribution of cue orders, the distribution of the different kinds of capital and the configuration of the acquaintance network. This determines the investment decisions of the individual households and consequently the fraction of savings that is invested in the two economic sectors. \\
 Arguably, to yield realistic results, the initial fraction of savings that goes into the two economic sectors should be consistent with the economic situation and historical data that the parameters of the economic model were fitted to. On the one hand, considering this situation, there is no actual data on the relative shares of investment. However, since I chose the parameters such that the total capital stock is in equilibrium subject to investment and depreciation according to eq. \ref{eq:delta_estimate}, it is sufficiently close to require that the relative shares of the capital stocks in the two sectors $K_c(t)/K_d(t)$ remains approximately constant.\\
-
-To find an initial distribution of cue orders that is likely to fulfill this criterion of an approximately constant ratio of capital in the two sectors, I use a method that is loosely inspired by Bayesian updating. Put simply, I first sample the initial distribution of cue orders from an uniformed prior then second, simulate the resulting model trajectory and calculate its distance $d$ to the formalized criterion and third, I calculate the weighted sum over the sample of initial cue order distributions using the inverse of the distance as weight to use it as the actual initial condition.\\
-
 
 \begin{figure}[t]
   \centering
@@ -693,8 +690,13 @@ To find an initial distribution of cue orders that is likely to fulfill this cri
   \caption{\textbf{Trajectories of N=200 runs with initial distribution of cue orders sampled from an uninformed prior.} Panel a shows the distance of the simulated relative shares of capital $K_c(t)/K_d(t)$ from the initial condition. Panel b shows the fraction of total investment going into the capital stock of the clean sector. Panel c shows the distribution of closeness as defined by eq. \ref{eq:distance_criterion} and eq. \ref{eq:closeness} for the simulated trajectories.}
   \label{fig:initial_conditions_sampled}
 \end{figure}
+Therefore, I want to find an initial distribution of cue orders that likely leads to an aggregate ration of clean and dirty investment that keeps the ration of capital in the two sectors constant.\\
 
-More precisely, I define the initial distribution of the 8 different cue orders by their relative frequencies $Q: [n_1, \cdots n_8]$ among the households. Given a fixed number of households $H$, the set of possible cue order distributions is equal to the discrete points on the 7 dimensional hyperplane that is given through $H = \sum_i n_i, n_i \in \mathbf{N^{+}}$. To get an equally distributed sample of these points $Q_m$, I use a Dirichlet distribution $\mathrm{Dir}(\mathbf{\alpha})$ with $\mathbf{\alpha}=(\alpha_1, \cdots \alpha_8), ~ \alpha_i=1$. I then randomly assign a cue order to each households according to their frequencies as given by $Q_m$. I also randomly assign equal shares of either clean or dirty capital each household - independent from their assigned cue order. Finally, I use an Erd\H{o}s-Renyi random graph with $p=0.1$ as the initial acquaintance network between households where acquaintance relations are set independent of the households' cue orders.\\
+To find an initial distribution of cue orders that is likely to fulfill this criterion of an approximately constant ratio of capital in the two sectors, I use a method that is loosely inspired by Bayesian updating. Put simply, I first sample the initial distribution of cue orders from an uniformed prior then second, simulate the resulting model trajectory and calculate its distance $d$ to the formalized criterion and third, I calculate the weighted sum over the sample of initial cue order distributions using the inverse of the distance as weight to use it as the actual initial condition.
+
+
+
+More precisely, I define the initial distribution of the 8 different cue orders by their relative frequencies $Q: [n_1, \cdots n_8]$ among the households. Given a fixed number of households $H$, the set of possible cue order distributions is equal to the discrete points on the 7 dimensional hyperplane that is given through $H = \sum_i n_i, n_i \in \mathbf{N^{+}}$. To get an equally distributed sample of these points $Q_m$, I use a Dirichlet distribution $\mathrm{Dir}(\mathbf{\alpha})$ with $\mathbf{\alpha}=(\alpha_1, \cdots \alpha_8), ~ \alpha_i=1$. I then randomly assign a cue order to each households according to their frequencies as given by $Q_m$. I also randomly assign equal shares of either clean or dirty capital each household - independent from their assigned cue order. Finally, I use an Erd\H{o}s-Renyi random graph with $p=0.1$ as the initial acquaintance network between households where acquaintance relations are set independent of the households' cue orders.
 
 
 \begin{table}[t]
@@ -738,11 +740,11 @@ Note that this only sets the relative frequencies of cue orders and does not det
 \begin{figure}[t]
   \centering
   \includegraphics[width= \textwidth]{figures/initial_condition_fitted.pdf}
-  \caption{\textbf{Trajectories of N=200 runs with updated initial conditions.} Initial relative frequencies of cue orders are calculated as to the weighted sum of the initial relative frequencies in fig. \ref{fig:initial_conditions_sampled}. The weighs are the inverse distances as defined by eq. \ref{eq:distance_criterion}.}
+  \caption{\textbf{Trajectories of N=200 runs with updated initial conditions.} Initial relative frequencies of cue orders are calculated as to the weighted sum of the initial relative frequencies in fig.~\ref{fig:initial_conditions_sampled}. The weighs are the inverse distances as defined by eq. \ref{eq:distance_criterion}.}
   \label{fig:initial_conditions_fitted}
 \end{figure}
 
-To determine the success of this procedure, I simulate an ensemble of trajectories with the resulting $Q_r$ and display the trajectories in fig. \ref{fig:initial_conditions_fitted} analogously to the results from uniformly distributed $Q_m$ in fig. \ref{fig:initial_conditions_sampled}. Again, I highlight the trajectories that I consider `close' to the desired criterion. Comparing the distributions of closeness $cl$ in fig. \ref{fig:initial_conditions_sampled} c and fig. \ref{fig:initial_conditions_fitted} c, some things are apparent. First, sampling initial $Q_m$ from an uniformed prior results in a Poisson like distribution of closeness $cl$ for the resulting trajectories with the majority of trajectories exhibiting far from constant relative shares of capital in the two sectors and Second, the `posterior' $Q_r$ results in dramatic improvements in terms of closeness meaning that I can consider approximately one third of the trajectories as `close' e.g. $cl>0.5$ and only a vanishing fraction as `far' e.g. $cl<0.1$.\\
+To determine the success of this procedure, I simulate an ensemble of trajectories with the resulting $Q_r$ and display the trajectories in fig.~\ref{fig:initial_conditions_fitted} analogously to the results from uniformly distributed $Q_m$ in fig.~\ref{fig:initial_conditions_sampled}. Again, I highlight the trajectories that I consider `close' to the desired criterion. Comparing the distributions of closeness $cl$ in fig.~\ref{fig:initial_conditions_sampled} c and fig.~\ref{fig:initial_conditions_fitted} c, some things are apparent. First, sampling initial $Q_m$ from an uniformed prior results in a Poisson like distribution of closeness $cl$ for the resulting trajectories with the majority of trajectories exhibiting far from constant relative shares of capital in the two sectors and Second, the `posterior' $Q_r$ results in dramatic improvements in terms of closeness meaning that I can consider approximately one third of the trajectories as `close' e.g. $cl>0.5$ and only a vanishing fraction as `far' e.g. $cl<0.1$.\\
 
 %A third fact that comes as a surprise to me is found in fig \ref{fig:initial_conditions_fitted} b. Here, it becomes apparent that most of the simulated trajectories exhibit a major opinion swing around 9 years into the simulation from households investing primarily in the dirty sector to households investing primarily in the clean sector. To me, this timing coincides so stunningly well with the Fridays-for-Future movement -- even more so, as I would call the model conceptional and the parameter fitting crude that I feel I have to emphasise that I did not put this behavior into the model in the first place.
 
@@ -780,7 +782,7 @@ This rapid switch is most likely caused by the following mechanism. As shown in 
         \includegraphics[width = 1.2 \textwidth]{figures/fitted_initials_evaluation05.pdf}
         \includegraphics[width = 1.2 \textwidth]{figures/fitted_initials_evaluation07.pdf}
         \includegraphics[width = 1.2 \textwidth]{figures/fitted_initials_evaluation09.pdf}
-        \caption{\textbf{Decarbonizationt transition depending on rewiring probability $\gamma$}. Panels 1, 2 and 3 show each nsembles of M=1000 runs with N=100 households, for different rewiring probability 1: $\varphi=0.5$, 2: $\varphi=0.7$ and 3: $\varphi=0.9$. Other parameter values and initial conditions as described in section \ref{sec:parameter_values} and \ref{sec:oppinion_formation_and_decision_making}. Results from runs where the fraction of clean investment exceeds 50\% before 2019 are colored grey. All other results are colored orange. The x and y distributions on the scatter plot in panels b are equal to the distributions of trajectories on the right y axis in panels a and c respectively. The stacked histogram attached to panels c gives the relative frequencies of the bundle of trajectories i.e. the distribution of remaining fossil resource in 2050 over the ensemble of simulations. The dotted lines in these histograms indicate the emission budgets for the $1.5\circ$C target according to IPCC 2013}
+        \caption{\textbf{Decarbonization transition depending on rewiring probability $\gamma$}. Panels 1, 2 and 3 each show ensembles of M=1000 runs with N=100 households, for different rewiring probability 1: $\varphi=0.5$, 2: $\varphi=0.7$ and 3: $\varphi=0.9$. Other parameter values and initial conditions as described in section \ref{sec:parameter_values} and \ref{sec:oppinion_formation_and_decision_making}. Results from runs where the fraction of clean investment exceeds 50\% before 2019 are colored grey. All other results are colored orange. The x and y distributions on the scatter plot in panels b are equal to the distributions of trajectories on the right y axis in panels a and c respectively. The stacked histogram attached to panels c gives the relative frequencies of the bundle of trajectories i.e. the distribution of remaining fossil resource in 2050 over the ensemble of simulations. The dotted lines in these histograms indicate the emission budgets for the $1.5\circ$C target according to IPCC 2013}
         \label{fig:default_alpha_05}
 \end{figure}
 
@@ -804,7 +806,7 @@ In the following, I will call the different budgets
 Comparing the results of the model runs in row 1 of figure \ref{fig:default_alpha_05} with the emission budgets it is apparent that this business as usual scenario of the model exceeds the T2 budget at any rate and even exceeds the T3 budget in many cases. Note that this business as usual scenario can be considered rather optimistic as it assumes technological progress only in clean technologies, and also note that many runs that stay within the T3 budget are colored gray which means that in these cases social tipping happened before 2019. This I would argue is not what happened in the real world and can therefore be considered unrealistic. More to the contrary, if the trigger for a major change in investment from dirty to clean technology will be their relative returns, this would mean that tipping might happen even later in the real world, because e.g. \cite{Farmer2016} predict that this point will only be somewhere between 2025-2030.
 
 % and they get even worse, if the clustering of likeminded households increases.
-For the model runs in the first row of fig. \ref{fig:default_alpha_05} it was equally likely for households to break a link and to establish one with a like-minded individual as it was to communicate and possibly update their beliefs if they encountered a differently minded household. 
+For the model runs in the first row of fig.~\ref{fig:default_alpha_05} it was equally likely for households to break a link and to establish one with a like-minded individual as it was to communicate and possibly update their beliefs if they encountered a differently minded household. 
 However, different studies on real world social network data indicate that individuals tend to form clusters of like-minded individuals \citep{girvan2002community, Lerman2010, Law2011, Takhteyev2012}.
 
 Rows 2 and 3 show the dynamics of the model in case the probability for like-minded households to form clusters increases, e.g. for increasing rewiring probability $\varphi$. These results support the previous discussion of the social tipping dynamics depending on the connection between households that rely on economic indicators for their decisions and households that rely on the observation of their peers. If the rewiring probability increases, households that conform with their neighbors cluster together and tend to form groups that self-stabilize in their behavior.
@@ -816,7 +818,7 @@ If the rewiring probability further increases to $\varphi=0.9$, at the time when
 \textbf{To sum up:}
 \begin{itemize}
   \item Decisions of a number of informed individuals in combination with others that rely on the observation of their peers can lead to social tipping in the model given that the tendency of like-minded individuals to cluster together is sufficiently low.
-  \item Regardless, in the (rather optimistic) default scenario of the model emissions are likely to exceed the budget that would keep global warming below $1.5^{\circ}$C with a probability of $p=0.5$.
+  \item Regardless, in the (rather optimistic) default scenario of the model, emissions are likely to exceed the budget that would keep global warming below $1.5^{\circ}$C with a probability of $p=0.5$.
   \item Especially a tendency of like-minded individuals to cluster together leads to a certain failure to stay within the budget that would keep global warming below $1.5^{\circ}$C with a probability of $p=0.33$ given the model assumptions.
   \item To conclude, in the model world, technological progress and individual choice of households are very unlikely to prevent global warming above $1.5^{\circ}$C.
 \end{itemize}
@@ -868,7 +870,7 @@ However, a closer look at the results for campaign sizes $n_cp$ between $10\%$ a
     \label{fig:p15sucess}
 \end{figure}
 
-The discussion of results presented in fig. \ref{fig:p15sucess} and \ref{fig:campaign_sucess} indicates that in the model campaigning efforts that aim at norm changes to alter public opinion and individual behavior alone have little prospect of success. However all of the campaigning efforts that I have mentioned above also aim at change in public policy. Therefore, I estimate the likelihood of the success of campaigning efforts that also result in a change in public policy under the most ideal circumstances. Ideal circumstances meaning that as soon as $2/3$rd of the population invest in the clean sector a public policy is implemented that prohibits the further exploration of the fossil resource. This is very optimistic as it neglects vested interests of individuals due to their existing capital in the dirty sector that would be rendered idle by this policy, resulting in a reduction of income of individuals of up to $30\%$.
+The discussion of results presented in fig.~\ref{fig:p15sucess} and \ref{fig:campaign_sucess} indicates that in the model campaigning efforts that aim at norm changes to alter public opinion and individual behavior alone have little prospect of success. However all of the campaigning efforts that I have mentioned above also aim at change in public policy. Therefore, I estimate the likelihood of the success of campaigning efforts that also result in a change in public policy under the most ideal circumstances. Ideal circumstances meaning that as soon as $2/3$rd of the population invest in the clean sector a public policy is implemented that prohibits the further exploration of the fossil resource. This is very optimistic as it neglects vested interests of individuals due to their existing capital in the dirty sector that would be rendered idle by this policy, resulting in a reduction of income of individuals of up to $30\%$.
 
 
 Figure \ref{fig:p15sucess} shows the likelihood of cumulative emissions to stay within the T2 budget at the point in time when $2/3$rd of the population decide to stop investing in the dirty sector depending on the initial size of the campaign and the initial fraction of opposing opinions in the population. This shows that as soon as the initial size of the campaign is non-zero, shutting down technologies that rely on fossil fuels as soon as a qualified majority of the population stops investing in them, this would almost surely keep cumulative emissions within the T2 budget. These results show also that even a substantial amount of opposing opinions does not critically endanger the success of the campaigning efforts as even for an initial fraction of $~30\%$ of the population investing in the dirty sector out of their inherent conviction, an initial size of $~1\%$ of the population that takes part in the campaign is sufficient to almost surely lead to social tipping in favor of the clean sector before the T2 budget is exceeded.
@@ -904,8 +906,8 @@ In this light, the fact that an initial campaign size of $20\%$ can still lead t
 
 To sum up, I showed that in this model:
 \begin{itemize}
-  \item Campaigning that advocates the halt of investment in dirty technologies alone has little to no chance to prevent global warming above $1.5^{\circ}$C if climate change mitigation only happens through technological progress and individual decision making.
-  \item Complementing a campaign, a strict public policy that prevents the use of fossil resources has the potential to limit global warming below $1.5^{\circ}$C if it is implemented as soon as it is politically opportune e.g. as soon as 2/3rd of households invest in the clean sector.
+  \item Campaigning to stop investment in dirty technologies alone has little to no chance to prevent global warming above $1.5^{\circ}$C if climate change mitigation only happens through technological progress and individual decision making.
+  \item Complementing a campaign, a strict public policy that prevents the use of fossil resources has the potential to limit global warming below $1.5^{\circ}$C if it is implemented as soon as it is politically opportune e.g. as soon as a qualified majority of 2/3rd of households invest in the clean sector.
   \item Even though campaigning cannot prevent global warming above $1.5^{\circ}$C, it can substantially extend the window of opportunity to come up with less strict measures to halt the use of fossil fuels given that it successfully halts investment in the dirty sector.
   \item In the model, the dependence of the prospects of success of campaigning efforts on the dendency of like-minded individuals to cluster together is highly nonlinear due to a segmentation transition in the underlying adaptive voter dynamic.
 \end{itemize}
@@ -917,7 +919,7 @@ To sum up, I showed that in this model:
 In the previous chapter, I developed, calibrated and analyzed a model that combines social learning and individual, bounded rational decision making with elements of neoclassical economics to model sustainability transitions away from fossil fuels.
 In the model, heterogeneous households are owners of capital and labor that they use to generate income. The households save a fixed amount of their income and decide between a `clean' and a `dirty' sector in which they can invest their savings. The `dirty' sectors uses a fossil resource for production whereas the `clean' sector uses a clean technology that is still under development. In this stylized production economy, capital rents and wages in the two sectors as well as fossil resource use in the dirty sector form subject to aggregated supply and demand of labor and capital.
 In this context, the model describes the interplay of social dynamics and individual processing of information from different sources that lead to collective behavior of individuals. This collective behavior in return shapes the environment in which the modelled individual live.
-In contrast to many other social ecological models, this model differentiates between judgement and action of individuals. In most social ecological models that emulate individual opinion formation, behavior, opinion and action are equivalent and spread via imitation of successful behavior. In contrast, in this model individuals learn heuristics that they use to judge which action would be best given the circumstances.
+In contrast to many other social-ecological models, this model differentiates between judgement and action of individuals. In most social-ecological models that emulate individual opinion formation, behavior, opinion and action are equivalent and spread via imitation of successful behavior. In contrast, in this model individuals learn heuristics that they use to judge which action would be best given the circumstances.
 
 % how did i do it
 I used adaptive network dynamics for social learning, ordinary differential equations with algebraic constraints to model economic dynamics economic dynamics and fast and frugal heuristics to describe individual decision making individual decision making.
@@ -939,7 +941,7 @@ The results give hope that it might be possible to still mitigate global warming
 
 % what else can be done.
 In the analysis of the model, I considered a combination of campaigning and public policy measures that are aimed to ban the use of fossil fuels. However, a model along these lines would also allow to analyse the effects of a number of other policy measures.
-Obvious candidates would be taxation for dirty and subsidies for clean technologies. A not so extensively yet interesting policy measure would be marketing strategies such as nudging and priming that aim to influence an individuals internal evaluation of different options and often time explicitly anticipate heuristic decision making. Priming for instance aims to activate certain concepts in individuals' minds to make them consider aspects related to this concept over other unrelated aspects in their decisions. In this framework such measures can be implemented by temporarily altering individuals' cue orders after exposure to marketing efforts.
+Obvious candidates would be taxation for dirty and subsidies for clean technologies similar to \cite{Geier2019}. A not so extensively yet interesting policy measure would be marketing strategies such as nudging and priming that aim to influence an individuals internal evaluation of different options and often time explicitly anticipate heuristic decision making. Priming for instance aims to activate certain concepts in individuals' minds to make them consider aspects related to this concept over other unrelated aspects in their decisions. In this framework such measures can be implemented by temporarily altering individuals' cue orders after exposure to marketing efforts.
 
 % what can be done better
 To make this model more realistic, one could consider a number of improvements and extensions. With regards to the economic dynamics, one can consider technological progress also in the dirty sector as well as a possible third sector that does not depend on either of the two technologies. For instance production of energy could be divided into fossil and renewable energy production and production of final goods can happen in a separated sector as e.g. in \cite{Heitzig2015a}. In individual decision making natural extensions would be the consideration of more possible cues and the full spectrum of the resulting cue orders as well as other modi of decision making such as alternative heuristics that fit the decision environment (such as tallying) or to consider more sophisticated decision strategies (such as utility maximization in combination with Bayesian updating) to take account of the fact that especially bigger investors certainly use more complex and elaborated decision making tools. With respect to social learning one can consider the fact that in this model individual parameters are homogeneous between agents. However in real world systems the preference for homphilic rewiring is likely to be heterogeneous between individuals. For instance empirical studies on Optimal Distinctiveness Theory \cite{hornsey1999subgroup, leonardelli2010optimal} find that the preference for relationships with individuals with similar traits is heterogeneous within the groups under study.
