@@ -22,7 +22,7 @@ In the following I propose a preliminary scheme of such a model.
 \begin{figure}[t]
 	\centering
 	\includegraphics[width =.8 \textwidth]{figures/model_scheme_1.pdf}
-        \caption{Schematic sketch of the model consisting of two production sectors (a \emph{clean} and a \emph{dirty} one) and heterogeneous households that are heuristic decision makers that interact on a complex adaptive acquaintance network. Households supply labor and capital to the production sectors. The production sectors each have their separate capital market but are linked via a shared labor market. The \emph{dirt} sector depends on the input of an exhaustible fossil resource, the \emph{clean} sector depends on a developing technology that is endogenously modelled via learning by doing. Boxes and bubbles signify modelled entities, arrows signify interactions. Numbers ($x$) next to entities and interactions give the decimal place of equations in the model description section \ref{sec:model_description} that describe the respective processes.}
+        \caption[Schematic sketch of a two sector investment model with heterogeneous households that are bounded rational decision makers]{Schematic sketch of the model consisting of two production sectors (a \emph{clean} and a \emph{dirty} one) and heterogeneous households that are heuristic decision makers that interact on a complex adaptive acquaintance network. Households supply labor and capital to the production sectors. The production sectors each have their separate capital market but are linked via a shared labor market. The \emph{dirt} sector depends on the input of an exhaustible fossil resource, the \emph{clean} sector depends on a developing technology that is endogenously modelled via learning by doing. Boxes and bubbles signify modelled entities, arrows signify interactions. Numbers ($x$) next to entities and interactions give the decimal place of equations in the model description section \ref{sec:model_description} that describe the respective processes.}
 	\label{fig:model}
 \end{figure}
 
@@ -260,7 +260,7 @@ To sum up, I solved the algebraic constraints to the ordinary differential equat
 
 \begin{wrapfigure}[21]{o}{.55 \textwidth}
         \hspace{-1.5 cm}\includegraphics[width = .65 \textwidth]{./figures/phasespace.pdf}
-        \caption{Phase space plot of equations \eqref{eq:full_clean_ca1} and \eqref{eq:full_clean_ca2} \label{phase_space_plot}}
+        \caption[Phase space plot of a full clean economy]{Phase space plot of equations \eqref{eq:full_clean_ca1} and \eqref{eq:full_clean_ca2} \label{phase_space_plot}}
 \end{wrapfigure}
 
 To estimate the parameters of the model, I analyze some limiting cases of the system and compare them with real world timescales. , I can set reasonable values to some parameters.
@@ -387,7 +387,7 @@ This means that the integrand of the lhs.\ in eq.~\eqref{eq:resource_transient_i
 \begin{wrapfigure}[23]{i}{.45 \textwidth}
     \vspace{-.8 cm}
     \hspace{-1.5cm}\includegraphics[width = .58 \textwidth]{figures/g_depletion.pdf}
-	\caption{Resource depletion in a full dirty economy as described by eq. \eqref{eq:resource_deprec_approx}. The dashed line marks the approximate resource depletion time $t^*_G$. \label{fig:g_depletion}}
+    \caption[Resource depletion in a full dirty economy]{Resource depletion in a full dirty economy as described by eq. \eqref{eq:resource_deprec_approx}. The dashed line marks the approximate resource depletion time $t^*_G$. \label{fig:g_depletion}}
 \end{wrapfigure}
 
 This results in the implicit approximate solution:
@@ -458,7 +458,7 @@ First, I collect estimates for all parameters where there are values in the lite
 	\vspace{-.4 cm}
         \hspace{-1.5 cm}
         \includegraphics[width = .65 \textwidth]{./figures/energy_consumption_clean_dirty.pdf}
-        \caption{Energy usage divided into dirty (coal, oil, gas) and clean (hydro, nuclear, other renewables). The dashed line indicates the fraction of clean energy consumption. Data from \cite{dudley2019bp}.\label{fig:energy_data}}
+        \caption[Data for world energy use devided into dirty and clean sources.]{Energy usage divided into dirty (coal, oil, gas) and clean (hydro, nuclear, other renewables). The dashed line indicates the fraction of clean energy consumption. Data from \cite{dudley2019bp}.\label{fig:energy_data}}
 \end{wrapfigure}
 \textit{Elasticity of knowledge $\gamma$} is also the rate of learning of technology in the clean sector as discussed in \ref{sec:model_description}. This heavily depends on the technology under consideration. According to \cite{Kahouli-Brahmi2008} estimates for learning-by-doing rates approximately range between 10\% and 20\%. As an approximate value, I set $\gamma=1/8$. \\
 \textit{The savings rate $s$} indicates the fraction of income that households save on average. I use a fixed savings rate for all households that is set to $s=0.25$ which is roughly in line with data for OECD countries\footnote{see \url{https://data.worldbank.org/indicator/NY.GNS.ICTR.ZS}}.\\
@@ -501,7 +501,7 @@ to approximate the knowledge stock for the year 2010 as $C \approx 7.8 \cdot 10^
 	%\vspace{-.4 cm}
         %\hspace{-1.5 cm}
         \includegraphics[width = .68 \textwidth]{./figures/fossil_resource_per_year.pdf}
-        \caption{Historical resource of fossil resources (coal, oil and gas) for the years 1965-2018 according to \cite{dudley2019bp} and estimated historical fossil resource stock according to eq. \ref{eq:current_fossil_resource_stock} and \ref{eq:fossil_resource_time_series}. \label{fig:historical_resource_use}}
+        \caption[Historical data of fossil resources]{Historical data of fossil resources (coal, oil and gas) for the years 1965-2018 according to \cite{dudley2019bp} and estimated historical fossil resource stock according to eq. \ref{eq:current_fossil_resource_stock} and \ref{eq:fossil_resource_time_series}. \label{fig:historical_resource_use}}
 \end{wrapfigure}
 I estimate \textit{the initial fossil resource stock $G_0$ and the current resource stock $G$} for the base year from the historical usage of fossil fuels (after 1965 for which I have the data depicted in fig.~\ref{fig:historical_resource_use}) and the current estimates of fossil fuels remaining according to current use. 
 There are different estimates for the depletion time of fossil resources ranging from approximately 60 years for crude oil to 100 years for gas and 200 years for coal.\\ As the model does not differentiate between different types of fossil resources, I use a depletion time of 100 years and approximate the current resource stock as the depletion time times the current fossil resource use:
@@ -531,7 +531,7 @@ I approximate the yearly cost of fossil resource as the product of the approxima
 	\vspace{-.4 cm}
         \hspace{-1.25 cm}
         \includegraphics[width = .67 \textwidth]{./figures/resource_price_fit.pdf}
-        \caption{Fit of resource cost according to eq. \ref{eq:resource_cost} to historical data generated from fossil resource use and yearly average crude oil prices as approximate fossil resource price. \label{fig:resource_cost_fit}}
+        \caption[Fit of model resource cost function to historical data]{Fit of resource cost according to eq. \ref{eq:resource_cost} to historical data generated from fossil resource use and yearly average crude oil prices as approximate fossil resource price. \label{fig:resource_cost_fit}}
 \end{wrapfigure}
 Then I use least squares to fit resource cost eq. \ref{eq:resource_cost} as a function of the data for resource use $R(t)$ and remaining resource $G(t)$ to the estimate data for the total resource cost $c_R(t)$ which results in 
 \begin{align}
@@ -660,7 +660,7 @@ With regards to the cue orders in the model, there is a trade off to consider. F
 	\vspace{-.4 cm}
         \hspace{-1.9 cm}
         \includegraphics[width = .55 \textwidth]{./figures/runtime.pdf}
-        \caption{Run times of the model in my implementation (Python) depending on the number of households modelled.\label{fig:runtime}}
+        \caption[Model run time depending on number of households]{Run times of the model in my implementation (Python) depending on the number of households modelled.\label{fig:runtime}}
 \end{wrapfigure}
 decision that are prevalent in the population influence the aggregate behavior of the social-economic system with regards to a possible rapid decarbonization transition.\\
 
@@ -687,7 +687,7 @@ Arguably, to yield realistic results, the initial fraction of savings that goes 
 \begin{figure}[t]
   \centering
   \includegraphics[width= \textwidth]{figures/initial_condition_sampling.pdf}
-  \caption{\textbf{Trajectories of N=200 runs with initial distribution of cue orders sampled from an uninformed prior.} Panel a shows the distance of the simulated relative shares of capital $K_c(t)/K_d(t)$ from the initial condition. Panel b shows the fraction of total investment going into the capital stock of the clean sector. Panel c shows the distribution of closeness as defined by eq. \ref{eq:distance_criterion} and eq. \ref{eq:closeness} for the simulated trajectories.}
+  \caption[Trajectories of N=200 runs with initial conditions for cue orders sampled from an uninformed prior]{\textbf{Trajectories of N=200 runs with initial distribution of cue orders sampled from an uninformed prior.} Panel a shows the distance of the simulated relative shares of capital $K_c(t)/K_d(t)$ from the initial condition. Panel b shows the fraction of total investment going into the capital stock of the clean sector. Panel c shows the distribution of closeness as defined by eq. \ref{eq:distance_criterion} and eq. \ref{eq:closeness} for the simulated trajectories.}
   \label{fig:initial_conditions_sampled}
 \end{figure}
 Therefore, I want to find an initial distribution of cue orders that likely leads to an aggregate ration of clean and dirty investment that keeps the ration of capital in the two sectors constant.\\
@@ -740,7 +740,7 @@ Note that this only sets the relative frequencies of cue orders and does not det
 \begin{figure}[t]
   \centering
   \includegraphics[width= \textwidth]{figures/initial_condition_fitted.pdf}
-  \caption{\textbf{Trajectories of N=200 runs with updated initial conditions.} Initial relative frequencies of cue orders are calculated as to the weighted sum of the initial relative frequencies in fig.~\ref{fig:initial_conditions_sampled}. The weighs are the inverse distances as defined by eq. \ref{eq:distance_criterion}.}
+  \caption[Trajectories of N=200 runs with updated initial conditions]{\textbf{Trajectories of N=200 runs with updated initial conditions.} Initial relative frequencies of cue orders are calculated as to the weighted sum of the initial relative frequencies in fig.~\ref{fig:initial_conditions_sampled}. The weighs are the inverse distances as defined by eq. \ref{eq:distance_criterion}.}
   \label{fig:initial_conditions_fitted}
 \end{figure}
 
@@ -748,14 +748,6 @@ To determine the success of this procedure, I simulate an ensemble of trajectori
 
 %A third fact that comes as a surprise to me is found in fig \ref{fig:initial_conditions_fitted} b. Here, it becomes apparent that most of the simulated trajectories exhibit a major opinion swing around 9 years into the simulation from households investing primarily in the dirty sector to households investing primarily in the clean sector. To me, this timing coincides so stunningly well with the Fridays-for-Future movement -- even more so, as I would call the model conceptional and the parameter fitting crude that I feel I have to emphasise that I did not put this behavior into the model in the first place.
 
-\newpage
-
-
-
-
-
-
-\cleardoublepage
 \section{Results}  
 In the previous section, I have fitted parameters of the model to reproduce realistic conditions in terms of resource extraction, capital stocks in the clean and dirty sector and economic production for the year 2010. I have also fitted initial conditions that are likely to reproduce the status quo until around the year 2019 insofar, as they keep the relative shares of capital in the clean and dirty sector approximately constant. 
 
@@ -764,11 +756,11 @@ In the following section, I will have a closer look at the actual model dynamics
 \subsubsection{The Default Scenario}
 \label{sec:default_scenario}
 Figure \ref{fig:default_alpha_05} shows results from an ensemble of 1000 runs with 100 households for the parameters and initial conditions that I have outlined in the previous two sections. These results -- especially the fraction of total investment that goes into the clean sector -- 
-\begin{wrapfigure}[26]{i}{.5 \textwidth}
+\begin{wrapfigure}[26]{o}{.5 \textwidth}
 	\vspace{-.1 cm}
         \hspace{-1.8 cm}
         \includegraphics[width = .64 \textwidth]{./figures/break_even.pdf}
-        \caption{Capital return rates in the clean and dirty sector for M=1000 runs. Statistical properties of the distribution of intersection times between the return rates in the two sectors are indicated with a box plot.\label{fig:break_even}}
+        \caption[Capital return rates in the clean and dirty sector for N=1000 runs]{Capital return rates in the clean and dirty sector for M=1000 runs. Statistical properties of the distribution of intersection times between the return rates in the two sectors are indicated with a box plot.\label{fig:break_even}}
 \end{wrapfigure}
 %results show social tipping behavior
 show a rapid switch in many trajectories from investment primarily in the dirty sector before 2018 to investment primarily in the clean sector after 2018. 
@@ -776,18 +768,18 @@ show a rapid switch in many trajectories from investment primarily in the dirty 
 % this social tipping behavior most likely works as follows
 This rapid switch is most likely caused by the following mechanism. As shown in fig \ref{fig:break_even}, the return rate of capital $r_c$ in the clean sector exceeds the return rate of capital $r_d$ in the clean sector in or around the year 2019 -- primarily due to increasing productivity of capital as a result of learning by doing in the sector that increases the knowledge stock $C$. Consequently, households that are `myopic investors' and therefore invest in the sector with the higher capital return rate start to invest their savings in the clean sector. If these households are sufficiently connected to other households that are `herders' or `conformers', the latter may follow their example. Therefore, even though the fraction of myopic investors may be small (their initial frequency is only 1/8th), the fact that their example may be followed by those that decide according to the behavior of their surroundings (whose combined initial frequency is about 1/2) can lead to rapid tipping in the investment behavior of 
 
+the majority of households. This also explains the heterogeneity in final outcomes. As the rapid switch in investment depends on the decision making of households that rely on imitation of the majority of their neighbors, this tipping process is heavily influenced by the micro structure of the model -- particularly the structure of the acquaintance relations between households.
 
 \begin{figure}[H]
 	\centering
         \includegraphics[width = 1.2 \textwidth]{figures/fitted_initials_evaluation05.pdf}
         \includegraphics[width = 1.2 \textwidth]{figures/fitted_initials_evaluation07.pdf}
         \includegraphics[width = 1.2 \textwidth]{figures/fitted_initials_evaluation09.pdf}
-        \caption{\textbf{Decarbonization transition depending on rewiring probability $\gamma$}. Panels 1, 2 and 3 each show ensembles of M=1000 runs with N=100 households, for different rewiring probability 1: $\varphi=0.5$, 2: $\varphi=0.7$ and 3: $\varphi=0.9$. Other parameter values and initial conditions as described in section \ref{sec:parameter_values} and \ref{sec:oppinion_formation_and_decision_making}. Results from runs where the fraction of clean investment exceeds 50\% before 2019 are colored grey. All other results are colored orange. The x and y distributions on the scatter plot in panels b are equal to the distributions of trajectories on the right y axis in panels a and c respectively. The stacked histogram attached to panels c gives the relative frequencies of the bundle of trajectories i.e. the distribution of remaining fossil resource in 2050 over the ensemble of simulations. The dotted lines in these histograms indicate the emission budgets for the $1.5\circ$C target according to IPCC 2013}
+        \caption[Trajectory of decarbonization transition depending on the network rewiring rate in the social learning process]{\textbf{Decarbonization transition depending on rewiring probability $\gamma$}. Panels 1, 2 and 3 each show ensembles of M=1000 runs with N=100 households, for different rewiring probability 1: $\varphi=0.5$, 2: $\varphi=0.7$ and 3: $\varphi=0.9$. Other parameter values and initial conditions as described in section \ref{sec:parameter_values} and \ref{sec:oppinion_formation_and_decision_making}. Results from runs where the fraction of clean investment exceeds 50\% before 2019 are colored grey. All other results are colored orange. The x and y distributions on the scatter plot in panels b are equal to the distributions of trajectories on the right y axis in panels a and c respectively. The stacked histogram attached to panels c gives the relative frequencies of the bundle of trajectories i.e. the distribution of remaining fossil resource in 2050 over the ensemble of simulations. The dotted lines in these histograms indicate the emission budgets for the $1.5\circ$C target according to IPCC 2013}
         \label{fig:default_alpha_05}
 \end{figure}
 
 
-the majority of households. This also explains the heterogeneity in final outcomes. As the rapid switch in investment depends on the decision making of households that rely on imitation of the majority of their neighbors, this tipping process is heavily influenced by the micro structure of the model -- particularly the structure of the acquaintance relations between households.
 
 % tipping in investment only slowly leads to reduction in emissions
 Panel 1c shows that this switch of the direction of investment is then later followed by a reduction of the use of the fossil resource. The time lag between the switch of investment and the reduction of resource use is due to the fact that the existing physical capital $K_c$ in the dirty sector is still in productive use and only gradually depreciating over a timescale of approximately $t_{d}^{*}\approx 50$ years as I have shown in section \ref{sec:full_dirty_economy}. It is also clear that not all simulation runs follow this switching behavior and that in a number of runs the majority of investment continues to go to the dirty sector over the entire simulation period or only switches to the clean sector substantially later.
@@ -828,7 +820,7 @@ If the rewiring probability further increases to $\varphi=0.9$, at the time when
 \begin{figure}[t]
     \centering
 \includegraphics[width = \textwidth]{figures/p_budget15p50_in2050.pdf}
-    \caption{probability of staying within the p=-1.5, 1.5 degree budget in 2050 depending on initial size of campaign in 2010 and initial fraction of rednecks.}
+\caption[Probability of staying within the p=0.5, 1,5 degree budget in 2050 depending on the initial size of a campaign in 2010]{Probability of staying within the p=-1.5, 1.5 degree budget in 2050 depending on initial size of campaign in 2010 and initial fraction of rednecks.}
     \label{fig:p15in2050}
 \end{figure}
 
@@ -848,7 +840,7 @@ The \textit{Fossil Fuel Divestment Movement} uses classical campaigning tools to
 
 These campaigns have in common that they want to influence public opinion in favor of mitigating climate change and that they build on a strong mindset of sustainable individual behavior.\\
 
-\begin{wrapfigure}[25]{o}{.45 \textwidth}
+\begin{wrapfigure}[25]{i}{.45 \textwidth}
 	\vspace{-.4 cm}
         \hspace{-1.4 cm}
         \includegraphics[width = .57 \textwidth]{./figures/emissions_with_campaign.pdf}
@@ -866,7 +858,7 @@ However, a closer look at the results for campaign sizes $n_cp$ between $10\%$ a
 \begin{figure}[t]
     \centering
     \includegraphics[width = \textwidth]{figures/p_budget15p66_at_campaign_success.pdf}
-    \caption{probability of staying within the p=0.5, 1.5 degree budget when 2/3 of households vote clean depending on the initial size of campaign in 2010 and initial fraction of rednecks.}
+    \caption{Probability of staying within the p=0.5, 1.5 degree budget when 2/3 of households vote clean depending on the initial size of campaign in 2010 and initial fraction of rednecks.}
     \label{fig:p15sucess}
 \end{figure}
 
@@ -885,13 +877,16 @@ However, political realities show that public policy is rarely as strict as bann
     \label{fig:time_until_budget_reached}
 \end{figure}
 
-\begin{wrapfigure}[26]{i}{.45 \textwidth}
+Therefore, I want to analyze how long campaigning efforts could possibly elongate the window of opportunity for softer policy measures before dirty technologies would eventually have to be banned to stay within the T2 budget. Figure \ref{fig:time_until_budget_reached} shows the time until the T2 budget is reached depending on the initial size of the campaign and the initial fraction of opposing opinions in the population. 
+\begin{wrapfigure}[26]{o}{.45 \textwidth}
 	\vspace{-.4 cm}
         \hspace{-1.4 cm}
         \includegraphics[width = .57 \textwidth]{./figures/dirty_investment_consequences.pdf}
         \caption{Scatter plot of percentage of investment in the dirty sector vs. the time until the T2 emissions budget is reached for an initial fraction of opposing opinions of 16\% to $20\%$ and an initial fraction of campaigners of $10\%$ to $15\%$. \label{fig:dirty_investment_consequences}}
 \end{wrapfigure}
-Therefore, I want to analyze how long campaigning efforts could possibly elongate the window of opportunity for softer policy measures before dirty technologies would eventually have to be banned to stay within the T2 budget. Figure \ref{fig:time_until_budget_reached} shows the time until the T2 budget is reached depending on the initial size of the campaign and the initial fraction of opposing opinions in the population. These results show that for an initial fraction of opposing opinions of $~15\%$ as projected in section \ref{sec:oppinion_formation_and_decision_making}, campaigning can increase the time window substantially from until 2023 with no initial campaign in 2010 to up to until 2066 if the initial campaign size in 2010 were $~15\%$ of the population. However, the elongation of the time window for clean technologies to establish on a voluntary basis would come from essentially halting almost all investment in dirty technology as soon as 2019 to only use the existing capital stock in the dirty sector until it depreciates. Figure \ref{fig:dirty_investment_consequences} shows the fraction of dirty investment in 2019 vs. the time until the T2 emissions budget is reached. Here, it is apparent that less then $20\%$ of investment in the dirty sector in 2019 is a necessary, yet not sufficient condition for the extension of the time frame until the T2 budget is exceeded beyond 2050. In simple words this means that every car that is sold today reduces the probability that this same car (or any other brand new car for that matter) could be used until the end of its life cycle should one seriously intend to keep emissions within the T2 budget.
+These results show that for an initial fraction of opposing opinions of $~15\%$ as projected in section \ref{sec:oppinion_formation_and_decision_making}, campaigning can increase the time window substantially from until 2023 with no initial campaign in 2010 to up to until 2066 if the initial campaign size in 2010 were $~15\%$ of the population. 
+However, the elongation of the time window for clean technologies to establish on a voluntary basis would come from essentially halting almost all investment in dirty technology as soon as 2019 to only use the existing capital stock in the dirty sector until it depreciates. Figure \ref{fig:dirty_investment_consequences} shows the fraction of dirty investment in 2019 vs. the time until the T2 emissions budget is reached. 
+Here, it is apparent that less then $20\%$ of investment in the dirty sector in 2019 is a necessary, yet not sufficient condition for the extension of the time frame until the T2 budget is exceeded beyond 2050. In simple words this means that every car that is sold today reduces the probability that this same car (or any other brand new car for that matter) could be used until the end of its life cycle should one seriously intend to keep emissions within the T2 budget.
 
 Finally, I want to examine how the tendency of like-minded households to form clusters influences the probability of success of a campaign that advocates clean investment. Therefore, figure \ref{fig:campaign_phi} shows the mean and standard deviation of cumulative emissions at the success of the campaign e.g. when 2/3rd of households invest in the clean sector for varying initial size of the campaign and the rewiring probability $\varphi$. Here, a rewiring probability of $\varphi<0.6$ e.g. a low to medium tendency of like-minded households to cluster together has little to now effect on the prospects of campaigning efforts. However, if the rewiring probability increases, the model exhibits a transition to a state where campaigning efforts become futile for a campaign that starts with less than $15\%$ of participation in 2010. This is not surprising, as e.g. \cite{Rogers2013, Wiedermann2015} and \cite{Klamser2016} have shown before that for a rewiring probability $\varphi$ above a critical value, adaptive voter type network dynamics undergo a segmentation transition where an initially fully connected graph decomposes into smaller unconnected sub graphs of nodes that share the same state/opinion. This also happens in this model -- somewhat attenuated by the exploration behavior of households that acts as noise to the adaptive voter dynamics and therefore facilitates some connection between otherwise disconnected homogeneous clusters of households.\\
 

@@ -91,7 +91,7 @@ This model is designed to incorporate the dynamics of social norms that underlie
 %\caption{Schematic figure of the model consisting of two production sectors of which one depends on an exhaustible fossil resource stock as well as a set of heterogeneous households that interact on an adaptive complex network and use social learning to decide upon which of two production sectors to invest in. Boxes and bubbles denote modeled entities, arrows denote interactions. Numbers in brackets $(x)$ refer to equations $(6.x)$ that describe the specific part of the model.}
 %  \label{fig:model_scheme}
 %\end{figure}
-% \subsection{Economic Production}
+\subsection{Economic Production}
 \label{sec:approx_economy}
 
 The underlying assumptions of the economic model are discussed in detail in \cref{sec:heuristics_model}. This is a brief recap of the specifications of the economic production model. 
@@ -207,14 +207,16 @@ In the following, I discuss the resulting aggregate dynamics.
 
 
 
-\Cref{fig:example_trajectory} displays an exemplary average evolution of the model calculated as the average of 100 simulation runs.
-The simulation starts with initial conditions of 
+
 \begin{figure}[H]
   \hspace{-.8 cm}\includegraphics[width=1.1\linewidth]{figures/example_trajectory_square_thesis.pdf}
-  \caption{\textbf{Example trajectory of the ABM.} Solid lines show mean results from 100 runs of the model in per capita variables. Colored areas around solid lines show their standard deviation. The panels show capital rents in the clean and dirty sector $r_c$ and $r_d$ as well as the fraction of households investing in the clean sector $n_c$ in panel a, knowledge and resource stock $c$ and $g$ in panel b, output of clean and dirty sector $Y_c$ and $Y_d$ in panel c and per capita capital $k_c$ and $k_d$ in the clean and dirty sector (d).
+  \caption[Example trajectory of the agent-based model]{\textbf{Example trajectory of the ABM.} Solid lines show mean results from 100 runs of the model in per capita variables. Colored areas around solid lines show their standard deviation. The panels show capital rents in the clean and dirty sector $r_c$ and $r_d$ as well as the fraction of households investing in the clean sector $n_c$ in panel a, knowledge and resource stock $c$ and $g$ in panel b, output of clean and dirty sector $Y_c$ and $Y_d$ in panel c and per capita capital $k_c$ and $k_d$ in the clean and dirty sector (d).
 Initial conditions are $G=G_0$, $C=1$, $K_j^{(i)}=1$ for the economic subsystem. For the investment decision process, the initial opinions of the $N=100$ households are drawn from a uniform distribution. Their initial acquaintance structure is an Erd\H{o}s-Renyi random graph with mean degree k=10.}
 \label{fig:example_trajectory}
 \end{figure}
+
+\Cref{fig:example_trajectory} displays an exemplary average evolution of the model calculated as the average of 100 simulation runs.
+The simulation starts with initial conditions of 
 abundant fossil resources $g$ and low clean technology knowledge stock $c$ (\cref{fig:example_trajectory}b) as well as equally low capital stocks in the clean and dirty sector $k_c$ and $k_d$ (\cref{fig:example_trajectory}d). As I show later (see \cref{sec:bifurcation-analysis}), the rest of the initial configuration of the model is rather irrelevant for the selected parameter values listed in \cref{tab:Parameter_list}, since there is only one stable dynamical equilibrium as long as resource extraction costs are negligibly low.
 The high initial capital rents $r_c$ and $r_d$ are a direct result of the model assumptions and initial conditions. More precisely, the assumption that capital rent equals marginal productivity in 
 \cref{eq:approx_ccr,eq:approx_dcr}
@@ -399,7 +401,7 @@ Then, I can write down the changes in capital stocks explicitly including the sw
   &+  \frac{\overbar{K}_l^{(\sim k)}}{\overbar{N}^{(\sim k)}} \mathrm{ d} N^{\sim k \rightarrow k} -  \frac{\overbar{K}_l^{(k)}}{\overbar{N}^{(k)}} \mathrm{ d} N^{k \rightarrow \sim k}, \quad l, k \in \{c, d\}
 	\label{eq:aggregated_capital_time_derivative}
 \end{align}
-where $\mathrm{ d} N^{k \rightarrow \sim k}$ denotes the stochastic process of households changing their investment decision according to the rules of the social learning process outlined in \cref{sec:investment_decision_making_descr.}. In line with the pair approximation described in \cref{sec:pair_approximation} I approximate this as
+where $\mathrm{ d} N^{k \rightarrow \sim k}$ denotes the stochastic process of households changing their investment decision from $k$ to $\sim k$ according to the rules of the social learning process outlined in \cref{sec:investment_decision_making_descr.}. In line with the pair approximation described in \cref{sec:pair_approximation} I approximate this as
 \begin{equation}
     \mathrm{ d} N^{k \rightarrow \sim k} = \sum_{j \in \Omega} H\left(\Delta \overbar{N}_j^{(\sim k)}\right) \Delta \overbar{N}_j^{(\sim k)}W_j \mathrm{ d}t
 \end{equation}
@@ -470,7 +472,7 @@ The only element in the approximation of the economic model that depends on per 
 
 \begin{align}
   \dot{\overbar{K}}_l^{(k)} = &  \left(\delta_{kl} s\left( r_l \overbar{K}_l^{(k)} + r_{\sim l} \overbar{K}_{\sim l}^{(k)} + w  L n^{(k)} \right) - \kappa \overbar{K}_l^{(k)} \right) \nonumber \\
-  &+ \frac{\overbar{K}_l^{(\sim k)}}{n^{(\sim k)}}\sum_{j \in \Omega} \Delta n_j^{(k)} W_j - \frac{\overbar{K}_l^{(k)}}{n^{(k)}}\sum_{j \in \Omega} \Delta n_j^{(\sim k)}W_j.
+  &+ \frac{\overbar{K}_l^{(\sim k)}}{n^{(\sim k)}}\sum_{j \in \Omega}H\left( \Delta n_j^{(k)} \right) \Delta n_j^{(k)} W_j - \frac{\overbar{K}_l^{(k)}}{n^{(k)}}\sum_{j \in \Omega} H\left( \Delta n_j^{(\sim k)} \right) \Delta n_j^{(\sim k)}W_j.
   \label{eq:lsl_capital}
 \end{align}
 
@@ -483,7 +485,7 @@ It is interesting to note that the freedom to chose equations for economic produ
 
 \begin{figure}[ht!]
   \hspace{-.1cm}\centering\includegraphics[width=1.1\linewidth]{figures/micro_vs_approx_v2.pdf}
-  \caption{\textbf{Trajectories of dynamic variables from the macro approximation and from measurement in ABM simulations.} The results from ABM simulations with $N=100$ households (solid lines) are obtained as an ensemble average from 100 runs with standard errors indicated by gray areas. Initial conditions are given by equal shares of households investing in both sectors and equal endowments in both sectors for all households. The initial acquaintance network amongst the households is an Erd\H{o}s-Renyi random graph with mean degree $k=10$. Other initial conditions are $C_0=0.5$ and $G_0=5 \times 10^5$. All other parameter are given in \cref{tab:Parameter_list}. The results from the macro approximation (dashed lines of the same colors) are obtained by numeric integration of \cref{eq:approx_surd,eq:sum_up_learning,eq:lsl_transitions,eq:lsl_capital}. The initial conditions are drawn from the same distribution as previously for the ABM simulations e.g. $N_c$, $[cc]$ and $[cd]$ are calculated from an Erd\H{o}s-Renyi random graph with mean degree $k=10$.}
+  \caption[Comparison of numerical simulations with analytical approximation.]{\textbf{Trajectories of dynamic variables from the macro approximation and from measurement in ABM simulations.} The results from ABM simulations with $N=100$ households (solid lines) are obtained as an ensemble average from 100 runs with standard errors indicated by gray areas. Initial conditions are given by equal shares of households investing in both sectors and equal endowments in both sectors for all households. The initial acquaintance network amongst the households is an Erd\H{o}s-Renyi random graph with mean degree $k=10$. Other initial conditions are $C_0=0.5$ and $G_0=5 \times 10^5$. All other parameter are given in \cref{tab:Parameter_list}. The results from the macro approximation (dashed lines of the same colors) are obtained by numeric integration of \cref{eq:approx_surd,eq:sum_up_learning,eq:lsl_transitions,eq:lsl_capital}. The initial conditions are drawn from the same distribution as previously for the ABM simulations e.g. $N_c$, $[cc]$ and $[cd]$ are calculated from an Erd\H{o}s-Renyi random graph with mean degree $k=10$.}
 \label{fig:comparison2}
 \end{figure}
 %\JK{Maybe better to structure the results as (1), (2), ... and do the same for the full model - then easier to compare}
@@ -538,12 +540,12 @@ Varying two bifurcation parameters at the same time can result in even richer qu
 
 \begin{figure}[ht!]
 \centering\includegraphics[width=.95\linewidth]{figures/ba_plot.pdf}
-\caption{\textbf{Bifurcation diagram:} Continuation of the stationary solution of the macroscopic approximation without resource depletion, i.e. $\dot{G} = 0$ instead of the rate $R$ as given by  \cref{eq:approx_surd}. Bifurcation parameter is $\gamma$, the elasticity of knowledge in the clean sector that also reflects the elasticity of learning by doing of the respective technology. The points labeled P1 and P2 are the beginning and end points of the continuation line, the points labeled LP1 and LP2 are the bifurcation points of two fold bifurcations. The unstable manybranch is indicated by a dotted line, the stable branch is indicated by solid line. Note that the intersections of the curves in the two right panels do not actually mean that the stationary manifold is not a bijective function of the bifurcation parameter $\gamma$ but rather a result of the projection of the multidimensional manifold onto the two dimensional space.\label{fig:bifurcation_analysis}}
+\caption[Bifurcation diagram for learning rate in the clean sector]{\textbf{Bifurcation diagram:} Continuation of the stationary solution of the macroscopic approximation without resource depletion, i.e. $\dot{G} = 0$ instead of the rate $R$ as given by  \cref{eq:approx_surd}. Bifurcation parameter is $\gamma$, the elasticity of knowledge in the clean sector that also reflects the elasticity of learning by doing of the respective technology. The points labeled P1 and P2 are the beginning and end points of the continuation line, the points labeled LP1 and LP2 are the bifurcation points of two fold bifurcations. The unstable manybranch is indicated by a dotted line, the stable branch is indicated by solid line. Note that the intersections of the curves in the two right panels do not actually mean that the stationary manifold is not a bijective function of the bifurcation parameter $\gamma$ but rather a result of the projection of the multidimensional manifold onto the two dimensional space.\label{fig:bifurcation_analysis}}
 \end{figure}
 
 \begin{figure}[ht!]
 \centering\includegraphics[width=\linewidth]{figures/cusp_better.pdf}
-\caption{\textbf{Cusp Bifurcation diagram:}
+\caption[Cusp catastrophe depending on learning rate in the clean sector and total factor productivity in the dirty sector]{\textbf{Cusp Bifurcation diagram:}
 Stationary manyfold from \cref{fig:bifurcation_analysis} panel a for different values of the total factor productivity on the dirty sector $b_d$. Red dots indicate the limit points of the one dimensional fold bifurcation separating the stable and the unstable parts of the stationary manyfold indicated by a solid and a dashed line respectively. For a critical value of $b_d \approx 1.4$ and $\gamma \approx 0.03034$ the two limit points converge and annihilate each other. This codimension two bifurcation with bifurcation parameters $\gamma$ and $b_d$ is called a cusp catastrophe. In this two-sector economic model, this results in a lock in effect in the dirty sector i.e. below this point, there is a smooth transition of production from the dirty to the clean sector and above this point production in the dirty sector is continued even though production in the clean sector would be more efficient. \label{fig:cusp}}
 \end{figure}
 
@@ -559,15 +561,21 @@ In this regime both low investment in the clean sector together with hight inves
 
 \Cref{fig:cusp} shows an example of how this bifurcation structure of the dynamical system also depends on other parameters. Varying the total factor productivity in the dirty sector $b_d$, the system undergoes a cusp bifurcation. Above a certain value of $b_d$ the system exhibits bi-stability whereas below this value it does not.
 
-\begin{wrapfigure}[16]{o}{.38 \textwidth}
-  \includegraphics[width=.3 \textwidth]{figures/fig_ba_wide.pdf}
-  \caption{Cutout from \cref{fig:bifurcation_analysis}a illustrating possible parameter induced tipping.}
-  \label{fig:tipping}
-\end{wrapfigure}
+\begin{figure}[t]
+
+
+  \begin{minipage}[c]{0.65\textwidth}
+
+      \caption[Policy that leverages parameter induced tipping in the economic system]{Cutout from figure \cref{fig:bifurcation_analysis}a to illustrates a policy that relies on parameter induced tipping. The economic system starts at point a on its lower stable manyfold with low knowledge in the clean sector. The policy would increase the rate of learning by doing in the clean sector $\gamma$ until the system crosses the limit point from below. Then, the economic system moves to its other stable branch with high knowledge in the clean sector. Consequently, the policy can be discontinued and due to the systems inherent hysteresis, it will stay in its high knowledge state at point b. \label{fig:tipping}}
+  \end{minipage}\begin{minipage}[c]{0.35\textwidth}
+      \hspace{10pt}\includegraphics[width = .9 \textwidth]{./figures/fig_ba_wide.pdf}
+  \end{minipage}\hfill
+
+ \end{figure}
 
 In the model, policy measures such as taxes, subsidies or state supported research programs would result in changing parameters, such as the productivity of a sector or the rate of learning for a specific technology. 
 Multi-stability of the economy would mean that such policies could take advantage of inherent dynamical properties of the system to reach a desired state or bring the system onto a desired pathway.
-For instance, one could make use of the systems hysteresis with parameter induced tipping in the economy. State funded research programs could be used to increase the rate of learning by doing $\gamma$ in the clean sector (illustrated by dashed arrows in cref{fig:tipping}). If such a policy measure were capable of increasing $\gamma$ above a critical value (past LP1 in \cref{fig:bifurcation_analysis}a), the system would tip and falls onto its other stable branch. This means that past this point the economies inherent dynamics will result in a state with high knowledge (and high capital and economic output) in the clean sector. Also, the policy measure can be relaxed or even discontinued and the economy will stay in a similar state, as long as the learning by doing rate does not decline past its lower bifurcation point (LP2 in \cref{fig:bifurcation_analysis}a).
+For instance, one could make use of the systems hysteresis with parameter induced tipping in the economy as illustrated in \cref{fig:tipping}. State funded research programs could be used to increase the rate of learning by doing $\gamma$ in the clean sector. If such a policy measure were capable of increasing $\gamma$ above a critical value (past LP1 in \cref{fig:bifurcation_analysis}a), the system would tip and falls onto its other stable branch. This means that past this point the economies inherent dynamics will result in a state with high knowledge (and high capital and economic output) in the clean sector. Also, the policy measure can be relaxed or even discontinued and the economy will stay in a similar state, as long as the learning by doing rate does not decline past its lower bifurcation point (LP2 in \cref{fig:bifurcation_analysis}a).
 
 One way to tip the system would be a large scale perturbation. For instance a large scale one time investment in the clean sector or legislation that prohibits usage of part of the capital in the dirty sector.
 Such a policy measure can help driving the system into another basin of attraction, i.e. a region of the phase-space in which trajectories approach another equilibrium in the long term. 
