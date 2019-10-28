@@ -17,11 +17,11 @@
         makecell, % for custom formatting in table cells
         hhline, % for custom hlines in tables
         wrapfig, % for figures wrapped in text
-        cleveref, % for better references
         rotating, % for rotated table
         tablefootnote, %for footnotes in tables
         float, % force figure placement if neccessary
 }
+\usepackage[capitalize]{cleveref} % for better references
 \usepackage{makeidx} 		% Create index
 \makeindex
 
@@ -150,3 +150,4 @@
 %\defcitealias{Donner2010d}{Donner et al., 2010a, C3} % NOLTA 2010
 
 \DeclareMathOperator*{\argmax}{argmax}
+\newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
