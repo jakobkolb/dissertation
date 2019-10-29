@@ -91,7 +91,7 @@ This model is designed to incorporate the dynamics of social norms that underlie
 %\caption{Schematic figure of the model consisting of two production sectors of which one depends on an exhaustible fossil resource stock as well as a set of heterogeneous households that interact on an adaptive complex network and use social learning to decide upon which of two production sectors to invest in. Boxes and bubbles denote modeled entities, arrows denote interactions. Numbers in brackets $(x)$ refer to equations $(6.x)$ that describe the specific part of the model.}
 %  \label{fig:model_scheme}
 %\end{figure}
-% \subsection{Economic Production}
+\subsection{Economic Production}
 \label{sec:approx_economy}
 
 The underlying assumptions of the economic model are discussed in detail in \cref{sec:heuristics_model}. This is a brief recap of the specifications of the economic production model. 
@@ -207,14 +207,16 @@ In the following, I discuss the resulting aggregate dynamics.
 
 
 
-\Cref{fig:example_trajectory} displays an exemplary average evolution of the model calculated as the average of 100 simulation runs.
-The simulation starts with initial conditions of 
+
 \begin{figure}[H]
   \hspace{-.8 cm}\includegraphics[width=1.1\linewidth]{figures/example_trajectory_square_thesis.pdf}
-  \caption{\textbf{Example trajectory of the ABM.} Solid lines show mean results from 100 runs of the model in per capita variables. Colored areas around solid lines show their standard deviation. The panels show capital rents in the clean and dirty sector $r_c$ and $r_d$ as well as the fraction of households investing in the clean sector $n_c$ in panel a, knowledge and resource stock $c$ and $g$ in panel b, output of clean and dirty sector $Y_c$ and $Y_d$ in panel c and per capita capital $k_c$ and $k_d$ in the clean and dirty sector (d).
+  \caption[Example trajectory of the agent-based model]{\textbf{Example trajectory of the ABM.} Solid lines show mean results from 100 runs of the model in per capita variables. Colored areas around solid lines show their standard deviation. The panels show capital rents in the clean and dirty sector $r_c$ and $r_d$ as well as the fraction of households investing in the clean sector $n_c$ in panel a, knowledge and resource stock $c$ and $g$ in panel b, output of clean and dirty sector $Y_c$ and $Y_d$ in panel c and per capita capital $k_c$ and $k_d$ in the clean and dirty sector (d).
 Initial conditions are $G=G_0$, $C=1$, $K_j^{(i)}=1$ for the economic subsystem. For the investment decision process, the initial opinions of the $N=100$ households are drawn from a uniform distribution. Their initial acquaintance structure is an Erd\H{o}s-Renyi random graph with mean degree k=10.}
 \label{fig:example_trajectory}
 \end{figure}
+
+\Cref{fig:example_trajectory} displays an exemplary average evolution of the model calculated as the average of 100 simulation runs.
+The simulation starts with initial conditions of 
 abundant fossil resources $g$ and low clean technology knowledge stock $c$ (\cref{fig:example_trajectory}b) as well as equally low capital stocks in the clean and dirty sector $k_c$ and $k_d$ (\cref{fig:example_trajectory}d). As I show later (see \cref{sec:bifurcation-analysis}), the rest of the initial configuration of the model is rather irrelevant for the selected parameter values listed in \cref{tab:Parameter_list}, since there is only one stable dynamical equilibrium as long as resource extraction costs are negligibly low.
 The high initial capital rents $r_c$ and $r_d$ are a direct result of the model assumptions and initial conditions. More precisely, the assumption that capital rent equals marginal productivity in 
 \cref{eq:approx_ccr,eq:approx_dcr}
@@ -323,7 +325,7 @@ The approximate rate of this event is given by the product of
 	\item the probability of learning events (versus network adaptation events) $(1-\varphi)$ ,
         \item the probability of the active households to invest in clean capital $\overbar{N}^{(c)}/N$ ,
         \item the approximate probability of interaction with a household investing in dirty capital $\overbar{[cd]}/(2\overbar{[cc]} + \overbar{[cd]})$\footnote{
-            Why is the approximate probability of interaction with a household investing in dirty capital given by $\overbar{[cd]}/(2\overbar{[cc]} + \overbar{[cd]})$? The total number of $c$ neighbors of $c$ households in the network is $2[cc]$ since there is a $c$ neighbor situated at both ends of a $cc$ link. Correspondingly, he total number of $d$ neighbors of $c$ households in the network is $[cd]$ since a $d$ neighbor is situated only at one end of a $cd$ link. Now, I approximate the distribution of $d$ neighbors of $c$ households with a uniform distribution i.e. I approximate the probability of selecting a $d$ neighbor of a $c$ household by the number of $d$ neighbors of clean households $[cd]$ divided by the total number of neighbors of $c$ households $2[cc] + [cd]$. \label{fn:uniform_neighbors} 
+            Why is the approximate probability for a ``clean'' household to interact with a ``dirty'' household given by $\overbar{[cd]}/(2\overbar{[cc]} + \overbar{[cd]})$? The total number of $c$ neighbors of $c$ households in the network is $2[cc]$ since there is a $c$ neighbor situated at both ends of a $cc$ link. Correspondingly, he total number of $d$ neighbors of $c$ households in the network is $[cd]$ since a $d$ neighbor is situated only at one end of a $cd$ link. Now, I approximate the distribution of $d$ neighbors of $c$ households with a uniform distribution i.e. I approximate the probability of selecting a $d$ neighbor of a $c$ household by the number of $d$ neighbors of clean households $[cd]$ divided by the total number of neighbors of $c$ households $2[cc] + [cd]$. \label{fn:uniform_neighbors} 
           }. 
         \item the probability that the active node actually imitates its neighbor $p_{cd}$\footnote{For a specific pair of neighbors the imitation probability depending on the income difference is given by \cref{eq:approx_p_cd}. For a randomly selected pair of neighbors this depends on the distribution of income differences between randomly selected pairs of households investing in different sectors. This is discussed in detail as part of the moment closure approximation of households capital endowments in \cref{moment_closure}}.
 \end{itemize}
@@ -332,22 +334,20 @@ which results in
   W_{c \rightarrow d} = \frac{N}{\tau} (1-\varepsilon) (1 - \varphi) \frac{\overbar{N}^{(c)}}{N}\frac{\overbar{[cd]}}{\overbar{[cd]} + 2 \overbar{[cc]}}p_{cd}.
 	\label{eq:cdswitchingprob}
 \end{equation}
-Now, we look at the corresponding change in the state space variables. Obviously, the change in $\overbar{N}^{(c)}$ is $\Delta \overbar{N}^{(c)}=-1$. The changes in $\overbar{[cc]}$ and $\overbar{[cd]}$ are less obvious. The average number of neighbors of clean households is given by their mean degree $k^{(c)}$. Since the event is a clean household imitating a dirty household, one of the neighbors of the household is already known. This leaves the identity of the $k^{(c)}-1$ remaining neighbors to be determined. The key approximation that is made here, is that the identity of these neighbors is uncorrelated i.e. that the fact that the identity of one or more of the neighbors is known does not change the probability for the remaining neighbors. Consequently, the state of the remaining neighbors is approximated by drawing $k^{(c)} - 1$ times from the distribution of the identity of the remaining neighbors. This distribution is approximated as explained in \cref{fn:uniform_neighbors} by as the quotient of the number of neighbors of one type in the entire network by the total number of neighbors in the network. Consequently, the probability for a neighbor to invest in dirty $p^{(d)}$ or clean $p^{(c)}$ capital is given by:
+Now, we look at the corresponding change in the state space variables. Obviously, if one household changes from investing in the clean sector to investing in the dirty sector, the change in $\overbar{N}^{(c)}$ is $\Delta \overbar{N}^{(c)}=-1$. The changes in $\overbar{[cc]}$ and $\overbar{[cd]}$ are less obvious. The average number of neighbors of clean households is given by their mean degree $k^{(c)}$. Since the event is a clean household imitating a dirty household, one of the neighbors of the household is already known. This leaves the identity of the $k^{(c)}-1$ remaining neighbors to be determined. The key approximation that is made here, is that the identity of these neighbors is uncorrelated i.e. that the fact that the identity of one or more of the neighbors is known does not change the probability of different identities for the remaining neighbors. Consequently, the state of the remaining neighbors is approximated by drawing $k^{(c)} - 1$ times from the distribution of the identity of the remaining neighbors. This distribution is approximated as explained in \cref{fn:uniform_neighbors} by the quotient of the number of neighbors of one type in the entire network by the total number of neighbors in the network. Consequently, the probability for a neighbor to invest in dirty $p^{(d)}$ or clean $p^{(c)}$ capital is given by:
 \begin{equation}
   p^{(c)} = \frac{2 \overbar{[cc]}}{2\overbar{[cc]} + \overbar{[cd]}}; \qquad p^{(d)} = \frac{\overbar{[cd]}}{2\overbar{[cc]} + \overbar{[cd]}}.
 \label{eq:neighbordist}
 \end{equation}
 So, approximately, the active clean household has a total of $(k^{(c)}-1)2\overbar{[cc]}/(2\overbar{[cc]}+\overbar{[cd]})$ neighbors that invest in the clean sector and $1 + (k^{(c)}-1)\overbar{[cd]}/(2\overbar{[cc]}+\overbar{[cd]})$ neighbors that invest in the dirty sector.
 This means that if this household changes to investing in the dirty sector, a corresponding number of edges in the network change their type. All together, this results in a jump in state space $\Delta\overbar{\mathbf{S}}_{c \rightarrow d}=(\Delta \overbar{N}^{(c)}, \Delta \overbar{[cc]}, \Delta \overbar{[cd]})^T$ of
-
 \begin{equation}
 	\Delta \mathbf{\bar{S}}_{c \rightarrow d} \approx \colvec{3}{-1}{
         (k^{(c)}-1)\frac{2\overbar{[cc]}}{(2\overbar{[cc]}+\overbar{[cd]})}}{
         1 + (k^{(c)}-1)\frac{\overbar{[cd]}}{(2\overbar{[cc]}+\overbar{[cd]})}}.
 	\label{cdstatespacechange}
 \end{equation}
-
-Given the rates $W_j$ of all the events $j \in \Omega$ that change the aggregated description $\mathbf{\overbar{S}}$ of the adaptive network, the time development of the system in terms the aggregated variables can be written in terms of a master-equation. This master equation describes the time development of the probability distribution $P(\mathbf{\overbar{S}}, t)$ depending on the jump lengths $\Delta \mathbf{\overbar{S}_j}$ and the rates $W_j$:
+Given the rates $W_j$ of all social learning events $j \in \Omega$ that change the aggregated description $\mathbf{\overbar{S}}$ of the adaptive network, the time development of the system in terms the aggregated variables can be written in terms of a master-equation. This master equation describes the time development of the probability distribution $P(\mathbf{\overbar{S}}, t)$ depending on the jump lengths $\Delta \mathbf{\overbar{S}_j}$ and the rates $W_j$:
 
 \begin{align}
 	\frac{{\partial} P(\mathbf{\bar{S}}, t)}{\partial t} = \sum_{j \in \Omega} &P(\mathbf{\bar{S}} - \Delta \mathbf{\bar{S}}_j, t) W(\mathbf{\bar{S}} - \Delta \mathbf{\bar{S}}_j,\mathbf{\bar{S}})- P(\mathbf{\bar{S}}, t) W(\mathbf{\bar{S}},\mathbf{\bar{S}} + \Delta \mathbf{\bar{S}}_j) \label{eq:PBP}
@@ -362,10 +362,10 @@ To describe the capital structure in the model that consists of $2N$ equations o
 	\label{eq:moments_definition}
 \end{equation}
 This means that e.g. $\overbar{K}_d^{(c)}$ is the combined capital in the dirty sector that is owned by all the households that are currently investing in the clean sector.
-Now, I take the derivative of the aggregates defined in \cref{eq:moments_definition}. For the subsequent manipulations, I use the following notation: $\sim l$ denotes `not' $l$ for $l \in {c, d}$, e.g., $\sim c = d$ and $\overbar{N}^{(\sim k)} = N - \overbar{N}^{(k)}$. Also $\sum\nolimits_{k \rightarrow l, \mathrm{d}t}$ denotes the sum over all households that changed their investment decision from $k$ to $l$ during the time interval $(t, t+\mathrm{d}t)$ where $k \neq l$. 
+Now, I take the derivative of the aggregates defined in \cref{eq:moments_definition}. For the subsequent manipulations, I use the following notation: $\sim l$ denotes `not' $l$ for $l \in {c, d}$, e.g., $\sim c = d$ and $\overbar{N}^{(\sim k)} = N - \overbar{N}^{(k)}$. Also $\Omega^{(k \rightarrow l, \mathrm{d}t)}$ denotes the set of all households that changed their investment decision from $k$ to $l$ during the time interval $(t, t+\mathrm{d}t)$ where $k \neq l$. 
 \begin{align}
 \mathrm{d}\overbar{K}_l^{(k)} &= \mathrm{d} \sum_{i \in \Omega^{(k)}} K_l^{(i)} \\ \nonumber
-&= \sum_{i}^{N} \delta_{o_ik} \mathrm{d}K_l^{(i)} + \sum_{\sim k \rightarrow k, \mathrm{d}t} K_l^{(i)} - \sum_{ k \rightarrow \sim k, \mathrm{d}t} K_l^{(i)}
+&= \sum_{i}^{N} \delta_{o_ik} \mathrm{d}K_l^{(i)} + \sum_{\Omega^{(\sim k \rightarrow k, \mathrm{d}t)}} K_l^{(i)} - \sum_{\Omega^{( k \rightarrow \sim k, \mathrm{d}t)}} K_l^{(i)}
   \label{eq:approx_agg_capital_time_deriv}
 \end{align}
 This means that the time development of the sum of the capital endowments of one type that is held by all households that invest in the same sector is governed by two processes. First, it is driven by the deterministic process of capital accumulation and second, it is influenced by terms that represent households changing their investment decision and taking their capital endowments with them. 
@@ -401,11 +401,11 @@ Then, I can write down the changes in capital stocks explicitly including the sw
   &+  \frac{\overbar{K}_l^{(\sim k)}}{\overbar{N}^{(\sim k)}} \mathrm{ d} N^{\sim k \rightarrow k} -  \frac{\overbar{K}_l^{(k)}}{\overbar{N}^{(k)}} \mathrm{ d} N^{k \rightarrow \sim k}, \quad l, k \in \{c, d\}
 	\label{eq:aggregated_capital_time_derivative}
 \end{align}
-where $\mathrm{ d} N^{k \rightarrow \sim k}$ denotes the stochastic process of households switching from one opinion to another according to the rules outlined in \cref{sec:investment_decision_making_descr.}. In line with the pair approximation described in \cref{sec:pair_approximation} I approximate this as
+where $\mathrm{ d} N^{k \rightarrow \sim k}$ denotes the stochastic process of households changing their investment decision from $k$ to $\sim k$ according to the rules of the social learning process outlined in \cref{sec:investment_decision_making_descr.}. In line with the pair approximation described in \cref{sec:pair_approximation} I approximate this as
 \begin{equation}
-\mathrm{ d} N^{k \rightarrow \sim k} = \sum_{j \in \Omega_{k \rightarrow \sim k}}W_j \mathrm{ d}t
+    \mathrm{ d} N^{k \rightarrow \sim k} = \sum_{j \in \Omega} H\left(\Delta \overbar{N}_j^{(\sim k)}\right) \Delta \overbar{N}_j^{(\sim k)}W_j \mathrm{ d}t
 \end{equation}
-where $\Omega_{k \rightarrow \sim k}$ denotes the set of all events that result in a household changing from cohort $k$ to cohort $\sim k$ and $W_j$ is the rate of the respective event analogously to \cref{eq:cdswitchingprob}.
+where $H$ denotes the unit step function, $\Omega$ is the set of all social learning events, $W_j$ are the rate of the respective event and $\Delta \overbar{N}_j^{(k)}$ are the number of households changing their investment decision analogously to \cref{eq:cdswitchingprob}. 
 %are given by the sum over the rates $W_{i \rightarrow j}$ as illustrated in  \cref{cdswitchingprob} for all types of events that change the number of households investing in the given type of capital.
 
 The imitation probability $p_{cd}$ in \cref{eq:cdswitchingprob} is approximated as the expected value of a linearized version of \cref{eq:approx_ip} when drawing a pair of neighboring households $i$, $j$ as specified. More precicely I perform a Taylor expansion of \cref{eq:approx_ip} in terms of the consumption of the two interacting households $F^{(c)}$ and $F^{(d)}$ around some fixed values $F^{(c)*}$ and $F^{(d)*}$ up to linear order. To maintain the symmetry of the imitation probabilities with respect to the household incomes, I change variables to $\Delta F = F^{(c)} - F^{(d)}$ and $F = F^{(c)} + F^{(d)}$ and expand around $\Delta F = 0, F = F_0$, where $F_0$ is yet to be fixed to a value. In linear order this results in:
@@ -472,10 +472,9 @@ The only element in the approximation of the economic model that depends on per 
 
 \begin{align}
   \dot{\overbar{K}}_l^{(k)} = &  \left(\delta_{kl} s\left( r_l \overbar{K}_l^{(k)} + r_{\sim l} \overbar{K}_{\sim l}^{(k)} + w  L n^{(k)} \right) - \kappa \overbar{K}_l^{(k)} \right) \nonumber \\
-  &+ \frac{\overbar{K}_l^{(\sim k)}}{n^{(k)}}\sum_{l \in \Omega_{\sim k \rightarrow k}}W_l - \frac{\overbar{K}_l^{(k)}}{n^{(k)}}\sum_{l \in \Omega_{k \rightarrow \sim k}}W_l
+  &+ \frac{\overbar{K}_l^{(\sim k)}}{n^{(\sim k)}}\sum_{j \in \Omega}H\left( \Delta n_j^{(k)} \right) \Delta n_j^{(k)} W_j - \frac{\overbar{K}_l^{(k)}}{n^{(k)}}\sum_{j \in \Omega} H\left( \Delta n_j^{(\sim k)} \right) \Delta n_j^{(\sim k)}W_j.
   \label{eq:lsl_capital}
 \end{align}
-where $\Omega_{\sim k \rightarrow k}$ is the set of all social learning events, where a household changes its opinion from $\sim k$ to $k$.\\
 
 Together with the ordinary differential equations \cref{eq:approx_surd,eq:sum_up_learning} that describe the accumulation of knowledge $C$ by the clean sector and the depletion of the fossil resource $G$ by the dirty sector, \cref{eq:lsl_transitions,eq:lsl_capital} form the full set of ordinary differential equations that approximate the microscopic model as specified in \cref{sec:approx_Model_Description}.\\
 
@@ -486,7 +485,7 @@ It is interesting to note that the freedom to chose equations for economic produ
 
 \begin{figure}[ht!]
   \hspace{-.1cm}\centering\includegraphics[width=1.1\linewidth]{figures/micro_vs_approx_v2.pdf}
-  \caption{\textbf{Trajectories of dynamic variables from the macro approximation and from measurement in ABM simulations.} The results from ABM simulations with $N=100$ households (solid lines) are obtained as an ensemble average from 100 runs with standard errors indicated by gray areas. Initial conditions are given by equal shares of households investing in both sectors and equal endowments in both sectors for all households. The initial acquaintance network amongst the households is an Erd\H{o}s-Renyi random graph with mean degree $k=10$. Other initial conditions are $C_0=0.5$ and $G_0=5 \times 10^5$. All other parameter are given in \cref{tab:Parameter_list}. The results from the macro approximation (dashed lines of the same colors) are obtained by numeric integration of \cref{eq:approx_surd,eq:sum_up_learning,eq:lsl_transitions,eq:lsl_capital}. The initial conditions are drawn from the same distribution as previously for the ABM simulations e.g. $N_c$, $[cc]$ and $[cd]$ are calculated from an Erd\H{o}s-Renyi random graph with mean degree $k=10$.}
+  \caption[Comparison of numerical simulations with analytical approximation.]{\textbf{Trajectories of dynamic variables from the macro approximation and from measurement in ABM simulations.} The results from ABM simulations with $N=100$ households (solid lines) are obtained as an ensemble average from 100 runs with standard errors indicated by gray areas. Initial conditions are given by equal shares of households investing in both sectors and equal endowments in both sectors for all households. The initial acquaintance network amongst the households is an Erd\H{o}s-Renyi random graph with mean degree $k=10$. Other initial conditions are $C_0=0.5$ and $G_0=5 \times 10^5$. All other parameter are given in \cref{tab:Parameter_list}. The results from the macro approximation (dashed lines of the same colors) are obtained by numeric integration of \cref{eq:approx_surd,eq:sum_up_learning,eq:lsl_transitions,eq:lsl_capital}. The initial conditions are drawn from the same distribution as previously for the ABM simulations e.g. $N_c$, $[cc]$ and $[cd]$ are calculated from an Erd\H{o}s-Renyi random graph with mean degree $k=10$.}
 \label{fig:comparison2}
 \end{figure}
 %\JK{Maybe better to structure the results as (1), (2), ... and do the same for the full model - then easier to compare}
@@ -541,12 +540,12 @@ Varying two bifurcation parameters at the same time can result in even richer qu
 
 \begin{figure}[ht!]
 \centering\includegraphics[width=.95\linewidth]{figures/ba_plot.pdf}
-\caption{\textbf{Bifurcation diagram:} Continuation of the stationary solution of the macroscopic approximation without resource depletion, i.e. $\dot{G} = 0$ instead of the rate $R$ as given by  \cref{eq:approx_surd}. Bifurcation parameter is $\gamma$, the elasticity of knowledge in the clean sector that also reflects the elasticity of learning by doing of the respective technology. The points labeled P1 and P2 are the beginning and end points of the continuation line, the points labeled LP1 and LP2 are the bifurcation points of two fold bifurcations. The unstable manybranch is indicated by a dotted line, the stable branch is indicated by solid line. Note that the intersections of the curves in the two right panels do not actually mean that the stationary manifold is not a bijective function of the bifurcation parameter $\gamma$ but rather a result of the projection of the multidimensional manifold onto the two dimensional space.\label{fig:bifurcation_analysis}}
+\caption[Bifurcation diagram for learning rate in the clean sector]{\textbf{Bifurcation diagram:} Continuation of the stationary solution of the macroscopic approximation without resource depletion, i.e. $\dot{G} = 0$ instead of the rate $R$ as given by  \cref{eq:approx_surd}. Bifurcation parameter is $\gamma$, the elasticity of knowledge in the clean sector that also reflects the elasticity of learning by doing of the respective technology. The points labeled P1 and P2 are the beginning and end points of the continuation line, the points labeled LP1 and LP2 are the bifurcation points of two fold bifurcations. The unstable manybranch is indicated by a dotted line, the stable branch is indicated by solid line. Note that the intersections of the curves in the two right panels do not actually mean that the stationary manifold is not a bijective function of the bifurcation parameter $\gamma$ but rather a result of the projection of the multidimensional manifold onto the two dimensional space.\label{fig:bifurcation_analysis}}
 \end{figure}
 
 \begin{figure}[ht!]
 \centering\includegraphics[width=\linewidth]{figures/cusp_better.pdf}
-\caption{\textbf{Cusp Bifurcation diagram:}
+\caption[Cusp catastrophe depending on learning rate in the clean sector and total factor productivity in the dirty sector]{\textbf{Cusp Bifurcation diagram:}
 Stationary manyfold from \cref{fig:bifurcation_analysis} panel a for different values of the total factor productivity on the dirty sector $b_d$. Red dots indicate the limit points of the one dimensional fold bifurcation separating the stable and the unstable parts of the stationary manyfold indicated by a solid and a dashed line respectively. For a critical value of $b_d \approx 1.4$ and $\gamma \approx 0.03034$ the two limit points converge and annihilate each other. This codimension two bifurcation with bifurcation parameters $\gamma$ and $b_d$ is called a cusp catastrophe. In this two-sector economic model, this results in a lock in effect in the dirty sector i.e. below this point, there is a smooth transition of production from the dirty to the clean sector and above this point production in the dirty sector is continued even though production in the clean sector would be more efficient. \label{fig:cusp}}
 \end{figure}
 
@@ -562,15 +561,21 @@ In this regime both low investment in the clean sector together with hight inves
 
 \Cref{fig:cusp} shows an example of how this bifurcation structure of the dynamical system also depends on other parameters. Varying the total factor productivity in the dirty sector $b_d$, the system undergoes a cusp bifurcation. Above a certain value of $b_d$ the system exhibits bi-stability whereas below this value it does not.
 
-\begin{wrapfigure}[16]{o}{.38 \textwidth}
-  \includegraphics[width=.3 \textwidth]{figures/fig_ba_wide.pdf}
-  \caption{Cutout from \cref{fig:bifurcation_analysis}a illustrating possible parameter induced tipping.}
-  \label{fig:tipping}
-\end{wrapfigure}
+\begin{figure}[t]
+
+
+  \begin{minipage}[c]{0.65\textwidth}
+
+      \caption[Policy that leverages parameter induced tipping in the economic system]{Cutout from figure \cref{fig:bifurcation_analysis}a to illustrates a policy that relies on parameter induced tipping. The economic system starts at point a on its lower stable manyfold with low knowledge in the clean sector. The policy would increase the rate of learning by doing in the clean sector $\gamma$ until the system crosses the limit point from below. Then, the economic system moves to its other stable branch with high knowledge in the clean sector. Consequently, the policy can be discontinued and due to the systems inherent hysteresis, it will stay in its high knowledge state at point b. \label{fig:tipping}}
+  \end{minipage}\begin{minipage}[c]{0.35\textwidth}
+      \hspace{10pt}\includegraphics[width = .9 \textwidth]{./figures/fig_ba_wide.pdf}
+  \end{minipage}\hfill
+
+ \end{figure}
 
 In the model, policy measures such as taxes, subsidies or state supported research programs would result in changing parameters, such as the productivity of a sector or the rate of learning for a specific technology. 
 Multi-stability of the economy would mean that such policies could take advantage of inherent dynamical properties of the system to reach a desired state or bring the system onto a desired pathway.
-For instance, one could make use of the systems hysteresis with parameter induced tipping in the economy. State funded research programs could be used to increase the rate of learning by doing $\gamma$ in the clean sector (illustrated by dashed arrows in cref{fig:tipping}). If such a policy measure were capable of increasing $\gamma$ above a critical value (past LP1 in \cref{fig:bifurcation_analysis}a), the system would tip and falls onto its other stable branch. This means that past this point the economies inherent dynamics will result in a state with high knowledge (and high capital and economic output) in the clean sector. Also, the policy measure can be relaxed or even discontinued and the economy will stay in a similar state, as long as the learning by doing rate does not decline past its lower bifurcation point (LP2 in \cref{fig:bifurcation_analysis}a).
+For instance, one could make use of the systems hysteresis with parameter induced tipping in the economy as illustrated in \cref{fig:tipping}. State funded research programs could be used to increase the rate of learning by doing $\gamma$ in the clean sector. If such a policy measure were capable of increasing $\gamma$ above a critical value (past LP1 in \cref{fig:bifurcation_analysis}a), the system would tip and falls onto its other stable branch. This means that past this point the economies inherent dynamics will result in a state with high knowledge (and high capital and economic output) in the clean sector. Also, the policy measure can be relaxed or even discontinued and the economy will stay in a similar state, as long as the learning by doing rate does not decline past its lower bifurcation point (LP2 in \cref{fig:bifurcation_analysis}a).
 
 One way to tip the system would be a large scale perturbation. For instance a large scale one time investment in the clean sector or legislation that prohibits usage of part of the capital in the dirty sector.
 Such a policy measure can help driving the system into another basin of attraction, i.e. a region of the phase-space in which trajectories approach another equilibrium in the long term. 

@@ -101,7 +101,7 @@ towards a steady state at $(k^\ast, c^\ast)$.
 \begin{figure}[t]
   \begin{minipage}[c]{0.4\textwidth}
 
-    \caption[]{From \cite[p. 100]{Barro2004}. Phase space of equations \eqref{eq:kdot} and \eqref{eq:ramsey_keynes} that is often times falsely discussed as the phase space of the RCK model. However, eq. \eqref{eq:NPG} confines the support of the solution of the RCK model to the saddle point manifold. Outside this saddle point manifold, eq. \eqref{eq:ramsey_keynes} does not hold.\label{fig:rck_phase_space}}
+      \caption[Phase space diagram of the original Ramsey-Cass-Koopmans model]{From \cite[p. 100]{Barro2004}. Phase space of equations \eqref{eq:kdot} and \eqref{eq:ramsey_keynes} that is often times falsely discussed as the phase space of the RCK model. However, eq. \eqref{eq:NPG} confines the support of the solution of the RCK model to the saddle point manifold. Outside this saddle point manifold, eq. \eqref{eq:ramsey_keynes} does not hold.\label{fig:rck_phase_space}}
   \end{minipage}
   \begin{minipage}[c]{0.6\textwidth}
         \includegraphics[width = 1 \textwidth]{./figures/RCK_phase_space.png}
@@ -173,7 +173,7 @@ I present the results as follows: First I show the model dynamics depending on t
      \centering
      \vspace{-.2 cm}
      \includegraphics[width=.9\linewidth]{figures/fig1.pdf}
-	\caption []{{ The critical transition from the stable regime to the oscillatory regime.} 
+     \caption[Distribution of individual savings rates depending on the social interaction rate]{\textbf{ The critical transition from the stable regime to the oscillatory regime.} 
 	 Results from an ensemble of simulations at different values of the social interaction time $\tau$, with other parameters held fixed. The savings rate distributions are shown at the final state of the simulation at time $5\tau \times 10^3$, far beyond the point where the model has reached its asymptotic dynamics. For each value of $\tau$, $200$ independent simulations are run and all values of $s_i$ are recorded for each $\tau$ to construct a normalized histogram.
        The heatmap indicates the probability density of the distribution of individual households savings rates for each value of $\tau$, along with the aggregate savings rate $\tilde{s}$. This is compared to the golden rule savings rate $s_\mathrm{gold} \! = 0.5$ and the savings rate $s^*$ predicted by eq.~(\ref{eq:s_optimal}).}
 	
@@ -194,7 +194,7 @@ Furthermore, the time averages of total economic output $Y(t) \!=\! 10.15$ and  
      \centering
        \includegraphics[width=0.99\linewidth]
        {figures/fig2.pdf}
-	\caption{{ The endogenous business cycle in the oscillatory regime}.   I show several time series for $\tau \!>\! \tau_\mathrm{c}$.  
+       \caption[Trajectory of individual and collective oscillations in savings rates and economic output]{\textbf{ The endogenous business cycle in the oscillatory regime}.   I show several time series for $\tau \!>\! \tau_\mathrm{c}$.  
 	The top left panel shows the savings rates $s_i(t)$ for randomly chosen households as a function of time, as well as the aggregate savings rate $\tilde{s}$.  
 	The middle left panel shows the capital $K_i(t)$ of the same households as a function of time. The bottom left panel shows the cyclic behavior of the aggregate output superimposed on the aggregate savings rate.  The panels on the right are histograms of the indicated variables, accumulated over a longer interval.}
    \label{fig:micro_trajs}
@@ -333,7 +333,7 @@ In the limit of $\tau \to 0$, the discount rate $\rho$ diverges, consistent with
      \centering
        \includegraphics[width=0.98\textwidth]
        {figures/fig3.pdf}
-       \caption{{ Endogenous dynamics in the oscillatory regime. } \textbf{A}: the average per-capita consumption $c$ against the average per-capita capital $k$. The aggregate saving rate $\tilde{s}$ is red when it is greater than $0.5$ and blue when it is less than $0.5$. The trajectory orbits around the optimal steady state $(k^\ast,c^\ast)$  of the standard RCK model, which is at the intersection of the dashed optimality curve (the solution to the standard RCK model discussed in sec.~\ref{sec:rck_stable}) and the solid black $\dot{k}=0$ line. Each dot corresponds to one household updating its savings rate; the direction of the orbit is counterclockwise.
+       \caption[Endogenous dynamics in the oscillatory regime]{\textbf{ Endogenous dynamics in the oscillatory regime. } \textbf{A}: the average per-capita consumption $c$ against the average per-capita capital $k$. The aggregate saving rate $\tilde{s}$ is red when it is greater than $0.5$ and blue when it is less than $0.5$. The trajectory orbits around the optimal steady state $(k^\ast,c^\ast)$  of the standard RCK model, which is at the intersection of the dashed optimality curve (the solution to the standard RCK model discussed in sec.~\ref{sec:rck_stable}) and the solid black $\dot{k}=0$ line. Each dot corresponds to one household updating its savings rate; the direction of the orbit is counterclockwise.
 \textbf{B}:~An illustration of the cause of the oscillatory dynamics.  The two panels show snapshots at two different times as indicated in figure A.  At time $t_1$ the aggregate savings rate is low, aggregate capital is low and the economy is in a depression; at time $t_2$ the opposite is true.  The capital and savings rates of individual households are shown as dots with different colors.  There are two clusters, corresponding to rich and poor households.  The household that is currently switching its savings rate is indicated by an arrow connecting its previous state to its current state.  The dashed black curve indicates the iso-consumption curve for the household $i$ with the highest consumption. }
 \label{fig:dynamics}
 \end{figure} 
@@ -368,7 +368,7 @@ This question can best be answered by a closer analysis of eq. \eqref{eq:Citau} 
 \begin{wrapfigure}[27]{I}{.6 \textwidth}
   \centering
   \hspace{-1.5cm}\includegraphics[width = .7 \textwidth]{figures/best_response.pdf}
-  \caption{Best response dynamics. Optimal individual savings rate $s_i^\star$ (circles and triangles) given a very small perturbation of either $+\Delta$ (blue circles) or $-\Delta$ (orange triangles) of the aggregate savings rate $s$ away from its equilibrium value $s^\star$ (green line) as a function of the social interaction time $\tau$, for $\Delta = 10^{-7}$.}\hspace{.5cm}
+  \caption[Best response dynamics for individuals savings rates]{Best response dynamics. Optimal individual savings rate $s_i^\star$ (circles and triangles) given a very small perturbation of either $+\Delta$ (blue circles) or $-\Delta$ (orange triangles) of the aggregate savings rate $s$ away from its equilibrium value $s^\star$ (green line) as a function of the social interaction time $\tau$, for $\Delta = 10^{-7}$.}\hspace{.5cm}
   \label{fig:best_response}
 \end{wrapfigure}
 
@@ -391,7 +391,7 @@ The transition occurs sharply at a parameter value near $\tau_{c}$, though the p
   \centering
   \includegraphics[width = .6 \textwidth]{figures/taucrit_N2.pdf}
   \includegraphics[width = .6 \textwidth]{figures/taucrit_N_k.pdf}
-\caption{Critical interaction time $\tau_{crit}$ depending on A) network size $N$ for different link densities $p$ of the Erd\H{o}s-Renyi graph and B) mean degree $\left< k \right>$ for different network sizes $N$.}
+\caption[Critical interaction time depending on network size and mean degree]{Critical interaction time $\tau_{crit}$ depending on A) network size $N$ for different link densities $p$ of the Erd\H{o}s-Renyi graph and B) mean degree $\left< k \right>$ for different network sizes $N$.}
   \label{fig:taucrit}
 \end{wrapfigure}
 The analysis of the incentives for the individual household to set its savings rate close to or far from the collectively optimal value $s^*$ in section \ref{sec:savings_critical_tau} gives a lower bound for the critical social interaction time. It shows that below a certain value for $\tau$ there is no benefit for the individual household in setting the savings rate far from the collectively optimal value. 
@@ -412,7 +412,7 @@ Fig.\,\ref{taucrit} shows a fit of this relationship to various values for $\tau
      \centering
        \includegraphics[width=0.8\textwidth]
        {figures/fig4.pdf}
-	\caption{{The critical social interaction time depends on network properties.}
+       \caption[Scalling behavior of critical social interaction time]{\textbf{The critical social interaction time depends on network properties.}
 	The logarithm of the mean number of neighbors $\langle k \rangle$  times the critical interaction time $\tau_{c}$ is plotted vs. the average shortest path length $\chi$ for various values of $N$ and $p$, confirming eq.~\eqref{scaling_relation}. The stable regime ($\tau \! < \! \tau_{c}$) is shaded in blue. 
    \label{taucrit}}
 \end{figure}
