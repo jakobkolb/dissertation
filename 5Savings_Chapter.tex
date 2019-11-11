@@ -5,7 +5,6 @@ This chapter is based on research that I have designed, prepared and supervised.
 
 \section{Introduction}
 \label{sec:savings_introduction}
-
 Economic growth and inequality are important problems in economics \citep{Acemoglu2009, piketty2015capital}. Standard macroeconomic models are based on the assumption of a single representative rational utility maximizing agent and assume that the dynamics of business cycles are driven by exogenous shocks. However, empirical evidence from behavioral economics indicates that real households are heterogeneous and make substantial deviations from rationality.   This has led to new directions of research, including the incorporation of heterogeneous or bounded rational agents into macroeconomic models. This is typically done by allowing the agents to differ in terms of factors such as education while preserving the assumption of rationality \citep{ hank_reviewLeahy2018, hank_branch2009new, hank_zhao2018many}, or alternatively allowing for bounded rationality but maintaining utility maximization \citep{hank_gabaix2016behavioral}.  Realism is injected through imposing frictions, such as sticky wages.  These models require shocks to generate economic dynamics.
 
 However, it has long been known that endogenous dynamics are possible in economic models~\citep{day1983emergence,BOLDRIN198626, Scheinkman, boldrin1992equilibrium, boldrin1992sources,blume1992evolution}, and more recently Beaudry \textit{et al.}\ have shown how limit cycles can emerge in a standard framework where agents are perfect utility maximizers \citep{beaudry2015reviving, beaudry2016putting}.  An alternative approach bases household decision making on simple heuristics rather than rationality \citep{DeGrauwe2011,DeGrauwe2010the}.  This leads to ``waves'' of optimism and pessimism, generating irregular business cycles and giving fat-tailed distributions for economic outcomes such as GDP. This chapter further develops this line of research by demonstrating how a very simple heterogeneous behavioral macroeconomic model leads to an endogenous business cycle that is not driven by externally imposed shocks. The purpose here is not to make a fully realistic model, but rather to demonstrate that rich emergent behavior can occur even under very simple assumptions.
@@ -19,7 +18,6 @@ Although I do not claim that this behavior is fully realistic, there is empirica
 I find that a key parameter governing economic behavior is the average time interval $\tau$ at which households update their savings rate, which I call the \textit{social interaction time}.  When $\tau$ is small, meaning the households update frequently, the savings rate is low, and the performance of the economy is suboptimal in terms of aggregate consumption. When $\tau$ is sufficiently large, in contrast, the economy-wide aggregate savings rate, which equals the income-weighted average household savings rate, becomes close to the optimal rate.  For small $\tau$ the population of households remains homogeneous, but as $\tau$ increases there is a sharp phase transition at a critical value $\tau_{c}$ where the population becomes strongly bimodal, dividing into rich households with high savings rates and poor households with low savings rates.  Correspondingly, for low values of $\tau$ the GDP and other economic indicators are constant with only small fluctuations, whereas above the critical transition there is an endogenous aperiodic oscillation, resembling a business cycle, in which the aggregate savings rate fluctuates, the population of households alternately becomes richer or poorer, and economic output varies substantially over time.  
 
 This model shows that the use of heterogeneous agents following explicit behavioral rules can produce aggregate behavior that is qualitatively different from that of rational agents. This model is only qualitative, but its results suggest that an approach that explicitly incorporates empirical behavioral knowledge into household decision making may naturally lead to an explanation of business cycles in terms of endogenous dynamics. 
-\newpage
 \section{The Standard Ramsey-Cass-Koopmans model}
 \label{sec:savings_standard_rck}
 
@@ -62,7 +60,6 @@ This equation ensures that households do not borrow more than they eventually re
 Thus, the task of the household is to find a path $(k(t),c(t))$ that optimizes equation \eqref{eq:int1} and satisfies equations \eqref{eq:kdot}  and \eqref{eq:NPG}.
 
 \subsection{The RCK model's steady state}
-
 For the instantaneous utility, one assumes a constant relative risk aversion (CRRA) function parameterized by
 \begin{equation}
   u(c) = (c^{1-\theta} -1)/(1-\theta)~\mathrm{where}~\theta \geq0~\mathrm{and}~ \theta \neq 1.
@@ -93,10 +90,7 @@ This is called the golden rule because $s = \alpha$ leads to the largest possibl
         \label{eq:golden_rule_consumption}
 \end{equation}
 For $\rho \! > \!0$, the discount rate pushes the households to save less and shift consumption towards the present, resulting in a smaller (and thus ex-post suboptimal) $c^\ast$ than in the Solow model.
-
-Given the current value of per-capita capital $k$, the household chooses a current value of per-capita consumption $c(s)$ determined by intertemporal optimization, leading to an optimal consumption path that maximizes the household's long-term discounted aggregate utility.  This determines the time evolution of $k$ and $c$ 
-towards a steady state at $(k^\ast, c^\ast)$.  
-
+Given the current value of per-capita capital $k$, the household chooses a current value of per-capita consumption $c(s)$ determined by intertemporal optimization, leading to an optimal consumption path that maximizes the household's long-term discounted aggregate utility.  This determines the time evolution of $k$ and $c$ towards a steady state at $(k^\ast, c^\ast)$.
 
 \begin{figure}[t]
   \begin{minipage}[c]{0.4\textwidth}
@@ -108,7 +102,6 @@ towards a steady state at $(k^\ast, c^\ast)$.
   \end{minipage}\hfill
 
 \end{figure}
-
 From a physicist's perspective, eqs. \eqref{eq:kdot} and \eqref{eq:ramsey_keynes} resemble a system of ordinary differential equations that describe the dynamics of the RCK model in the $(k,~c)$ phase space. This line of reasoning would yield a phase space diagram like the one presented in fig.~\ref{fig:rck_phase_space} that exhibits trivial absorbing states along the axes $k=0$ and $c=0$ and two saddle points for $k=c=0$ and another one derived in eq. \eqref{eq:rck_steady_state}.
 This view has some appeal as it allows for the framing of bubbles and crashes as deviations from the optimality curve and subsequent corrections to get back to it --- so much so that even economic textbooks feature figures like fig. \ref{fig:rck_phase_space} that clearly buy into this framing.
 However, a closer look at the derivation of equation \eqref{eq:ramsey_keynes} reveals that this framing --- as attractive and intuitive as it seems --- is the product of circular reasoning and a flawed understanding of the mathematical optimization methods that are used to derive it. Particularly, the derivation of eq.~\eqref{eq:ramsey_keynes} is done by solving the intertemporal optimization problem posed by eq.~\eqref{eq:int1} subject to eq.~\eqref{eq:kdot} with eq.~\eqref{eq:NPG} with strict equality as a constraint. This constraint confines the solution of the optimization problem to the saddle point manifold in fig.~\ref{fig:rck_phase_space} which in return means that any discussion of this solution outside the saddle point manifold is meaningless. Consequently, any interpretation of the possible dynamics of equations \eqref{eq:kdot} and \eqref{eq:ramsey_keynes} that revolve around stability of the steady state, deviations from the manyfold and possible ways to return to it are meaningless as they are outside the support for which the ordinary differential equations were derived in the first place.
@@ -327,8 +320,6 @@ In the limit of $\tau \to 0$, the discount rate $\rho$ diverges, consistent with
 
 \subsection{Understanding the oscillatory regime ($\mathbf{\tau \!>\! \tau_{c} }$)}
 \label{sec:savings_oscillations}
-
-
 \begin{figure}[t]
      \centering
        \includegraphics[width=0.98\textwidth]
@@ -337,8 +328,6 @@ In the limit of $\tau \to 0$, the discount rate $\rho$ diverges, consistent with
 \textbf{B}:~An illustration of the cause of the oscillatory dynamics.  The two panels show snapshots at two different times as indicated in figure A.  At time $t_1$ the aggregate savings rate is low, aggregate capital is low and the economy is in a depression; at time $t_2$ the opposite is true.  The capital and savings rates of individual households are shown as dots with different colors.  There are two clusters, corresponding to rich and poor households.  The household that is currently switching its savings rate is indicated by an arrow connecting its previous state to its current state.  The dashed black curve indicates the iso-consumption curve for the household $i$ with the highest consumption. }
 \label{fig:dynamics}
 \end{figure} 
-
-
 In order to obtain a deeper understanding of the oscillatory regime, where $\tau > \tau_{c}$, fig.~\ref{fig:dynamics} illustrates both collective and individual dynamics.
 
 Fig.\,\ref{fig:dynamics}A shows the average per capita consumption rate $c$ as a function of the average capital $k$. 
@@ -359,19 +348,17 @@ As a result, when one of the rich households gets its turn to update, it copies 
 
 At this point its consumption rate becomes very high, and all of its neighbors copy it, creating a boom in consumption while decreasing the aggregate savings rate and consequently depreciating the capital stock of the economy.
 A majority of households eventually become impoverished, returns on capital recover, high savings rates become more attractive again and the cycle repeats itself.
-\newpage
 \subsection{Critical Social Interaction Time}
 \label{sec:savings_critical_tau}
-
 What determines the critical social interaction time $\tau_\mathrm{c}$?
-This question can best be answered by a closer analysis of eq. \eqref{eq:Citau} which describes the consumption of an individual household after time $\tau$ given that this household sets its savings rate $s_i$ individually relative to the constant aggregate savings rate $\tilde{s}$. 
-\begin{wrapfigure}[27]{I}{.6 \textwidth}
+This question can best be answered by a closer analysis of eq. \eqref{eq:Citau} which describes the consumption of an 
+\begin{wrapfigure}[27]{o}{.6 \textwidth}
   \centering
   \hspace{-1.5cm}\includegraphics[width = .7 \textwidth]{figures/best_response.pdf}
   \caption[Best response dynamics for individuals savings rates]{Best response dynamics. Optimal individual savings rate $s_i^\star$ (circles and triangles) given a very small perturbation of either $+\Delta$ (blue circles) or $-\Delta$ (orange triangles) of the aggregate savings rate $s$ away from its equilibrium value $s^\star$ (green line) as a function of the social interaction time $\tau$, for $\Delta = 10^{-7}$.}\hspace{.5cm}
   \label{fig:best_response}
 \end{wrapfigure}
-
+ individual household after time $\tau$ given that this household sets its savings rate $s_i$ individually relative to the constant aggregate savings rate $\tilde{s}$.
 In section \ref{sec:rck_stable}, the analysis of this approximate equation showed that the imitate-the-best heuristic can result in behavior that is collectively ``optimal'' over a time horizon $\tau$ as it maximizes aggregate consumption. 
 The reasoning behind this analysis also helps to understand the instability driving the transition: Eq.~\eqref{eq:Citau} also determines the incentives of a single household to set its individual savings rate equal to, close to, or far from the aggregate savings rate to maximize its individual consumption. 
 Suppose that an external shock of size $\Delta$ perturbs the aggregate savings rate $\tilde{s}$ away from its collectively optimal value $s^\ast$, and suppose that household $i$ is allowed to optimize its savings rate $s_i$ while the others hold theirs constant. 
@@ -379,11 +366,9 @@ I call this optimal savings rate $s^*_i$ the \emph{best response} of the individ
 As displayed in fig. \ref{fig:best_response}, a numerical investigation shows that when $\tau \ll \tau_{c}$ i.e. in the \emph{stable regime}, the best response $s^*_i$ that maximizes the individual household's consumption after $\tau$ remains close to $\tilde{s}$. 
 In contrast, when  $\tau \gg \tau_{c}$ e.g. in the \emph{oscillatory regime}, if $\Delta > 0$ then the individual household's best response $s^*_i$ is very small, with $s_i$ approaching $0$, and if $\Delta < 0$ the optimal savings rate is large, with $s_i$ approaching $1$. 
 
-
 This happens because when $\Delta > 0$ the aggregate savings rate is high, so the returns on investment are low, which discourages saving and vice versa, when $\Delta < 0$ the aggregate savings rate is low, so returns on investment are high, which encourages saving. 
 This destabilizes the unimodal solution around $s^\ast$. 
 The transition occurs sharply at a parameter value near $\tau_{c}$, though the precise value depends on $\Delta$.
-\newpage
 \subsection{Dependence of the Critical Social Interaction Time on Network Size and Structure}  
 \label{sec:savings_network_structure}
 
@@ -425,7 +410,7 @@ This has been observed for private savings in 19 OECD countries \citep{adema2015
 Household savings rates are influenced by many things, and conspicuous consumption is only one of many factors. Standard macroeconomic models assume that agents are perfect utility maximizers, and attempt to provide realism by imposing frictions that restrict their behavior. Behavioral experiments, in contrast, indicate that real human beings are at best approximate utility maximizers.  Are the behaviorally observed deviations from utility maximization important for macroeconomics?  Can models that explicitly use behavioral rules capture features that standard models miss?
 
 Absent shocks, standard macroeconomic models move toward an equilibrium and remain there.   Dynamics occur only because shocks knock the economy away from equilibrium. In this model, in contrast, the economy may display irregular endogenous oscillations that are reminiscent of business cycles.  
-Although the model has the following two random inputs, they are small and very different in character from the shocks that drive the dynamics of standard models. The first random input determines the time at which individual households update their savings rates determined by a Poisson process. The timing of individual updates must be randomized to ensure that the order in which households update their savings rates varies\footnote{A fixed order leads to a static economy}. The second random input is the copying error for the savings rate.  This is small ($1\%$) and its exact value makes little difference to the behavior as long as it is nonzero. In contrast to standard shocks, which affect the economy as a whole, both of these inputs are at the level of individual households, and affect each household differently. For a large number of households the copying errors cancel out but the endogenous dynamics persist nonetheless. Thus while random inputs are necessary in this model, they do not directly drive booms and recessions as the shocks of standard models do. This is why the economic dynamics in this model can indeed be considered endogenous.
+Although the model has the following two random inputs, they are small and very different in character from the shocks that drive the dynamics of standard models. The first random input determines the time at which individual households update their savings rates determined by a Poisson process. The timing of individual updates must be randomized to ensure that the order in which households update their savings rates varies. The second random input is the copying error for the savings rate.  This is small ($1\%$) and its exact value makes little difference to the behavior as long as it is nonzero. In contrast to standard shocks, which affect the economy as a whole, both of these inputs are at the level of individual households, and affect each household differently. For a large number of households the copying errors cancel out but the endogenous dynamics persist nonetheless. Thus while random inputs are necessary in this model, they do not directly drive booms and recessions as the shocks of standard models do. This is why the economic dynamics in this model can indeed be considered endogenous.
 
 To illustrate the conceptual difference between this model and standard macroeconomic models it is useful to draw an analogy to a simple physical system. Consider the problem of pole balancing, in which a man attempts to move his hand to maintain a pole in a vertical position. The position of the man's hand corresponds to the collection of household savings decisions, and the pole/gravity system represents the economy or more precisely, the accumulation of capital in the economy. 
 %\begin{figure}

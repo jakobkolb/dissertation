@@ -152,8 +152,8 @@ Also, this framework might as well be used to test other strategies for decision
 % Capital accumulation of individual households given the model assumptions above.
 Given the savings decisions of the individual households, and assuming equal capital depreciation rates $\kappa$ in both sectors, the time development of their capital holdings is given by
 \begin{align}
-  \dot{K}_c^{(i)} =& \delta_{o_ic} \left( r_c K_c^{(i)} + r_d K_d^{(i)} + w L_i \right) - \kappa K_c^{(i)}, \label{eq:clean_investment}\\
-  \dot{K}_d^{(i)} =& \delta_{o_id} \left( r_c K_c^{(i)} + r_d K_d^{(i)} + w L_i \right) - \kappa K_d^{(i)}, \label{eq:dirty_investment}
+  \dot{K}_c^{(i)} =& s\delta_{o_ic} \left( r_c K_c^{(i)} + r_d K_d^{(i)} + w L_i \right) - \kappa K_c^{(i)}, \label{eq:clean_investment}\\
+  \dot{K}_d^{(i)} =& s\delta_{o_id} \left( r_c K_c^{(i)} + r_d K_d^{(i)} + w L_i \right) - \kappa K_d^{(i)}, \label{eq:dirty_investment}
 \end{align}
 
 where $\delta_{ij}$ is the Kronecker Delta. The total capital stocks in the two sectors are made up of the sum of the individual capital stocks as
@@ -247,8 +247,8 @@ To sum up, I solved the algebraic constraints to the ordinary differential equat
 	r_c = \frac{\beta_c}{K_c}X_c L^{\alpha}\left( X_c + X_d X_R \right)^{-\alpha}, \\
 	r_d = \frac{\beta_d}{K_d}X_d X_R L^{\alpha}\left( X_c + X_d X_R \right)^{-\alpha}, \\
 	R = \frac{b_d}{e}K_d^{\beta_d}L^{\alpha}\left( \frac{X_d X_R}{X_c + X_d X_R} \right)^{\alpha}, \\
-        \dot{K}_i^{(c)} = s \delta(o_i - c) (r_c K_i^{(c)} + r_d K_i^{(d)} + w L_i) - \delta K_i^{(c)}, \label{eq:clean_capital_accumulation}\\
-        \dot{K}_i^{(d)} = s \delta(o_i - d) (r_c K_i^{(c)} + r_d K_i^{(d)} + w L_i) - \delta K_i^{(d)}, \label{eq:dirty_capital_accumulation}\\
+        \dot{K}_c^{(i)} = s \delta_{o_ic} (r_c K_c^{(i)} + r_d K_d^{(i)} + w L^{(i)}) - \delta K_c^{(i)}, \label{eq:clean_capital_accumulation}\\
+        \dot{K}_d^{(i)} = s \delta_{o_id} (r_c K_c^{(i)} + r_d K_d^{(i)} + w L^{(i)}) - \delta K_d^{(i)}, \label{eq:dirty_capital_accumulation}\\
         \dot{G} = - R, \label{eq:sum_up_resource_depletion}
       \end{empheq}
 \end{subequations}
