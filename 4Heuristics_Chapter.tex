@@ -1,5 +1,6 @@
 \chapter{Heuristic Decision Making in a Social Economic Model of Fossil Resource Usage}
 \label{chapter:heuristics}
+This chapter is based on unpublished work. However, a simplified version of the economic model is part of \citep[P5]{Kolb2019b}.
 \section{Introduction}
 
 In the IPCCs current business as usual scenarios, the CO$_{2}$ emissions budget that limits global warming to below 1.5$^{\circ}$C with a likelihood of 0.5 will be exceeded by approximately 2030. This means that in order to limit global warming below 1.5$^{\circ}$C, the global economy needs a rapid shift away from fossil fuel based technologies. Currently, the two main measures that are expected to incentivize the necessary changes are taxation and cap and trade schemes for CO$_{2}$ emissions. I suspect that these measures are favoured by many because they are expected to be efficient. This is most likely because their effects are thought to be adequately understood as they can be estimated well with the current integrated assessment models that are used to generate the economic projections for the IPCCs reports. However, there are some issues with these policy measures. First, the expected effects of these policy measures are estimated in an idealized model world whereas their real effects come from their real implementation that might include a number of exceptions, loopholes and unintended consequences. And second, with few exceptions, the political process to implement these measures is sluggish and the outcomes are all but certain.
@@ -15,7 +16,7 @@ In the reminder of this chapter, I will outline and explain this model in sectio
 
 \section{Model Development}  
 \label{sec:heuristics_model}
-Previous studies by \cite{Ans2013} suggest that feedback through supply-demand price mechanisms will have only limited impact on fossil fuel companies. This is due to the fact that only approximately 15 \% of investors invest subject to socially responsible guidelines \cite{SIF2014Report} and that divested holdings are, especially in liquid markets, very likely to quickly find their way to less responsible investors. \\
+Previous studies by \cite{Ans2013} suggest that feedback through supply-demand price mechanisms will have only limited impact on fossil fuel companies. This is due to the fact that only approximately 15 \% of investors invest subject to socially responsible guidelines \citep{SIF2014Report} and that divested holdings are, especially in liquid markets, very likely to quickly find their way to less responsible investors. \\
 Also, as long as the physical capital relying on fossil fuels already exists, economic reasoning follows that it will be used as long as variable costs are covered.
 Therefore, a general economic shift from dirty to clean technology needs changes in investment in physical capital or a political imperative mandated by a (qualified) majority. Therefore, I consider a model focussing on savings and investment decisions appropriate to investigate the possible dynamics of an economic transition towards fossil resource independent technologies.\\
 In the following I propose a preliminary scheme of such a model.
@@ -65,7 +66,7 @@ where $1/e$ is the resource intensity of the sector. The usage of the fossil res
     \dot{G} = -R. 
     \label{eq:resource_depletion}
 \end{equation} 
-In line with the assumptions common in the literature \cite{Dasgupta1974, Perman2003}, the total cost $c_R$ for the usage of the fossil resource depends on the resource use $R$ and the remaining fossil resource stock $G$ such that total resource costs increase with resource use ($\partial c_R / \partial R >0$) and also with continued resource depletion ($\partial c_R / \partial G < 0$). I chose the specific form to be
+In line with the assumptions common in the literature \citep{Dasgupta1974, Perman2003}, the total cost $c_R$ for the usage of the fossil resource depends on the resource use $R$ and the remaining fossil resource stock $G$ such that total resource costs increase with resource use ($\partial c_R / \partial R >0$) and also with continued resource depletion ($\partial c_R / \partial G < 0$). I chose the specific form to be
 \begin{equation}
 	c_R = b_R R^{\rho}\left( \frac{G_0}{G} \right)^{\mu}; \quad \rho \geq 1, \quad \mu > 0,
 	\label{eq:resource_cost}
@@ -89,11 +90,11 @@ I assume physical capital to be specific to the technology employed such that it
 
 \subsection{Investment Decision Making}
 \label{sec:investment_decision_making}
-I model households as bounded rational decision makers \cite{simon1972theories, simon1982models, gigerenzer2002bounded}.
-That is, households take their investment decisions, i.e. whether to invest their savings in the clean or the dirty sector, not by forming rational expectations \cite{Evans2006, Kirman2014} but by A) using \emph{heuristic decision strategies} to make robust decisions with sparse information and with limited computational work and B) engaging in \emph{social learning} \cite{Bandura1971} to obtain successful decision strategies \cite{Traulsen2010} with reasonable effort.
+I model households as bounded rational decision makers \citep{simon1972theories, simon1982models, gigerenzer2002bounded}.
+That is, households take their investment decisions, i.e. whether to invest their savings in the clean or the dirty sector, not by forming rational expectations \citep{Evans2006, Kirman2014} but by A) using \emph{heuristic decision strategies} to make robust decisions with sparse information and with limited computational work and B) engaging in \emph{social learning} \citep{Bandura1971} to obtain successful decision strategies \citep{Traulsen2010} with reasonable effort.
 
 % Why use Fast and Frugal heuristics for decision making?
-Regarding individual decision making, there is ample evidence that real investors rather use a diverse set of heuristic strategies to make investment decisions \cite{Gigerenzer2018} and researchers in the field strongly suggest to consider these so called \emph{Fast and Frugal heuristic} decision models as a complementary alternative to established probabilistic and optimizing decision models. 
+Regarding individual decision making, there is ample evidence that real investors rather use a diverse set of heuristic strategies to make investment decisions. \cite{Gigerenzer2018} and other researchers in the field strongly suggest to consider these so called \emph{Fast and Frugal heuristic} decision models as a complementary alternative to established probabilistic and optimizing decision models. 
 In general, Fast and Frugal Heuristics are described in terms of three building blocks; one for information search, one for stopping information search and one for evaluating the available information and drawing a conclusion from it.
 I use a decision heuristic called \emph{Take The Best} that is observed to be frequently used in situations where individuals need to decide between one of two options that are comparable in different aspects \citep{gigerenzer1999simple, Newell2003a}. 
 Take the Best has the following building blocks: 1) Search through cues in a predefined order, 2) stop as soon as one cue discriminates between the two options, 3) chose the option with the preferable value on the discriminating cue. \\
@@ -109,19 +110,19 @@ Additionally, I argue that imitation of peers is not only an efficient learning 
 Nevertheless, some strategies are suspected to have more profitable long term results then others as the performance of this decision heuristic depends on the order of the sequence of cues \citep{Gigerenzer2011}. Empirical evidence shows that if participants in an experiment are allowed to share information about their cue orders and respective performance, they do so and thereby greatly increase the speed of learning of cue orders that fit their decision environment compared to individual trial and error reinforcement learning \citep{garcia2009does}. Therefore, I use social learning among households to determine the particular cue order that determines their investment decision making.
 
 % As the outcomes of social learning depend on network topology, we model topology endogenously.
-As the outcomes of social learning crucially depend on the structural properties of the complex network of social ties amongst the households \cite{Barkoczi2016}, I model the adaptive formation of this social network endogenously.
-A well established principle for the emergence of structured ties in social networks is homophily, i.e. the tendency that similar individuals are linked \cite{McPherson2007, Centola2007, Centola2011}. Especially the concept of value homophily \cite{McPherson2007} is in line with the interpretation of cue orders above not only as a means to the end of making profitable investment decisions but also as an expression of identity and beliefs with regards to clean technology.
+As the outcomes of social learning crucially depend on the structural properties of the complex network of social ties amongst the households \citep{Barkoczi2016}, I model the adaptive formation of this social network endogenously.
+A well established principle for the emergence of structured ties in social networks is homophily, i.e. the tendency that similar individuals are linked \citep{McPherson2007, Centola2007, Centola2011}. Especially the concept of value homophily \citep{McPherson2007} is in line with the interpretation of cue orders above not only as a means to the end of making profitable investment decisions but also as an expression of identity and beliefs with regards to clean technology.
 The following model specification uses social learning in combination with endogenous network adaptation based on homophily to model the changes in heuristic decision strategies that households use to make investment decisions.
 
 % How I do this technically (Individual Household earnings and investment)
 I model $N$ heterogeneous households denoted with the index $i$ as owners of one unit of labor $L^{(i)} = L/N$ and capital $K_c^{(i)}$ and $K_d^{(i)}$ in the clean and dirty economic sector respectively.
-Households generate an income $I^{(i)}$ from their labor and capital income which they use for consumption $F^{(i)}$ and savings $I^{(i)}$:
+Households generate an income $I^{(i)}$ from their labor and capital income which they use for consumption $F^{(i)}$ and savings $S^{(i)}$:
 \begin{align}
 	I^{(i)} &= w L^{(i)} + r_c K_c^{(i)} + r_d K_d^{(i)}, \label{eq:household_income} \\
 	F^{(i)} &= (1-s) I^{(i)}, \label{eq:consumption} \\
 	S^{(i)} &= s I^{(i)}. \label{eq:savings}
 \end{align}
-A binary decision parameter $o_i \in [c,d]$ denotes the sector in which the households decide to invest. As motivated above, I model decision making that is driven by three processes: Heuristic decision making via the Take The Best heuristic, social learning via the imitation of successful cue orders and homophily towards individuals exhibiting the same beliefs as represented by its cue order. \par
+A binary decision parameter $o_i \in [c,d]$ denotes the sector in which the households decide to invest and $s$ denotes the savings rate at which households reinvest their income. As motivated above, I model decision making that is driven by three processes: Heuristic decision making via the Take The Best heuristic, social learning via the imitation of successful cue orders and homophily towards individuals exhibiting the same beliefs as represented by its cue order. \par
 
 % How I do this technically (Heuristic and cue order here)
 Concerning the information that households use to make their investment decisions, they are assumed to be unable to form rational expectations about the future, e.g.\ they make decisions based solely upon information about the past and present. Possible sources of information are economic indicators such as capital rents in both sectors $r_c$ and $r_d$ and their trends $\dot{r}_c$ and $\dot{r}_d$ as well as observable behavior of other households that they are connected to via the social network and subjective beliefs of superiority of one over the other sector that are not explained by other factors.\\
@@ -134,25 +135,25 @@ I describe households as the nodes in a graph of acquaintance relations. Househo
 	\item Homophilic network adaptation: with probability $\varphi$, the households end their relation and household $i$ connects to another household $k$ that has the same cue order. 
 	\item Imitation: with probability $1-\varphi$, household $i$ engages in social learning i.e. it imitates the cue order of household $j$ with a probability $p_{ji}$ that increases with their difference in income.
 \end{itemize}
-I follow previous results on human strategy updating in repeated interactions \cite{Traulsen2010}, when I assume the imitation probability as a monotonously increasing function of the relative difference in consumption between both households:
+I follow previous results on human strategy updating in repeated interactions \citep{Traulsen2010}, when I assume the imitation probability as a monotonously increasing function of the relative difference in consumption between both households:
 \begin{equation}
 	p_{ji} =  \left(1 + \exp \left(- \frac{a(F^{(i)} - F^{(j)})}{F^{(i)} + F^{(j)}} \right) \right)^{-1}.
     \label{eq:imitation_probability}
 \end{equation}
-As opposed to the absolute difference in the original study \cite{Traulsen2010}, the probability in this model depends on relative differences. This dependence on relative differences in per household quantities is crucial for approximation methods as I will discuss later at the end of \ref{sec:large_system_limit}.
+As opposed to the absolute difference in the original study \citep{Traulsen2010}, the probability in this model depends on relative differences. This dependence on relative differences in per household quantities is crucial for approximation methods as I will discuss later at the end of \ref{sec:large_system_limit}.
 I set $a = 8$ to conform to their empirical evidence.
 I model strategy exploration as a fraction $\varepsilon$ of events that are random, e.g. rewiring to a random other household or randomly choosing one of the possible cue orders with equal probability.
 
 % Yes, we know, this is only one of the many possible ways to implement such a model.
 I acknowledge the fact that different model specifications are possible and interesting.
-For instance, I only consider fixed savings rates and the decision between two capital assets and leave the investigation of households setting their savings rates individually to another study \cite{Asano2018}.
-Also, this framework might as well be used to test other strategies for decision making such as tallying or pure social learning similar to the approach taken by Barkoczi \cite{Barkoczi2013}, \cite{Barkoczi2016}
+For instance, I only consider fixed savings rates and the decision between two capital assets and return to the investigation of households setting their savings rates individually in \cref{chapter:savings}.
+Also, this framework might as well be used to test other strategies for decision making such as tallying or pure social learning similar to the approach taken by \cite{Barkoczi2013, Barkoczi2016}.
 
 % Capital accumulation of individual households given the model assumptions above.
 Given the savings decisions of the individual households, and assuming equal capital depreciation rates $\kappa$ in both sectors, the time development of their capital holdings is given by
 \begin{align}
-  \dot{K}_c^{(i)} =& \delta_{o_ic} \left( r_c K_c^{(i)} + r_d K_d^{(i)} + w L_i \right) - \kappa K_c^{(i)}, \label{eq:clean_investment}\\
-  \dot{K}_d^{(i)} =& \delta_{o_id} \left( r_c K_c^{(i)} + r_d K_d^{(i)} + w L_i \right) - \kappa K_d^{(i)}, \label{eq:dirty_investment}
+  \dot{K}_c^{(i)} =&s \delta_{o_i,c} \left( r_c K_c^{(i)} + r_d K_d^{(i)} + w L_i \right) - \kappa K_c^{(i)}, \label{eq:clean_investment}\\
+  \dot{K}_d^{(i)} =&s \delta_{o_i,d} \left( r_c K_c^{(i)} + r_d K_d^{(i)} + w L_i \right) - \kappa K_d^{(i)}, \label{eq:dirty_investment}
 \end{align}
 
 where $\delta_{ij}$ is the Kronecker Delta. The total capital stocks in the two sectors are made up of the sum of the individual capital stocks as
@@ -185,7 +186,7 @@ In the following, I discuss the technical details ans specification of this impl
 		$c_R(t)$ & fossil resource extraction cost, \\
 		$R(t)$ & rate of resource uptake of dirty sector. \\
 	\end{tabular}
-        \caption{Variables of the model and their description - entries in the first section are free variables (minus the configuration of the acquaintance network), entries in the second section are dependent variables.}
+        \caption[Model variables with description]{Variables of the model and their description - entries in the first section are free variables (minus the configuration of the acquaintance network), entries in the second section are dependent variables.}
 	\label{tab:derived_variables}
  \end{table}
 
@@ -241,14 +242,15 @@ for the use of the fossil resource. Using the results for $L_c$ and $L_d$ togeth
 To sum up, I solved the algebraic constraints to the ordinary differential equations describing the economic production process resulting in the following equations:
 \begin{subequations}
 \begin{empheq}[box={\fboxsep=10pt\fbox}]{gather}
-	X_c = (b_c K_c^{\beta_c})^{\frac{1}{1-\alpha}}, \qquad X_d = (b_d K_d^{\beta_d})^{\frac{1}{1-\alpha}}, \qquad X_R = \left( 1 - \frac{b_R}{e}\frac{G_0^2}{G^2} \right)^{\frac{1}{1-\alpha}}, \\
+  X_c = (b_c K_c^{\beta_c} C^{\gamma})^{\frac{1}{1-\alpha}}, \quad X_d = (b_d K_d^{\beta_d})^{\frac{1}{1-\alpha}}, \quad X_R = \left( 1 - \frac{b_R}{e}\frac{G_0^2}{G^2} \right)^{\frac{1}{1-\alpha}}, \\
 	w = \alpha L^{\alpha-1}\left( X_c + X_d X_R \right)^{1-\alpha}, \\
 	r_c = \frac{\beta_c}{K_c}X_c L^{\alpha}\left( X_c + X_d X_R \right)^{-\alpha}, \\
 	r_d = \frac{\beta_d}{K_d}X_d X_R L^{\alpha}\left( X_c + X_d X_R \right)^{-\alpha}, \\
 	R = \frac{b_d}{e}K_d^{\beta_d}L^{\alpha}\left( \frac{X_d X_R}{X_c + X_d X_R} \right)^{\alpha}, \\
-        \dot{K}_i^{(c)} = s \delta(o_i - c) (r_c K_i^{(c)} + r_d K_i^{(d)} + w L_i) - \delta K_i^{(c)}, \label{eq:clean_capital_accumulation}\\
-        \dot{K}_i^{(d)} = s \delta(o_i - d) (r_c K_i^{(c)} + r_d K_i^{(d)} + w L_i) - \delta K_i^{(d)}, \label{eq:dirty_capital_accumulation}\\
-        \dot{G} = - R, \label{eq:sum_up_resource_depletion}
+        \dot{K}_i^{(c)} = s \delta_{o_i,c} (r_c K_i^{(c)} + r_d K_i^{(d)} + w L_i) - \delta K_i^{(c)}, \label{eq:clean_capital_accumulation}\\
+        \dot{K}_i^{(d)} = s \delta_{o_i,d} (r_c K_i^{(c)} + r_d K_i^{(d)} + w L_i) - \delta K_i^{(d)}, \label{eq:dirty_capital_accumulation}\\
+        \dot{G} = - R, \label{eq:sum_up_resource_depletion}\\
+        \dot{C} = Y_c - \chi C
       \end{empheq}
 \end{subequations}
 
@@ -445,7 +447,7 @@ So, I assume $t^*_G \approx 100y$. Using this, the initial resource stock $G_0$,
 		$\tau$ & 1 & years & activity rate of households \\ \hline
 		$\varphi$ & $1\leq\varphi\leq1$ & X & rewiring probability given an interaction event
 	\end{tabular}
-        \caption{Parameters of the model with description. Fitted to data from 1965 to 2010.}
+        \caption{Model parameters with description. Fitted to data from 1965 to 2010.}
 	\label{tab:Heuristics_Parameter_list}
 \end{sidewaystable}
 
@@ -519,7 +521,7 @@ and the initial fossil resource stock as the current fossil resource stock plus 
 
 Finally, I estimate the set of remaining parameters $b_R$, $\mu$, $b_c$ and $b_d$ as follows:
 
-I estimate the parameters of the fossil resource cost function $b_R$ and $\mu$ from historical energy price and fossil resource consumption data. I use the historical oil price\footnote{I use the yearly average oil price for different types of crude oil according to \url{https://www.statista.com/statistics/262858/change-in-opec-crude-oil-prices-since-1960/}} as proxy for the fossil resource price $p_R$ as historical data for prices for different types of fossil energy sources \cite{owidfossilfuels} shows that prices are strongly correlated and of the same order of magnitude. I create a time series of the fossil resource stock $G(t)$ from $G_0$ as estimated in eq. \ref{eq:initial_fossil_resource_approximation} and the time series of fossil resource use in fig.~\ref{fig:historical_resource_use} like
+I estimate the parameters of the fossil resource cost function $b_R$ and $\mu$ from historical energy price and fossil resource consumption data. I use the historical oil price\footnote{I use the yearly average oil price for different types of crude oil according to \url{https://www.statista.com/statistics/262858/change-in-opec-crude-oil-prices-since-1960/}} as proxy for the fossil resource price $p_R$ as historical data for prices for different types of fossil energy sources \citep{owidfossilfuels} shows that prices are strongly correlated and of the same order of magnitude. I create a time series of the fossil resource stock $G(t)$ from $G_0$ as estimated in eq. \ref{eq:initial_fossil_resource_approximation} and the time series of fossil resource use in fig.~\ref{fig:historical_resource_use} like
 
 \begin{equation} 
   G(t) = G_0 - \sum_{t=1948}^{t}R(t),
@@ -785,7 +787,7 @@ the majority of households. This also explains the heterogeneity in final outcom
 Panel 1c shows that this switch of the direction of investment is then later followed by a reduction of the use of the fossil resource. The time lag between the switch of investment and the reduction of resource use is due to the fact that the existing physical capital $K_c$ in the dirty sector is still in productive use and only gradually depreciating over a timescale of approximately $t_{d}^{*}\approx 50$ years as I have shown in section \ref{sec:full_dirty_economy}. It is also clear that not all simulation runs follow this switching behavior and that in a number of runs the majority of investment continues to go to the dirty sector over the entire simulation period or only switches to the clean sector substantially later.
 
 % to set cumulative resource use in perspective, I compare them to emission targets
-To set these results into perspective, I have converted the emissions budgets from the IPCC2013 report \cite{stocker2013climate} for the $1.5^{\circ}C$ target roughly into their equivalents in tonnes of oil equivalent in fossil resource use. I show three budgets that are estimated to keep global warming under $1.5^{\circ}$C with different probabilities $p$ and indicated them as dotted lines with the distribution of cumulative resource use on the right edge of panel c. For the conversion, I have used a value of 0.43 metric tonnes CO2 per barrel of crude oil\footnote{https://www.epa.gov/energy/greenhouse-gases-equivalencies-calculator-calculations-and-references} and the definition of one barrel as 0.136 tonnes according to OPEC standards\footnote{https://www.opec.org/library/Annual\%20Statistical\%20Bulletin/interactive/current/FileZ/cfpage.htm}.
+To set these results into perspective, I have converted the emissions budgets from the IPCC2013 report \citep{stocker2013climate} for the $1.5^{\circ}C$ target roughly into their equivalents in tonnes of oil equivalent in fossil resource use. I show three budgets that are estimated to keep global warming under $1.5^{\circ}$C with different probabilities $p$ and indicated them as dotted lines with the distribution of cumulative resource use on the right edge of panel c. For the conversion, I have used a value of 0.43 metric tonnes CO2 per barrel of crude oil\footnote{https://www.epa.gov/energy/greenhouse-gases-equivalencies-calculator-calculations-and-references} and the definition of one barrel as 0.136 tonnes according to OPEC standards\footnote{https://www.opec.org/library/Annual\%20Statistical\%20Bulletin/interactive/current/FileZ/cfpage.htm}.
 In the following, I will call the different budgets
 \begin{itemize}
   \item T1 for $p=0.66$ to stay below $1.5^{\circ}$C warming,
