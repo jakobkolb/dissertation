@@ -102,9 +102,9 @@ Given the current value of per-capita capital $k$, the household chooses a curre
   \end{minipage}\hfill
 
 \end{figure}
-From a physicist's perspective, eqs. \eqref{eq:kdot} and \eqref{eq:ramsey_keynes} resemble a system of ordinary differential equations that describe the dynamics of the RCK model in the $(k,~c)$ phase space. This line of reasoning would yield a phase space diagram like the one presented in fig.~\ref{fig:rck_phase_space} that exhibits trivial absorbing states along the axes $k=0$ and $c=0$ and two saddle points for $k=c=0$ and another one derived in eq. \eqref{eq:rck_steady_state}.
-This view has some appeal as it allows for the framing of bubbles and crashes as deviations from the optimality curve and subsequent corrections to get back to it --- so much so that even economic textbooks feature figures like fig. \ref{fig:rck_phase_space} that clearly buy into this framing.
-However, a closer look at the derivation of equation \eqref{eq:ramsey_keynes} reveals that this framing --- as attractive and intuitive as it seems --- is the product of circular reasoning and a flawed understanding of the mathematical optimization methods that are used to derive it. Particularly, the derivation of eq.~\eqref{eq:ramsey_keynes} is done by solving the intertemporal optimization problem posed by eq.~\eqref{eq:int1} subject to eq.~\eqref{eq:kdot} with eq.~\eqref{eq:NPG} with strict equality as a constraint. This constraint confines the solution of the optimization problem to the saddle point manifold in fig.~\ref{fig:rck_phase_space} which in return means that any discussion of this solution outside the saddle point manifold is meaningless. Consequently, any interpretation of the possible dynamics of equations \eqref{eq:kdot} and \eqref{eq:ramsey_keynes} that revolve around stability of the steady state, deviations from the manyfold and possible ways to return to it are meaningless as they are outside the support for which the ordinary differential equations were derived in the first place.
+From a physicist's perspective, eqs. \eqref{eq:kdot} and \eqref{eq:ramsey_keynes} resemble a system of ordinary differential equations that describe the dynamics of the RCK model in the $(k,~c)$ phase space. This line of reasoning would yield a phase space diagram like the one presented in \cref{fig:rck_phase_space} that exhibits trivial absorbing states along the axes $k=0$ and $c=0$ and two saddle points for $k=c=0$ and another one derived in eq. \eqref{eq:rck_steady_state}.
+This view has some appeal as it allows for the framing of bubbles and crashes as deviations from the optimality curve and subsequent corrections to get back to it --- so much so that even economic textbooks feature figures like \cref{fig:rck_phase_space} that clearly buy into this framing.
+However, a closer look at the derivation of equation \eqref{eq:ramsey_keynes} reveals that this framing --- as attractive and intuitive as it seems --- is the product of circular reasoning and a flawed understanding of the mathematical optimization methods that are used to derive it. Particularly, the derivation of eq.~\eqref{eq:ramsey_keynes} is done by solving the intertemporal optimization problem posed by eq.~\eqref{eq:int1} subject to eq.~\eqref{eq:kdot} with eq.~\eqref{eq:NPG} with strict equality as a constraint. This constraint confines the solution of the optimization problem to the saddle point manifold in \cref{fig:rck_phase_space} which in return means that any discussion of this solution outside the saddle point manifold is meaningless. Consequently, any interpretation of the possible dynamics of equations \eqref{eq:kdot} and \eqref{eq:ramsey_keynes} that revolve around stability of the steady state, deviations from the manyfold and possible ways to return to it are meaningless as they are outside the support for which the ordinary differential equations were derived in the first place.
 
 To sum up, this means that while the RCK model has been used extensively to study the effect of different policy measures on economic growth, its use for the study of non-equilibrium economic dynamics is somewhat limited. \\
 
@@ -172,14 +172,14 @@ I present the results as follows: First I show the model dynamics depending on t
 	
    \label{phase}
 \end{figure}
-We simulated the model for a variety of different parameters such as the average social interaction time $\tau$ and the network topology. Fig.\,\ref{phase} shows the distribution of the final savings rates as a function of the mean social interaction time $\tau$ for a complete network with the remaining parameters fixed.  The figure compares this result to the optimal, `golden rule' savings rate $s_\mathrm{gold}$,  corresponding to the rational expectations equilibrium where the consumption of the representative agent is maximized. For comparison, the figure also shows the analytical approximation of the steady state savings rate of the model $s^*$ in eq. \eqref{eq:s_optimal}.\\
+We simulated the model for a variety of different parameters such as the average social interaction time $\tau$ and the network topology. \Cref{phase} shows the distribution of the final savings rates as a function of the mean social interaction time $\tau$ for a complete network with the remaining parameters fixed.  The figure compares this result to the optimal, `golden rule' savings rate $s_\mathrm{gold}$,  corresponding to the rational expectations equilibrium where the consumption of the representative agent is maximized. For comparison, the figure also shows the analytical approximation of the steady state savings rate of the model $s^*$ in eq. \eqref{eq:s_optimal}.\\
 
 These results clearly show that there are two distinct regimes, separated by a critical social interaction time $\tau_{c} \approx 250$.
 In the \emph{stable regime}, corresponding to $\tau < \tau_{c}$, the savings rates of the households are unimodally distributed around a low savings rate.  For very small values of $\tau$ the savings rates are close to zero, and because of this, the economy is stuck in a poverty trap in which its output is very low.  As $\tau$ increases, the savings rate and output increase, but the distribution remains unimodal, with a sub-optimal aggregate savings rate.
 
 For $\tau \! > \! \tau_{c}$ the economy enters what I call the \emph{ oscillatory regime}, where the behavior is dramatically different. In this regime the savings rate distribution is bimodal --- some households have high savings rates and are :``wealthy'', while others have low savings rates and are ``poor''.  Thus, this model exhibits spontaneous emergence of extreme inequality, with a lower class and an upper class.
 
-Very near $\tau_\mathrm{c}$ the distribution in fig.~\ref{phase} becomes tri-modal. This is due to intermittent oscillations between the unimodal and bi-modal regimes. Thus the system either exhibits a middle class, or a lower class and an upper class, but never all three at once.
+Very near $\tau_\mathrm{c}$ the distribution in \cref{phase} becomes tri-modal. This is due to intermittent oscillations between the unimodal and bi-modal regimes. Thus the system either exhibits a middle class, or a lower class and an upper class, but never all three at once.
 
 Strikingly, as long as $\tau \! > \! \tau_{c}$, the ensemble average of the observed economy wide aggregate savings rate $\tilde{s}$ is within $1\%$ of the optimal value $s_\mathrm{gold}=\alpha=0.5$, even when the individual distributions are bimodal.
 Furthermore, the time averages of total economic output $Y(t) \!=\! 10.15$ and  consumption $C \! = \! 4.99$ are close to their optimal values $Y^\ast \! = \! s_\mathrm{gold} L/\delta \! = \! 10$  and $C^\ast \! = \! (1-s_\mathrm{gold})Y^\ast \! = \! 5$  in the standard RCK model.  It is surprising that such a simple, near zero-intelligence learning rule can maintain the system this close to its optimal behavior.
@@ -194,7 +194,7 @@ Furthermore, the time averages of total economic output $Y(t) \!=\! 10.15$ and  
 \end{figure}
 
 The system dynamics become clearer when analyzing the properties of the 
-economy as a function of time, as illustrated in fig.~\ref{fig:micro_trajs}.  
+economy as a function of time, as illustrated in \cref{fig:micro_trajs}.  
 For $\tau \! > \! \tau_\mathrm{c}$ there is an endogenous oscillation in many of the aggregate properties of the economy, including the aggregate savings rate $\tilde{s}(t)$ and output $Y(t)$.  This oscillation is also visible in the behavior of individual households.  If one follows any single household it experiences epochs with both, a high savings rate near $s_i \! \approx \! 0.90$, and a low savings rate near $s_i \! \approx \! 0.05$.  At any point in time there is typically an imbalance between rich households and poor households, so that the aggregate savings rate and the aggregate output fluctuate.  I loosely refer to this endogenous oscillation as a ``business cycle''.
 %In the Supplementary Information (SI) we show that the value of the high savings rate varies between $65\%$--$90\%$ depending on the topology of the network.  
 
@@ -330,7 +330,7 @@ In the limit of $\tau \to 0$, the discount rate $\rho$ diverges, consistent with
 \end{figure} 
 In order to obtain a deeper understanding of the oscillatory regime, where $\tau > \tau_{c}$, fig.~\ref{fig:dynamics} illustrates both collective and individual dynamics.
 
-Fig.\,\ref{fig:dynamics}A shows the average per capita consumption rate $c$ as a function of the average capital $k$. 
+\Cref{fig:dynamics}A shows the average per capita consumption rate $c$ as a function of the average capital $k$. 
 This illustrates how the aggregate consumption and capital orbit around the optimal steady state $(k^\ast,c^\ast)$  of the standard RCK model, generating a business cycle. 
 The dashed line in fig.~\ref{fig:dynamics} represents the trajectory of the standard RCK model as discussed in sec.~\ref{sec:rck_stable}, the so called optimality curve, that is also depicted as the stable saddle point manifold in fig.~\ref{fig:rck_phase_space}.
 In relation to the optimal savings rate $s^\ast \!=\!0.5$ of the RCK model, the effective aggregate savings rate $\tilde{s}$ of the modified model is typically greater than $s^\ast$ when the system is below the optimality curve and less than $ s^\ast$ when it is above the optimality curve. This means that when the heterogeneous households together have less capital than the representative household on the optimal trajectory, they increase their aggregate savings rate above the savings rate of the optimal scenario and vice versa, as if they were trying to collectively control their economy to steer it towards the optimal trajectory.
@@ -363,7 +363,7 @@ In section \ref{sec:rck_stable}, the analysis of this approximate equation showe
 The reasoning behind this analysis also helps to understand the instability driving the transition: Eq.~\eqref{eq:Citau} also determines the incentives of a single household to set its individual savings rate equal to, close to, or far from the aggregate savings rate to maximize its individual consumption. 
 Suppose that an external shock of size $\Delta$ perturbs the aggregate savings rate $\tilde{s}$ away from its collectively optimal value $s^\ast$, and suppose that household $i$ is allowed to optimize its savings rate $s_i$ while the others hold theirs constant. 
 I call this optimal savings rate $s^*_i$ the \emph{best response} of the individual household. 
-As displayed in fig. \ref{fig:best_response}, a numerical investigation shows that when $\tau \ll \tau_{c}$ i.e. in the \emph{stable regime}, the best response $s^*_i$ that maximizes the individual household's consumption after $\tau$ remains close to $\tilde{s}$. 
+As displayed in \cref{fig:best_response}, a numerical investigation shows that when $\tau \ll \tau_{c}$ i.e. in the \emph{stable regime}, the best response $s^*_i$ that maximizes the individual household's consumption after $\tau$ remains close to $\tilde{s}$. 
 In contrast, when  $\tau \gg \tau_{c}$ e.g. in the \emph{oscillatory regime}, if $\Delta > 0$ then the individual household's best response $s^*_i$ is very small, with $s_i$ approaching $0$, and if $\Delta < 0$ the optimal savings rate is large, with $s_i$ approaching $1$. 
 
 This happens because when $\Delta > 0$ the aggregate savings rate is high, so the returns on investment are low, which discourages saving and vice versa, when $\Delta < 0$ the aggregate savings rate is low, so returns on investment are high, which encourages saving. 
@@ -372,7 +372,7 @@ The transition occurs sharply at a parameter value near $\tau_{c}$, though the p
 \subsection{Dependence of the Critical Social Interaction Time on Network Size and Structure}  
 \label{sec:savings_network_structure}
 
-\begin{wrapfigure}[26]{I}{.6 \textwidth}
+\begin{wrapfigure}[26]{I}{.63 \textwidth}
   \centering
   \includegraphics[width = .6 \textwidth]{figures/taucrit_N2.pdf}
   \includegraphics[width = .6 \textwidth]{figures/taucrit_N_k.pdf}
@@ -381,8 +381,7 @@ The transition occurs sharply at a parameter value near $\tau_{c}$, though the p
 \end{wrapfigure}
 The analysis of the incentives for the individual household to set its savings rate close to or far from the collectively optimal value $s^*$ in section \ref{sec:savings_critical_tau} gives a lower bound for the critical social interaction time. It shows that below a certain value for $\tau$ there is no benefit for the individual household in setting the savings rate far from the collectively optimal value. 
 This analysis is agnostic of the network structure. However, in general the critical social interaction time also depends on the network size and structure. 
-This can be illustrated using Erd\H{o}s Renyi networks where the average degree is $\langle k \rangle = (N-1)p \approx Np$, with $p$ being the probability that any two nodes are connected. Studying the model with this network topology shows that the critical social interaction time $\tau_{c}$ depends on both $N$ (fig. \ref{fig:taucrit}A) and $\langle k \rangle$ (fig. \ref{fig:taucrit}B). 
-
+This can be illustrated using Erd\H{o}s Renyi networks where the average degree is $\langle k \rangle = (N-1)p \approx Np$, with $p$ being the probability that any two nodes are connected. Studying the model with this network topology shows that the critical social interaction time $\tau_{c}$ depends on both $N$ (\cref{fig:taucrit}A) and $\langle k \rangle$ (\cref{fig:taucrit}B). 
 This can be understood by the following reasoning: Capital accumulation in the economic system has a specific time scale $t^* \propto 1/\alpha\delta$ (see section \ref{sec:full_dirty_economy}). This time scale determines the length of the time window during which an either high or low value of the savings rate leads to higher consumption and consequently spreads among the households. If in this time window eventually all households adopt the same savings rage, the bimodal distribution collapses to one of its branches. Then, households cannot make big changes to their savings rate anymore, since there are no households with a very different savings rate left that they could imitate.
 
 What follows from this consideration is that the speed at which a signal propagates through the network via the models imitation process sets an upper limit to the critical social interaction time. This speed typically depends on the networks structural parameters such as mean degree of nodes $\langle k \rangle$ or average shortest path length through the network $\chi$.
@@ -391,7 +390,7 @@ Empirically, I finds the following proportional relationship between $\tau_c$, $
 \tau_c \sim e^{-\chi} / \langle k \rangle.
 \label{scaling_relation}
 \end{equation}  
-Fig.\,\ref{taucrit} shows a fit of this relationship to various values for $\tau_{c}$.  Because $\chi$ increases with $N$, in the large $N$ limit the system is always in the oscillatory regime. Varying the network size and structure parameters also results in qualitative changes in the nature of the oscillation, affecting its frequency, amplitude and variability.
+\Cref{taucrit} shows a fit of this relationship to various values for $\tau_{c}$.  Because $\chi$ increases with $N$, in the large $N$ limit the system is always in the oscillatory regime. Varying the network size and structure parameters also results in qualitative changes in the nature of the oscillation, affecting its frequency, amplitude and variability.
 
 \begin{figure}[t]
      \centering
@@ -404,7 +403,7 @@ Fig.\,\ref{taucrit} shows a fit of this relationship to various values for $\tau
 
 \section{Discussion and Conclusion}
 
-The primary purpose of the analysis presented in this chapter was to investigate the possible implications of heterogeneous households individually setting their savings rates according to a simple behavioral heuristic. This analysis makes a somewhat surprising conceptual point by demonstrating how emergent inequality and endogenous dynamics can naturally emerge from a heterogeneous behavioral model. Despite its simplicity, the model accurately predicts that during recessions savings rates increase before output rises (see fig.~\ref{fig:micro_trajs}).
+The primary purpose of the analysis presented in this chapter was to investigate the possible implications of heterogeneous households individually setting their savings rates according to a simple behavioral heuristic. This analysis makes a somewhat surprising conceptual point by demonstrating how emergent inequality and endogenous dynamics can naturally emerge from a heterogeneous behavioral model. Despite its simplicity, the model accurately predicts that during recessions savings rates increase before output rises (see \cref{fig:micro_trajs}).
 This has been observed for private savings in 19 OECD countries \citep{adema2015business}. 
 
 Household savings rates are influenced by many things, and conspicuous consumption is only one of many factors. Standard macroeconomic models assume that agents are perfect utility maximizers, and attempt to provide realism by imposing frictions that restrict their behavior. Behavioral experiments, in contrast, indicate that real human beings are at best approximate utility maximizers.  Are the behaviorally observed deviations from utility maximization important for macroeconomics?  Can models that explicitly use behavioral rules capture features that standard models miss?

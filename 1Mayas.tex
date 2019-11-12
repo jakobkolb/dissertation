@@ -1,6 +1,9 @@
 \chapter{Prologue: Learning from the Rise and Fall of the Ancient Maya}
 \label{chapter:maya}
+In the scope of this thesis, this first part serves as a prologue that sets the scene for the subsequent chapters. In the ancient Greek tradition, it ``explain[s] events prior to the main action of the drama, which consist mainly of catastrophy''\footnote{where ``prior to'' refers to the dimensions of historical time and development of modeling techniques and ``catastrophy'' refers to the fate of the ancient Maya.} \citep{Prologue2019} .
+It can be read as a reflection on the function and role of modeling in understanding the dynamics of human societies and their interplay with the ecosystems in which they are embedded. 
 This chapter is based on unpublished work. However, a publication \citep[P1]{Kolb2019a} is in preparation.
+
 \section{Introduction}
 
 % Geosimulations as one approach to understand geological realities.
@@ -106,17 +109,19 @@ Finally, I compare the magnitude of drought events that is sufficient to drive t
 \begin{figure}[!t]
 \centering
 \includegraphics[width=0.5\textwidth]{figures/Basin_Stability.pdf}
-\caption[Sketch to ilustrate the concept of persistence resilience.]{\textbf{Illustration of the concept of resilience/stability}. Imagine a projection of the state space of the system onto a one dimensional manyfold lateral to an attractor or a stable manyfold indicated by B. Then, if the state of the system is in the basin of attraction of B (indicated in grey) its inherent dynamic will eventually return its state back to the stable manyfold. However, if the system is moved sufficiently far away from B (past points A or C) through e.g. a large scale perturbation, it will not return to its previous state, but will move towards an entirely different state space region. Note that for the MayaSim system, this observation holds in terms of macroscopic variables only. After a perturbation, even if the system returns to its previous state in terms of macroscopic variables, its microscopic configuration in terms of geography, demography and ecosystems state can be changed dramatically.}
+\caption[Sketch to ilustrate the concept of persistence resilience.]{\textbf{Illustration of the concept of resilience/stability}. Imagine a projection of the state space of the system onto a one dimensional manyfold lateral to an attractor or a stable manyfold indicated by B. Then, if the state of the system is in the basin of attraction of B (indicated in grey) its inherent dynamic will eventually return its state back to the stable manyfold. However, if the system is moved sufficiently far away from B (past points A or C) through e.g. a large scale perturbation (indicated by orange arrow), it will not return to its previous state, but will move towards an entirely different state space region. Note that for the MayaSim system, this observation holds in terms of macroscopic variables only. After a perturbation, even if the system returns to its previous state in terms of macroscopic variables, its microscopic configuration in terms of geography, demography and ecosystems state can be changed dramatically.}
 \label{fig:basin_stability}
 \end{figure}
 
-\section{Results}
-\begin{figure}[!t]
+\begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{figures/trajectory.pdf}
 \caption[Example trajectories of simulations with the MayaSim model]{\textbf{Example trajectories of simulation runs} with different possible income from trade relations $r_{trade}$. Possible income from trade relations increases from A: $r_{trade}=6000$, B: $r_{trade}=7000$ to C: $r_{trade}=8000$. The colored stack plot shows the fraction of land in different states on the left axis. The black line shows the total population on the right axis.}
 \label{fig:trajectory}
 \end{figure}
+\cleardoublepage
+\section{Results}
+
 
 \subsection{Bifurcation Analysis}
 %\textit{Is the overshoot and collapse reported with the original model inherent or rather a result of parameter choices and selection of the time window?}
@@ -133,6 +138,8 @@ Results from model runs with different choices of $r_{trade}$ are shown in \cref
   \item In \cref{fig:trajectory}C, the society, once in its complex state characterized by strong trading relations, is no longer dependent on the state of the surrounding ecosystem.
   \item A closer look at the results in \cref{fig:trajectory}A also shows that they are not just a result of a simple predator prey dynamic but rather represent a pattern of of regionally increasing complexity, collapse and restructuring not unlike what the archeological record from the area suggests.
 \end{itemize}
+
+
 These results also suggest, that the initial overshoot and collapse dynamics presented in \cite{Heckbert2013} may have been only part of the picture. The results suggest that the pronounced overshoot and collapse is at least partially caused by the initial conditions that combine a perfectly intact ecosystem with a small initial population that, given the modeling choices is implicitly assumed to have full knowledge of agricultural techniques, trade and ecosystem usage. They show, that after the initial overshoot and collapse a more balanced feedback between human settlements and the surrounding ecosystem is possible as displayed in \cref{fig:trajectory}A.
 
 \begin{figure}[!t]
@@ -158,9 +165,20 @@ Consequently, for the following analysis of system resilience with respect to dr
 
 % Discussion of results from drought events.
 
-\begin{figure}[ht]
-\centering
-\includegraphics[width=\textwidth]{figures/population_with_drought.pdf}\vspace{.3 cm}
+
+
+\subsection{Drought Resilience}
+\textit{Can a drought event be responsible for the terminal decline of the Maya civilization on the Yucatan peninsula, given the assumptions of the model?}
+
+As discussed in the methods section, the ability of the system to recover after a large scale disturbance to a state that is macroscopically equivalent to that before the disturbance -- regardless of their microscopic configuration -- can be seen as a measure of resilience with respect to said disturbance.
+
+
+To better understand the possibility of a large drought event leading to a lasting change in the Mayan population on the Yucatan peninsula, I analyse the models resilience 
+to such drought events of different length, severity and timing. The results in \cref{fig:stability_analysis}A,B show the trajectories of total population for different model runs with equal model parameters but different timing of drought events. In \cref{fig:stability_analysis}A, a drought event with length of 50 time steps and precipitation reduction of 90\% starts as the oscillation of population levels is a low. This leads to the complete disappearance of the Maya population in all simulated cases. A drought event of the same magnitude but beginning at the peak of the oscillation as in panel B also results in a severe reduction in population over the time of the drought event. However, if a small population survives, it is able to recover and to reach population levels comparable to those before the drought event.
+
+\begin{figure}[H]
+  \hspace{-1cm}
+\includegraphics[width=.93\textwidth]{figures/population_with_drought.pdf}\vspace{.4 cm}
 \includegraphics[width=\textwidth]{figures/possibility_of_collapse.pdf}
 \caption[Measurement of transformation resilience with respect to drought events]{\textbf{Measurement of Transformation-Resilience with respect to drought events of different length, severity and timing compared to estimates from paleo-climatic data.} Results are calculated from an ensemble of 15 simulation runs for each combination of drought length and severity. Panels 1 and 2 differ with respect to the timing of drought events. In panel 1 the beginning of the reduction of precipitation starts approximately at the bottom of the oscillations of total population whereas in panel 2 it starts at its top. To illustrate this, panels A and B show individual trajectories of the total Maya population for drought events of the same length and severity but with different timing. Parameter values for length and severity of drought events in panels A and B are also marked in panels 1 and 2 respectively.
 I classify resilience in terms of the possibility of collapse i.e. extinction of the human population for drought events of different length, severity and timing.
@@ -168,12 +186,6 @@ Technically, this means that I disregard the systems micro state and only estima
 \label{fig:stability_analysis}
 \end{figure}
 
-\subsection{Drought Resilience}
-\textit{Can a drought event be responsible for the terminal decline of the Maya civilization on the Yucatan peninsula, given the assumptions of the model?}
-
-As discussed in the methods section, the ability of the system to recover after a large scale disturbance to a state that is macroscopically equivalent to that before the disturbance -- regardless of their microscopic configuration -- can be seen as a measure of resilience with respect to said disturbance.
-
-To better understand the possibility of a large drought event leading to a lasting change in the Mayan population on the Yucatan peninsula, I analyse the models resilience to such drought events of different length, severity and timing. The results in \cref{fig:stability_analysis}A,B show the trajectories of total population for different model runs with equal model parameters but different timing of drought events. In \cref{fig:stability_analysis}A, a drought event with length of 50 time steps and precipitation reduction of 90\% starts as the oscillation of population levels is a low. This leads to the complete disappearance of the Maya population in all simulated cases. A drought event of the same magnitude but beginning at the peak of the oscillation as in panel B also results in a severe reduction in population over the time of the drought event. However, if a small population survives, it is able to recover and to reach population levels comparable to those before the drought event.
 
 To analyze the impact of drought events systematically, I show results for drought events with timing like in panels A and B but for different length and severity in panels 1 and 2. To abstract from the presentation in terms of trajectories, I classify the results of an ensemble of model runs for each set of parameter values in the following way: If in all model runs, the Maya population vanishes, I say that collapse is certain and mark the parameter combination red. If this happens only in some of the model runs, I say that collapse is possible and mark the parameter combination in yellow and if the Maya population vanishes in none of the simulation runs, I say that collapse is impossible and mark the parameter combination in green.
 
