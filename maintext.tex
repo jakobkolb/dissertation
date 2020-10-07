@@ -30,6 +30,8 @@ listof=totoc,
 index=totoc,
 fleqn,
 BCOR=10mm,
+pagesize=auto,
+bookmarksnumbered=true,
 %firstinits=true
 ]{scrbook}[2007/12/24]
 
@@ -57,22 +59,22 @@ BCOR=10mm,
 
 % Fill out all the metadata here:
 \hudissmetadata{%
-    authorprefix={MSc.}, % e.g. Dipl.-Inf.
+    authorprefix={}, % e.g. Dipl.-Inf.
     authorfirstname={Jakob J.}, % first name
     authorsurname={Kolb}, % surname
     %authorsuffix={ }, % e.g. Ph.D.
     %authoradd={geboren am 22. April 1983 in Engelskirchen}, % date and place of birth
     doctitle={Heuristic Decision Making in World Earth Models}, % title of the thesis
     docsubtitle={}, % subtitle of the thesis
-    % docsubject={}, % subject of the thesis (used in the properties of the pdf-document)
-    approvala={\ldots
-   % Prof. Dr. Dr. h.c. mult. J\"{u}rgen Kurths
+    docsubject={Statistical Physics}, % subject of the thesis (used in the properties of the pdf-document)
+    approvala={
+      Prof. Dr. Dr. h.c. mult. J\"{u}rgen Kurths
   }, % approvals: a-e
-  approvalb={\ldots
-   % JProf. Dr. Ricarda Winkelmann
+  approvalb={
+    JProf. Dr. Ricarda Winkelmann
   },
-  approvalc={\ldots
-   % Jean-Denis Mathias, PhD
+  approvalc={
+    Matthew Ives, PhD
   },
     % approvald={},
     % approvale={},
@@ -84,8 +86,8 @@ BCOR=10mm,
     dean={Prof. Dr. Elmar Kulke}, % dean of the faculty
     president={Prof. Dr.-Ing. Dr. Sabine Kunst}, % president of the university
     datesubmitted={...}, % the date of the submission
-    dateexam={...}, % the date of your last exam
-    keywordsen={...}, % english keywords comma separated
+    dateexam={Dienstag, 8. September 2020}, % the date of your last exam
+    keywordsen={Statistical Physics, Complexity Economics, Agent-Based Modelling, Heuristic Decision Making}, % english keywords comma separated
     keywordsde={...} % german keywords comma separated
 }
 
@@ -124,10 +126,10 @@ BCOR=10mm,
 %        \include{8Interviews}
 
 
-%        \appendix
-%        \addcontentsline{toc}{part}{Appendix}
-%        \part*{Appendix}
-%       \include{appendixA}
+        \appendix
+ %       \addcontentsline{toc}{part}{Appendix}
+ %       \part*{Appendix}
+ %      \include{appendixA}
 
         %\nocite{*}
 		% See the documentation or under

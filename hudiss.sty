@@ -212,14 +212,14 @@
 
 %----------- hyperref + options -------------------------------
 \ifpdf
-   \RequirePackage[pdftex]{hyperref}[2008/01/09]
+   \RequirePackage[pdftex,bookmarksnumbered]{hyperref}[2008/01/09]
 \else
    \RequirePackage[dvips]{hyperref}[2008/01/09]
 \fi
 
 \hypersetup{
    pdfpagemode=UseOutlines,
-   pdfpagelayout=TwoPageRight,
+   pdfpagelayout=SinglePage,
    pdfstartview=Fit,
    plainpages=false,
    colorlinks

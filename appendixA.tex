@@ -1,0 +1,64 @@
+\KOMAoptions{paper=a1}
+\recalctypearea
+
+Full system of equations resulting from the approximations in section \cref{sec:Approximation}:
+
+\begin{align*}
+  \dot{x} = &- \frac{1.0 \epsilon x}{\tau} + \frac{1.0 z \left(\epsilon - 1\right) \left(\phi - 1\right) \left(x - 1\right)}{\tau \left(y - 1\right) \left(e^{\frac{8.0 \left(W_{c} - W_{d}\right)}{W_{c} + W_{d}}} + 1\right)} - \frac{1.0 z \left(\epsilon - 1\right) \left(\phi - 1\right) \left(x + 1\right)}{\tau \left(1 + e^{- \frac{8.0 \left(W_{c} - W_{d}\right)}{W_{c} + W_{d}}}\right) \left(y + 1\right)} \\
+%
+  \dot{y} = &- \frac{1.0 \epsilon m y}{\tau} + \frac{1.0 m z \left(\epsilon - 1\right) \left(\phi - 1\right)}{\tau \left(e^{\frac{8.0 \left(W_{c} - W_{d}\right)}{W_{c} + W_{d}}} + 1\right)} - \frac{1.0 m z \left(\epsilon - 1\right) \left(\phi - 1\right)}{\tau \left(1 + e^{- \frac{8.0 \left(W_{c} - W_{d}\right)}{W_{c} + W_{d}}}\right)} \\
+    & + \frac{\left(x - 1\right) \left(0.25 \epsilon z \left(x - 1\right) - 0.25 \epsilon \left(x + 1\right) \left(y + z - 1\right) + 0.5 \phi z \left(\epsilon - 1\right)\right)}{\tau \left(y - 1\right)} \\
+    & + \frac{\left(x + 1\right) \left(0.25 \epsilon z \left(x + 1\right) + 0.25 \epsilon \left(x - 1\right) \left(y - z + 1\right) - 0.5 \phi z \left(\epsilon - 1\right)\right)}{\tau \left(y + 1\right)}\\
+%
+    \dot{z} = &- \frac{1.0 \epsilon m \left(2 z - 1\right)}{\tau} \\
+    &- \frac{0.5 z \left(\epsilon - 1\right) \left(\phi - 1\right) \left(\left(x - 1\right) \left(y - 1\right) - 2 \left(y + 2 z - 1\right) \left(m y - m - 0.5 x + 0.5\right)\right)}{\tau \left(y - 1\right)^{2} \left(e^{\frac{8.0 \left(W_{c}-W_{d}\right)}{W_{c} + W_{d}}} + 1\right)} \\
+    & - \frac{0.5 z \left(\epsilon - 1\right) \left(\phi - 1\right) \left(\left(x + 1\right) \left(y + 1\right) - 2 \left(y - 2 z + 1\right) \left(m y + m - 0.5 x - 0.5\right)\right)}{\tau \left(1 + e^{- \frac{8.0 \left(W_{c} - W_{d}\right)}{W_{c} + W_{d}}}\right) \left(y + 1\right)^{2}} \\
+    & + \frac{\left(x - 1\right) \left(0.25 \epsilon z \left(x - 1\right) - 0.25 \epsilon \left(x + 1\right) \left(y + z - 1\right) + 0.5 \phi z \left(\epsilon - 1\right)\right)}{\tau \left(y - 1\right)} \\
+    & - \frac{\left(x + 1\right) \left(0.25 \epsilon z \left(x + 1\right) + 0.25 \epsilon \left(x - 1\right) \left(y - z + 1\right) - 0.5 \phi z \left(\epsilon - 1\right)\right)}{\tau \left(y + 1\right)}
+  \end{align*}
+%
+
+\begin{align*}
+    \dot{C} = - C \delta + C^{\xi} b_{c} \left(\frac{L \left(C^{\xi} b_{c} \left(K^{(c)}_{c} + K^{(d)}_{c}\right)^{\kappa_{c}}\right)^{\frac{1.0}{1.0 - \pi}}}{\left(b_{d} \left(K^{(c)}_{d} + K^{(d)}_{d}\right)^{\kappa_{d}}\right)^{\frac{1.0}{1.0 - \pi}} \left(1.0 - \frac{G_{0}^{2} b_{R}}{G^{2} e}\right)^{\frac{1.0}{1.0 - \pi}} + \left(C^{\xi} b_{c} \left(K^{(c)}_{c} + K^{(d)}_{c}\right)^{\kappa_{c}}\right)^{\frac{1.0}{1.0 - \pi}}}\right)^{\pi} \left(K^{(c)}_{c} \left(\frac{x}{2} + \frac{1}{2}\right) + K^{(d)}_{c} \left(\frac{1}{2} - \frac{x}{2}\right)\right)^{\kappa_{c}}
+\end{align*}
+\begin{align*}
+    \dot{G} = - \frac{L^{\pi} b_{d}}{e} \left(\frac{\left(b_{d} \left(K^{(c)}_{d} + K^{(d)}_{d}\right)^{\kappa_{d}}\right)^{\frac{1.0}{1.0 - \pi}} \left(1.0 - \frac{G_{0}^{2} b_{R}}{G^{2} e}\right)^{\frac{1.0}{1.0 - \pi}}}{\left(b_{d} \left(K^{(c)}_{d} + K^{(d)}_{d}\right)^{\kappa_{d}}\right)^{\frac{1.0}{1.0 - \pi}} \left(1.0 - \frac{G_{0}^{2} b_{R}}{G^{2} e}\right)^{\frac{1.0}{1.0 - \pi}} + \left(C^{\xi} b_{c} \left(K^{(c)}_{c} + K^{(d)}_{c}\right)^{\kappa_{c}}\right)^{\frac{1.0}{1.0 - \pi}}}\right)^{\pi} \left(K^{(c)}_{d} + K^{(d)}_{d}\right)^{\kappa_{d}}
+\end{align*}
+  \begin{align*}
+    \dot{K}_c^{(c)}=& - \delta K^{(c)}_{c} \\
+&+ \frac{K^{(c)}_{c} L^{\pi} \kappa_{c} s \left(C^{\xi} b_{c} \left(K^{(c)}_{c} + K^{(d)}_{c}\right)^{\kappa_{c}}\right)^{\frac{1.0}{1.0 - \pi}} \left(\left(b_{d} \left(K^{(c)}_{d} + K^{(d)}_{d}\right)^{\kappa_{d}}\right)^{\frac{1.0}{1.0 - \pi}} \left(1.0 - \frac{G_{0}^{2} b_{R}}{G^{2} e}\right)^{\frac{1.0}{1.0 - \pi}} + \left(C^{\xi} b_{c} \left(K^{(c)}_{c} + K^{(d)}_{c}\right)^{\kappa_{c}}\right)^{\frac{1.0}{1.0 - \pi}}\right)^{- \pi}}{K^{(c)}_{c} + K^{(d)}_{c}} \\
+&+ \frac{K^{(c)}_{d} L^{\pi} \kappa_{d} s \left(b_{d} \left(K^{(c)}_{d} + K^{(d)}_{d}\right)^{\kappa_{d}}\right)^{\frac{1.0}{1.0 - \pi}} \left(1.0 - \frac{G_{0}^{2} b_{R}}{G^{2} e}\right)^{\frac{1.0}{1.0 - \pi}} \left(\left(b_{d} \left(K^{(c)}_{d} + K^{(d)}_{d}\right)^{\kappa_{d}}\right)^{\frac{1.0}{1.0 - \pi}} \left(1.0 - \frac{G_{0}^{2} b_{R}}{G^{2} e}\right)^{\frac{1.0}{1.0 - \pi}} + \left(C^{\xi} b_{c} \left(K^{(c)}_{c} + K^{(d)}_{c}\right)^{\kappa_{c}}\right)^{\frac{1.0}{1.0 - \pi}}\right)^{- \pi}}{K^{(c)}_{d} + K^{(d)}_{d}} \\
+&+ L L^{\pi - 1.0} \pi s \left(\left(b_{d} \left(K^{(c)}_{d} + K^{(d)}_{d}\right)^{\kappa_{d}}\right)^{\frac{1.0}{1.0 - \pi}} \left(1.0 - \frac{G_{0}^{2} b_{R}}{G^{2} e}\right)^{\frac{1.0}{1.0 - \pi}} + \left(C^{\xi} b_{c} \left(K^{(c)}_{c} + K^{(d)}_{c}\right)^{\kappa_{c}}\right)^{\frac{1.0}{1.0 - \pi}}\right)^{1.0 - \pi} \\
+&- \frac{1.0 K^{(c)}_{c} \left(x + 1\right) \left(0.25 \epsilon \left(1 + e^{- \frac{8.0 \left(W_{c} - W_{d}\right)}{W_{c} + W_{d}}}\right) \left(y + 1\right) + 0.5 z \left(\epsilon - 1\right) \left(\phi - 1\right)\right)}{\tau \left(1 + e^{- \frac{8.0 \left(W_{c} - W_{d}\right)}{W_{c} + W_{d}}}\right) \left(y + 1\right)} \\
+&- \frac{1.0 K^{(d)}_{c} \left(x - 1\right) \left(0.25 \epsilon \left(y - 1\right) \left(e^{\frac{8.0 \left(W_{c} - W_{d}\right)}{W_{c} + W_{d}}} + 1\right) - 0.5 z \left(\epsilon - 1\right) \left(\phi - 1\right)\right)}{\tau \left(y - 1\right) \left(e^{\frac{8.0 \left(W_{c} - W_{d}\right)}{W_{c} + W_{d}}} + 1\right)}
+%
+\end{align*}
+\begin{align*}
+%
+  \dot{K}_d^{(c)}=&- K^{(c)}_{d} \delta - \frac{1.0 K^{(c)}_{d} \left(x + 1\right) \left(0.25 \epsilon \left(1 + e^{- \frac{8.0 \left(W_{c} - W_{d}\right)}{W_{c} + W_{d}}}\right) \left(y + 1\right) + 0.5 z \left(\epsilon - 1\right) \left(\phi - 1\right)\right)}{\tau \left(1 + e^{- \frac{8.0 \left(W_{c} - W_{d}\right)}{W_{c} + W_{d}}}\right) \left(y + 1\right)} \\
+&- \frac{1.0 K^{(d)}_{d} \left(x - 1\right) \left(0.25 \epsilon \left(y - 1\right) \left(e^{\frac{8.0 \left(W_{c} - W_{d}\right)}{W_{c} + W_{d}}} + 1\right) - 0.5 z \left(\epsilon - 1\right) \left(\phi - 1\right)\right)}{\tau \left(y - 1\right) \left(e^{\frac{8.0 \left(W_{c} - W_{d}\right)}{W_{c} + W_{d}}} + 1\right)}\\
+%
+\dot{K}_c^{(d)}=& - K^{(d)}_{c} \delta +\frac{1.0 K^{(c)}_{c} \left(x + 1\right) \left(0.25 \epsilon \left(y + 1\right) \left(e^{\frac{8.0 \left(- W_{c} + W_{d}\right)}{W_{c} + W_{d}}} + 1\right) + 0.5 z \left(\epsilon - 1\right) \left(\phi - 1\right)\right)}{\tau \left(y + 1\right) \left(e^{\frac{8.0 \left(- W_{c} + W_{d}\right)}{W_{c} + W_{d}}} + 1\right)} \\
+&+ \frac{1.0 K^{(d)}_{c} \left(x - 1\right) \left(0.25 \epsilon \left(y - 1\right) \left(e^{\frac{8.0 \left(W_{c} - W_{d}\right)}{W_{c} + W_{d}}} + 1\right) - 0.5 z \left(\epsilon - 1\right) \left(\phi - 1\right)\right)}{\tau \left(y - 1\right) \left(e^{\frac{8.0 \left(W_{c} - W_{d}\right)}{W_{c} + W_{d}}} + 1\right)}
+\end{align*}
+\begin{align*}
+  \dot{K}_d^{(d)} =& - \delta K^{(d)}_{d} \\
+    &+ \frac{K^{(d)}_{d} L^{\pi} \kappa_{d} s \left(b_{d} \left(K^{(c)}_{d} + K^{(d)}_{d}\right)^{\kappa_{d}}\right)^{\frac{1.0}{1.0 - \pi}} \left(1.0 - \frac{G_{0}^{2} b_{R}}{G^{2} e}\right)^{\frac{1.0}{1.0 - \pi}} \left(\left(b_{d} \left(K^{(c)}_{d} + K^{(d)}_{d}\right)^{\kappa_{d}}\right)^{\frac{1.0}{1.0 - \pi}} \left(1.0 - \frac{G_{0}^{2} b_{R}}{G^{2} e}\right)^{\frac{1.0}{1.0 - \pi}} + \left(C^{\xi} b_{c} \left(K^{(c)}_{c} + K^{(d)}_{c}\right)^{\kappa_{c}}\right)^{\frac{1.0}{1.0 - \pi}}\right)^{- \pi}}{K^{(c)}_{d} + K^{(d)}_{d}} \\
+    &+ \frac{K^{(d)}_{c} L^{\pi} \kappa_{c} s \left(C^{\xi} b_{c} \left(K^{(c)}_{c} + K^{(d)}_{c}\right)^{\kappa_{c}}\right)^{\frac{1.0}{1.0 - \pi}} \left(\left(b_{d} \left(K^{(c)}_{d} + K^{(d)}_{d}\right)^{\kappa_{d}}\right)^{\frac{1.0}{1.0 - \pi}} \left(1.0 - \frac{G_{0}^{2} b_{R}}{G^{2} e}\right)^{\frac{1.0}{1.0 - \pi}} + \left(C^{\xi} b_{c} \left(K^{(c)}_{c} + K^{(d)}_{c}\right)^{\kappa_{c}}\right)^{\frac{1.0}{1.0 - \pi}}\right)^{- \pi}}{K^{(c)}_{c} + K^{(d)}_{c}} \\
+    &+ L L^{\pi - 1.0} \pi s \left(\left(b_{d} \left(K^{(c)}_{d} + K^{(d)}_{d}\right)^{\kappa_{d}}\right)^{\frac{1.0}{1.0 - \pi}} \left(1.0 - \frac{G_{0}^{2} b_{R}}{G^{2} e}\right)^{\frac{1.0}{1.0 - \pi}} + \left(C^{\xi} b_{c} \left(K^{(c)}_{c} + K^{(d)}_{c}\right)^{\kappa_{c}}\right)^{\frac{1.0}{1.0 - \pi}}\right)^{1.0 - \pi} \\
+    &+ \frac{1.0 K^{(c)}_{d} \left(x + 1\right) \left(0.25 \epsilon \left(y + 1\right) \left(e^{\frac{8.0 \left(- W_{c} + W_{d}\right)}{W_{c} + W_{d}}} + 1\right) + 0.5 z \left(\epsilon - 1\right) \left(\phi - 1\right)\right)}{\tau \left(y + 1\right) \left(e^{\frac{8.0 \left(- W_{c} + W_{d}\right)}{W_{c} + W_{d}}} + 1\right)} \\
+    &+ \frac{1.0 K^{(d)}_{d} \left(x - 1\right) \left(0.25 \epsilon \left(y - 1\right) \left(e^{\frac{8.0 \left(W_{c} - W_{d}\right)}{W_{c} + W_{d}}} + 1\right) - 0.5 z \left(\epsilon - 1\right) \left(\phi - 1\right)\right)}{\tau \left(y - 1\right) \left(e^{\frac{8.0 \left(W_{c} - W_{d}\right)}{W_{c} + W_{d}}} + 1\right)}
+\end{align*}
+
+Where $W_d$ and $W_c$ are given by:
+\begin{align*}
+%
+  W_c =& \frac{K^{c}_{c} L^{\pi} \kappa_{c} \left(C^{\xi} b_{c} \left(K^{c}_{c} + K^{d}_{c}\right)^{\kappa_{c}}\right)^{\frac{1.0}{1.0 - \pi}} \left(C^{\frac{1.0 \xi}{1.0 - \pi}} b_{c}^{\frac{1.0}{1.0 - \pi}} \left(K^{c}_{c} + K^{d}_{c}\right)^{\frac{1.0 \kappa_{c}}{1.0 - \pi}} + \left(b_{d} \left(K^{c}_{d} + K^{d}_{d}\right)^{\kappa_{d}}\right)^{\frac{1.0}{1.0 - \pi}} \left(1.0 - \frac{G_{0}^{2} b_{R}}{G^{2} e}\right)^{\frac{1.0}{1.0 - \pi}}\right)^{- \pi}}{K^{c}_{c} + K^{d}_{c}} \\
+  &+ \frac{K^{c}_{d} L^{\pi} \kappa_{d} \left(b_{d} \left(K^{c}_{d} + K^{d}_{d}\right)^{\kappa_{d}}\right)^{\frac{1.0}{1.0 - \pi}} \left(1.0 - \frac{G_{0}^{2} b_{R}}{G^{2} e}\right)^{\frac{1.0}{1.0 - \pi}} \left(C^{\frac{1.0 \xi}{1.0 - \pi}} b_{c}^{\frac{1.0}{1.0 - \pi}} \left(K^{c}_{c} + K^{d}_{c}\right)^{\frac{1.0 \kappa_{c}}{1.0 - \pi}} + \left(b_{d} \left(K^{c}_{d} + K^{d}_{d}\right)^{\kappa_{d}}\right)^{\frac{1.0}{1.0 - \pi}} \left(1.0 - \frac{G_{0}^{2} b_{R}}{G^{2} e}\right)^{\frac{1.0}{1.0 - \pi}}\right)^{- \pi}}{K^{c}_{d} + K^{d}_{d}}, \\
+%
+  W_d =& \frac{K^{d}_{c} L^{\pi} \kappa_{c} \left(C^{\xi} b_{c} \left(K^{c}_{c} + K^{d}_{c}\right)^{\kappa_{c}}\right)^{\frac{1.0}{1.0 - \pi}} \left(C^{\frac{1.0 \xi}{1.0 - \pi}} b_{c}^{\frac{1.0}{1.0 - \pi}} \left(K^{c}_{c} + K^{d}_{c}\right)^{\frac{1.0 \kappa_{c}}{1.0 - \pi}} + \left(b_{d} \left(K^{c}_{d} + K^{d}_{d}\right)^{\kappa_{d}}\right)^{\frac{1.0}{1.0 - \pi}} \left(1.0 - \frac{G_{0}^{2} b_{R}}{G^{2} e}\right)^{\frac{1.0}{1.0 - \pi}}\right)^{- \pi}}{K^{c}_{c} + K^{d}_{c}}\\
+  &+ \frac{K^{d}_{d} L^{\pi} \kappa_{d} \left(b_{d} \left(K^{c}_{d} + K^{d}_{d}\right)^{\kappa_{d}}\right)^{\frac{1.0}{1.0 - \pi}} \left(1.0 - \frac{G_{0}^{2} b_{R}}{G^{2} e}\right)^{\frac{1.0}{1.0 - \pi}} \left(C^{\frac{1.0 \xi}{1.0 - \pi}} b_{c}^{\frac{1.0}{1.0 - \pi}} \left(K^{c}_{c} + K^{d}_{c}\right)^{\frac{1.0 \kappa_{c}}{1.0 - \pi}} + \left(b_{d} \left(K^{c}_{d} + K^{d}_{d}\right)^{\kappa_{d}}\right)^{\frac{1.0}{1.0 - \pi}} \left(1.0 - \frac{G_{0}^{2} b_{R}}{G^{2} e}\right)^{\frac{1.0}{1.0 - \pi}}\right)^{- \pi}}{K^{c}_{d} + K^{d}_{d}}.
+\end{align*}
+
+\KOMAoptions{paper=a4}
+\recalctypearea
