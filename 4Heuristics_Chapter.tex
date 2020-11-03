@@ -1,4 +1,4 @@
-\chapter{Heuristic Decision Making in a Social Economic Model of Fossil Resource Usage}
+\chapter{Heuristic Decision Making in a Economic Model of Fossil Resource Usage}
 \label{chapter:heuristics}
 This chapter is based on unpublished work. However, a simplified version of the economic model is part of \citep[P5]{Kolb2019b}.
 \section{Introduction}
@@ -358,14 +358,16 @@ where the timescale for capital accumulation $t^*_d$ and the equilibrium dirty c
 	\label{eq:full_dirty_capital_equilibrium_values}
 \end{equation}
 Since the capital depreciation rate $\delta$ is (at least for infrastructure) around 5\% p.a.\ and I assumed $\beta_d=1/2$ for the capital elasticity, the timescale for capital accumulation is $t^*_d \approx 40 y$.
-%\newpage
-
-
-
 
 \subsubsection{Fossil Resource Depletion}
 \label{sec:resource_depletion}
 
+
+\begin{wrapfigure}[15]{o}{.45 \textwidth}
+    \vspace{-.8 cm}
+    \hspace{-1.5cm}\includegraphics[width = .58 \textwidth]{figures/g_depletion.pdf}
+    \caption[Resource depletion in a full dirty economy]{Resource depletion in a full dirty economy as described by eq. \eqref{eq:resource_deprec_approx}. The dashed line marks the approximate resource depletion time $t^*_G$. \label{fig:g_depletion}}
+\end{wrapfigure}
 
 For this analysis, I assume a full dirty economy like in \ref{sec:full_dirty_economy}. In addition, I assume that I can separate the timescales of resource depletion and dirty capital accumulation, e.g. I assume that dirty capital accumulation happens fast compared to fossil resource depletion such that I can approximate $K_d(t)$ with eq. \ref{eq:full_dirty_capital_equilibrium_values}. Consequently, the ode for fossil resource depletion is given by
 \begin{align}
@@ -386,11 +388,6 @@ This means that the integrand of the lhs.\ in eq.~\eqref{eq:resource_transient_i
 	\label{eq:resource_transient_solution}
 \end{equation}
 
-\begin{wrapfigure}[23]{i}{.45 \textwidth}
-    \vspace{-.8 cm}
-    \hspace{-1.5cm}\includegraphics[width = .58 \textwidth]{figures/g_depletion.pdf}
-    \caption[Resource depletion in a full dirty economy]{Resource depletion in a full dirty economy as described by eq. \eqref{eq:resource_deprec_approx}. The dashed line marks the approximate resource depletion time $t^*_G$. \label{fig:g_depletion}}
-\end{wrapfigure}
 
 This results in the implicit approximate solution:
 \begin{equation}
@@ -456,9 +453,8 @@ To make the model results more intuitively accessible I roughly estimate the mod
 First, I collect estimates for all parameters where there are values in the literature.\\
 
 \textit{Input factor elasticities} are a defining set of parameters for Cobb-Douglas production functions. They measure the responsiveness of output with respect to a change in input factors. Historically, according to \cite{Douglas1976} the values for $\alpha$ range between approximately 0.5 and 0.75. For simplicity, I set $\alpha=2/3$ which however does not limit the generality of the approximate solutions that are developed later in section \ref{sec:Approximation} ff. \cite{Douglas1976} also states that $\alpha+\beta=1$ is a fair approximation of the actual data.
-\begin{wrapfigure}[21]{i}{.55 \textwidth}
+\begin{wrapfigure}[21]{o}{.55 \textwidth}
 	\vspace{-.4 cm}
-        \hspace{-1.5 cm}
         \includegraphics[width = .65 \textwidth]{./figures/energy_consumption_clean_dirty.pdf}
         \caption[Data for world energy use devided into dirty and clean sources.]{Energy usage divided into dirty (coal, oil, gas) and clean (hydro, nuclear, other renewables). The dashed line indicates the fraction of clean energy consumption. Data from \cite{dudley2019bp}.\label{fig:energy_data}}
 \end{wrapfigure}
@@ -499,14 +495,10 @@ which results in a depreciation rate of $\delta\approx 5.68 \% \mathrm{p.a.}$.\\
 \end{equation}
 
 to approximate the knowledge stock for the year 2010 as $C \approx 7.8 \cdot 10^{14}$ U.S. \$. \\
-\begin{wrapfigure}[22]{o}{.55 \textwidth}
-	%\vspace{-.4 cm}
-        %\hspace{-1.5 cm}
-        \includegraphics[width = .68 \textwidth]{./figures/fossil_resource_per_year.pdf}
-        \caption[Historical data of fossil resources]{Historical data of fossil resources (coal, oil and gas) for the years 1965-2018 according to \cite{dudley2019bp} and estimated historical fossil resource stock according to eq. \ref{eq:current_fossil_resource_stock} and \ref{eq:fossil_resource_time_series}. \label{fig:historical_resource_use}}
-\end{wrapfigure}
 I estimate \textit{the initial fossil resource stock $G_0$ and the current resource stock $G$} for the base year from the historical usage of fossil fuels (after 1965 for which I have the data depicted in \cref{fig:historical_resource_use}) and the current estimates of fossil fuels remaining according to current use. 
+
 There are different estimates for the depletion time of fossil resources ranging from approximately 60 years for crude oil to 100 years for gas and 200 years for coal.\\ As the model does not differentiate between different types of fossil resources, I use a depletion time of 100 years and approximate the current resource stock as the depletion time times the current fossil resource use:
+
 \begin{align} 
   G(t=2010) 
   &\approx R(t=2010) \cdot 100, \nonumber \\
@@ -518,6 +510,12 @@ and the initial fossil resource stock as the current fossil resource stock plus 
   G_0 \approx G(t=2010) + \sum_{t=1965}^{2010} R(t) = 15.5 \cdot 10^{5} ~ \mathrm{Mtoe}.
   \label{eq:initial_fossil_resource_approximation}
 \end{equation}
+\begin{wrapfigure}[22]{o}{.55 \textwidth}
+	%\vspace{-.4 cm}
+        %\hspace{-1.5 cm}
+        \includegraphics[width = .68 \textwidth]{./figures/fossil_resource_per_year.pdf}
+        \caption[Historical data of fossil resources]{Historical data of fossil resources (coal, oil and gas) for the years 1965-2018 according to \cite{dudley2019bp} and estimated historical fossil resource stock according to eq. \ref{eq:current_fossil_resource_stock} and \ref{eq:fossil_resource_time_series}. \label{fig:historical_resource_use}}
+\end{wrapfigure}
 
 Finally, I estimate the set of remaining parameters $b_R$, $\mu$, $b_c$ and $b_d$ as follows:
 
@@ -688,7 +686,7 @@ Arguably, to yield realistic results, the initial fraction of savings that goes 
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width= \textwidth]{figures/initial_condition_sampling.pdf}
+  \includegraphics[width= \textwidth]{figures/initial_condition_sampling.png}
   \caption[Trajectories of N=200 runs with initial conditions for cue orders sampled from an uninformed prior]{\textbf{Trajectories of N=200 runs with initial distribution of cue orders sampled from an uninformed prior.} Panel a shows the distance of the simulated relative shares of capital $K_c(t)/K_d(t)$ from the initial condition. Panel b shows the fraction of total investment going into the capital stock of the clean sector. Panel c shows the distribution of closeness as defined by eq. \ref{eq:distance_criterion} and eq. \ref{eq:closeness} for the simulated trajectories.}
   \label{fig:initial_conditions_sampled}
 \end{figure}
@@ -741,7 +739,7 @@ Note that this only sets the relative frequencies of cue orders and does not det
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width= \textwidth]{figures/initial_condition_fitted.pdf}
+  \includegraphics[width= \textwidth]{figures/initial_condition_fitted.png}
   \caption[Trajectories of N=200 runs with updated initial conditions]{\textbf{Trajectories of N=200 runs with updated initial conditions.} Initial relative frequencies of cue orders are calculated as to the weighted sum of the initial relative frequencies in \cref{fig:initial_conditions_sampled}. The weighs are the inverse distances as defined by eq. \ref{eq:distance_criterion}.}
   \label{fig:initial_conditions_fitted}
 \end{figure}
@@ -761,7 +759,7 @@ In the following section, I will have a closer look at the actual model dynamics
 \begin{wrapfigure}[26]{o}{.5 \textwidth}
 	\vspace{-.1 cm}
         \hspace{-1.8 cm}
-        \includegraphics[width = .64 \textwidth]{./figures/break_even.pdf}
+        \includegraphics[width = .64 \textwidth]{./figures/break_even.png}
         \caption[Capital return rates in the clean and dirty sector for N=1000 runs]{Capital return rates in the clean and dirty sector for M=1000 runs. Statistical properties of the distribution of intersection times between the return rates in the two sectors are indicated with a box plot.\label{fig:break_even}}
 \end{wrapfigure}
 %results show social tipping behavior
@@ -774,9 +772,9 @@ the majority of households. This also explains the heterogeneity in final outcom
 
 \begin{figure}[H]
 	\centering
-        \includegraphics[width = 1.2 \textwidth]{figures/fitted_initials_evaluation05.pdf}
-        \includegraphics[width = 1.2 \textwidth]{figures/fitted_initials_evaluation07.pdf}
-        \includegraphics[width = 1.2 \textwidth]{figures/fitted_initials_evaluation09.pdf}
+        \includegraphics[width = 1.2 \textwidth]{figures/fitted_initials_evaluation05.png}
+        \includegraphics[width = 1.2 \textwidth]{figures/fitted_initials_evaluation07.png}
+        \includegraphics[width = 1.2 \textwidth]{figures/fitted_initials_evaluation09.png}
         \caption[Trajectory of decarbonization transition depending on the network rewiring rate in the social learning process]{\textbf{Decarbonization transition depending on rewiring probability $\gamma$}. Panels 1, 2 and 3 each show ensembles of M=1000 runs with N=100 households, for different rewiring probability 1: $\varphi=0.5$, 2: $\varphi=0.7$ and 3: $\varphi=0.9$. Other parameter values and initial conditions as described in section \ref{sec:parameter_values} and \ref{sec:oppinion_formation_and_decision_making}. Results from runs where the fraction of clean investment exceeds 50\% before 2019 are colored grey. All other results are colored orange. The x and y distributions on the scatter plot in panels b are equal to the distributions of trajectories on the right y axis in panels a and c respectively. The stacked histogram attached to panels c gives the relative frequencies of the bundle of trajectories i.e. the distribution of remaining fossil resource in 2050 over the ensemble of simulations. The dotted lines in these histograms indicate the emission budgets for the $1.5\circ$C target according to IPCC 2013}
         \label{fig:default_alpha_05}
 \end{figure}
@@ -819,12 +817,6 @@ If the rewiring probability further increases to $\varphi=0.9$, at the time when
 
 
 
-\begin{figure}[t]
-    \centering
-\includegraphics[width = \textwidth]{figures/p_budget15p50_in2050.pdf}
-\caption[Probability of staying within the p=0.5, 1,5 degree budget in 2050 depending on the initial size of a campaign in 2010]{Probability of staying within the p=-1.5, 1.5 degree budget in 2050 depending on initial size of campaign in 2010 and initial fraction of rednecks.}
-    \label{fig:p15in2050}
-\end{figure}
 
 \subsubsection{A Campaign for Clean Investment}
 \label{sec:campaign}
@@ -832,6 +824,12 @@ The previous section has shown that given the models' assumptions it is unlikely
 
 This section will discuss if in the model a social movement in favor of clean investment can drive social tipping to clean investment sufficiently to stay within at least the T2 budget associated with a $p=.5$ chance to keep global warming below $1.5^{\circ}$C.\\
 
+\begin{wrapfigure}[25]{o}{.45 \textwidth}
+	\vspace{-.4 cm}
+        \hspace{-1.4 cm}
+        \includegraphics[width = .57 \textwidth]{./figures/emissions_with_campaign.pdf}
+        \caption{Stacked histogram for distribution of final cumulative emissions in 2050 for initial campaign sizes between 10\% and 15\% compared to T2 emissions target. \label{fig:campaign_sucess}}
+\end{wrapfigure}
 Currently, campaigning against the use of fossil fuels takes different forms: \\
 
 Movements like \textit{Extinction Rebellion} and \textit{Ende Gel\"{a}nde} use non-violent means of civil disobedience to stop the economic operation of fossil fuel companies -- especially in the lignite business -- to draw public and media attention to the matter and to influence the public discourse in favor of legislations that limit or prohibit the use of fossil fuels.\\
@@ -842,12 +840,12 @@ The \textit{Fossil Fuel Divestment Movement} uses classical campaigning tools to
 
 These campaigns have in common that they want to influence public opinion in favor of mitigating climate change and that they build on a strong mindset of sustainable individual behavior.\\
 
-\begin{wrapfigure}[25]{i}{.45 \textwidth}
-	\vspace{-.4 cm}
-        \hspace{-1.4 cm}
-        \includegraphics[width = .57 \textwidth]{./figures/emissions_with_campaign.pdf}
-        \caption{Stacked histogram for distribution of final cumulative emissions in 2050 for initial campaign sizes between 10\% and 15\% compared to T2 emissions target. \label{fig:campaign_sucess}}
-\end{wrapfigure}
+\begin{figure}[t]
+    \centering
+\includegraphics[width = \textwidth]{figures/p_budget15p50_in2050.pdf}
+\caption[Probability of staying within the p=0.5, 1,5 degree budget in 2050 depending on the initial size of a campaign in 2010]{Probability of staying within the p=-1.5, 1.5 degree budget in 2050 depending on initial size of campaign in 2010 and initial fraction of rednecks.}
+    \label{fig:p15in2050}
+\end{figure}
 
 To better understand the possible effects of such campaigning efforts, I implement a social movement/campaign in the model. I measure the success of the campaign as the probability to keep emissions within the T2 budget and analyze the dependence of 
 this probability on factors such as the fraction of opposing opinions among the other households, accompanying political measures and the probability of like-minded households to form homogeneous clusters.\\
